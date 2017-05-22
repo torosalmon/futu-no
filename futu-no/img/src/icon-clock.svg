@@ -1,0 +1,7 @@
+<svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+	<path class="fill-color-border" d="M 4 3 L 20 3 C 20.5523 3 21 3.4477 21 4 L 21 20 C 21 20.5523 20.5523 21 20 21 L 4 21 C 3.4477 21 3 20.5523 3 20 L 3 4 C 3 3.4477 3.4477 3 4 3 ZM 2 4 L 2 20 C 2 21.1046 2.8954 22 4 22 L 20 22 C 21.1046 22 22 21.1046 22 20 L 22 4 C 22 2.8954 21.1046 2 20 2 L 4 2 C 2.8954 2 2 2.8954 2 4 Z" fill="#ddd" />
+	<path class="fill-color-border" d="M 18 12 L 20 12 L 20 13 L 18 13 L 18 12 Z" fill="#ddd" />
+	<path class="fill-color-border" d="M 11 18 L 12 18 L 12 20 L 11 20 L 11 18 Z" fill="#ddd" />
+	<path class="fill-color-border" d="M 4 12 L 6 12 L 6 13 L 4 13 L 4 12 Z" fill="#ddd" />
+	<path class="fill-color-accent" d="M 11 4 L 11 11 L 6 11 L 6 13 L 13 13 L 13 4 L 11 4 Z" fill="#b5fc49" />
+</svg>
