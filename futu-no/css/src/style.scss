@@ -1637,6 +1637,7 @@ html {
 			z-index: 1;
 			width: 100vw;
 			max-width: 480px;
+			padding-top: 5em;
 			background: $color-sub;	// JSで取得して<meta name="theme-color">に代入しているので必須
 			transform: translateX(-100%);
 			transition: transform .4s $easing;
@@ -1654,8 +1655,6 @@ html {
 				overflow-y: auto;
 				-webkit-overflow-scrolling: touch;
 				height: 100%;
-				padding-top: 5em;
-				padding-bottom: 80px;	// ブラウザフッターUI重なり対策
 
 				&::-webkit-scrollbar {
 					display: none;
