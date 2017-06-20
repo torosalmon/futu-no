@@ -716,192 +716,173 @@ html {
 			.contents {
 				flex-grow: 1;
 
-				// ======
-				// エラー
-				// ======
-
-				.error {
+				// トップページ
+				// アーカイブ
+				// 検索結果
+				html.home &,
+				html.archive &,
+				html.search & {
 					@include container;
-					margin-top: 8em;
-
-					h2 {
-						font-size: 4rem;
-					}
-
 				}
 
-				// ================
-				// ページネーション
-				// ================
+				// トップページ
+				html.home & {
+					display: flex;
+					flex-flow: row wrap;
+					justify-content: space-between;
+					align-items: center;
 
-				.pagenation {
-					@include container;
-					margin-top: 2em;
-					text-align: center;
+					// ==============
+					// 最新記事リスト
+					// ==============
 
-					ul {
-						display: inline-block;
-						border-bottom: solid 1px $color-border;
-					}
+					.latest-list {
+						margin-top: 4em;
 
-						li {
-							display: inline-block;
-
-							&.current {
-								padding: .8em;
-								border-bottom: solid 4px $color-accent;
-							}
-
+						@media(max-width: 768px) {
+							width: 100%;
 						}
+
+						@media(min-width: 769px) {
+							width: 56%;
+						}
+
+						section {
+
+							// 最新1件以外
+							&:not(:nth-of-type(1)) {
+								margin-top: 4em;
+							}
 
 							a {
-								padding: .8em;
+								display: flex;
+								flex-flow: row nowrap;
+								align-items: center;
+								position: relative;
+								padding-right: 2em;
 								text-decoration: none;
-							}
-
-				}
-
-				// ==============
-				// 最新記事リスト
-				// ==============
-
-				.latest-list {
-					@include container;
-					margin-top: 4em;
-
-					section {
-
-						// 最新1件以外
-						&:not(:nth-of-type(1)) {
-							margin-top: 4em;
-						}
-
-						a {
-							display: flex;
-							flex-flow: row nowrap;
-							align-items: center;
-							position: relative;
-							padding-right: 2em;
-							text-decoration: none;
-
-							&::after {
-								content: '';
-								position: absolute;
-								top: 50%;
-								right: 0;
-								width: 1em;
-								height: 1em;
-								margin-top: -.5em;
-								border-style: solid;
-								border-width: 1px;
-								border-color: $color-border $color-border transparent transparent;
-								transform: rotate(45deg);
-								transition: border-color .3s $easing;
-							}
-
-							&:hover {
 
 								&::after {
-									border-top-color: $color-text;
-									border-right-color: $color-text;
+									content: '';
+									position: absolute;
+									top: 50%;
+									right: 0;
+									width: 1em;
+									height: 1em;
+									margin-top: -.5em;
+									border-style: solid;
+									border-width: 1px;
+									border-color: $color-border $color-border transparent transparent;
+									transform: rotate(45deg);
+									transition: border-color .3s $easing;
+								}
+
+								&:hover {
+
+									&::after {
+										border-top-color: $color-text;
+										border-right-color: $color-text;
+									}
+
 								}
 
 							}
 
+								// アイキャッチ
+								.eyecatch {
+									width: 20%;
+
+									img {
+										width: 100%;
+										vertical-align: middle;
+									}
+
+								}
+
+								.meta {
+									width: 80%;
+									padding-left: 2em;
+									line-height: 1.2;
+
+									time {
+										font-size: .8rem;
+									}
+
+									h2 {
+										font-size: 1.2rem;
+										font-weight: inherit;
+									}
+
+								}
+
+									.content {
+										overflow: hidden;
+										margin-top: 1em;
+										text-overflow: ellipsis;
+										white-space: nowrap;
+									}
+
 						}
 
-							// アイキャッチ
-							.eyecatch {
-								width: 20%;
-								margin-right: 2em;
+					}
 
-								img {
-									width: 100%;
+					// ==================
+					// ディレクトリマップ
+					// ==================
+
+					.dir-map {
+						margin-top: 4em;
+
+						@media(max-width: 768px) {
+							width: 100%;
+						}
+
+						@media(min-width: 769px) {
+							width: 36%;
+						}
+
+						section {
+
+							&:not(:nth-of-type(1)) {
+								margin-top: 2em;
+							}
+
+							h6 {
+								font-size: 1.2rem;
+								font-weight: inherit;
+
+								svg {
+									display: inline-block;
+									width: 2em;
+									height: 2em;
+									margin-right: 1em;
 									vertical-align: middle;
 								}
 
 							}
 
-							.meta {
-								flex-grow: 1;
-								line-height: 1.2;
-
-								time {
-									font-size: .8rem;
-								}
-
-								h2 {
-									font-size: 1.2rem;
-									font-weight: inherit;
-								}
-
+							ul {
+								margin-left: 1em;
+								border-left: dotted 1px $color-border;
+								list-style: none;
 							}
 
-								.content {
-									overflow: hidden;
-									margin-top: 1em;
-									text-overflow: ellipsis;
-									white-space: nowrap;
+								li {
+									position: relative;
+									padding-left: 2.8em;
+									font-size: 1rem;
 								}
 
-					}
+									a {
+										text-decoration: none;
 
-				}
+										&:hover {
+											text-decoration: underline;
+										}
 
-				// ==================
-				// ディレクトリマップ
-				// ==================
-
-				.dir-map {
-					@include container;
-					margin-top: 4em;
-
-					@media(min-width: 769px) {
-						display: flex;
-						flex-flow: row wrap;
-						justify-content: space-between;
-					}
-
-					section {
-
-						@media(min-width: 769px) {
-							flex-grow: 1;
-						}
-
-						h6 {
-							font-size: 1.2rem;
-							font-weight: inherit;
-
-							svg {
-								display: inline-block;
-								width: 2em;
-								height: 2em;
-								margin-right: 1em;
-								vertical-align: middle;
-							}
-
-						}
-
-						ul {
-							margin-left: 1em;
-							border-left: dotted 1px $color-border;
-							list-style: none;
-						}
-
-							li {
-								position: relative;
-								padding-left: 2.2em;
-								font-size: 1.2rem;
-							}
-
-								a {
-									text-decoration: none;
-
-									&:hover {
-										text-decoration: underline;
 									}
 
-								}
+						}
 
 					}
 
@@ -912,7 +893,6 @@ html {
 				// ================
 
 				.archive-list {
-					@include container;
 					display: flex;
 					flex-flow: row wrap;
 					justify-content: space-between;
@@ -1540,6 +1520,47 @@ html {
 									}
 
 					}
+
+				}
+
+				// ==============
+				// コンポーネント
+				// ==============
+
+				// エラー
+				.error {
+					margin-top: 8em;
+
+					h2 {
+						font-size: 4rem;
+					}
+
+				}
+
+				// ページネーション
+				.pagenation {
+					margin-top: 2em;
+					text-align: center;
+
+					ul {
+						display: inline-block;
+						border-bottom: solid 1px $color-border;
+					}
+
+						li {
+							display: inline-block;
+
+							&.current {
+								padding: .8em;
+								border-bottom: solid 4px $color-accent;
+							}
+
+						}
+
+							a {
+								padding: .8em;
+								text-decoration: none;
+							}
 
 				}
 
