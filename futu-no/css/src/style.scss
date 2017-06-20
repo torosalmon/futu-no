@@ -18,11 +18,12 @@
 // 全般指定
 // ========
 
-body {
+html {
 	font-family: -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular',	// San Francisco
 	             'Helvetica Neue',
-	             '游ゴシック体', YuGothic,	// 游ゴシック (Mac)
-	             '游ゴシック', 'Yu Gothic',	// 游ゴシック (Win)
+	             'Original Yu Gothic', 'Yu Gothic',	// 游ゴシック (Win font-weight再定義)
+	             '游ゴシック体', YuGothic,			// 游ゴシック (Mac)
+	             '游ゴシック', 'Yu Gothic',			// 游ゴシック (Win)
 	             Arial,
 	             'メイリオ', Meiryo,
 	             Roboto,
@@ -36,8 +37,52 @@ body {
 	color: $color-text;
 }
 
-a {
-	color: inherit;
+// Chrome 游ゴシック font-weightかすれ対策
+@font-face {
+	font-family: 'Original Yu Gothic';
+	src: local('Yu Gothic');
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: 'Original Yu Gothic';
+	src: local('Yu Gothic');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Original Yu Gothic';
+	src: local('Yu Gothic');
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: 'Helvetica Neue';
+	src: local('Helvetica Neue Regular');
+	font-weight: 100;
+}
+
+@font-face {
+	font-family: 'Helvetica Neue';
+	src: local('Helvetica Neue Regular');
+	font-weight: 200;
+}
+
+// IE11のみメイリオを適用
+@media all and (-ms-high-contrast: none) {
+	html {
+		font-family: Verdana,
+		             Meiryo,
+		             sans-serif;
+	}
+}
+
+@media all and (-ms-high-contrast: active) {
+	html {
+		font-family: Verdana,
+		             Meiryo,
+		             sans-serif;
+	}
 }
 
 // ==============
@@ -82,49 +127,6 @@ input[type='file'],
 textarea,
 select {
 	font-size: 1.6rem;
-}
-
-// Chromeテキストレンダリング対策 フォントウェイト再定義
-@font-face {
-	font-family: 'Yu Gothic';
-	src: local('Yu Gothic Medium');
-	font-weight: 100;
-}
-
-@font-face {
-	font-family: 'Yu Gothic';
-	src: local('Yu Gothic Medium');
-	font-weight: 200;
-}
-
-@font-face {
-	font-family: 'Yu Gothic';
-	src: local('Yu Gothic Medium');
-	font-weight: 300;
-}
-
-@font-face {
-	font-family: 'Yu Gothic';
-	src: local('Yu Gothic Medium');
-	font-weight: 400;
-}
-
-@font-face {
-	font-family: 'Yu Gothic';
-	src: local('Yu Gothic Bold');
-	font-weight: bold;
-}
-
-@font-face {
-	font-family: 'Helvetica Neue';
-	src: local('Helvetica Neue Regular');
-	font-weight: 100;
-}
-
-@font-face {
-	font-family: 'Helvetica Neue';
-	src: local('Helvetica Neue Regular');
-	font-weight: 200;
 }
 
 // =============================================================================
@@ -240,6 +242,10 @@ button {
 html,
 body {
 	height: 100%;
+}
+
+a {
+	color: inherit;
 }
 
 img {
@@ -761,23 +767,13 @@ html {
 
 				.latest-list {
 					@include container;
-					display: flex;
-					flex-flow: row wrap;
-					justify-content: space-between;
 					margin-top: 4em;
 
 					section {
 
-						// 最新1件
-						&:nth-of-type(1) {
-							width: 100%;
-							margin-bottom: 4em;
-						}
-
 						// 最新1件以外
 						&:not(:nth-of-type(1)) {
-							width: 47.5%;
-							margin-top: 2px;
+							margin-top: 4em;
 						}
 
 						a {
@@ -785,14 +781,14 @@ html {
 							flex-flow: row nowrap;
 							align-items: center;
 							position: relative;
-							padding: 1em 3em 1em 1em;
+							padding-right: 2em;
 							text-decoration: none;
 
 							&::after {
 								content: '';
 								position: absolute;
 								top: 50%;
-								right: 1em;
+								right: 0;
 								width: 1em;
 								height: 1em;
 								margin-top: -.5em;
@@ -814,15 +810,10 @@ html {
 
 						}
 
+							// アイキャッチ
 							.eyecatch {
-
-								@media(max-width: 768px) {
-									margin-right: 1em;
-								}
-
-								@media(min-width: 769px) {
-									margin-right: 2em;
-								}
+								width: 20%;
+								margin-right: 2em;
 
 								img {
 									width: 100%;
@@ -831,48 +822,27 @@ html {
 
 							}
 
-								// 最新1件
-								&:nth-of-type(1) .eyecatch {
-
-									@media(max-width: 768px) {
-										max-width: 160px;
-									}
-
-									@media(min-width: 769px) {
-										max-width: 400px;
-									}
-
-								}
-
-								// 最新1件以外
-								&:not(:nth-of-type(1)) .eyecatch {
-									display: block;
-									width: 100%;
-								}
-
 							.meta {
 								flex-grow: 1;
 								line-height: 1.2;
 
 								time {
-									font-size: 1.2rem;
+									font-size: .8rem;
 								}
 
 								h2 {
-									font-size: 2rem;
+									font-size: 1.2rem;
 									font-weight: inherit;
 								}
 
 							}
 
 								.content {
-									font-size: 1.6rem;
+									overflow: hidden;
+									margin-top: 1em;
+									text-overflow: ellipsis;
+									white-space: nowrap;
 								}
-
-									// 最新1件以外
-									&:not(:nth-of-type(1)) .content {
-										display: none;
-									}
 
 					}
 
@@ -1107,7 +1077,7 @@ html {
 							left: 0;
 							width: 100%;
 							height: 100%;
-							background: radial-gradient(circle, rgba(0, 0, 0, .2) 50%, rgba(0, 0, 0, .4));
+							background: radial-gradient(circle, rgba(0, 0, 0, .4) 20%, rgba(0, 0, 0, .8));
 						}
 
 						img {
@@ -1458,7 +1428,7 @@ html {
 							clear: both;
 							position: relative;
 							margin: 2em auto 0 auto;
-							padding-top: 6em;
+							padding-top: 5em;
 							font-size: 1.2;
 							line-height: 1.2;
 
@@ -1467,9 +1437,9 @@ html {
 								position: absolute;
 								top: 0;
 								left: 50%;
-								margin-left: -2em;
+								margin-left: -1em;
 								border-style: solid;
-								border-width: 2em;
+								border-width: 1em;
 								border-color: transparent transparent $color-border transparent;
 							}
 
