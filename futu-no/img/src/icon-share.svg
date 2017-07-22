@@ -1,6 +1,0 @@
-<svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-	<path class="stroke-color-text" d="M 19 5 L 5 12 L 19 19 " stroke="#444" stroke-width="2" fill="none" />
-	<path class="fill-color-text" d="M 2 12 C 2 10.3431 3.3431 9 5 9 C 6.6569 9 8 10.3431 8 12 C 8 13.6569 6.6569 15 5 15 C 3.3431 15 2 13.6569 2 12 Z" fill="#444" />
-	<path class="fill-color-text" d="M 16 19 C 16 17.3431 17.3431 16 19 16 C 20.6569 16 22 17.3431 22 19 C 22 20.6569 20.6569 22 19 22 C 17.3431 22 16 20.6569 16 19 Z" fill="#444" />
-	<path class="fill-color-text" d="M 16 5 C 16 3.3431 17.3431 2 19 2 C 20.6569 2 22 3.3431 22 5 C 22 6.6569 20.6569 8 19 8 C 17.3431 8 16 6.6569 16 5 Z" fill="#444" />
-</svg>
