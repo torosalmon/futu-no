@@ -192,7 +192,7 @@ echo <<< EOM
       main .contents .archive-list section .heading a strong::before { background-color: {$theme_customize__setting__colors__border}; }
       main .contents .archive-list section .grid .meta { border-left-color: {$theme_customize__setting__colors__border}; }
       main .contents .archive-list section .grid .meta dd:not(:nth-of-type(1)) { border-top-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .meta { border-top-color: {$theme_customize__setting__colors__border}; border-bottom-color: {$theme_customize__setting__colors__border}; }
+      main .contents .article-detail .meta { border-top-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .meta dd::before { border-left-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .content pre { border-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .content hr { background-color: {$theme_customize__setting__colors__border}; }

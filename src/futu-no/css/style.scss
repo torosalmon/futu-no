@@ -1083,7 +1083,6 @@ html {
           .heading {
             @include container;
             margin-top: 2em;
-            margin-bottom: 2em;
             font-size: 3.2rem;
             font-weight: inherit;
             line-height: 1.2;
@@ -1094,11 +1093,12 @@ html {
             @include container;
             display: flex;
             flex-flow: row nowrap;
+            justify-content: flex-end;
             align-items: center;
+            margin-top: 1em;
             margin-bottom: 4em;
             padding: .8em 0;
             border-top: solid 1px $color-border;
-            border-bottom: solid 1px $color-border;
             font-size: 1.2rem;
 
             dt {
