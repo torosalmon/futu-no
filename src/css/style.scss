@@ -378,11 +378,6 @@ html {
 
           a {
             text-decoration: none;
-
-            html.home &::before {
-              content: 'ꇹ '; // ※Unicode イ文字
-            }
-
           }
 
         }
@@ -414,11 +409,26 @@ html {
 
           li {
             display: inline;
+            position: relative;
 
-            &:not(:first-child)::before {
-              content: '❭'; // ※Unicode 装飾記号
+            &:not(:first-child) {
               margin-left: 1em;
-              padding-right: 1em;
+              padding-left: 2em;
+
+              &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: .5em;
+                height: .5em;
+                margin-top: -.25em;
+                border-style: solid;
+                border-width: 1px;
+                border-color: $color-text $color-text transparent transparent;
+                transform: rotate(45deg);
+              }
+
             }
 
           }
@@ -588,7 +598,7 @@ html {
       border-bottom: solid 1px $color-border;
       transform: translateX(100%);
       transform-origin: 100% 50%;
-      transition: transform .4s $easing;
+      transition: transform .6s $easing;
       pointer-events: none;
 
       // フォーム展開
@@ -702,7 +712,7 @@ html {
       min-height: 100vh;
       padding-top: 5em;
       background: $color-background;
-      transition: opacity .9s $easing;
+      transition: opacity .6s $easing;
 
       // ドロワー展開
       body.show-drawer & {
@@ -731,11 +741,85 @@ html {
           flex-flow: row wrap;
           justify-content: space-between;
 
-          // ==============
-          // 最新記事リスト
-          // ==============
+          // ===================
+          // 最新記事（最新1件）
+          // ===================
 
-          .latest-list {
+          .latest-1 {
+            margin-top: 4em;
+            padding-bottom: 4em;
+            border-bottom: solid 1px $color-border;
+
+            section {
+
+              a {
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                position: relative;
+                padding-right: 2em;
+                text-decoration: none;
+
+                &::after {
+                  content: '';
+                  position: absolute;
+                  top: 50%;
+                  right: 0;
+                  width: 1em;
+                  height: 1em;
+                  margin-top: -.5em;
+                  border-style: solid;
+                  border-width: 1px;
+                  border-color: $color-border $color-border transparent transparent;
+                  transform: rotate(45deg);
+                  transition: border-color .3s $easing;
+                }
+
+                &:hover {
+
+                  &::after {
+                    border-top-color: $color-text;
+                    border-right-color: $color-text;
+                  }
+
+                }
+
+              }
+
+                // アイキャッチ
+                .eyecatch {
+                  width: 40%;
+
+                  img {
+                    width: 100%;
+                    vertical-align: middle;
+                  }
+
+                }
+
+                .meta {
+                  width: 60%;
+                  padding-left: 4em;
+
+                  time {
+                    font-size: 1.2rem;
+                  }
+
+                  h2 {
+                    font-size: 1.6rem;
+                  }
+
+                }
+
+            }
+
+          }
+
+          // =====================
+          // 最新記事（2件目以降）
+          // =====================
+
+          .latest-2 {
             margin-top: 4em;
 
             @media(max-width: 768px) {
@@ -750,7 +834,9 @@ html {
 
               // 最新1件以外
               &:not(:nth-of-type(1)) {
-                margin-top: 4em;
+                margin-top: 4px;
+                padding-top: 4px;
+                border-top: solid 1px $color-border;
               }
 
               a {
@@ -809,17 +895,9 @@ html {
 
                   h2 {
                     font-size: 1.2rem;
-                    font-weight: inherit;
                   }
 
                 }
-
-                  .content {
-                    overflow: hidden;
-                    margin-top: 1em;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                  }
 
             }
 
@@ -931,13 +1009,14 @@ html {
 
                   img {
                     width: 100%;
-                    box-shadow: 0 16px 24px -16px rgba(0, 0, 0, .4);
+                    box-shadow: 0 24px 24px -16px rgba(0, 0, 0, .4);
                     vertical-align: bottom;
                   }
 
                 }
 
                 strong {
+                  display: block;
                   position: relative;
                   padding-bottom: .4em;
 
@@ -948,9 +1027,9 @@ html {
                     position: absolute;
                     bottom: 0;
                     left: 50%;
-                    width: 100%;
+                    width: 20%;
                     height: 2px;
-                    margin-left: -50%;
+                    margin-left: -10%;
                   }
 
                   &::before {
@@ -973,50 +1052,31 @@ html {
 
             }
 
-            .grid {
-              display: table;
-              margin: auto;
-              text-align: left;
-              line-height: 1.2;
+            // 投稿データ
+            .meta {
+              font-size: 1rem;
 
-              // 記事本文
-              .content {
-                display: table-cell;
-                padding-right: 1em;
-                font-size: 1.2rem;
-                vertical-align: middle;
+              dt {
+                display: none;
               }
 
-              // 投稿データ
-              .meta {
-                display: table-cell;
-                padding-left: 1em;
-                border-left: solid 1px $color-border;
-                vertical-align: middle;
-                font-size: 1.2rem;
+              dd {
+                display: inline;
 
-                dt {
-                  display: none;
+                &:not(:nth-of-type(1)) {
+                  margin-left: .2em;
+                  padding-left: .4em;
+                  border-left: solid 1px $color-border;
                 }
 
-                dd {
+              }
 
-                  &:not(:nth-of-type(1)) {
-                    margin-top: .2em;
-                    padding-top: .2em;
-                    border-top: solid 1px $color-border;
-                  }
+              a {
+                text-decoration: none;
 
+                &:hover {
+                  text-decoration: underline;
                 }
-
-                  a {
-                    text-decoration: none;
-
-                    &:hover {
-                      text-decoration: underline;
-                    }
-
-                  }
 
               }
 
@@ -1252,8 +1312,7 @@ html {
 
           }
 
-          // 著作
-          .sign {
+          .node {
             @include container;
             margin-top: 8em;
 
@@ -1262,13 +1321,14 @@ html {
 
               dt,
               dd {
-                border-bottom: dashed 1px $color-border;
+                padding-top: .5em;
+                border-bottom: dotted 1px $color-border;
               }
 
               dt {
                 float: left;
                 clear: left;
-                width: 5em;
+                width: 8em;
 
                 &::after {
                   content: ': ';
@@ -1630,7 +1690,7 @@ html {
       padding-top: 5em;
       background: $color-sub; // JSで取得して<meta name="theme-color">に代入しているので必須
       transform: translateX(-100%);
-      transition: transform .9s $easing;
+      transition: transform .6s $easing;
       pointer-events: none;
 
       // ドロワー展開

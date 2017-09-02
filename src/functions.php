@@ -9,19 +9,19 @@
 ?>
 <?php
 
-// =============================================================================
-// [管理 > 投稿]
-// アイキャッチ設定
-// =============================================================================
+  // =============================================================================
+  // [管理 > 投稿]
+  // アイキャッチ設定
+  // =============================================================================
 
   add_theme_support('post-thumbnails');
   add_image_size('640px', 640, 640, true);
   add_image_size('960px', 960, 960, true);
 
-// =============================================================================
-// [管理 > メディア]
-// メディアアップローダーにSVGを追加
-// =============================================================================
+  // =============================================================================
+  // [管理 > メディア]
+  // メディアアップローダーにSVGを追加
+  // =============================================================================
 
   function set_mime_types($mimes) {
     $mimes['svg'] = 'image/svg+xml';
@@ -29,10 +29,10 @@
   }
   add_filter('upload_mimes', 'set_mime_types');
 
-// =============================================================================
-// [管理 > 外観]
-// テーマカスタマイザー
-// =============================================================================
+  // =============================================================================
+  // [管理 > 外観]
+  // テーマカスタマイザー
+  // =============================================================================
 
   // ====================
   // カスタマイズ項目登録
@@ -187,11 +187,13 @@ echo <<< EOM
       .search-form .flex-item:nth-of-type(2) input[type='submit'] { border-left-color: {$theme_customize__setting__colors__border}; }
       .search-form .flex-item:nth-of-type(3) .close { border-left-color: {$theme_customize__setting__colors__border}; }
       main .contents .pagenation ul { border-bottom-color: {$theme_customize__setting__colors__border}; }
-      main .contents .latest-list section a::after { border-top-color: {$theme_customize__setting__colors__border}; border-right-color: {$theme_customize__setting__colors__border}; }
-      main .contents .dir-map section ul { border-left-color: {$theme_customize__setting__colors__border}; }
+      html.home main .contents .latest-1 { border-bottom-color: {$theme_customize__setting__colors__border}; }
+      html.home main .contents .latest-1 section a::after { border-top-color: {$theme_customize__setting__colors__border}; border-right-color: {$theme_customize__setting__colors__border}; }
+      html.home main .contents .latest-2 section:not(:nth-of-type(1)) { border-top-color: {$theme_customize__setting__colors__border}; }
+      html.home main .contents .latest-2 section a::after { border-top-color: {$theme_customize__setting__colors__border}; border-right-color: {$theme_customize__setting__colors__border}; }
+      html.home main .contents .dir-map section ul { border-left-color: {$theme_customize__setting__colors__border}; }
       main .contents .archive-list section .heading a strong::before { background-color: {$theme_customize__setting__colors__border}; }
-      main .contents .archive-list section .grid .meta { border-left-color: {$theme_customize__setting__colors__border}; }
-      main .contents .archive-list section .grid .meta dd:not(:nth-of-type(1)) { border-top-color: {$theme_customize__setting__colors__border}; }
+      main .contents .archive-list section .meta dd:not(:nth-of-type(1)) { border-left-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .meta { border-top-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .meta dd::before { border-left-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .content pre { border-color: {$theme_customize__setting__colors__border}; }
@@ -208,8 +210,10 @@ echo <<< EOM
       /* text color */
       body { color: {$theme_customize__setting__colors__text}; }
       header .drawer-icon span { background-color: {$theme_customize__setting__colors__text}; }
+      header .page-info .breadcrumb li:not(:first-child)::before { border-top-color: {$theme_customize__setting__colors__text}; border-right-color: {$theme_customize__setting__colors__text}; }
       .search-form .flex-item:nth-of-type(3) .close::before, .search-form .flex-item:nth-of-type(3) .close::after { background-color: {$theme_customize__setting__colors__text}; }
-      main .contents .latest-list section a:hover::after { border-top-color: {$theme_customize__setting__colors__text}; border-right-color: {$theme_customize__setting__colors__text}; }
+      html.home main .contents .latest-1 section a:hover::after { border-top-color: {$theme_customize__setting__colors__text}; border-right-color: {$theme_customize__setting__colors__text}; }
+      html.home main .contents .latest-2 section a:hover::after { border-top-color: {$theme_customize__setting__colors__text}; border-right-color: {$theme_customize__setting__colors__text}; }
       main .contents .archive-list section .heading a strong::after { background-color: {$theme_customize__setting__colors__text}; }
       main footer { background-color: {$theme_customize__setting__colors__text}; }
 
@@ -249,10 +253,10 @@ EOM;
     add_action('wp_head', 'theme_customize_css');
   }
 
-// =============================================================================
-// [管理 > 外観 > テーマ]
-// 固定ページのテンプレートを個別投稿テンプレートに統一
-// =============================================================================
+  // =============================================================================
+  // [管理 > 外観 > テーマ]
+  // 固定ページのテンプレートを個別投稿テンプレートに統一
+  // =============================================================================
 
   function page_to_single($template) {
     if($template === '') {
@@ -262,10 +266,10 @@ EOM;
   }
   add_filter('page_template', 'page_to_single');
 
-// =============================================================================
-// [管理 > ユーザー]
-// SNSマイページ入力欄拡張
-// =============================================================================
+  // =============================================================================
+  // [管理 > ユーザー]
+  // SNSマイページ入力欄拡張
+  // =============================================================================
 
   function update_profile_fields($contactmethods) {
     $contactmethods['skype']       = 'Skype';
@@ -286,24 +290,24 @@ EOM;
   }
   add_filter('user_contactmethods', 'update_profile_fields', 10, 1);
 
-// =============================================================================
-// [管理 > ユーザー]
-// プロフィール欄のHTMLを許可
-// =============================================================================
+  // =============================================================================
+  // [管理 > ユーザー]
+  // プロフィール欄のHTMLを許可
+  // =============================================================================
 
   remove_filter('pre_user_description', 'wp_filter_kses');
 
-// =============================================================================
-// [フロントサイト]
-// 構文をXHTMLからHTMLフォーマットへ変更
-// =============================================================================
+  // =============================================================================
+  // [フロントサイト]
+  // 構文をXHTMLからHTMLフォーマットへ変更
+  // =============================================================================
 
   remove_filter('the_content', 'convert_chars');
 
-// =============================================================================
-// [フロントサイト]
-// 記事抜粋設定
-// =============================================================================
+  // =============================================================================
+  // [フロントサイト]
+  // 記事抜粋設定
+  // =============================================================================
 
   // 文字数
   function new_excerpt_mblength($length) {
@@ -331,10 +335,10 @@ EOM;
   }
   add_filter('the_content_more_link', 'remove_more_jump_link');
 
-// =============================================================================
-// [フロントサイト]
-// wp_head(), wp_footer()設定
-// =============================================================================
+  // =============================================================================
+  // [フロントサイト]
+  // wp_head(), wp_footer()設定
+  // =============================================================================
 
   // ===============
   // <title>自動生成
@@ -393,10 +397,25 @@ EOM;
   }
   add_action('wp_enqueue_scripts', 'add_files');
 
-// =============================================================================
-// [フロントサイト]
-// meta情報生成
-// =============================================================================
+  // =============================================================================
+  // [フロントサイト]
+  // RSSにサムネイルを登録
+  // =============================================================================
+
+  function rss_post_thumbnail($content) {
+    global $post;
+    if(has_post_thumbnail($post->ID)) {
+      $content = '<p>' . get_the_post_thumbnail($post->ID) . '</p>' . $content;
+    }
+    return $content;
+  }
+  add_filter('the_excerpt_rss', 'rss_post_thumbnail');
+  add_filter('the_content_feed', 'rss_post_thumbnail');
+
+  // =============================================================================
+  // [フロントサイト]
+  // meta情報生成
+  // =============================================================================
 
   function global_meta() {
     global $meta;
@@ -491,10 +510,10 @@ EOM;
     }
   }
 
-// =============================================================================
-// [フロントサイト]
-// パンくずリスト
-// =============================================================================
+  // =============================================================================
+  // [フロントサイト]
+  // パンくずリスト
+  // =============================================================================
 
   function breadcrumb() {
     $html = '';
@@ -506,7 +525,7 @@ EOM;
     // シングルページ
     // ==============
 
-    if(is_singular()) {
+    if(is_single()) {
       $cat = get_the_category();
 
       // 親カテゴリが存在（親が無ければ0）
@@ -571,14 +590,14 @@ EOM;
     echo $html;
   }
 
-// =============================================================================
-// [フロントサイト]
-// ページネーション
-// =============================================================================
+  // =============================================================================
+  // [フロントサイト]
+  // ページネーション
+  // =============================================================================
 
-// [WordPress Post Pagination without plugin]
-// @author : Kriesi
-// @URL    : http://www.kriesi.at/archives/how-to-build-a-wordpress-post-pagination-without-plugin
+  // [WordPress Post Pagination without plugin]
+  // @author : Kriesi
+  // @URL    : http://www.kriesi.at/archives/how-to-build-a-wordpress-post-pagination-without-plugin
 
   function custom_pagination($pages = '', $range = 2) {
     global $paged;
@@ -617,10 +636,10 @@ EOM;
     }
   }
 
-// =============================================================================
-// [フロントサイト]
-// コメント一覧
-// =============================================================================
+  // =============================================================================
+  // [フロントサイト]
+  // コメント一覧
+  // =============================================================================
 
   function theme_comment($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
@@ -644,14 +663,14 @@ EOM;
     }
   }
 
-// =============================================================================
-// [フロントサイト]
-// HTML圧縮
-// =============================================================================
+  // =============================================================================
+  // [フロントサイト]
+  // HTML圧縮
+  // =============================================================================
 
-// [wordpress-snippets-html-minify.php]
-// @author : ingozoell
-// @URL    : https://gist.github.com/ingozoell/8376125
+  // [wordpress-snippets-html-minify.php]
+  // @author : ingozoell
+  // @URL    : https://gist.github.com/ingozoell/8376125
 
   class WP_HTML_Compression {
     protected $compress_css    = true;

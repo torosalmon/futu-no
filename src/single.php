@@ -34,25 +34,12 @@
 ?>
             <dt>
               <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path class="stroke-color-border" d="M 1 6 L 3 6 L 4 4 L 10 4 L 11 6 L 18 6 L 18 18 L 1 18 L 1 6 Z" stroke="#ddd" stroke-width="1" fill="none" />
+                <path class="stroke-color-border" d="M 1 6 L 3 6 L 4 4 L 10 4 L 11 6 L 18 6 L 18 18 L 1 18 L 1 6 Z" stroke-width="1" fill="none" />
                 <path class="fill-color-accent" d="M 3 8 L 20 8 L 20 18 L 3 18 L 3 8 Z" />
                 <path class="stroke-color-border fill-color-background" d="M 6 10 L 23 10 L 19 20 L 2 20 L 6 10 Z" stroke-width="1" />
               </svg>
             </dt>
             <dd><?php the_category(' '); ?></dd>
-<?php
-      }
-?>
-<?php
-      if(has_tag()) {
-?>
-            <dt>
-              <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path class="fill-color-border" d="M 4 2 L 19 2 L 19 21 L 4 21 L 4 2 ZM 3 1 L 3 21 L 5 23 L 21 23 L 21 3 L 19 1 L 3 1 Z" />
-                <path class="fill-color-accent" d="M 6 1 L 12 1 L 12 16 L 9 13 L 6 16 L 6 1 Z" />
-              </svg>
-            </dt>
-            <dd><?php the_tags('', ' '); ?></dd>
 <?php
       }
 ?>
@@ -75,23 +62,36 @@
 <?php
     }
 ?>
-          <div class="sign">
+          <div class="node">
             <dl>
               <dt>Writer</dt>
               <dd><?php the_author(); ?></dd>
               <dt>Date</dt>
-              <dd><time itemprop="datePublished"><?php echo $date_year . '.' . $date_month . '.' . $date_day; ?></time></dd>
+              <dd><time itemprop="datePublished"><a href="<?php echo get_year_link($date_year); ?>"><?php echo $date_year; ?></a>.<a href="<?php echo get_month_link($date_year, $date_month); ?>"><?php echo $date_month; ?></a>.<?php echo $date_day; ?></time></dd>
 <?php
-    // 記事が更新されていた場合
-    if(get_the_modified_date('Ymd') != get_post_time('Ymd', $post_id)) {
+    if(has_category()) {
 ?>
-              <dt>Modified</dt>
-              <dd><time itemprop="datePublished"><?php the_modified_date('Y.m.d'); ?></time></dd>
+              <dt>Categories</dt>
+              <dd><?php the_category(' '); ?></dd>
+<?php
+    }
+?>
+<?php
+    if(has_tag()) {
+?>
+              <dt>Tags</dt>
+              <dd><?php the_tags('', ' '); ?></dd>
 <?php
     }
 ?>
             </dl>
           </div>
+<?php
+    // コメント許可
+    if(comments_open()) {
+      comments_template();
+    }
+?>
 <?php
     $next_post = get_next_post();
     $prev_post = get_previous_post();
@@ -121,12 +121,6 @@
             </ul>
           </nav>
 <?php
-    }
-?>
-<?php
-    // コメント許可
-    if(comments_open()) {
-      comments_template();
     }
 ?>
 <?php

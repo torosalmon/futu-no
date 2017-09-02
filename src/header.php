@@ -48,7 +48,6 @@
     <?php wp_head(); ?>
   </head>
   <body id="top" class="<?php echo 'theme-overlay-' . get_theme_mod('theme_customize__setting__colors__overlay_color', 'dark'); ?>" itemscope itemtype="http://schema.org/WebPage">
-<?php include($_SERVER['DOCUMENT_ROOT'] . '/lib/js/gtm.inc'); ?>
 
     <!-- ======== -->
     <!-- ヘッダー -->

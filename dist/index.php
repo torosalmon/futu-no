@@ -11,18 +11,19 @@
 <?php get_header(); ?>
 <?php
 
-  // ========
-  // 最新記事
-  // ========
+  // ===================
+  // 最新記事（最新1件）
+  // ===================
 
   $args = array(
-    'order'   => 'DESC',
-    'orderby' => 'date',
+    'order'          => 'DESC',
+    'orderby'        => 'date',
+    'posts_per_page' => 1,
   );
   $wq_query = new WP_Query($args);
   if($wq_query->have_posts()) {
 ?>
-        <article class="latest-list" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <article class="latest-1">
 <?php
     while($wq_query->have_posts()) {
       $wq_query->the_post();
@@ -39,11 +40,44 @@
               <div class="meta">
                 <time itemprop="datePublished"><?php the_time('Y.m.d'); ?></time>
                 <h2><?php the_title(); ?></h2>
-<!-- content -->
-<div class="content">
-<?php the_excerpt(); ?>
-</div>
-<!-- /content -->
+              </div>
+            </a>
+          </section>
+<?php
+    }
+?>
+        </article>
+<?php
+    wp_reset_query();
+
+    // =====================
+    // 最新記事（2件目以降）
+    // =====================
+
+    $args = array(
+      'order'   => 'DESC',
+      'orderby' => 'date',
+      'offset'  => 1,
+    );
+    $wq_query = new WP_Query($args);
+?>
+        <article class="latest-2">
+<?php
+    while($wq_query->have_posts()) {
+      $wq_query->the_post();
+?>
+          <section>
+            <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+<?php
+      if(has_post_thumbnail()) {
+?>
+              <div class="eyecatch"><?php the_post_thumbnail('640px'); ?></div>
+<?php
+      }
+?>
+              <div class="meta">
+                <time itemprop="datePublished"><?php the_time('Y.m.d'); ?></time>
+                <h2><?php the_title(); ?></h2>
               </div>
             </a>
           </section>

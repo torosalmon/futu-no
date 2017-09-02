@@ -7,10 +7,9 @@
 !*/
 
 // =============================================================================
-// init
+// Passive Event Listeners - Feature Detection
 // =============================================================================
 
-// Passive Event Listeners - Feature Detection
 var supportsPassive = false;
 try {
   var opts = Object.defineProperty({}, 'passive', {
@@ -22,15 +21,21 @@ try {
 }
 catch(e) {}
 
-// requestAnimationFrame - Vendor Prefix
-let requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-window.requestAnimationFrame = requestAnimationFrame;
-
 // =============================================================================
-// DOMContentLoaded
+// requestAnimationFrame - Polyfill
 // =============================================================================
 
-document.addEventListener('DOMContentLoaded', function(e) {
+window.requestAnimationFrame = window.requestAnimationFrame
+                            || window.mozRequestAnimationFrame
+                            || window.webkitRequestAnimationFrame
+                            || window.oRequestAnimationFrame
+                            || window.msRequestAnimationFrame;
+
+// =============================================================================
+// Mainstream
+// =============================================================================
+
+{
   'use strict';
 
   // ==============
@@ -57,11 +62,20 @@ document.addEventListener('DOMContentLoaded', function(e) {
   let $meta_accent_color = document.querySelector('meta[name="theme-color"]');
       $meta_accent_color.setAttribute('content', color_accent);
 
-// =============================================================================
-// メニュー
-// =============================================================================
+  // ================
+  // DOMContentLoaded
+  // ================
 
-  class menu {
+  document.addEventListener('DOMContentLoaded', function(e) {
+    const menu         = new MENU();
+    const html_support = new HTML_SUPPORT();
+  }, false);
+
+  // =============================================================================
+  // メニュー
+  // =============================================================================
+
+  class MENU {
 
     constructor() {
       this.scroll_header();
@@ -80,6 +94,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
       window.addEventListener('scroll', event_interval, supportsPassive ? { passive: true } : false);
       document.addEventListener('touchmove', event_interval, supportsPassive ? { passive: true } : false);
 
+      // イベント発火調整
       function event_interval() {
         window.requestAnimationFrame(toggle);
       }
@@ -155,7 +170,6 @@ document.addEventListener('DOMContentLoaded', function(e) {
       // ==================
 
       let timer;
-
       function background_scroll(arg_state) {
 
         // 開始
@@ -208,13 +222,11 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
   }
 
-  const Menu = new menu();
+  // =============================================================================
+  // HTML 機能補完
+  // =============================================================================
 
-// =============================================================================
-// HTML 機能補完
-// =============================================================================
-
-  class html_upgrade {
+  class HTML_SUPPORT {
 
     constructor() {
       this.smooth_scroll();
@@ -278,6 +290,4 @@ document.addEventListener('DOMContentLoaded', function(e) {
 
   }
 
-  const HTML_upgrade = new html_upgrade();
-
-}, false);
+}

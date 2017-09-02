@@ -105,9 +105,6 @@
     if(get_the_author_meta('qiita') != '') {
       echo '            <li><a href="' . get_the_author_meta('qiita', $author_id) . '" target="_blank">Qiita</a></li>' . "\n";
     }
-    if(get_the_author_meta('jsdoit') != '') {
-      echo '            <li><a href="' . get_the_author_meta('jsdoit', $author_id) . '" target="_blank">jsdo.it</a></li>' . "\n";
-    }
 ?>
           </ul>
         </div>
