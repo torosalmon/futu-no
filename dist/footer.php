@@ -135,7 +135,7 @@
             <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
               <path class="stroke-color-border" d="M 1 6 L 3 6 L 4 4 L 10 4 L 11 6 L 18 6 L 18 18 L 1 18 L 1 6 Z" stroke-width="1" fill="none" />
               <path class="fill-color-accent" d="M 3 8 L 20 8 L 20 18 L 3 18 L 3 8 Z" />
-              <path class="stroke-color-border fill-color-background" d="M 6 10 L 23 10 L 19 20 L 2 20 L 6 10 Z" stroke-width="1" />
+              <path class="stroke-color-border fill-color-sub" d="M 6 10 L 23 10 L 19 20 L 2 20 L 6 10 Z" stroke-width="1" />
             </svg>
             Categories
           </h6>
