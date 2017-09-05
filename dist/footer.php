@@ -112,7 +112,13 @@
   }
 ?>
         <nav class="dir-map">
-          <h6>Pages</h6>
+          <h6>
+            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path class="fill-color-border" d="M 4 2 L 19 2 L 19 21 L 4 21 L 4 2 ZM 3 1 L 3 21 L 5 23 L 21 23 L 21 3 L 19 1 L 3 1 Z" />
+              <path class="fill-color-accent" d="M 6 1 L 12 1 L 12 16 L 9 13 L 6 16 L 6 1 Z" />
+            </svg>
+            Pages
+          </h6>
 <!-- page list -->
 <ul>
 <?php
@@ -125,7 +131,14 @@
 ?>
 </ul>
 <!-- /page list -->
-          <h6>Categories</h6>
+          <h6>
+            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path class="stroke-color-border" d="M 1 6 L 3 6 L 4 4 L 10 4 L 11 6 L 18 6 L 18 18 L 1 18 L 1 6 Z" stroke-width="1" fill="none" />
+              <path class="fill-color-accent" d="M 3 8 L 20 8 L 20 18 L 3 18 L 3 8 Z" />
+              <path class="stroke-color-border fill-color-background" d="M 6 10 L 23 10 L 19 20 L 2 20 L 6 10 Z" stroke-width="1" />
+            </svg>
+            Categories
+          </h6>
 <!-- category list -->
 <ul>
 <?php
@@ -136,7 +149,16 @@
 ?>
 </ul>
 <!-- /category list -->
-          <h6>Archives</h6>
+          <h6>
+            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path class="fill-color-border" d="M 4 3 L 20 3 C 20.5523 3 21 3.4477 21 4 L 21 20 C 21 20.5523 20.5523 21 20 21 L 4 21 C 3.4477 21 3 20.5523 3 20 L 3 4 C 3 3.4477 3.4477 3 4 3 ZM 2 4 L 2 20 C 2 21.1046 2.8954 22 4 22 L 20 22 C 21.1046 22 22 21.1046 22 20 L 22 4 C 22 2.8954 21.1046 2 20 2 L 4 2 C 2.8954 2 2 2.8954 2 4 Z" />
+              <path class="fill-color-border" d="M 18 12 L 20 12 L 20 13 L 18 13 L 18 12 Z" />
+              <path class="fill-color-border" d="M 11 18 L 12 18 L 12 20 L 11 20 L 11 18 Z" />
+              <path class="fill-color-border" d="M 4 12 L 6 12 L 6 13 L 4 13 L 4 12 Z" />
+              <path class="fill-color-accent" d="M 11 4 L 11 11 L 6 11 L 6 13 L 13 13 L 13 4 L 11 4 Z" />
+            </svg>
+            Archives
+          </h6>
 <!-- archive list -->
 <ul>
 <?php
