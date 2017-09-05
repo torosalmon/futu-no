@@ -412,8 +412,7 @@ html {
             position: relative;
 
             &:not(:first-child) {
-              margin-left: 1em;
-              padding-left: 2em;
+              padding-left: 1em;
 
               &::before {
                 content: '';
@@ -1336,6 +1335,15 @@ html {
 
               }
 
+              a {
+                text-decoration: none;
+
+                &:hover {
+                  text-decoration: underline;
+                }
+
+              }
+
             }
 
           }
@@ -1570,6 +1578,12 @@ html {
                 a {
                   display: block;
                   padding: 2em;
+                  text-decoration: none;
+
+                  &:hover {
+                    text-decoration: underline;
+                  }
+
                 }
 
                   img {
@@ -1813,11 +1827,18 @@ html {
         .dir-map {
 
           h6 {
-            padding: 2em 2em 0 2em;
+            padding: 2em 2em 0 1em;
             border-bottom: solid 1px rgba(0, 0, 0, .2);
             font-size: 1.6rem;
             font-weight: inherit;
             color: $color-background;
+
+            svg {
+              width: 1em;
+              height: 1em;
+              vertical-align: middle;
+            }
+
           }
 
           ul {
