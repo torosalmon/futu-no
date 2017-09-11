@@ -1,6 +1,6 @@
 @charset 'UTF-8';
 
-@import '_mixin.scss'; // mixin
+@import '_mixin.scss';
 
 /*!
  * *****************************************************************************
@@ -19,18 +19,18 @@
 // ========
 
 html {
-  font-family: -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular', // San Francisco
+  font-family: -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular',
                'Helvetica Neue',
-               'Original Yu Gothic', 'Yu Gothic', // 游ゴシック (Win font-weight再定義)
-               '游ゴシック体', YuGothic,          // 游ゴシック (Mac)
-               '游ゴシック', 'Yu Gothic',         // 游ゴシック (Win)
+               'Original Yu Gothic', 'Yu Gothic',
+               '游ゴシック体', YuGothic,
+               '游ゴシック', 'Yu Gothic',
                Arial,
                'メイリオ', Meiryo,
                Roboto,
                'Droid Sans',
                sans-serif;
   font-weight: 400;
-  font-feature-settings : 'pkna' 1;
+  font-feature-settings: 'pkna' 1;
    -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.8;
@@ -39,32 +39,32 @@ html {
 
 // Chrome 游ゴシック font-weightかすれ対策
 @font-face {
-  font-family: 'Original Yu Gothic';
   src: local('Yu Gothic');
+  font-family: 'Original Yu Gothic';
   font-weight: 300;
 }
 
 @font-face {
-  font-family: 'Original Yu Gothic';
   src: local('Yu Gothic');
+  font-family: 'Original Yu Gothic';
   font-weight: 500;
 }
 
 @font-face {
-  font-family: 'Original Yu Gothic';
   src: local('Yu Gothic');
+  font-family: 'Original Yu Gothic';
   font-weight: bold;
 }
 
 @font-face {
-  font-family: 'Helvetica Neue';
   src: local('Helvetica Neue Regular');
+  font-family: 'Helvetica Neue';
   font-weight: 100;
 }
 
 @font-face {
-  font-family: 'Helvetica Neue';
   src: local('Helvetica Neue Regular');
+  font-family: 'Helvetica Neue';
   font-weight: 200;
 }
 
@@ -93,18 +93,17 @@ html {
 // viewport 320px時に指定値となり、960px時に150%まで拡大します。
 
 html {
-
   // (max font-size px - min font-size px) / (max viewport px - min viewport px) * 100 = vw
   font-size: calc(.78125vw + 7.5px);
 
-  // min size
+  // min size 10px
   @media(max-width: 320px) {
-    font-size: 62.5%; // 10px
+    font-size: 62.5%;
   }
 
-  // max size
+  // max size 15px
   @media(min-width: 961px) {
-    font-size: 93.8%; // 15px
+    font-size: 93.8%;
   }
 
 }
@@ -195,17 +194,17 @@ input[type='reset'],
 input[type='button'],
 input[type='image'],
 button {
-  display: inline-block;
   cursor: pointer;
+  display: inline-block;
 }
 
 label {
   cursor: pointer;
 }
 
-// ========
-// デザイン
-// ========
+// ==========
+// フォームUI
+// ==========
 
 input[type='text'],
 input[type='search'],
@@ -263,18 +262,14 @@ iframe {
 
     @media(max-width: 768px) {
       width: 100%;
-
       // (1) 16:9アスペクト比の比率換算
       // height / width * 100% = A
       // 9 / 16 * 100 = 56.25%
-
       // (2) viewportに対してのコンテンツのwidthを比率換算
       // container / viewport = B
       // 90vw / 100vw = 0.9
-
       // (3) heightに倍率補正を掛ける
       // 56.25% * 0.9 = 比率を維持したheight
-
       height: calc(56.25vw * .9);
     }
 
@@ -311,9 +306,9 @@ html {
   body {
   }
 
-// =============================================================================
-// ヘッダー
-// =============================================================================
+    // =============================================================================
+    // ヘッダー
+    // =============================================================================
 
     header {
       display: flex;
@@ -325,7 +320,8 @@ html {
       width: 100%;
       height: 5em;
       background: $color-background;
-      border-top: solid 4px $color-accent; // JSで取得して<meta name="theme-color">に代入しているので必須
+      // border-top - JSで取得して<meta name="theme-color">に代入しているので必須
+      border-top: solid 4px $color-accent;
       border-bottom: solid 1px $color-border;
       transition: border-color .3s $easing;
 
@@ -334,21 +330,16 @@ html {
       // ==========
 
       .page-info {
-
-        // flex-item
-        flex-grow: 1;
-
-        // flex-container
         display: flex;
         flex-direction: column-reverse;
         justify-content: center;
+        flex-grow: 1;
         order: 2;
-
         overflow: hidden;
         position: relative;
+        line-height: 1.2;
         text-overflow: ellipsis;
         white-space: nowrap;
-        line-height: 1.2;
 
         // ========
         // タイトル
@@ -358,11 +349,11 @@ html {
           overflow: hidden;
           margin-top: .4em;
           opacity: 0;
-          font-size: 1.2rem;
+          transform: translate(16px, -8px);
           font-weight: inherit;
+          font-size: 1.2rem;
           text-overflow: ellipsis;
           white-space: nowrap;
-          transform: translate(16px, -8px);
           animation: header-h1-slide-in .6s .3s $easing both;
 
           @keyframes header-h1-slide-in {
@@ -390,10 +381,10 @@ html {
         .breadcrumb {
           overflow: hidden;
           opacity: 0;
+          transform: translateX(-16px);
           font-size: 1.2rem;
           text-overflow: ellipsis;
           white-space: nowrap;
-          transform: translateX(-16px);
           animation: header-read-breadcrumb-slide-in .6s .6s $easing both;
 
           @keyframes header-read-breadcrumb-slide-in {
@@ -422,10 +413,10 @@ html {
                 width: .5em;
                 height: .5em;
                 margin-top: -.25em;
+                transform: rotate(45deg);
                 border-style: solid;
                 border-width: 1px;
                 border-color: $color-text $color-text transparent transparent;
-                transform: rotate(45deg);
               }
 
             }
@@ -448,6 +439,7 @@ html {
         // ========
 
         .page-top {
+          pointer-events: none;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -459,17 +451,16 @@ html {
           height: 100%;
           background: $color-background;
           opacity: 0;
-          text-decoration: none;
           transform: translateY(-16px);
+          text-decoration: none;
           transition: .6s $easing;
           transition-property: opacity, transform;
-          pointer-events: none;
 
           // スクロール表示
           body.show-scroll-header & {
+            pointer-events: auto;
             opacity: 1;
             transform: translateY(0);
-            pointer-events: auto;
           }
 
           svg {
@@ -537,12 +528,12 @@ html {
       // ================
 
       .drawer-icon {
+        cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
         order: 1;
         width: 5em;
-        cursor: pointer;
 
         div {
           position: relative;
@@ -581,11 +572,12 @@ html {
 
     }
 
-// =============================================================================
-// 検索フォーム
-// =============================================================================
+    // =============================================================================
+    // 検索フォーム
+    // =============================================================================
 
     .search-form {
+      pointer-events: none;
       position: fixed;
       top: 0;
       right: 0;
@@ -593,17 +585,16 @@ html {
       width: 100%;
       height: 5em;
       background: $color-background;
-      border-top: solid 4px $color-sub;
-      border-bottom: solid 1px $color-border;
       transform: translateX(100%);
       transform-origin: 100% 50%;
+      border-top: solid 4px $color-sub;
+      border-bottom: solid 1px $color-border;
       transition: transform .6s $easing;
-      pointer-events: none;
 
       // フォーム展開
       body.show-search-form & {
-        transform: translateX(0);
         pointer-events: auto;
+        transform: translateX(0);
       }
 
       form {
@@ -666,11 +657,11 @@ html {
             width: 5em;
 
             .close {
+              cursor: pointer;
               position: relative;
               width: 100%;
               height: 100%;
               border-left: solid 1px $color-border;
-              cursor: pointer;
 
               &::before,
               &::after {
@@ -685,13 +676,8 @@ html {
                 border-radius: 2px;
               }
 
-              &::before {
-                transform: rotate(-45deg);
-              }
-
-              &::after {
-                transform: rotate(45deg);
-              }
+              &::before { transform: rotate(-45deg); }
+              &::after  { transform: rotate(45deg);  }
 
             }
 
@@ -701,9 +687,9 @@ html {
 
     }
 
-// =============================================================================
-// メイン
-// =============================================================================
+    // =============================================================================
+    // メイン
+    // =============================================================================
 
     main {
       display: flex;
@@ -718,23 +704,29 @@ html {
         opacity: .4;
       }
 
-// =============================================================================
-// コンテンツ
-// =============================================================================
+      // =============================================================================
+      // コンテンツ
+      // =============================================================================
 
       .contents {
         flex-grow: 1;
 
+        // ============
         // トップページ
         // アーカイブ
         // 検索結果
+        // ============
+
         html.home &,
         html.archive &,
         html.search & {
           @include container;
         }
 
+        // ============
         // トップページ
+        // ============
+
         html.home & {
           display: flex;
           flex-flow: row wrap;
@@ -767,10 +759,10 @@ html {
                   width: 1em;
                   height: 1em;
                   margin-top: -.5em;
+                  transform: rotate(45deg);
                   border-style: solid;
                   border-width: 1px;
                   border-color: $color-border $color-border transparent transparent;
-                  transform: rotate(45deg);
                   transition: border-color .3s $easing;
                 }
 
@@ -854,10 +846,10 @@ html {
                   width: 1em;
                   height: 1em;
                   margin-top: -.5em;
+                  transform: rotate(45deg);
                   border-style: solid;
                   border-width: 1px;
                   border-color: $color-border $color-border transparent transparent;
-                  transform: rotate(45deg);
                   transition: border-color .3s $easing;
                 }
 
@@ -924,8 +916,8 @@ html {
               }
 
               h6 {
-                font-size: 1.2rem;
                 font-weight: inherit;
+                font-size: 1.2rem;
 
                 svg {
                   display: inline-block;
@@ -1096,8 +1088,8 @@ html {
             position: relative;
             margin: 0;
             padding: 2em 5%;
-            opacity: 0;
             background: fixed 50% 50% / cover;
+            opacity: 0;
             text-align: center;
             animation: article-detail-eyecatch-fade-in .6s .3s $easing both;
 
@@ -1140,16 +1132,16 @@ html {
 
           // 見出し
           .heading {
-            @include container;
             margin-top: 2em;
-            font-size: 3.2rem;
             font-weight: inherit;
+            font-size: 3.2rem;
             line-height: 1.2;
+
+            @include container;
           }
 
           // 投稿データ
           .meta {
-            @include container;
             display: flex;
             flex-flow: row nowrap;
             justify-content: flex-end;
@@ -1159,6 +1151,8 @@ html {
             padding: .8em 0;
             border-top: solid 1px $color-border;
             font-size: 1.2rem;
+
+            @include container;
 
             dt {
               margin-right: 1em;
@@ -1205,8 +1199,9 @@ html {
 
           // 記事本文
           .content {
-            @include container;
             font-size: 1.2rem;
+
+            @include container;
 
             h1 { font-size: 3.6rem; }
             h2 { font-size: 3.2rem; }
@@ -1252,9 +1247,9 @@ html {
             }
 
             table {
+              empty-cells: show;
               border-collapse: separate;
               border-spacing: 1px;
-              empty-cells: show;
 
               th,
               td {
@@ -1312,8 +1307,9 @@ html {
           }
 
           .node {
-            @include container;
             margin-top: 8em;
+
+            @include container;
 
             dl {
               @include clearfix;
@@ -1350,8 +1346,9 @@ html {
 
           // コメント
           .article-comment {
-            @include container;
             margin-top: 8em;
+
+            @include container;
 
             h6 {
               margin-bottom: 1em;
@@ -1359,10 +1356,7 @@ html {
               text-align: center;
             }
 
-            // ============
             // コメント一覧
-            // ============
-
             .comment-list {
               @include clearfix;
 
@@ -1467,10 +1461,7 @@ html {
 
             }
 
-            // ================
             // コメントフォーム
-            // ================
-
             .comment-respond {
               clear: both;
               position: relative;
@@ -1554,8 +1545,9 @@ html {
 
           // 隣接リンク
           .adjacent-links {
-            @include container;
             margin-top: 4em;
+
+            @include container;
 
             ul {
               display: flex;
@@ -1639,9 +1631,9 @@ html {
 
       }
 
-// =============================================================================
-// フッター
-// =============================================================================
+      // =============================================================================
+      // フッター
+      // =============================================================================
 
       footer {
         margin-top: 8em;
@@ -1689,11 +1681,12 @@ html {
 
     }
 
-// =============================================================================
-// ドロワー
-// =============================================================================
+    // =============================================================================
+    // ドロワー
+    // =============================================================================
 
     .drawer {
+      pointer-events: none;
       position: fixed;
       top: 0;
       bottom: 0;
@@ -1702,16 +1695,16 @@ html {
       width: 100vw;
       max-width: 480px;
       padding-top: 5em;
-      background: $color-sub; // JSで取得して<meta name="theme-color">に代入しているので必須
+      // JSで取得して<meta name="theme-color">に代入しているので必須
+      background: $color-sub;
       transform: translateX(-100%);
       transition: transform .6s $easing;
-      pointer-events: none;
 
       // ドロワー展開
       body.show-drawer & {
+        pointer-events: auto;
         box-shadow: 4px 0 8px -4px rgba(0, 0, 0, .2);
         transform: translateX(0);
-        pointer-events: auto;
       }
 
       // スクロール伝達対策
@@ -1740,8 +1733,8 @@ html {
             position: relative;
             z-index: 1;
             box-shadow: 0 16px 16px rgba(0, 0, 0, .2);
-            border: solid 4px $color-sub;
             transform: scale(1.2);
+            border: solid 4px $color-sub;
 
             img {
               max-width: 80px;
@@ -1751,20 +1744,15 @@ html {
           }
 
           .name {
-
-            // flex-item
-            flex-grow: 1;
-
-            // flex-container
             display: flex;
             justify-content: center;
             align-items: center;
-
+            flex-grow: 1;
             padding: 1em;
             background: rgba(255, 255, 255, .2);
             border: solid 1px $color-sub;
-            font-size: 1.2rem;
             font-weight: bold;
+            font-size: 1.2rem;
             color: $color-background;
           }
 
@@ -1829,8 +1817,8 @@ html {
           h6 {
             padding: 2em 2em 0 1em;
             border-bottom: solid 1px rgba(0, 0, 0, .2);
-            font-size: 1.6rem;
             font-weight: inherit;
+            font-size: 1.6rem;
             color: $color-background;
 
             svg {
@@ -1897,11 +1885,12 @@ html {
 
     }
 
-// =============================================================================
-// 共有オーバーレイ
-// =============================================================================
+    // =============================================================================
+    // 共有オーバーレイ
+    // =============================================================================
 
     .share-overlay {
+      pointer-events: none;
       overflow: hidden;
       position: fixed;
       top: 0;
@@ -1912,18 +1901,17 @@ html {
       width: 100%;
       height: 100%;
       opacity: 0;
-      pointer-events: none;
       transition: .3s $easing;
       transition-property: background-color, backdrop-filter, opacity;
 
       @supports(backdrop-filter: blur(0)) {
-        backdrop-filter: blur(0)
+        backdrop-filter: blur(0);
       }
 
-      // 共有オーバーレイ展開時
+      // 共有オーバーレイ展開時 | オーバーレイ配色共通指定
       body.show-share-overlay & {
-        opacity: 1;
         pointer-events: auto;
+        opacity: 1;
 
         @supports(backdrop-filter: blur(0)) {
 
@@ -2008,9 +1996,9 @@ html {
             margin-bottom: 1em;
             padding-left: 10%;
             opacity: 0;
+            transform: translateX(-1em);
             font-size: 1.2rem;
             text-align: left;
-            transform: translateX(-1em);
             transition: 0s 0s step-start;
             transition-property: opacity, transform;
 
@@ -2075,11 +2063,12 @@ html {
               }
 
               path {
+                transition: stroke-dashoffset 0s 0s step-start;
+
                 fill: none;
                 stroke-width: 2;
                 stroke-dasharray: 1000;
                 stroke-dashoffset: 1000;
-                transition: stroke-dashoffset 0s 0s step-start;
 
                 // オーバーレイ配色
                 body.theme-overlay-dark &  { stroke: #fff; }
@@ -2087,8 +2076,9 @@ html {
 
                 // 共有オーバーレイ展開時
                 body.show-share-overlay & {
-                  stroke-dashoffset: 0;
                   transition: stroke-dashoffset .9s 1.8s $easing;
+
+                  stroke-dashoffset: 0;
                 }
 
               }
@@ -2096,14 +2086,15 @@ html {
             }
 
             a {
-              @include text-hide;
               width: 100%;
               height: 100%;
-              opacity: 0;
               background: no-repeat 50% 50% / 50% auto;
+              opacity: 0;
               transform: rotateY(-360deg);
               transition: 0s 0s step-start;
               transition-property: opacity, transition;
+
+              @include text-hide;
 
               // オーバーレイ配色
               body.theme-overlay-dark &.google-plus  { @include icon-sns-google-plus('fff'); }
@@ -2129,12 +2120,12 @@ html {
         // ======
 
         .close {
+          cursor: pointer;
           position: absolute;
           top: 0;
           right: 0;
           width: 5em;
           height: 5em;
-          cursor: pointer;
 
           &::before,
           &::after {
@@ -2153,13 +2144,8 @@ html {
 
           }
 
-          &::before {
-            transform: rotate(-45deg);
-          }
-
-          &::after {
-            transform: rotate(45deg);
-          }
+          &::before { transform: rotate(-45deg); }
+          &::after  { transform: rotate(45deg);  }
 
         }
 

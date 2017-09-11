@@ -8,11 +8,11 @@
 // 色指定はWordPressテーマカスタマイザーの指定により上書きされています。
 // 「WordPress管理＞外観＞カスタマイズ＞色」にある動的CSS出力設定を無効化するとこちらのSCSS指定が反映されます。
 
-$color-accent: #b5fc49;  // アクセントカラー
-$color-sub: #6a7375;     // サブカラー
-$color-background: #fff; // 背景
-$color-border: #ddd;     // ボーダー
-$color-text: #444;       // 文字
+$color-accent:     #b5fc49; // アクセントカラー
+$color-sub:        #6a7375; // サブカラー
+$color-background: #fff;    // 背景
+$color-border:     #ddd;    // ボーダー
+$color-text:       #444;    // 文字
 
 // [イージング]
 
@@ -49,8 +49,6 @@ $easing: cubic-bezier(.54, .05, .36, .98);
 @mixin text-hide {
   display: block;
   overflow: hidden;
-  width: 0;
-  height: 0;
   text-indent: 100%;
   white-space: nowrap;
 }
