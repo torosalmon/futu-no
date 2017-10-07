@@ -9,7 +9,7 @@
 !*/
 ?>
 <?php get_header(); ?>
-        <article class="archive-list" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <nav class="archive-list" itemscope="itemscope" itemtype="http://schema.org/Article">
 <?php
   if(have_posts()) {
     while(have_posts()) {
@@ -50,6 +50,6 @@
   }
   wp_reset_query();
 ?>
-        </article>
+        </nav>
 <?php custom_pagination(); ?>
 <?php get_footer(); ?>

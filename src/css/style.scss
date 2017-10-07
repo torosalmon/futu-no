@@ -1,6 +1,7 @@
 @charset 'UTF-8';
 
 @import '_mixin.scss';
+@import '_ress.scss';
 
 /*!
  * *****************************************************************************
@@ -160,7 +161,7 @@ input[type='file'],
 textarea,
 select {
   width: 100%;
-  height: 2rem;
+  height: 3rem;
 }
 
 input[type='image'] {
@@ -314,7 +315,7 @@ html {
 
       .page-info {
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
         justify-content: center;
         flex-grow: 1;
         order: 2;
@@ -330,11 +331,11 @@ html {
 
         h1 {
           overflow: hidden;
-          margin-top: .4rem;
+          margin-bottom: .4rem;
           opacity: 0;
           transform: translate(16px, -8px);
           font-weight: inherit;
-          font-size: 1.2rem;
+          font-size: 1.6rem;
           text-overflow: ellipsis;
           white-space: nowrap;
           animation: header-h1-slide-in .6s .3s $easing both;
@@ -365,7 +366,6 @@ html {
           overflow: hidden;
           opacity: 0;
           transform: translateX(-16px);
-          font-size: 1.2rem;
           text-overflow: ellipsis;
           white-space: nowrap;
           animation: header-read-breadcrumb-slide-in .6s .6s $easing both;
@@ -676,9 +676,6 @@ html {
     // =============================================================================
 
     main {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
       padding-top: 5rem;
       background: $color-background;
       transition: opacity .6s $easing;
@@ -693,7 +690,7 @@ html {
       // =============================================================================
 
       .contents {
-        flex-grow: 1;
+        min-height: 90vh;
 
         // ============
         // トップページ
@@ -707,20 +704,22 @@ html {
           @include container;
         }
 
-        // ============
-        // トップページ
-        // ============
+        // ==================
+        // トップページリスト
+        // ==================
 
-        html.home & {
+        .toplevel-list {
           display: flex;
           flex-flow: row wrap;
           justify-content: space-between;
+          align-items: flex-start;
 
           // ===================
           // 最新記事（最新1件）
           // ===================
 
           .latest-1 {
+            width: 100%;
             margin-top: 4rem;
             padding-bottom: 4rem;
             border-bottom: solid 1px $color-border;
@@ -743,6 +742,7 @@ html {
                   width: 1rem;
                   height: 1rem;
                   margin-top: -.5rem;
+                  margin-right: .25rem;
                   transform: rotate(45deg);
                   border-style: solid;
                   border-width: 1px;
@@ -830,6 +830,7 @@ html {
                   width: 1rem;
                   height: 1rem;
                   margin-top: -.5rem;
+                  margin-right: .25rem;
                   transform: rotate(45deg);
                   border-style: solid;
                   border-width: 1px;
@@ -1205,7 +1206,10 @@ html {
             h3,
             h4,
             h5,
-            h6,
+            h6 {
+              margin-top: 4rem;
+            }
+
             p,
             ul,
             ol,

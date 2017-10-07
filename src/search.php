@@ -12,7 +12,7 @@
 <?php
   if(have_posts() && get_search_query()) {
 ?>
-        <article class="archive-list" itemscope="itemscope" itemtype="http://schema.org/Article">
+        <nav class="archive-list" itemscope="itemscope" itemtype="http://schema.org/Article">
 <?php
     while(have_posts()) {
       the_post();
@@ -50,16 +50,16 @@
 <?php
     }
 ?>
-        </article>
+        </nav>
 <?php custom_pagination(); ?>
 <?php
   }
   else {
 ?>
-        <article class="error">
+        <nav class="error">
           <h2>Not Found</h2>
           <p>見つかりませんでしたよ。</p>
-        </article>
+        </nav>
 <?php
   }
   wp_reset_query();

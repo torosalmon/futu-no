@@ -376,9 +376,8 @@ EOM;
     // $deps   : 依存スタイルシート識別名の配列（オプション）
     // $ver    : バージョン文字列。クエリーストリングに付加される。（オプション）
     // $media  : スタイルシートのメディア指定（オプション）
-    wp_enqueue_style('ress', 'https://unpkg.com/ress@1.2.2/dist/ress.min.css', array(), false, '');
     wp_enqueue_style('highlight.js', 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/monokai.min.css', array(), false, '');
-    wp_enqueue_style('theme', get_template_directory_uri() . '/css/style.css', array('ress'), false, '');
+    wp_enqueue_style('theme', get_template_directory_uri() . '/css/style.css', array(), false, '');
 
     // [JS]
     // $handle    : スクリプト識別名

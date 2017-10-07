@@ -57,7 +57,7 @@
 
       <!-- ページ案内 -->
       <div class="page-info">
-        <h1><a href="<?php echo esc_url(home_url('/')); ?>"><?php echo $meta['title']; ?></a></h1>
+        <h1><a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a></h1>
 <?php
   if(is_home()) {
 ?>
@@ -173,4 +173,4 @@
     <main>
 
       <!-- コンテンツ -->
-      <article class="contents">
+      <div class="contents">
