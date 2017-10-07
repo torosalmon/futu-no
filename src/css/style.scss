@@ -1119,9 +1119,15 @@ html {
             margin-top: 4rem;
             font-weight: inherit;
             font-size: 3.2rem;
+            font-feature-settings: 'palt' 1;
             line-height: 1.2;
 
             @include container;
+
+            strong {
+              font-weight: 300;
+            }
+
           }
 
           // 投稿データ
