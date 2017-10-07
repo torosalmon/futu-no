@@ -114,8 +114,8 @@
         <nav class="dir-map">
           <h6>
             <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path class="fill-color-border" d="M 4 2 L 19 2 L 19 21 L 4 21 L 4 2 ZM 3 1 L 3 21 L 5 23 L 21 23 L 21 3 L 19 1 L 3 1 Z" />
-              <path class="fill-color-accent" d="M 6 1 L 12 1 L 12 16 L 9 13 L 6 16 L 6 1 Z" />
+              <path class="fill-color-border" d="M 4 2 L 4 22 L 20 22 L 20 10 L 19 10 L 19 21 L 5 21 L 5 3 L 12 3 L 12 2 L 4 2 Z" />
+              <path class="fill-color-accent" d="M 12 2 L 12 10 L 20 10 L 12 2 Z" />
             </svg>
             Pages
           </h6>

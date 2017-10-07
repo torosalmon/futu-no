@@ -30,7 +30,7 @@ html {
                'Droid Sans',
                sans-serif;
   font-weight: 400;
-  font-feature-settings: 'pkna' 1;
+  // font-feature-settings: 'palt' 1;
    -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.8;
@@ -66,23 +66,6 @@ html {
   src: local('Helvetica Neue Regular');
   font-family: 'Helvetica Neue';
   font-weight: 200;
-}
-
-// IE11のみメイリオを適用
-@media all and (-ms-high-contrast: none) {
-  html {
-    font-family: Verdana,
-                 Meiryo,
-                 sans-serif;
-  }
-}
-
-@media all and (-ms-high-contrast: active) {
-  html {
-    font-family: Verdana,
-                 Meiryo,
-                 sans-serif;
-  }
 }
 
 // ==============
@@ -177,7 +160,7 @@ input[type='file'],
 textarea,
 select {
   width: 100%;
-  height: 2em;
+  height: 2rem;
 }
 
 input[type='image'] {
@@ -185,8 +168,8 @@ input[type='image'] {
 }
 
 textarea {
-  height: 10em;
-  min-height: 2em;
+  height: 10rem;
+  min-height: 2rem;
 }
 
 input[type='submit'],
@@ -221,7 +204,7 @@ input[type='time'],
 input[type='number'],
 textarea,
 select {
-  padding: 0 .4em;
+  padding: 0 .4rem;
   border: solid 1px $color-border;
 }
 
@@ -229,7 +212,7 @@ input[type='submit'],
 input[type='reset'],
 input[type='button'],
 button {
-  padding: 1em;
+  padding: 1rem;
   background: $color-border;
   border: none;
 }
@@ -283,11 +266,11 @@ iframe {
 
 .svg-icon {
 
-  .fill-color-background   { fill:   $color-background; }
-  .fill-color-border       { fill:   $color-border;     }
-  .fill-color-text         { fill:   $color-text;       }
-  .fill-color-accent       { fill:   $color-accent;     }
-  .fill-color-sub          { fill:   $color-sub;        }
+  .fill-color-background   { fill: $color-background;   }
+  .fill-color-border       { fill: $color-border;       }
+  .fill-color-text         { fill: $color-text;         }
+  .fill-color-accent       { fill: $color-accent;       }
+  .fill-color-sub          { fill: $color-sub;          }
   .stroke-color-background { stroke: $color-background; }
   .stroke-color-border     { stroke: $color-border;     }
   .stroke-color-text       { stroke: $color-text;       }
@@ -318,7 +301,7 @@ html {
       left: 0;
       z-index: 2;
       width: 100%;
-      height: 5em;
+      height: 5rem;
       background: $color-background;
       // border-top - JSで取得して<meta name="theme-color">に代入しているので必須
       border-top: solid 4px $color-accent;
@@ -347,7 +330,7 @@ html {
 
         h1 {
           overflow: hidden;
-          margin-top: .4em;
+          margin-top: .4rem;
           opacity: 0;
           transform: translate(16px, -8px);
           font-weight: inherit;
@@ -403,16 +386,17 @@ html {
             position: relative;
 
             &:not(:first-child) {
-              padding-left: 1em;
+              margin-left: .75rem;
+              padding-left: 2rem;
 
               &::before {
                 content: '';
                 position: absolute;
                 top: 50%;
                 left: 0;
-                width: .5em;
-                height: .5em;
-                margin-top: -.25em;
+                width: .5rem;
+                height: .5rem;
+                margin-top: -.25rem;
                 transform: rotate(45deg);
                 border-style: solid;
                 border-width: 1px;
@@ -465,9 +449,9 @@ html {
 
           svg {
             display: inline-block;
-            width: 1.6em;
-            height: 1.6em;
-            margin-bottom: .4em;
+            width: 1.6rem;
+            height: 1.6rem;
+            margin-bottom: .4rem;
           }
 
         }
@@ -489,14 +473,14 @@ html {
         }
 
           li {
-            width: 5em;
+            width: 5rem;
             border-left: solid 1px $color-border;
           }
 
             a {
               display: block;
               height: 100%;
-              padding: .8em .4em 0 .4em;
+              padding: .8rem .4rem 0 .4rem;
               text-align: center;
               text-decoration: none;
               line-height: 1;
@@ -504,16 +488,16 @@ html {
 
               svg {
                 display: inline-block;
-                width: 1.6em;
-                height: 1.6em;
-                margin-bottom: .4em;
+                width: 1.6rem;
+                height: 1.6rem;
+                margin-bottom: .4rem;
               }
 
               span {
                 display: block;
 
                 &.notification {
-                  min-width: .8em;
+                  min-width: .8rem;
                   padding: 2px;
                   background: $color-accent;
                   border-radius: 2px;
@@ -533,12 +517,12 @@ html {
         justify-content: center;
         align-items: center;
         order: 1;
-        width: 5em;
+        width: 5rem;
 
         div {
           position: relative;
-          width: 3em;
-          height: 3em;
+          width: 3rem;
+          height: 3rem;
         }
 
           span {
@@ -554,8 +538,8 @@ html {
             transition: .3s $easing;
             transition-property: opacity, transform;
 
-            &:nth-of-type(1) { transform: translateY(-.4em); }
-            &:nth-of-type(3) { transform: translateY(.4em);  }
+            &:nth-of-type(1) { transform: translateY(-.4rem); }
+            &:nth-of-type(3) { transform: translateY(.4rem);  }
 
           }
 
@@ -583,7 +567,7 @@ html {
       right: 0;
       z-index: 3;
       width: 100%;
-      height: 5em;
+      height: 5rem;
       background: $color-background;
       transform: translateX(100%);
       transform-origin: 100% 50%;
@@ -631,7 +615,7 @@ html {
 
           &:nth-of-type(2) {
             position: relative;
-            width: 5em;
+            width: 5rem;
 
             &::before {
               content: '';
@@ -654,7 +638,7 @@ html {
           }
 
           &:nth-of-type(3) {
-            width: 5em;
+            width: 5rem;
 
             .close {
               cursor: pointer;
@@ -695,7 +679,7 @@ html {
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      padding-top: 5em;
+      padding-top: 5rem;
       background: $color-background;
       transition: opacity .6s $easing;
 
@@ -737,8 +721,8 @@ html {
           // ===================
 
           .latest-1 {
-            margin-top: 4em;
-            padding-bottom: 4em;
+            margin-top: 4rem;
+            padding-bottom: 4rem;
             border-bottom: solid 1px $color-border;
 
             section {
@@ -748,7 +732,7 @@ html {
                 flex-flow: row nowrap;
                 align-items: center;
                 position: relative;
-                padding-right: 2em;
+                padding-right: 2rem;
                 text-decoration: none;
 
                 &::after {
@@ -756,9 +740,9 @@ html {
                   position: absolute;
                   top: 50%;
                   right: 0;
-                  width: 1em;
-                  height: 1em;
-                  margin-top: -.5em;
+                  width: 1rem;
+                  height: 1rem;
+                  margin-top: -.5rem;
                   transform: rotate(45deg);
                   border-style: solid;
                   border-width: 1px;
@@ -790,7 +774,7 @@ html {
 
                 .meta {
                   width: 60%;
-                  padding-left: 4em;
+                  padding-left: 4rem;
 
                   time {
                     font-size: 1.2rem;
@@ -811,7 +795,7 @@ html {
           // =====================
 
           .latest-2 {
-            margin-top: 4em;
+            margin-top: 4rem;
 
             @media(max-width: 768px) {
               width: 100%;
@@ -835,7 +819,7 @@ html {
                 flex-flow: row nowrap;
                 align-items: center;
                 position: relative;
-                padding-right: 2em;
+                padding-right: 2rem;
                 text-decoration: none;
 
                 &::after {
@@ -843,9 +827,9 @@ html {
                   position: absolute;
                   top: 50%;
                   right: 0;
-                  width: 1em;
-                  height: 1em;
-                  margin-top: -.5em;
+                  width: 1rem;
+                  height: 1rem;
+                  margin-top: -.5rem;
                   transform: rotate(45deg);
                   border-style: solid;
                   border-width: 1px;
@@ -877,7 +861,7 @@ html {
 
                 .meta {
                   width: 80%;
-                  padding-left: 2em;
+                  padding-left: 2rem;
                   line-height: 1.2;
 
                   time {
@@ -899,7 +883,7 @@ html {
           // ==================
 
           .dir-map {
-            margin-top: 4em;
+            margin-top: 4rem;
 
             @media(max-width: 768px) {
               width: 100%;
@@ -912,7 +896,7 @@ html {
             section {
 
               &:not(:nth-of-type(1)) {
-                margin-top: 2em;
+                margin-top: 2rem;
               }
 
               h6 {
@@ -921,23 +905,23 @@ html {
 
                 svg {
                   display: inline-block;
-                  width: 2em;
-                  height: 2em;
-                  margin-right: 1em;
+                  width: 2rem;
+                  height: 2rem;
+                  margin-right: .5rem;
                   vertical-align: middle;
                 }
 
               }
 
               ul {
-                margin-left: 1em;
+                margin-left: 3.2rem;
                 border-left: dotted 1px $color-border;
                 list-style: none;
               }
 
                 li {
                   position: relative;
-                  padding-left: 2.8em;
+                  padding-left: .8rem;
                   font-size: 1rem;
                 }
 
@@ -966,7 +950,7 @@ html {
           justify-content: space-between;
 
           section {
-            margin-top: 4em;
+            margin-top: 4rem;
             text-align: center;
             transition: .6s $easing;
             transition-property: width, height;
@@ -981,7 +965,7 @@ html {
 
             // 見出し
             .heading {
-              margin-bottom: 2em;
+              margin-bottom: 2rem;
               font-size: 1.6rem;
               text-align: center;
               line-height: 1.2;
@@ -992,7 +976,7 @@ html {
 
                 // アイキャッチ
                 .eyecatch {
-                  margin-bottom: 2em;
+                  margin-bottom: 3rem;
 
                   @media(max-width: 768px) {
                     text-align: center;
@@ -1009,7 +993,7 @@ html {
                 strong {
                   display: block;
                   position: relative;
-                  padding-bottom: .4em;
+                  padding-bottom: .8rem;
 
                   &::before,
                   &::after {
@@ -1055,8 +1039,8 @@ html {
                 display: inline;
 
                 &:not(:nth-of-type(1)) {
-                  margin-left: .2em;
-                  padding-left: .4em;
+                  margin-left: .2rem;
+                  padding-left: .4rem;
                   border-left: solid 1px $color-border;
                 }
 
@@ -1087,7 +1071,7 @@ html {
           .eyecatch {
             position: relative;
             margin: 0;
-            padding: 2em 5%;
+            padding: 2rem 5%;
             background: fixed 50% 50% / cover;
             opacity: 0;
             text-align: center;
@@ -1132,7 +1116,7 @@ html {
 
           // 見出し
           .heading {
-            margin-top: 2em;
+            margin-top: 4rem;
             font-weight: inherit;
             font-size: 3.2rem;
             line-height: 1.2;
@@ -1146,20 +1130,20 @@ html {
             flex-flow: row nowrap;
             justify-content: flex-end;
             align-items: center;
-            margin-top: 1em;
-            margin-bottom: 4em;
-            padding: .8em 0;
+            margin-top: 1rem;
+            margin-bottom: 4rem;
+            padding: .8rem 0;
             border-top: solid 1px $color-border;
             font-size: 1.2rem;
 
             @include container;
 
             dt {
-              margin-right: 1em;
+              margin-right: 1rem;
 
               svg {
-                width: 2em;
-                height: 2em;
+                width: 2rem;
+                height: 2rem;
                 vertical-align: middle;
               }
 
@@ -1167,10 +1151,10 @@ html {
 
             dd {
               position: relative;
-              padding-left: 1em;
+              padding-left: 1rem;
 
               &:not(:last-child) {
-                margin-right: 2em;
+                margin-right: 2rem;
               }
 
               &::before {
@@ -1207,7 +1191,7 @@ html {
             h2 { font-size: 3.2rem; }
             h3 { font-size: 2.8rem; }
             h4 { font-size: 2.4rem; }
-            h5 { font-size:   2rem; }
+            h5 { font-size: 2rem; }
             h6 { font-size: 1.6rem; }
 
             h1,
@@ -1223,12 +1207,12 @@ html {
             table,
             blockquote,
             pre {
-              margin-top: 2em;
+              margin-top: 2rem;
             }
 
             ul,
             ol {
-              padding-left: 2em;
+              padding-left: 2rem;
 
               &.inline {
                 padding-left: 0;
@@ -1237,7 +1221,7 @@ html {
                   display: inline;
 
                   &:not(:first-child) {
-                    margin-left: 1em;
+                    margin-left: 1rem;
                   }
 
                 }
@@ -1253,7 +1237,7 @@ html {
 
               th,
               td {
-                padding: .2em 1em;
+                padding: .2rem 1rem;
               }
 
               th {
@@ -1272,7 +1256,7 @@ html {
 
             blockquote {
               position: relative;
-              padding: 1em;
+              padding: 1rem;
               background: rgba(0, 0, 0, .4);
               border-radius: 4px;
 
@@ -1280,9 +1264,9 @@ html {
                 content: '❝';
                 display: block;
                 position: absolute;
-                top: -.8em;
+                top: -.8rem;
                 left: 50%;
-                margin-left: -.5em;
+                margin-left: -.5rem;
                 font-size: 6.4rem;
               }
 
@@ -1299,7 +1283,7 @@ html {
               position: relative;
               width: 50%;
               height: 2px;
-              margin: 4em auto;
+              margin: 4rem auto;
               background: $color-border;
               border: none;
             }
@@ -1307,7 +1291,7 @@ html {
           }
 
           .node {
-            margin-top: 8em;
+            margin-top: 8rem;
 
             @include container;
 
@@ -1316,14 +1300,14 @@ html {
 
               dt,
               dd {
-                padding-top: .5em;
+                padding-top: .5rem;
                 border-bottom: dotted 1px $color-border;
               }
 
               dt {
                 float: left;
                 clear: left;
-                width: 8em;
+                width: 8rem;
 
                 &::after {
                   content: ': ';
@@ -1346,12 +1330,12 @@ html {
 
           // コメント
           .article-comment {
-            margin-top: 8em;
+            margin-top: 8rem;
 
             @include container;
 
             h6 {
-              margin-bottom: 1em;
+              margin-bottom: 1rem;
               font-size: 1.6rem;
               text-align: center;
             }
@@ -1374,7 +1358,7 @@ html {
 
                 li {
                   clear: both;
-                  padding-top: 1em;
+                  padding-top: 1rem;
                 }
 
                   // アバター
@@ -1396,7 +1380,7 @@ html {
                   article {
                     position: relative;
                     width: 76%;
-                    padding: 1em 2em .5em 2em;
+                    padding: 1rem 2rem .5rem 2rem;
                     border: solid 1px $color-border;
                     border-radius: 4px;
                   }
@@ -1407,9 +1391,9 @@ html {
                     article::before {
                       content: '';
                       position: absolute;
-                      top: 2em;
+                      top: 2rem;
                       border-style: solid;
-                      border-width: .4em;
+                      border-width: .4rem;
                       border-color: transparent;
                     }
 
@@ -1421,7 +1405,7 @@ html {
                       font-size: 1.2rem;
 
                       p:not(:first-child) {
-                        margin-top: 1em;
+                        margin-top: 1rem;
                       }
 
                     }
@@ -1442,7 +1426,7 @@ html {
 
                       // 返信
                       .reply {
-                        margin-left: 2em;
+                        margin-left: 2rem;
 
                         .comment-reply-link {
                           text-decoration: none;
@@ -1465,8 +1449,8 @@ html {
             .comment-respond {
               clear: both;
               position: relative;
-              margin: 2em auto 0 auto;
-              padding-top: 5em;
+              margin: 2rem auto 0 auto;
+              padding-top: 4rem;
               font-size: 1.2;
               line-height: 1.2;
 
@@ -1475,9 +1459,9 @@ html {
                 position: absolute;
                 top: 0;
                 left: 50%;
-                margin-left: -1em;
+                margin-left: -1rem;
                 border-style: solid;
-                border-width: 1em;
+                border-width: 1rem;
                 border-color: transparent transparent $color-border transparent;
               }
 
@@ -1491,7 +1475,7 @@ html {
 
                 // 既にログイン中の案内
                 .logged-in-as {
-                  margin-bottom: 1em;
+                  margin-bottom: 1rem;
                   text-align: right;
                 }
 
@@ -1505,13 +1489,13 @@ html {
 
                     &:nth-of-type(1) {
                       flex-grow: 1;
-                      padding: .4em 2em;
+                      padding: .4rem 2rem;
                       text-align: center;
                     }
 
                     &:nth-of-type(2) {
                       width: 60%;
-                      padding: .4em 0;
+                      padding: .4rem 0;
                     }
 
                   }
@@ -1526,11 +1510,11 @@ html {
                     }
 
                 .form-submit {
-                  padding-top: 1em;
+                  padding-top: 1rem;
                   text-align: right;
 
                   input[type='submit'] {
-                    padding: 1em 4em;
+                    padding: 1rem 4rem;
                     background: $color-sub;
                     color: $color-background;
                   }
@@ -1545,7 +1529,7 @@ html {
 
           // 隣接リンク
           .adjacent-links {
-            margin-top: 4em;
+            margin-top: 4rem;
 
             @include container;
 
@@ -1569,7 +1553,7 @@ html {
 
                 a {
                   display: block;
-                  padding: 2em;
+                  padding: 2rem;
                   text-decoration: none;
 
                   &:hover {
@@ -1581,7 +1565,7 @@ html {
                   img {
                     display: block;
                     max-width: 50%;
-                    margin: 0 auto 1em auto;
+                    margin: 0 auto 1rem auto;
                   }
 
           }
@@ -1594,7 +1578,7 @@ html {
 
         // エラー
         .error {
-          margin-top: 8em;
+          margin-top: 8rem;
 
           h2 {
             font-size: 4rem;
@@ -1604,7 +1588,7 @@ html {
 
         // ページネーション
         .pagenation {
-          margin-top: 2em;
+          margin-top: 2rem;
           text-align: center;
 
           ul {
@@ -1616,14 +1600,14 @@ html {
               display: inline-block;
 
               &.current {
-                padding: .8em;
+                padding: .8rem;
                 border-bottom: solid 4px $color-accent;
               }
 
             }
 
               a {
-                padding: .8em;
+                padding: .8rem;
                 text-decoration: none;
               }
 
@@ -1636,8 +1620,8 @@ html {
       // =============================================================================
 
       footer {
-        margin-top: 8em;
-        padding: 1em;
+        margin-top: 8rem;
+        padding: 1rem;
         background: $color-text;
         font-size: 1.2rem;
         text-align: center;
@@ -1694,7 +1678,7 @@ html {
       z-index: 1;
       width: 100vw;
       max-width: 480px;
-      padding-top: 5em;
+      padding-top: 5rem;
       // JSで取得して<meta name="theme-color">に代入しているので必須
       background: $color-sub;
       transform: translateX(-100%);
@@ -1726,7 +1710,7 @@ html {
         .author {
           display: flex;
           flex-flow: row wrap;
-          padding: 2em 2em 0 2em;
+          padding: 2rem 2rem 0 2rem;
           line-height: 1.2;
 
           .avatar {
@@ -1748,7 +1732,7 @@ html {
             justify-content: center;
             align-items: center;
             flex-grow: 1;
-            padding: 1em;
+            padding: 1rem;
             background: rgba(255, 255, 255, .2);
             border: solid 1px $color-sub;
             font-weight: bold;
@@ -1759,7 +1743,7 @@ html {
           .comment {
             flex-grow: 1;
             width: 100%;
-            padding: 3em 1em;
+            padding: 40px 2rem 2rem 2rem;
             background: rgba(255, 255, 255, .2);
             border: solid 1px $color-sub;
             font-size: 1.2rem;
@@ -1783,7 +1767,7 @@ html {
               a {
                 display: block;
                 height: 100%;
-                padding: 1em;
+                padding: 1rem;
                 background: rgba(255, 255, 255, .3);
                 text-decoration: none;
                 color: $color-background;
@@ -1815,23 +1799,23 @@ html {
         .dir-map {
 
           h6 {
-            padding: 2em 2em 0 1em;
+            padding: 3rem 2rem 0 2rem;
             border-bottom: solid 1px rgba(0, 0, 0, .2);
             font-weight: inherit;
             font-size: 1.6rem;
             color: $color-background;
 
             svg {
-              width: 1em;
-              height: 1em;
+              width: 2rem;
+              height: 2rem;
               vertical-align: middle;
             }
 
           }
 
           ul {
-            padding-right: 2em;
-            padding-left: 2em;
+            padding-right: 2rem;
+            padding-left: 2rem;
             border-top: solid 1px rgba(255, 255, 255, .2);
             list-style: none;
 
@@ -1843,14 +1827,15 @@ html {
 
             li {
               position: relative;
-              margin: .4em 0 .4em 1em;
+              margin: .4em 0 .4em 2.4rem;
               font-size: 1.2rem;
               color: $color-background;
 
               &::before {
-                content: '* ';
+                content: '*';
                 position: absolute;
-                left: -1em;
+                top: calc(50% - .8rem);
+                left: -1.6rem;
               }
 
             }
@@ -1860,7 +1845,7 @@ html {
                 margin-left: 0;
 
                 &::before {
-                  content: '- ';
+                  content: '-';
                 }
 
               }
@@ -1993,10 +1978,10 @@ html {
 
           h6 {
             display: inline-block;
-            margin-bottom: 1em;
+            margin-bottom: 1rem;
             padding-left: 10%;
             opacity: 0;
-            transform: translateX(-1em);
+            transform: translateX(-1rem);
             font-size: 1.2rem;
             text-align: left;
             transition: 0s 0s step-start;
@@ -2030,16 +2015,16 @@ html {
           display: flex;
           flex-flow: row nowrap;
           justify-content: flex-end;
-          margin-top: 1em;
+          margin-top: 1rem;
           padding-right: 10%;
           list-style: none;
 
           li {
             overflow: hidden;
             position: relative;
-            width: 3em;
-            height: 3em;
-            margin-left: 1em;
+            width: 3rem;
+            height: 3rem;
+            margin-left: 1rem;
             border-radius: 100%;
           }
 
@@ -2124,8 +2109,8 @@ html {
           position: absolute;
           top: 0;
           right: 0;
-          width: 5em;
-          height: 5em;
+          width: 5rem;
+          height: 5rem;
 
           &::before,
           &::after {

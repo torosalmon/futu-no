@@ -22,7 +22,7 @@ try {
     }
   });
   window.addEventListener('test', null, opts);
-} catch (e) {}
+} catch(e) {}
 
 // =====================
 // requestAnimationFrame
@@ -101,7 +101,7 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
 
       // 表示切り替え
       function toggle() {
-        if (window.pageYOffset > offset) {
+        if(window.pageYOffset > offset) {
           $body.classList.add('show-scroll-header');
         } else {
           $body.classList.remove('show-scroll-header');
@@ -120,7 +120,7 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
       $toggle.addEventListener('click', function() {
 
         // 開く
-        if (!$body.classList.contains('show-drawer')) {
+        if(!$body.classList.contains('show-drawer')) {
           // ステータス変更
           $body.classList.remove('show-search-form');
           $body.classList.add('show-drawer');
@@ -203,9 +203,9 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
       function background_scroll(arg_state) {
 
         // 開始
-        if (arg_state === 'start') {
+        if(arg_state === 'start') {
           timer = setInterval(function() {
-            if (window.pageYOffset === document.body.scrollHeight - window.innerHeight) {
+            if(window.pageYOffset === document.body.scrollHeight - window.innerHeight) {
               window.scrollTo(0, 0);
             } else {
               window.scrollBy(0, 1);
@@ -214,7 +214,7 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
         }
 
         // 停止
-        else if (arg_state === 'stop') {
+        else if(arg_state === 'stop') {
           clearInterval(timer);
         }
 
@@ -232,10 +232,10 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
 
     constructor() {
       this.smooth_scroll();
-      if (document.querySelector('pre code') != null) {
+      if(document.querySelector('pre code') != null) {
         this.source_highlight();
       }
-      if (document.getElementsByTagName('video')[0] != null) {
+      if(document.getElementsByTagName('video')[0] != null) {
         this.inline_playing_video();
       }
     }
@@ -298,7 +298,7 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
 
     inline_playing_video() {
       const $video = document.getElementsByTagName('video');
-      for (let i = 0; i < $video.length; i++) {
+      for(let i = 0; i < $video.length; i++) {
         $video[i].setAttribute('webkit-playsinline', 'webkit-playsinline');
       }
     }
