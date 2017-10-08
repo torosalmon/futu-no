@@ -1727,8 +1727,14 @@ html {
             position: relative;
             z-index: 1;
             box-shadow: 0 16px 16px rgba(0, 0, 0, .2);
-            transform: scale(1.2);
+            transform: translateX(-24px) scale(1.2);
             border: solid 4px $color-sub;
+            transition: .9s $easing;
+
+            // ドロワー展開
+            body.show-drawer & {
+              transform: translateX(0) scale(1.2);
+            }
 
             img {
               max-width: 80px;
@@ -1739,6 +1745,7 @@ html {
 
           .name {
             display: flex;
+            flex-flow: column nowrap;
             justify-content: center;
             align-items: center;
             flex-grow: 1;
@@ -1748,6 +1755,18 @@ html {
             font-weight: bold;
             font-size: 1.2rem;
             color: $color-background;
+
+            &::before {
+              content: 'Name';
+              display: block;
+              padding: 2px 2rem 2px 2rem;
+              background: $color-accent;
+              font-weight: normal;
+              font-size: .8rem;
+              text-transform: uppercase;
+              line-height: 1;
+            }
+
           }
 
           .comment {
@@ -1818,6 +1837,7 @@ html {
             svg {
               width: 2rem;
               height: 2rem;
+              margin-right: .4rem;
               vertical-align: middle;
             }
 
@@ -1837,7 +1857,7 @@ html {
 
             li {
               position: relative;
-              margin: .4em 0 .4em 2.4rem;
+              margin: .4em 0 .4em 3rem;
               font-size: 1.2rem;
               color: $color-background;
 
@@ -1845,7 +1865,7 @@ html {
                 content: '*';
                 position: absolute;
                 top: calc(50% - .8rem);
-                left: -1.6rem;
+                left: -2.4rem;
               }
 
             }

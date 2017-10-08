@@ -222,6 +222,7 @@ echo <<< EOM
       header .tool span.notification { background-color: {$theme_customize__setting__colors__accent}; }
       .search-form .flex-item:nth-of-type(1) input[type='search']:focus { border-bottom-color: {$theme_customize__setting__colors__accent}; }
       main .contents .pagenation li.current { border-bottom-color: {$theme_customize__setting__colors__accent}; }
+      .drawer .author .name::before { background: {$theme_customize__setting__colors__accent}; }
 
       /* sub color */
       .search-form { border-top-color: {$theme_customize__setting__colors__sub}; }
@@ -574,12 +575,12 @@ EOM;
 
       // 年別アーカイブ
       if(is_year()) {
-        $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . get_year_link(false, false) . '" itemprop="url"><span itemprop="name">' . get_query_var('year') . '</span></a></li>' . "\n";
+        $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><span itemprop="name">' . get_query_var('year') . '</span></li>' . "\n";
       }
 
       // 月別アーカイブ
       else if(is_month()) {
-        $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . get_year_link(false, false) . '" itemprop="url"><span itemprop="name">' . get_query_var('year') . '</span></a>.<a href="' . get_month_link(false, false) . '" itemprop="url"><span itemprop="title">' . get_query_var('monthnum') . '</span></a></li>' . "\n";
+        $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><span itemprop="name">' . get_query_var('year') . '</span>.<span itemprop="title">' . get_query_var('monthnum') . '</span></li>' . "\n";
       }
     }
 
