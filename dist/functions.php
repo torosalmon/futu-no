@@ -50,7 +50,7 @@
       'settings'    => 'theme_customize__setting__title_tagline__html_minify',
       'type'        => 'checkbox',
       'label'       => 'HTMLを圧縮する (HTML minify)',
-      'description' => '【有効の場合】<br>HTMLのインデントを削除して出力します。これによりHTMLファイルサイズがわずかですがダウンします。<br>【無効の場合】<br>インデントされたHTMLを出力します。',
+      'description' => '【有効の場合】<br>出力HTMLをminifyします。<br>【無効の場合】<br>インデントされたHTMLを出力します。',
     ));
 
     // 色 - 動的CSS出力の有効化
@@ -153,7 +153,7 @@
     $theme_customize__setting__colors__background = get_theme_mod('theme_customize__setting__colors__background', '#ffffff');
     $theme_customize__setting__colors__border     = get_theme_mod('theme_customize__setting__colors__border', '#dddddd');
     $theme_customize__setting__colors__text       = get_theme_mod('theme_customize__setting__colors__text', '#444444');
-    $theme_customize__setting__colors__accent     = get_theme_mod('theme_customize__setting__colors__accent', '#b5fc49');
+    $theme_customize__setting__colors__accent     = get_theme_mod('theme_customize__setting__colors__accent', '#2dcec9');
     $theme_customize__setting__colors__sub        = get_theme_mod('theme_customize__setting__colors__sub', '#6a7375');
 
 echo <<< EOM
@@ -376,7 +376,6 @@ EOM;
     // $deps   : 依存スタイルシート識別名の配列（オプション）
     // $ver    : バージョン文字列。クエリーストリングに付加される。（オプション）
     // $media  : スタイルシートのメディア指定（オプション）
-    wp_enqueue_style('highlight.js', 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/monokai.min.css', array(), false, '');
     wp_enqueue_style('theme', get_template_directory_uri() . '/css/style.css', array(), false, '');
 
     // [JS]
@@ -386,8 +385,7 @@ EOM;
     // $ver       : バージョン文字列。クエリーストリングに付加される。（オプション）
     // $in_footer : trueで</body>前で読み込まれる。デフォルトはfalseで</head>の前のエリアで読み込まれる。（オプション）
     wp_enqueue_script('sweet-scroll', 'https://unpkg.com/sweet-scroll@2.2.1/sweet-scroll.min.js', array(), false, true);
-    wp_enqueue_script('highlight.js', 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js', array(), false, true);
-    wp_enqueue_script('theme', get_template_directory_uri() . '/js/script.js', array('highlight.js', 'sweet-scroll'), false, true);
+    wp_enqueue_script('theme', get_template_directory_uri() . '/js/script.js', array('sweet-scroll'), false, true);
 
     // コメントフォーム移動処理
     if(is_singular() && comments_open() && get_option('thread_comments')) {

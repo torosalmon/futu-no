@@ -232,9 +232,6 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
 
     constructor() {
       this.smooth_scroll();
-      if(document.querySelector('pre code') != null) {
-        this.source_highlight();
-      }
       if(document.getElementsByTagName('video')[0] != null) {
         this.inline_playing_video();
       }
@@ -278,18 +275,6 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
         // スクロールがキャンセルされた時
         cancelScroll: null
       });
-    }
-
-    // ================
-    // コードハイライト
-    // ================
-
-    // [API]
-    // highlight.js
-    // https://highlightjs.org/
-
-    source_highlight() {
-      hljs.initHighlightingOnLoad();
     }
 
     // ====================

@@ -57,7 +57,7 @@
 
       <!-- ページ案内 -->
       <div class="page-info">
-        <h1><a href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a></h1>
+        <h1><?php echo $meta['title']; ?></h1>
 <?php
   if(is_home()) {
 ?>
@@ -154,7 +154,7 @@
 
     <nav id="search" class="search-form">
       <form name="search" action="<?php echo esc_url(home_url('/')); ?>" method="get" role="search">
-        <div class="flex-item"><input type="search" name="s" value="<?php echo get_search_query(); ?>" placeholder="Search" required aria-required="true"></div>
+        <div class="flex-item"><input type="search" name="s" value="<?php echo get_search_query(); ?>" placeholder="検索ワードを入力" required aria-required="true"></div>
         <div class="flex-item"><input type="submit" value="🏄"></div>
         <div class="flex-item">
           <div class="close js-search-form-close"></div>

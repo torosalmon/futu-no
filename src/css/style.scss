@@ -365,7 +365,7 @@ html {
         .breadcrumb {
           overflow: hidden;
           opacity: 0;
-          transform: translateX(-16px);
+          transform: translateX(16px);
           text-overflow: ellipsis;
           white-space: nowrap;
           animation: header-read-breadcrumb-slide-in .6s .6s $easing both;
