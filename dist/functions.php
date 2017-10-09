@@ -106,7 +106,7 @@
     $wp_customize->add_setting('theme_customize__setting__colors__accent', array(
       'type'              => 'theme_mod',
       'sanitize_callback' => 'sanitize_hex_color',
-      'default'           => '#b5fc49',
+      'default'           => '#2dcec9',
     ));
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'control_accent', array(
       'section'  => 'colors',
@@ -118,7 +118,7 @@
     $wp_customize->add_setting('theme_customize__setting__colors__sub', array(
       'type'              => 'theme_mod',
       'sanitize_callback' => 'sanitize_hex_color',
-      'default'           => '#6a7375',
+      'default'           => '#657a87',
     ));
     $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'control_sub', array(
       'section'  => 'colors',
@@ -154,7 +154,7 @@
     $theme_customize__setting__colors__border     = get_theme_mod('theme_customize__setting__colors__border', '#dddddd');
     $theme_customize__setting__colors__text       = get_theme_mod('theme_customize__setting__colors__text', '#444444');
     $theme_customize__setting__colors__accent     = get_theme_mod('theme_customize__setting__colors__accent', '#2dcec9');
-    $theme_customize__setting__colors__sub        = get_theme_mod('theme_customize__setting__colors__sub', '#6a7375');
+    $theme_customize__setting__colors__sub        = get_theme_mod('theme_customize__setting__colors__sub', '#657a87');
 
 echo <<< EOM
     <style>
