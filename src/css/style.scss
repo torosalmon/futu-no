@@ -22,6 +22,7 @@
 html {
   font-family: -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular',
                'Helvetica Neue',
+               'YakuHanJP',
                'Original Yu Gothic', 'Yu Gothic',
                '游ゴシック体', YuGothic,
                '游ゴシック', 'Yu Gothic',
@@ -36,6 +37,29 @@ html {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.8;
   color: $color-text;
+}
+
+// Helvetica Neue
+@font-face {
+  src: local('Helvetica Neue Regular');
+  font-family: 'Helvetica Neue';
+  font-weight: 100;
+}
+
+@font-face {
+  src: local('Helvetica Neue Regular');
+  font-family: 'Helvetica Neue';
+  font-weight: 200;
+}
+
+// Yaku Han JP
+@font-face {
+  src: url('https://cdn.jsdelivr.net/npm/yakuhanjp@2.0.0/dist/fonts/YakuHanJP/YakuHanJP-Light.eot');
+  src: url('https://cdn.jsdelivr.net/npm/yakuhanjp@2.0.0/dist/fonts/YakuHanJP/YakuHanJP-Light.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/npm/yakuhanjp@2.0.0/dist/fonts/YakuHanJP/YakuHanJP-Light.woff') format('woff');
+  font-display: swap;
+  font-family: 'YakuHanJP';
+  font-weight: 300;
 }
 
 // Chrome 游ゴシック font-weightかすれ対策
@@ -55,18 +79,6 @@ html {
   src: local('Yu Gothic');
   font-family: 'Original Yu Gothic';
   font-weight: bold;
-}
-
-@font-face {
-  src: local('Helvetica Neue Regular');
-  font-family: 'Helvetica Neue';
-  font-weight: 100;
-}
-
-@font-face {
-  src: local('Helvetica Neue Regular');
-  font-family: 'Helvetica Neue';
-  font-weight: 200;
 }
 
 // ==============
@@ -1764,7 +1776,7 @@ html {
               font-weight: normal;
               font-size: .8rem;
               text-transform: uppercase;
-              line-height: 1;
+              line-height: 1.2;
             }
 
           }
