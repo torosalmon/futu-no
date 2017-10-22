@@ -8,6 +8,11 @@
  * [futu-no Style sheet]
  * @URL     : http://trs.mn/blog/futu-no/
  * @License : MIT License
+ *
+ * [Yaku Han JP]
+ * @URL     : https://qrac.github.io/yakuhanjp/
+ * @Author  : Qrac
+ * @License : SIL OFL 1.1
  * *****************************************************************************
 !*/
 
@@ -19,24 +24,14 @@
 // 全般指定
 // ========
 
-html {
-  font-family: -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular',
-               'Helvetica Neue',
-               'YakuHanJP',
-               'Original Yu Gothic', 'Yu Gothic',
-               '游ゴシック体', YuGothic,
-               '游ゴシック', 'Yu Gothic',
-               Arial,
-               'メイリオ', Meiryo,
-               Roboto,
-               'Droid Sans',
-               sans-serif;
-  font-weight: 400;
-  // font-feature-settings: 'palt' 1;
-   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.8;
-  color: $color-text;
+// Yaku Han JP
+@font-face {
+  src: url('https://cdn.jsdelivr.net/npm/yakuhanjp@2.0.0/dist/fonts/YakuHanJP/YakuHanJP-Light.eot');
+  src: url('https://cdn.jsdelivr.net/npm/yakuhanjp@2.0.0/dist/fonts/YakuHanJP/YakuHanJP-Light.woff2') format('woff2'),
+       url('https://cdn.jsdelivr.net/npm/yakuhanjp@2.0.0/dist/fonts/YakuHanJP/YakuHanJP-Light.woff') format('woff');
+  font-family: 'YakuHanJP';
+  font-weight: 300;
+  font-display: swap;
 }
 
 // Helvetica Neue
@@ -52,33 +47,51 @@ html {
   font-weight: 200;
 }
 
-// Yaku Han JP
+// 游ゴシック（Chrome Hack）
 @font-face {
-  src: url('https://cdn.jsdelivr.net/npm/yakuhanjp@2.0.0/dist/fonts/YakuHanJP/YakuHanJP-Light.eot');
-  src: url('https://cdn.jsdelivr.net/npm/yakuhanjp@2.0.0/dist/fonts/YakuHanJP/YakuHanJP-Light.woff2') format('woff2'),
-       url('https://cdn.jsdelivr.net/npm/yakuhanjp@2.0.0/dist/fonts/YakuHanJP/YakuHanJP-Light.woff') format('woff');
-  font-display: swap;
-  font-family: 'YakuHanJP';
+  src: local('Yu Gothic Medium');
+  font-family: 'Yu Gothic';
+  font-weight: 100;
+}
+
+@font-face {
+  src: local('Yu Gothic Medium');
+  font-family: 'Yu Gothic';
+  font-weight: 200;
+}
+
+@font-face {
+  src: local('Yu Gothic Medium');
+  font-family: 'Yu Gothic';
   font-weight: 300;
 }
 
-// Chrome 游ゴシック font-weightかすれ対策
 @font-face {
-  src: local('Yu Gothic');
-  font-family: 'Original Yu Gothic';
-  font-weight: 300;
+  src: local('Yu Gothic Medium');
+  font-family: 'Yu Gothic';
+  font-weight: 400;
 }
 
 @font-face {
-  src: local('Yu Gothic');
-  font-family: 'Original Yu Gothic';
-  font-weight: 500;
-}
-
-@font-face {
-  src: local('Yu Gothic');
-  font-family: 'Original Yu Gothic';
+  src: local('Yu Gothic Bold');
+  font-family: 'Yu Gothic';
   font-weight: bold;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular',
+               'Helvetica Neue',
+               'YakuHanJP',
+               '游ゴシック体', YuGothic,
+               '游ゴシック', 'Yu Gothic',
+               'メイリオ', Meiryo,
+               sans-serif;
+  font-weight: 400;
+  // font-feature-settings: 'palt' 1;
+   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.8;
+  color: $color-text;
 }
 
 // ==============
@@ -787,12 +800,14 @@ html {
                 .meta {
                   width: 60%;
                   padding-left: 4rem;
+                  line-height: 1.2;
 
                   time {
                     font-size: 1.2rem;
                   }
 
                   h2 {
+                    font-weight: bold;
                     font-size: 1.6rem;
                   }
 
@@ -882,6 +897,7 @@ html {
                   }
 
                   h2 {
+                    font-weight: bold;
                     font-size: 1.2rem;
                   }
 
@@ -1007,6 +1023,7 @@ html {
                   display: block;
                   position: relative;
                   padding-bottom: .8rem;
+                  font-weight: 400;
 
                   &::before,
                   &::after {
@@ -1138,7 +1155,7 @@ html {
             @include container;
 
             strong {
-              font-weight: 300;
+              font-weight: 400;
             }
 
           }
@@ -1220,6 +1237,7 @@ html {
             h5,
             h6 {
               margin-top: 4rem;
+              font-weight: bold;
             }
 
             p,
@@ -1472,7 +1490,7 @@ html {
               clear: both;
               position: relative;
               margin: 2rem auto 0 auto;
-              padding-top: 4rem;
+              padding-top: 3rem;
               font-size: 1.2;
               line-height: 1.2;
 
@@ -1489,6 +1507,7 @@ html {
 
               // 見出し
               .comment-reply-title {
+                font-weight: inherit;
                 text-align: center;
               }
 
