@@ -807,7 +807,7 @@ html {
                   }
 
                   h2 {
-                    font-weight: bold;
+                    font-weight: 500;
                     font-size: 1.6rem;
                   }
 
@@ -897,7 +897,7 @@ html {
                   }
 
                   h2 {
-                    font-weight: bold;
+                    font-weight: 500;
                     font-size: 1.2rem;
                   }
 
@@ -1888,7 +1888,7 @@ html {
 
             li {
               position: relative;
-              margin: .4em 0 .4em 3rem;
+              margin: .4em 0 .4em 2.8rem;
               font-size: 1.2rem;
               color: $color-background;
 
@@ -1896,7 +1896,7 @@ html {
                 content: '*';
                 position: absolute;
                 top: calc(50% - .8rem);
-                left: -2.4rem;
+                left: -2rem;
               }
 
             }
