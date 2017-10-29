@@ -2,26 +2,26 @@
 /*!
  * *****************************************************************************
  * [futu-no]
- * @URL     : http://trs.mn/blog/futu-no/
- * @License : MIT License
+ * @URL:     http://trs.mn/blog/futu-no/
+ * @License: MIT License
  * *****************************************************************************
 !*/
 ?>
 <?php
 
-  // =============================================================================
-  // [管理 > 投稿]
-  // アイキャッチ設定
-  // =============================================================================
+  /* ========================================================================== */
+  /* [管理 > 投稿]                                                              */
+  /* アイキャッチ設定                                                           */
+  /* ========================================================================== */
 
   add_theme_support('post-thumbnails');
   add_image_size('640px', 640, 640, true);
   add_image_size('960px', 960, 960, true);
 
-  // =============================================================================
-  // [管理 > メディア]
-  // メディアアップローダーにSVGを追加
-  // =============================================================================
+  /* ========================================================================== */
+  /* [管理 > メディア]                                                          */
+  /* メディアアップローダーにSVGを追加                                          */
+  /* ========================================================================== */
 
   function set_mime_types($mimes) {
     $mimes['svg'] = 'image/svg+xml';
@@ -29,18 +29,18 @@
   }
   add_filter('upload_mimes', 'set_mime_types');
 
-  // =============================================================================
-  // [管理 > 外観]
-  // テーマカスタマイザー
-  // =============================================================================
+  /* ========================================================================== */
+  /* [管理 > 外観]                                                              */
+  /* テーマカスタマイザー                                                       */
+  /* ========================================================================== */
 
-  // ====================
-  // カスタマイズ項目登録
-  // ====================
+  /* ==================== */
+  /* カスタマイズ項目登録 */
+  /* ==================== */
 
   function theme_customize_register($wp_customize){
 
-    // サイト基本情報 - HTMLを圧縮する
+    /* サイト基本情報 - HTMLを圧縮する */
     $wp_customize->add_setting('theme_customize__setting__title_tagline__html_minify', array(
       'type'    => 'theme_mod',
       'default' => 'checked',
@@ -53,7 +53,7 @@
       'description' => '【有効の場合】<br>出力HTMLをminifyします。<br>【無効の場合】<br>インデントされたHTMLを出力します。',
     ));
 
-    // 色 - 動的CSS出力の有効化
+    /* 色 - 動的CSS出力の有効化 */
     $wp_customize->add_setting('theme_customize__setting__colors__dynamic_css_output', array(
       'type'    => 'theme_mod',
       'default' => 'checked',
@@ -66,7 +66,7 @@
       'description' => '【有効の場合】<br>wp_head()に動的CSSとして出力します。このページのカラーカスタマイズを反映するにはチェックを有効にする必要があります。<br>【無効の場合】<br>テーマディレクトリの「/css/_mixin.scss」で定義されたSCSS変数の色指定を反映します。静的CSS管理となり若干サイトパフォーマンスが向上しますが、SCSSコンパイル環境が必要になります。',
     ));
 
-    // 色 - バックグラウンド
+    /* 色 - バックグラウンド */
     $wp_customize->add_setting('theme_customize__setting__colors__background', array(
       'type'              => 'theme_mod',
       'sanitize_callback' => 'sanitize_hex_color',
@@ -78,7 +78,7 @@
       'label'    => 'バックグラウンド (background)',
     )));
 
-    // 色 - ボーダー
+    /* 色 - ボーダー */
     $wp_customize->add_setting('theme_customize__setting__colors__border', array(
       'type'              => 'theme_mod',
       'sanitize_callback' => 'sanitize_hex_color',
@@ -90,7 +90,7 @@
       'label'    => 'ボーダー (border)',
     )));
 
-    // 色 - テキスト
+    /* 色 - テキスト */
     $wp_customize->add_setting('theme_customize__setting__colors__text', array(
       'type'              => 'theme_mod',
       'sanitize_callback' => 'sanitize_hex_color',
@@ -102,7 +102,7 @@
       'label'    => 'テキスト (text)',
     )));
 
-    // 色 - アクセントカラー
+    /* 色 - アクセントカラー */
     $wp_customize->add_setting('theme_customize__setting__colors__accent', array(
       'type'              => 'theme_mod',
       'sanitize_callback' => 'sanitize_hex_color',
@@ -114,7 +114,7 @@
       'label'    => 'アクセントカラー (accent)',
     )));
 
-    // 色 - サブカラー
+    /* 色 - サブカラー */
     $wp_customize->add_setting('theme_customize__setting__colors__sub', array(
       'type'              => 'theme_mod',
       'sanitize_callback' => 'sanitize_hex_color',
@@ -126,7 +126,7 @@
       'label'    => 'サブカラー (sub)',
     )));
 
-    // 色 - オーバーレイ配色
+    /* 色 - オーバーレイ配色 */
     $wp_customize->add_setting('theme_customize__setting__colors__overlay_color', array(
       'type'    => 'theme_mod',
       'default' => 'dark',
@@ -145,9 +145,9 @@
   }
   add_action('customize_register', 'theme_customize_register');
 
-  // ======================
-  // テーマカスタマイズ出力
-  // ======================
+  /* ====================== */
+  /* テーマカスタマイズ出力 */
+  /* ====================== */
 
   function theme_customize_css() {
     $theme_customize__setting__colors__background = get_theme_mod('theme_customize__setting__colors__background', '#ffffff');
@@ -249,15 +249,15 @@ echo <<< EOM
 EOM;
   }
 
-  // 動的CSS出力オプションが有効の場合に実行
+  /* 動的CSS出力オプションが有効の場合に実行 */
   if(get_theme_mod('theme_customize__setting__colors__dynamic_css_output')) {
     add_action('wp_head', 'theme_customize_css');
   }
 
-  // =============================================================================
-  // [管理 > 外観 > テーマ]
-  // 固定ページのテンプレートを個別投稿テンプレートに統一
-  // =============================================================================
+  /* ========================================================================== */
+  /* [管理 > 外観 > テーマ]                                                     */
+  /* 固定ページのテンプレートを個別投稿テンプレートに統一                       */
+  /* ========================================================================== */
 
   function page_to_single($template) {
     if($template === '') {
@@ -267,10 +267,10 @@ EOM;
   }
   add_filter('page_template', 'page_to_single');
 
-  // =============================================================================
-  // [管理 > ユーザー]
-  // SNSマイページ入力欄拡張
-  // =============================================================================
+  /* ========================================================================== */
+  /* [管理 > ユーザー]                                                          */
+  /* SNSマイページ入力欄拡張                                                    */
+  /* ========================================================================== */
 
   function update_profile_fields($contactmethods) {
     $contactmethods['skype']       = 'Skype';
@@ -291,39 +291,39 @@ EOM;
   }
   add_filter('user_contactmethods', 'update_profile_fields', 10, 1);
 
-  // =============================================================================
-  // [管理 > ユーザー]
-  // プロフィール欄のHTMLを許可
-  // =============================================================================
+  /* ========================================================================== */
+  /* [管理 > ユーザー]                                                          */
+  /* プロフィール欄のHTMLを許可                                                 */
+  /* ========================================================================== */
 
   remove_filter('pre_user_description', 'wp_filter_kses');
 
-  // =============================================================================
-  // [フロントサイト]
-  // 構文をXHTMLからHTMLフォーマットへ変更
-  // =============================================================================
+  /* ========================================================================== */
+  /* [フロントサイト]                                                           */
+  /* 構文をXHTMLからHTMLフォーマットへ変更                                      */
+  /* ========================================================================== */
 
   remove_filter('the_content', 'convert_chars');
 
-  // =============================================================================
-  // [フロントサイト]
-  // 記事抜粋設定
-  // =============================================================================
+  /* ========================================================================== */
+  /* [フロントサイト]                                                           */
+  /* 記事抜粋設定                                                               */
+  /* ========================================================================== */
 
-  // 文字数
+  /* 文字数 */
   function new_excerpt_mblength($length) {
     return 100;
   }
   add_filter('excerpt_mblength', 'new_excerpt_mblength');
 
-  // 末尾に付加する文字列
+  /* 末尾に付加する文字列 */
   function new_excerpt_more($more) {
     return '...';
   }
   add_filter('excerpt_more', 'new_excerpt_more');
 
-  // #moreハッシュを削除
-  // http://webdesignrecipes.com/wordpress-functions-php-snipets/
+  /* #moreハッシュを削除                                          */
+  /* http://webdesignrecipes.com/wordpress-functions-php-snipets/ */
   function remove_more_jump_link($link) {
     $offset = strpos($link, '#more-');
     if($offset) {
@@ -336,69 +336,69 @@ EOM;
   }
   add_filter('the_content_more_link', 'remove_more_jump_link');
 
-  // =============================================================================
-  // [フロントサイト]
-  // wp_head(), wp_footer()設定
-  // =============================================================================
+  /* ========================================================================== */
+  /* [フロントサイト]                                                           */
+  /* wp_head(), wp_footer()設定                                                 */
+  /* ========================================================================== */
 
-  // ===============
-  // <title>自動生成
-  // ===============
+  /* =============== */
+  /* <title>自動生成 */
+  /* =============== */
 
   function nendebcom_theme_slug_setup() {
     add_theme_support('title-tag');
   }
   add_action('after_setup_theme', 'nendebcom_theme_slug_setup');
 
-  // 区切り文字の変更
+  /* 区切り文字の変更 */
   function nendebcom_title_separator($sep) {
     $sep = '|';
     return $sep;
   }
   add_filter('document_title_separator', 'nendebcom_title_separator');
 
-  // ================
-  // 不要なタグを削除
-  // ================
+  /* ================ */
+  /* 不要なタグを削除 */
+  /* ================ */
 
-  // WordPressバージョン
-  // <meta name="generator">
+  /* WordPressバージョン     */
+  /* <meta name="generator"> */
   remove_action('wp_head', 'wp_generator');
 
-  // ============
-  // 静的リソース
-  // ============
+  /* ============ */
+  /* 静的リソース */
+  /* ============ */
 
   function add_files() {
 
-    // [CSS]
-    // $handle : スタイルシート識別名
-    // $src    : URL
-    // $deps   : 依存スタイルシート識別名の配列（オプション）
-    // $ver    : バージョン文字列。クエリーストリングに付加される。（オプション）
-    // $media  : スタイルシートのメディア指定（オプション）
+    /* [CSS]                                                                     */
+    /* $handle: スタイルシート識別名                                             */
+    /* $src:    URL                                                              */
+    /* $deps:   依存スタイルシート識別名の配列（オプション）                     */
+    /* $ver:    バージョン文字列。クエリーストリングに付加される。（オプション） */
+    /* $media:  スタイルシートのメディア指定（オプション）                       */
     wp_enqueue_style('theme', get_template_directory_uri() . '/css/style.css', array(), false, '');
 
-    // [JS]
-    // $handle    : スクリプト識別名
-    // $src       : URL
-    // $deps      : 依存スクリプト識別名の配列（オプション）
-    // $ver       : バージョン文字列。クエリーストリングに付加される。（オプション）
-    // $in_footer : trueで</body>前で読み込まれる。デフォルトはfalseで</head>の前のエリアで読み込まれる。（オプション）
+    /* [JS]                                                                                                            */
+    /* $handle:    スクリプト識別名                                                                                    */
+    /* $src:       URL                                                                                                 */
+    /* $deps:      依存スクリプト識別名の配列（オプション）                                                            */
+    /* $ver:       バージョン文字列。クエリーストリングに付加される。（オプション）                                    */
+    /* $in_footer: trueで</body>前で読み込まれる。デフォルトはfalseで</head>の前のエリアで読み込まれる。（オプション） */
     wp_enqueue_script('sweet-scroll', 'https://unpkg.com/sweet-scroll@2.2.1/sweet-scroll.min.js', array(), false, true);
     wp_enqueue_script('theme', get_template_directory_uri() . '/js/script.js', array('sweet-scroll'), false, true);
 
-    // コメントフォーム移動処理
+    /* コメントフォーム移動処理 */
     if(is_singular() && comments_open() && get_option('thread_comments')) {
       wp_enqueue_script('comment-reply');
     }
   }
   add_action('wp_enqueue_scripts', 'add_files');
 
-  // =============================================================================
-  // [フロントサイト]
-  // RSSにサムネイルを登録
-  // =============================================================================
+  /* ========================================================================== */
+  /* [フロントサイト]                                                           */
+  /* RSSにサムネイルを登録                                                      */
+  /* ========================================================================== */
 
   function rss_post_thumbnail($content) {
     global $post;
@@ -410,10 +410,10 @@ EOM;
   add_filter('the_excerpt_rss', 'rss_post_thumbnail');
   add_filter('the_content_feed', 'rss_post_thumbnail');
 
-  // =============================================================================
-  // [フロントサイト]
-  // meta情報生成
-  // =============================================================================
+  /* ========================================================================== */
+  /* [フロントサイト]                                                           */
+  /* meta情報生成                                                               */
+  /* ========================================================================== */
 
   function global_meta() {
     global $meta;
@@ -422,19 +422,19 @@ EOM;
     $meta['title']       = get_bloginfo('name');
     $meta['description'] = get_bloginfo('description');
 
-    // ヘッダーイメージがある場合
+    /* ヘッダーイメージがある場合 */
     if(get_header_image()) {
       $meta['image'] = get_header_image();
     }
 
-    // ヘッダーイメージが無ければテーマ画像をセット
+    /* ヘッダーイメージが無ければテーマ画像をセット */
     else {
       $meta['image'] = get_template_directory_uri() . '/screenshot.png';
     }
 
-    // ============
-    // ホームページ
-    // ============
+    /* ============ */
+    /* ホームページ */
+    /* ============ */
 
     if(is_home()) {
       $meta['og_type'] = 'blog';
@@ -443,9 +443,9 @@ EOM;
       $meta['og_type'] = 'article';
     }
 
-    // ==============
-    // シングルページ
-    // ==============
+    /* ============== */
+    /* シングルページ */
+    /* ============== */
 
     if(is_singular()) {
       $meta['url']   = get_permalink();
@@ -456,18 +456,18 @@ EOM;
           the_post();
           $meta['description'] = mb_substr(get_the_excerpt(), 0, 100);
 
-          // 投稿に画像があるか調べる
+          /* 投稿に画像があるか調べる */
           $str           = $post->post_content;
           $searchPattern = '/<img.*?src=(["\'])(.+?)\1.*?>i';
 
-          // アイキャッチがある場合
+          /* アイキャッチがある場合 */
           if(has_post_thumbnail()) {
             $image_id      = get_post_thumbnail_id();
             $image         = wp_get_attachment_image_src($image_id, 'full');
             $meta['image'] = $image[0];
           }
 
-          // アイキャッチは無いが記事に画像がある場合
+          /* アイキャッチは無いが記事に画像がある場合 */
           else if(preg_match($searchPattern, $str, $imgurl) && !is_archive()) {
             $meta['image'] = $imgurl[2];
           }
@@ -476,9 +476,9 @@ EOM;
       wp_reset_query();
     }
 
-    // ====================================
-    // カテゴリ & タグ & タクソノミーページ
-    // ====================================
+    /* ==================================== */
+    /* カテゴリ & タグ & タクソノミーページ */
+    /* ==================================== */
 
     if(is_category() || is_tag() || is_tax()) {
       $query         = get_queried_object();
@@ -489,29 +489,29 @@ EOM;
       }
     }
 
-    // ================
-    // アーカイブページ
-    // ================
+    /* ================ */
+    /* アーカイブページ */
+    /* ================ */
 
     else if(is_archive()) {
       $meta['url'] = esc_url(get_year_link(false, false));
 
-      // 年別アーカイブ
+      /* 年別アーカイブ */
       if(is_year()) {
         $meta['title'] = get_query_var('year') . '年の記事一覧';
       }
 
-      // 月別アーカイブ
+      /* 月別アーカイブ */
       else if(is_month()) {
         $meta['title'] = get_query_var('year') . '年' . get_query_var('monthnum') . '月の記事一覧';
       }
     }
   }
 
-  // =============================================================================
-  // [フロントサイト]
-  // パンくずリスト
-  // =============================================================================
+  /* ========================================================================== */
+  /* [フロントサイト]                                                           */
+  /* パンくずリスト                                                             */
+  /* ========================================================================== */
 
   function breadcrumb() {
     $html = '';
@@ -519,14 +519,14 @@ EOM;
     $html .= '        <ul class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">' . "\n";
     $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . home_url('/') . '" itemprop="url"><span itemprop="name">ホーム</span></a></li>' . "\n";
 
-    // ==============
-    // シングルページ
-    // ==============
+    /* ============== */
+    /* シングルページ */
+    /* ============== */
 
     if(is_single()) {
       $cat = get_the_category();
 
-      // 親カテゴリが存在（親が無ければ0）
+      /* 親カテゴリが存在（親が無ければ0） */
       if($cat[0]->parent != 0) {
         $ancestors = array_reverse(get_ancestors($cat[0]->term_id, 'category'));
         foreach($ancestors as $ancestor) {
@@ -534,18 +534,18 @@ EOM;
         }
       }
 
-      // 現在のページカテゴリ
+      /* 現在のページカテゴリ */
       $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . esc_url(get_category_link($cat[0]->term_id)) . '" itemprop="url"><span itemprop="name">' . $cat[0]->name . '</span></a></li>' . "\n";
     }
 
-    // ==============
-    // カテゴリページ
-    // ==============
+    /* ============== */
+    /* カテゴリページ */
+    /* ============== */
 
     else if(is_category()) {
       $cat = get_the_category();
 
-      // 親カテゴリが存在（親が無ければ0）
+      /* 親カテゴリが存在（親が無ければ0） */
       if($cat[0]->parent != 0) {
         $ancestors = array_reverse(get_ancestors($cat[0]->term_id, 'category'));
         foreach($ancestors as $ancestor) {
@@ -553,13 +553,13 @@ EOM;
         }
       }
 
-      // 現在のページカテゴリ
+      /* 現在のページカテゴリ */
       $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . esc_url(get_category_link($cat[0]->term_id)) . '" itemprop="url"><span itemprop="name">' . $cat[0]->name . '</span></a></li>' . "\n";
     }
 
-    // ==========
-    // タグページ
-    // ==========
+    /* ========== */
+    /* タグページ */
+    /* ========== */
 
     else if(is_tag()) {
       $tags = get_the_tags();
@@ -567,18 +567,18 @@ EOM;
       $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . esc_url(get_tag_link($tags[0]->term_id)) . '" itemprop="url"><span itemprop="name">' . $tags[0]->name . '</span></a></li>' . "\n";
     }
 
-    // ================
-    // アーカイブページ
-    // ================
+    /* ================ */
+    /* アーカイブページ */
+    /* ================ */
 
     else if(is_archive()) {
 
-      // 年別アーカイブ
+      /* 年別アーカイブ */
       if(is_year()) {
         $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><span itemprop="name">' . get_query_var('year') . '</span></li>' . "\n";
       }
 
-      // 月別アーカイブ
+      /* 月別アーカイブ */
       else if(is_month()) {
         $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><span itemprop="name">' . get_query_var('year') . '</span>.<span itemprop="title">' . get_query_var('monthnum') . '</span></li>' . "\n";
       }
@@ -588,14 +588,14 @@ EOM;
     echo $html;
   }
 
-  // =============================================================================
-  // [フロントサイト]
-  // ページネーション
-  // =============================================================================
+  /* ========================================================================== */
+  /* [フロントサイト]                                                           */
+  /* ページネーション                                                           */
+  /* ========================================================================== */
 
-  // [WordPress Post Pagination without plugin]
-  // @author : Kriesi
-  // @URL    : http://www.kriesi.at/archives/how-to-build-a-wordpress-post-pagination-without-plugin
+  /* [WordPress Post Pagination without plugin]                                                     */
+  /* @author: Kriesi                                                                                */
+  /* @URL:    http://www.kriesi.at/archives/how-to-build-a-wordpress-post-pagination-without-plugin */
 
   function custom_pagination($pages = '', $range = 2) {
     global $paged;
@@ -634,15 +634,15 @@ EOM;
     }
   }
 
-  // =============================================================================
-  // [フロントサイト]
-  // コメント一覧
-  // =============================================================================
+  /* ========================================================================== */
+  /* [フロントサイト]                                                           */
+  /* コメント一覧                                                               */
+  /* ========================================================================== */
 
   function theme_comment($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
 
-    // 承認判定
+    /* 承認判定 */
     if($comment->comment_approved == '1') {
 ?>
 <li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
@@ -661,14 +661,14 @@ EOM;
     }
   }
 
-  // =============================================================================
-  // [フロントサイト]
-  // HTML圧縮
-  // =============================================================================
+  /* ========================================================================== */
+  /* [フロントサイト]                                                           */
+  /* HTML圧縮                                                                   */
+  /* ========================================================================== */
 
-  // [wordpress-snippets-html-minify.php]
-  // @author : ingozoell
-  // @URL    : https://gist.github.com/ingozoell/8376125
+  /* [wordpress-snippets-html-minify.php]               */
+  /* @author: ingozoell                                 */
+  /* @URL:    https://gist.github.com/ingozoell/8376125 */
 
   class WP_HTML_Compression {
     protected $compress_css    = true;
@@ -765,7 +765,7 @@ EOM;
     ob_start('wp_html_compression_finish');
   }
 
-  // HTML圧縮オプションが有効の場合に実行
+  /* HTML圧縮オプションが有効の場合に実行 */
   if(get_theme_mod('theme_customize__setting__title_tagline__html_minify')) {
     add_action('get_header', 'wp_html_compression_start');
   }

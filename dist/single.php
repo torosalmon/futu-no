@@ -2,9 +2,9 @@
 /*!
  * *****************************************************************************
  * [futu-no]
- * @Template Name : Article & Single page
- * @URL           : http://trs.mn/blog/futu-no/
- * @License       : MIT License
+ * @Template Name: Article & Single page
+ * @URL:           http://trs.mn/blog/futu-no/
+ * @License:       MIT License
  * *****************************************************************************
 !*/
 ?>
@@ -87,7 +87,7 @@
             </dl>
           </div>
 <?php
-    // コメント許可
+    /* コメント許可 */
     if(comments_open()) {
       comments_template();
     }

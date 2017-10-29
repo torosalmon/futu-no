@@ -2,9 +2,9 @@
 /*!
  * *****************************************************************************
  * [futu-no]
- * @Template Name : Frontpage
- * @URL           : http://trs.mn/blog/futu-no/
- * @License       : MIT License
+ * @Template Name: Frontpage
+ * @URL:           http://trs.mn/blog/futu-no/
+ * @License:       MIT License
  * *****************************************************************************
 !*/
 ?>
@@ -12,9 +12,9 @@
         <nav class="toplevel-list" itemscope="itemscope" itemtype="http://schema.org/Article">
 <?php
 
-  // ===================
-  // 最新記事（最新1件）
-  // ===================
+  /* =================== */
+  /* 最新記事（最新1件） */
+  /* =================== */
 
   $args = array(
     'order'          => 'DESC',
@@ -51,9 +51,9 @@
 <?php
     wp_reset_query();
 
-    // =====================
-    // 最新記事（2件目以降）
-    // =====================
+    /* ===================== */
+    /* 最新記事（2件目以降） */
+    /* ===================== */
 
     $args = array(
       'order'   => 'DESC',

@@ -2,9 +2,9 @@
 /*!
  * *****************************************************************************
  * [futu-no]
- * @Template Name : Article Comments
- * @URL           : http://trs.mn/blog/futu-no/
- * @License       : MIT License
+ * @Template Name: Article Comments
+ * @URL:           http://trs.mn/blog/futu-no/
+ * @License:       MIT License
  * *****************************************************************************
 !*/
 ?>

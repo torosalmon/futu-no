@@ -2,9 +2,9 @@
 /*!
  * *****************************************************************************
  * [futu-no]
- * @Template Name : HTML Footer
- * @URL           : http://trs.mn/blog/futu-no/
- * @License       : MIT License
+ * @Template Name: HTML Footer
+ * @URL:           http://trs.mn/blog/futu-no/
+ * @License:       MIT License
  * *****************************************************************************
 !*/
 ?>
@@ -20,7 +20,7 @@
           <li><a href="http://trs.mn/blog/" target="_blank">futu-no</a></li>
         </ul>
 <?php
-  // 「誰でもユーザー登録ができるようにする」判定
+  /* 「誰でもユーザー登録ができるようにする」判定 */
   if(get_option('users_can_register')) {
 ?>
         <p class="register"><a href="<?php echo esc_url(home_url('/')); ?>wp-login.php?action=register" target="_blank">ブログにユーザー登録</a></p>
@@ -43,7 +43,7 @@
     <aside class="drawer">
       <div class="scroll">
 <?php
-  // 検索ページでは情報が取得できないので非表示
+  /* 検索ページでは情報が取得できないので非表示 */
   if(!is_search()) {
     if(have_posts()) {
       while(have_posts()) {
