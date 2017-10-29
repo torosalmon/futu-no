@@ -1247,7 +1247,7 @@ main {
 
       /* 記事本文 */
       .content {
-        font-size: 1.2rem;
+        font-size: 1.6rem;
 
         @mixin container;
 
