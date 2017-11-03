@@ -16,7 +16,7 @@
 
   add_theme_support('post-thumbnails');
   add_image_size('640px', 640, 640, true);
-  add_image_size('960px', 960, 960, true);
+  add_image_size('1280px', 1280, 1280, true);
 
   /* ========================================================================== */
   /* [管理 > メディア]                                                          */

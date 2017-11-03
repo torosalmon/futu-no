@@ -21,9 +21,9 @@
 ?>
 <?php
       if(has_post_thumbnail()) {
-        $thumnbnail_url = wp_get_attachment_image_src(get_post_thumbnail_id(), 'large');
+        $thumnbnail_url = wp_get_attachment_image_src(get_post_thumbnail_id(), '1280px');
 ?>
-          <h2 class="eyecatch" style="background-image: url(<?php echo $thumnbnail_url[0]; ?>);"><?php the_post_thumbnail('large'); ?></h2>
+          <h2 class="eyecatch" style="background-image: url(<?php echo $thumnbnail_url[0]; ?>);"><?php the_post_thumbnail('1280px'); ?></h2>
 <?php
       }
 ?>
@@ -104,7 +104,7 @@
 <?php
       if($prev_post) {
 ?>
-                <a href="<?php echo get_permalink($prev_post->ID); ?>"><?php echo get_the_post_thumbnail($prev_post->ID, 'thumbnail'); ?><?php echo esc_attr($prev_post->post_title); ?></a>
+                <a href="<?php echo get_permalink($prev_post->ID); ?>"><?php echo get_the_post_thumbnail($prev_post->ID, '640px'); ?><?php echo esc_attr($prev_post->post_title); ?></a>
 <?php
       }
 ?>
@@ -113,7 +113,7 @@
 <?php
       if($next_post) {
 ?>
-                <a href="<?php echo get_permalink($next_post->ID); ?>"><?php echo get_the_post_thumbnail($next_post->ID, 'thumbnail'); ?><?php echo esc_attr($next_post->post_title); ?></a>
+                <a href="<?php echo get_permalink($next_post->ID); ?>"><?php echo get_the_post_thumbnail($next_post->ID, '640px'); ?><?php echo esc_attr($next_post->post_title); ?></a>
 <?php
       }
 ?>
