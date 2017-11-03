@@ -60,7 +60,7 @@
 /* コンテナ */
 @define-mixin container {
   width: 90%;
-  max-width: 960px;
+  max-width: 64rem;
   margin-right: auto;
   margin-left: auto;
 }
@@ -90,7 +90,7 @@
   src: url('https://cdn.jsdelivr.net/npm/yakuhanjp@2.0.0/dist/fonts/YakuHanJP/YakuHanJP-Light.woff2') format('woff2'),
        url('https://cdn.jsdelivr.net/npm/yakuhanjp@2.0.0/dist/fonts/YakuHanJP/YakuHanJP-Light.woff') format('woff');
   font-family: 'YakuHanJP';
-  font-weight: 300;
+  font-weight: 400;
   font-display: swap;
 }
 
@@ -107,51 +107,36 @@
   font-weight: 200;
 }
 
-/* 游ゴシック（Chrome Hack） */
-@font-face {
-  src: local('Yu Gothic Medium');
-  font-family: 'Yu Gothic';
-  font-weight: 100;
-}
-
-@font-face {
-  src: local('Yu Gothic Medium');
-  font-family: 'Yu Gothic';
-  font-weight: 200;
-}
-
-@font-face {
-  src: local('Yu Gothic Medium');
-  font-family: 'Yu Gothic';
-  font-weight: 300;
-}
-
-@font-face {
-  src: local('Yu Gothic Medium');
-  font-family: 'Yu Gothic';
-  font-weight: 400;
-}
-
-@font-face {
-  src: local('Yu Gothic Bold');
-  font-family: 'Yu Gothic';
-  font-weight: bold;
-}
-
 html {
   font-family: -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular',
                'Helvetica Neue',
-               'YakuHanJP',
-               '游ゴシック体', YuGothic,
-               '游ゴシック', 'Yu Gothic',
-               'メイリオ', Meiryo,
+               YakuHanJP,
+               'Yu Gothic', YuGothic,
+               Meiryo,
                sans-serif;
-  font-weight: 400;
+  font-weight: normal;
   /* font-feature-settings: 'palt' 1; */
    -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.8;
   color: var(--color-text);
+}
+
+pre,
+code,
+var,
+samp,
+kbd {
+  font-family: 'Noto Sans Mono CJK JP', 'Source Han Code JP',
+               'Ricty Diminished',
+               'Myrica M',
+               'VL Gothic',
+               'Courier New',
+               Courier,
+               Monaco,
+               Consolas,
+               'Droid Sans Mono',
+               monospace;
 }
 
 /* ============== */
@@ -163,8 +148,10 @@ html {
 
 html {
   font-size: calc(.78125vw + 7.5px);
-  @media(max-width: 320px) { font-size: 62.5%; } /* min size 10px */
-  @media(min-width: 961px) { font-size: 93.8%; } /* max size 15px */
+
+  @media(max-width: 320px) { font-size: 62.5%; } /* font-size: 1rem = 10px */
+  @media(min-width: 961px) { font-size: 93.8%; } /* font-size: 1rem = 15px */
+
 }
 
 /* iOSフォーカスズーム対策 */
@@ -392,7 +379,7 @@ header {
     order: 2;
     overflow: hidden;
     position: relative;
-    line-height: 1.2;
+    line-height: 1.4;
     text-overflow: ellipsis;
     white-space: nowrap;
 
@@ -855,7 +842,7 @@ main {
             .meta {
               width: 60%;
               padding-left: 4rem;
-              line-height: 1.2;
+              line-height: 1.4;
 
               time {
                 font-size: 1.2rem;
@@ -938,7 +925,7 @@ main {
             .meta {
               width: 80%;
               padding-left: 2rem;
-              line-height: 1.2;
+              line-height: 1.4;
 
               time {
                 font-size: .8rem;
@@ -1039,7 +1026,7 @@ main {
           margin-bottom: 2rem;
           font-size: 1.6rem;
           text-align: center;
-          line-height: 1.2;
+          line-height: 1.4;
 
           a {
             display: inline-block;
@@ -1054,7 +1041,12 @@ main {
 
               img {
                 width: 100%;
-                box-shadow: 0 24px 24px -16px rgba(0, 0, 0, .4);
+                box-shadow: 0 4px 4px rgba(0, 0, 0, .1),
+                            0 1px 6px rgba(0, 0, 0, .05),
+                            0 8px 8px rgba(0, 0, 0, .1),
+                            0 16px 16px rgba(0, 0, 0, .1),
+                            8px 32px 32px rgba(0, 0, 0, .15),
+                            8px 64px 64px rgba(0, 0, 0, .15);
                 vertical-align: bottom;
               }
 
@@ -1142,7 +1134,7 @@ main {
       .eyecatch {
         position: relative;
         margin: 0;
-        padding: 2rem 5%;
+        padding: 2rem 0;
         background: fixed 50% 50% / cover;
         text-align: center;
 
@@ -1160,14 +1152,11 @@ main {
         img {
           position: relative;
           z-index: 1;
-          width: auto;
           height: auto;
           box-shadow: 0 16px 24px -8px rgba(0, 0, 0, .4);
           vertical-align: top;
 
-          @media(max-width: 768px) { max-height: 320px; }
-          @media(min-width: 769px) { max-height: 640px; }
-
+          @mixin container;
         }
 
       }
@@ -1176,9 +1165,9 @@ main {
       .heading {
         margin-top: 4rem;
         font-weight: inherit;
-        font-size: 3.2rem;
+        font-size: 3.08rem;
         font-feature-settings: 'palt' 1;
-        line-height: 1.2;
+        line-height: 1.4;
 
         @mixin container;
 
@@ -1247,16 +1236,9 @@ main {
 
       /* 記事本文 */
       .content {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
 
         @mixin container;
-
-        h1 { font-size: 3.6rem; }
-        h2 { font-size: 3.2rem; }
-        h3 { font-size: 2.8rem; }
-        h4 { font-size: 2.4rem; }
-        h5 { font-size: 2rem; }
-        h6 { font-size: 1.6rem; }
 
         h1,
         h2,
@@ -1268,6 +1250,18 @@ main {
           font-weight: bold;
         }
 
+        h1,
+        h2,
+        h3 {
+          font-size: 2.8rem;
+        }
+
+        h4,
+        h5,
+        h6 {
+          font-size: 1.4rem;
+        }
+
         p,
         ul,
         ol,
@@ -1275,7 +1269,7 @@ main {
         table,
         blockquote,
         pre {
-          margin-top: 2rem;
+          margin-top: 1.4rem;
         }
 
         ul,
@@ -1325,17 +1319,17 @@ main {
         blockquote {
           position: relative;
           padding: 1rem;
-          background: rgba(0, 0, 0, .4);
+          border: solid 1px var(--color-border);
           border-radius: 4px;
 
           &::before {
             content: '❝';
             display: block;
             position: absolute;
-            top: -.8rem;
-            left: 50%;
-            margin-left: -.5rem;
+            top: -2rem;
+            left: -1rem;
             font-size: 6.4rem;
+            line-height: 1;
           }
 
         }
@@ -1344,7 +1338,25 @@ main {
           overflow: auto;
           -webkit-overflow-scrolling: touch;
           border: solid 1px var(--color-border);
-          line-height: 1.2;
+          border-left-width: 4px;
+          line-height: 1.4;
+
+          &.source {
+            white-space: normal;
+
+            code {
+              display: block;
+              padding: 0 1rem;
+              white-space: pre;
+
+              &:not(:nth-of-type(1)) {
+                border-top: dotted 1px var(--color-border);
+              }
+
+            }
+
+          }
+
         }
 
         hr {
@@ -1463,7 +1475,7 @@ main {
                 .comment-info {
                   font-size: 1rem;
                   text-align: right;
-                  line-height: 1.2;
+                  line-height: 1.4;
 
                   .name {
 
@@ -1549,7 +1561,7 @@ main {
           margin: 2rem auto 0 auto;
           padding-top: 3rem;
           font-size: 1.2;
-          line-height: 1.2;
+          line-height: 1.4;
 
           &::before {
             content: '';
@@ -1815,7 +1827,7 @@ main .contents .article-detail .eyecatch {
       display: flex;
       flex-flow: row wrap;
       padding: 2rem 2rem 0 2rem;
-      line-height: 1.2;
+      line-height: 1.4;
 
       .avatar {
         position: relative;
@@ -1858,7 +1870,7 @@ main .contents .article-detail .eyecatch {
           font-weight: normal;
           font-size: .8rem;
           text-transform: uppercase;
-          line-height: 1.2;
+          line-height: 1.4;
         }
 
       }

@@ -163,75 +163,76 @@ echo <<< EOM
       /* WordPress Theme Customize API */
       /* ============================= */
 
-      /* background color */
-      header { background-color: {$theme_customize__setting__colors__background}; }
-      header .page-info .page-top { background-color: {$theme_customize__setting__colors__background}; }
-      .search-form { background-color: {$theme_customize__setting__colors__background}; }
-      main { background-color: {$theme_customize__setting__colors__background}; }
+      /* 背景 */
+      header { background: {$theme_customize__setting__colors__background}; }
+      header .page-info .page-top { background: {$theme_customize__setting__colors__background}; }
+      .search-form { background: {$theme_customize__setting__colors__background}; }
+      main { background: {$theme_customize__setting__colors__background}; }
       main .contents .article-detail .article-comment .comment-respond .comment-form .form-submit input[type='submit'] { color: {$theme_customize__setting__colors__background}; }
       main footer { color: {$theme_customize__setting__colors__background}; }
-      .drawer .author .name { color: {$theme_customize__setting__colors__background}; }
-      .drawer .author .comment { color: {$theme_customize__setting__colors__background}; }
-      .drawer .author .links a { color: {$theme_customize__setting__colors__background}; }
-      .drawer .dir-map h6 { color: {$theme_customize__setting__colors__background}; }
-      .drawer .dir-map li { color: {$theme_customize__setting__colors__background}; }
-      .drawer .dir-map a { color: {$theme_customize__setting__colors__background}; }
+      .drawer .scroll .author .name { color: {$theme_customize__setting__colors__background}; }
+      .drawer .scroll .author .comment { color: {$theme_customize__setting__colors__background}; }
+      .drawer .scroll .author .links li a { color: {$theme_customize__setting__colors__background}; }
+      .drawer .scroll .dir-map h6 { color: {$theme_customize__setting__colors__background}; }
+      .drawer .scroll .dir-map ul li { color: {$theme_customize__setting__colors__background}; }
+      .drawer .scroll .dir-map ul li a { color: {$theme_customize__setting__colors__background}; }
 
-      /* border color */
+      /* ボーダー */
       input[type='text'], input[type='search'], input[type='tel'], input[type='url'], input[type='email'], input[type='password'], input[type='datetime'], input[type='datetime-local'], input[type='date'], input[type='month'], input[type='week'], input[type='time'], input[type='number'], textarea, select { border-color: {$theme_customize__setting__colors__border}; }
-      input[type='submit'], input[type='reset'], input[type='button'], button { background-color: {$theme_customize__setting__colors__border}; }
+      input[type='submit'], input[type='reset'], input[type='button'], button { background: {$theme_customize__setting__colors__border}; }
       header { border-bottom-color: {$theme_customize__setting__colors__border}; }
-      header .tool li { border-left-color: {$theme_customize__setting__colors__border}; }
+      header .tool ul li { border-left-color: {$theme_customize__setting__colors__border}; }
       .search-form { border-bottom-color: {$theme_customize__setting__colors__border}; }
-      .search-form .flex-item:nth-of-type(2)::before { border-left-color: {$theme_customize__setting__colors__border}; }
-      .search-form .flex-item:nth-of-type(2) input[type='submit'] { border-left-color: {$theme_customize__setting__colors__border}; }
-      .search-form .flex-item:nth-of-type(3) .close { border-left-color: {$theme_customize__setting__colors__border}; }
-      main .contents .pagenation ul { border-bottom-color: {$theme_customize__setting__colors__border}; }
-      html.home main .contents .latest-1 { border-bottom-color: {$theme_customize__setting__colors__border}; }
-      html.home main .contents .latest-1 section a::after { border-top-color: {$theme_customize__setting__colors__border}; border-right-color: {$theme_customize__setting__colors__border}; }
-      html.home main .contents .latest-2 section:not(:nth-of-type(1)) { border-top-color: {$theme_customize__setting__colors__border}; }
-      html.home main .contents .latest-2 section a::after { border-top-color: {$theme_customize__setting__colors__border}; border-right-color: {$theme_customize__setting__colors__border}; }
-      html.home main .contents .dir-map section ul { border-left-color: {$theme_customize__setting__colors__border}; }
-      main .contents .archive-list section .heading a strong::before { background-color: {$theme_customize__setting__colors__border}; }
+      .search-form form .flex-item:nth-of-type(2)::before { border-left-color: {$theme_customize__setting__colors__border}; }
+      .search-form form .flex-item:nth-of-type(2) input[type='submit'] { border-left-color: {$theme_customize__setting__colors__border}; }
+      .search-form form .flex-item:nth-of-type(3) .close { border-left-color: {$theme_customize__setting__colors__border}; }
+      main .contents .toplevel-list .latest-1 { border-bottom-color: {$theme_customize__setting__colors__border}; }
+      main .contents .toplevel-list .latest-1 section a::after { border-top-color: {$theme_customize__setting__colors__border}; border-right-color: {$theme_customize__setting__colors__border}; }
+      main .contents .toplevel-list .latest-2 section:not(:nth-of-type(1)) { border-top-color: {$theme_customize__setting__colors__border}; }
+      main .contents .toplevel-list .latest-2 section a::after { border-top-color: {$theme_customize__setting__colors__border}; border-right-color: {$theme_customize__setting__colors__border}; }
+      main .contents .toplevel-list .dir-map section ul { border-left-color: {$theme_customize__setting__colors__border}; }
+      main .contents .archive-list section .heading a strong::before { background: {$theme_customize__setting__colors__border}; }
       main .contents .archive-list section .meta dd:not(:nth-of-type(1)) { border-left-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .meta { border-top-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .meta dd::before { border-left-color: {$theme_customize__setting__colors__border}; }
+      main .contents .article-detail .content blockquote { border-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .content pre { border-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .content hr { background-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .sign dl dt, main .contents .article-detail .sign dl dd { border-bottom-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .article-comment .comment-list ul article { border-color: {$theme_customize__setting__colors__border}; }
+      main .contents .article-detail .content pre.source code:not(:nth-of-type(1)) { border-top-color: {$theme_customize__setting__colors__border}; }
+      main .contents .article-detail .content hr { background: {$theme_customize__setting__colors__border}; }
+      main .contents .article-detail .node dl dt, main .contents .article-detail .node dl dd { border-bottom-color: {$theme_customize__setting__colors__border}; }
+      main .contents .article-detail .article-comment .comment-list ul li article { border-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .article-comment .comment-list ul.parent article::before { border-right-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .article-comment .comment-list ul.children article::before { border-right-color: transparent; border-left-color: {$theme_customize__setting__colors__border}; }
+      main .contents .article-detail .article-comment .comment-list ul.children article::before { border-left-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .article-comment .comment-respond::before { border-bottom-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .article-comment .comment-respond .comment-form .flex { border-left-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .adjacent-links ul { border-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .adjacent-links li:not(:first-child) { border-left-color: {$theme_customize__setting__colors__border}; }
+      main .contents .article-detail .adjacent-links ul li:not(:first-child) { border-left-color: {$theme_customize__setting__colors__border}; }
+      main .contents .pagenation ul { border-bottom-color: {$theme_customize__setting__colors__border}; }
 
-      /* text color */
-      body { color: {$theme_customize__setting__colors__text}; }
-      header .drawer-icon span { background-color: {$theme_customize__setting__colors__text}; }
+      /* 文字 */
+      html { color: {$theme_customize__setting__colors__text}; }
       header .page-info .breadcrumb li:not(:first-child)::before { border-top-color: {$theme_customize__setting__colors__text}; border-right-color: {$theme_customize__setting__colors__text}; }
-      .search-form .flex-item:nth-of-type(3) .close::before, .search-form .flex-item:nth-of-type(3) .close::after { background-color: {$theme_customize__setting__colors__text}; }
-      html.home main .contents .latest-1 section a:hover::after { border-top-color: {$theme_customize__setting__colors__text}; border-right-color: {$theme_customize__setting__colors__text}; }
-      html.home main .contents .latest-2 section a:hover::after { border-top-color: {$theme_customize__setting__colors__text}; border-right-color: {$theme_customize__setting__colors__text}; }
-      main .contents .archive-list section .heading a strong::after { background-color: {$theme_customize__setting__colors__text}; }
-      main footer { background-color: {$theme_customize__setting__colors__text}; }
+      header .drawer-icon div span { background: {$theme_customize__setting__colors__text}; }
+      .search-form form .flex-item:nth-of-type(3) .close::before, .search-form form .flex-item:nth-of-type(3) .close::after { background: {$theme_customize__setting__colors__text}; }
+      main .contents .toplevel-list .latest-1 section a:hover::after { border-top-color: {$theme_customize__setting__colors__text}; border-right-color: {$theme_customize__setting__colors__text}; }
+      main .contents .archive-list section .heading a strong::after { background: {$theme_customize__setting__colors__text}; }
+      main footer { background: {$theme_customize__setting__colors__text}; }
 
-      /* accent color */
+      /* アクセントカラー */
       header { border-top-color: {$theme_customize__setting__colors__accent}; }
-      header .tool span.notification { background-color: {$theme_customize__setting__colors__accent}; }
-      .search-form .flex-item:nth-of-type(1) input[type='search']:focus { border-bottom-color: {$theme_customize__setting__colors__accent}; }
-      main .contents .pagenation li.current { border-bottom-color: {$theme_customize__setting__colors__accent}; }
-      .drawer .author .name::before { background: {$theme_customize__setting__colors__accent}; }
+      header .tool ul li a span.notification { background: {$theme_customize__setting__colors__accent}; }
+      .search-form form .flex-item:nth-of-type(1) input[type='search']:focus { border-bottom-color: {$theme_customize__setting__colors__accent}; }
+      main .contents .pagenation ul li.current { border-bottom-color: {$theme_customize__setting__colors__accent}; }
+      .drawer .scroll .author .name::before { background: {$theme_customize__setting__colors__accent}; }
 
-      /* sub color */
+      /* サブカラー */
       .search-form { border-top-color: {$theme_customize__setting__colors__sub}; }
-      main .contents .article-detail .article-comment .comment-respond .comment-form .form-submit input[type='submit'] { background-color: {$theme_customize__setting__colors__sub}; }
-      .drawer { background-color: {$theme_customize__setting__colors__sub}; }
-      .drawer .author .avatar { border-color: {$theme_customize__setting__colors__sub}; }
-      .drawer .author .name { border-color: {$theme_customize__setting__colors__sub}; }
-      .drawer .author .comment { border-color: {$theme_customize__setting__colors__sub}; }
-      .drawer .author .links li { border-color: {$theme_customize__setting__colors__sub}; }
+      main .contents .article-detail .article-comment .comment-respond .comment-form .form-submit input[type='submit'] { background: {$theme_customize__setting__colors__sub}; }
+      .drawer { background: {$theme_customize__setting__colors__sub}; }
+      .drawer .scroll .author .avatar { border-color: {$theme_customize__setting__colors__sub}; }
+      .drawer .scroll .author .name { border-color: {$theme_customize__setting__colors__sub}; }
+      .drawer .scroll .author .comment { border-color: {$theme_customize__setting__colors__sub}; }
+      .drawer .scroll .author .links li { border-color: {$theme_customize__setting__colors__sub}; }
 
       /* SVG */
       .svg-icon .fill-color-background { fill: {$theme_customize__setting__colors__background}; }
