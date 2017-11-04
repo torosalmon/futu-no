@@ -1135,7 +1135,7 @@ main {
         position: relative;
         margin: 0;
         padding: 2rem 0;
-        background: fixed 50% 50% / cover;
+        background: repeat fixed 50% 50% / cover;
         text-align: center;
 
         &::after {
@@ -1774,14 +1774,38 @@ main {
 
 }
 
+/* アニメーション */
 main .contents .article-detail .eyecatch {
-  opacity: 0;
-  animation: article-detail-eyecatch-fade-in .6s .3s var(--easing) both;
+  @media(min-width: 961px) {
+    animation: article-detail-eyecatch 12s var(--easing) both;
+  }
 }
 
-@keyframes article-detail-eyecatch-fade-in {
+@keyframes article-detail-eyecatch {
+  0% {
+    background-position: 50% 50%;
+    background-size: 120% auto;
+  }
+  100% {
+    background-position: 150% 50%;
+    background-size: 25% auto;
+  }
+}
+
+main .contents .article-detail .eyecatch img {
+  @media(min-width: 961px) {
+    animation: article-detail-eyecatch-img 1.2s var(--easing) both;
+  }
+}
+
+@keyframes article-detail-eyecatch-img {
+  0% {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
   100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }
 
