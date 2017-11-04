@@ -1154,6 +1154,7 @@ main {
           z-index: 1;
           height: auto;
           box-shadow: 0 16px 24px -8px rgba(0, 0, 0, .4);
+          border-radius: 2px;
           vertical-align: top;
 
           @mixin container;
@@ -1777,35 +1778,35 @@ main {
 /* アニメーション */
 main .contents .article-detail .eyecatch {
   @media(min-width: 961px) {
-    animation: article-detail-eyecatch 12s var(--easing) both;
+    opacity: 0;
+    background-position: 80% 50%;
+    background-size: 120% auto;
+    animation: article-detail-eyecatch 1.8s .3s var(--easing) both;
   }
 }
 
 @keyframes article-detail-eyecatch {
-  0% {
-    background-position: 50% 50%;
-    background-size: 120% auto;
+  20% {
+    opacity: 1;
   }
   100% {
-    background-position: 150% 50%;
-    background-size: 25% auto;
+    opacity: 1;
+    background-position: 50% 50%;
   }
 }
 
 main .contents .article-detail .eyecatch img {
   @media(min-width: 961px) {
-    animation: article-detail-eyecatch-img 1.2s var(--easing) both;
+    opacity: 0;
+    transform: translateX(-10%);
+    animation: article-detail-eyecatch-img 1.2s .6s var(--easing) both;
   }
 }
 
 @keyframes article-detail-eyecatch-img {
-  0% {
-    opacity: 0;
-    transform: translateY(-16px);
-  }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 }
 
