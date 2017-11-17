@@ -87,12 +87,6 @@
             </dl>
           </div>
 <?php
-    /* コメント許可 */
-    if(comments_open()) {
-      comments_template();
-    }
-?>
-<?php
     $next_post = get_next_post();
     $prev_post = get_previous_post();
 
@@ -104,7 +98,7 @@
 <?php
       if($prev_post) {
 ?>
-                <a href="<?php echo get_permalink($prev_post->ID); ?>"><?php echo get_the_post_thumbnail($prev_post->ID, '640px'); ?><?php echo esc_attr($prev_post->post_title); ?></a>
+                <a href="<?php echo get_permalink($prev_post->ID); ?>" class="prev"><?php echo get_the_post_thumbnail($prev_post->ID, '640px'); ?><?php echo esc_attr($prev_post->post_title); ?></a>
 <?php
       }
 ?>
@@ -113,7 +107,7 @@
 <?php
       if($next_post) {
 ?>
-                <a href="<?php echo get_permalink($next_post->ID); ?>"><?php echo get_the_post_thumbnail($next_post->ID, '640px'); ?><?php echo esc_attr($next_post->post_title); ?></a>
+                <a href="<?php echo get_permalink($next_post->ID); ?>" class="next"><?php echo get_the_post_thumbnail($next_post->ID, '640px'); ?><?php echo esc_attr($next_post->post_title); ?></a>
 <?php
       }
 ?>
@@ -121,6 +115,12 @@
             </ul>
           </nav>
 <?php
+    }
+?>
+<?php
+    /* コメント許可 */
+    if(comments_open()) {
+      comments_template();
     }
 ?>
 <?php

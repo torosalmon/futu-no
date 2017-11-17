@@ -4,243 +4,347 @@
  * @URL:     http://trs.mn/blog/futu-no/
  * @License: MIT License
  *
- * [sweet-scroll.js]
+ * [sweet-scroll - v2.2.1]
  * @URL:     https://github.com/tsuyoshiwada/sweet-scroll
- * @Author:  tsuyoshiwada
+ * @author:  tsuyoshiwada
  * @License: MIT License
  * *****************************************************************************
 !*/
 
 {
 
-  /* ============== */
-  /* グローバル変数 */
-  /* ============== */
+  /* ========================================================================== */
+  /* グローバル変数                                                             */
+  /* ========================================================================== */
 
-  const $meta_theme_color: Element = document.querySelector('meta[name="theme-color"]');
-  const $body: HTMLBodyElement = document.getElementsByTagName('body')[0];
-  const $header: HTMLElement = document.getElementsByTagName('header')[0];
-  const $drawer: Element = document.getElementsByClassName('drawer')[0];
+  /* class instance */
+  let theme_color_control;
+  let header_control;
+  let drawer_control;
+  let search_form_control;
+  let share_control;
+  let html_support;
 
-  /* ============ */
-  /* テーマカラー */
-  /* ============ */
+  /* DOM */
+  const $meta_theme_color:   NodeListOf <Element>         = document.querySelectorAll('meta[name="theme-color"]');
+  const $body:               NodeListOf <HTMLBodyElement> = document.getElementsByTagName('body');
+  const $header:             NodeListOf <HTMLElement>     = document.getElementsByTagName('header');
+  const $drawer:             HTMLCollectionOf <Element>   = document.getElementsByClassName('drawer');
+  const $drawer_button:      HTMLCollectionOf <Element>   = document.getElementsByClassName('js-drawer-button');
+  const $search_form_button: HTMLCollectionOf <Element>   = document.getElementsByClassName('js-search-form-button');
+  const $share_button:       HTMLCollectionOf <Element>   = document.getElementsByClassName('js-share-button');
 
-  /* <header> border-top-colorからアクセントカラーを取得 */
-  const color_accent: string = getComputedStyle($header).borderTopColor;
-  /* <.drawer> background-colorからサブカラーを取得 */
-  const color_sub: string = getComputedStyle($drawer).backgroundColor;
-  /* テーマカラーセット */
-  $meta_theme_color.setAttribute('content', color_accent);
+  /* 設定 */
+  const header_change_trigger_y = 160; /* ヘッダーUIを切り替えるY座標 */
+
+  /* ========================================================================== */
+  /* メインスレッド                                                             */
+  /* ========================================================================== */
 
   /* ================ */
   /* DOMContentLoaded */
   /* ================ */
 
   document.addEventListener('DOMContentLoaded', () => {
-    const menu = new MENU();
-    const html_support = new HTML_SUPPORT();
-  }, false);
+    theme_color_control = new THEME_COLOR_CONTROL();
+    header_control      = new HEADER_CONTROL();
+    drawer_control      = new DRAWER_CONTROL();
+    search_form_control = new SEARCH_FORM_CONTROL();
+    share_control       = new SHARE_CONTROL();
+    html_support        = new HTML_SUPPORT();
+
+    html_support.smooth_scroll();
+
+    /* ================ */
+    /* タグ存在判定起動 */
+    /* ================ */
+
+    if(document.getElementsByTagName('video')[0] != null) {
+      html_support.inline_playing_video();
+    }
+
+    /* ====== */
+    /* scroll */
+    /* ====== */
+
+    window.addEventListener('scroll', header_control.change, <any> {
+      once:    false,
+      passive: true,
+      capture: true
+    });
+    document.addEventListener('touchmove', header_control.change, <any> {
+      once:    false,
+      passive: true,
+      capture: true
+    });
+
+    /* ============== */
+    /* $drawer_button */
+    /* ============== */
+
+    $drawer_button[0].addEventListener('click', drawer_control.change, <any> {
+      once:    false,
+      passive: false,
+      capture: true
+    });
+
+    /* =================== */
+    /* $search_form_button */
+    /* =================== */
+
+    for(let i: number = 0; i < $search_form_button.length; i += 1) {
+      $search_form_button[i].addEventListener('click', search_form_control.change, <any> {
+        once:    false,
+        passive: false,
+        capture: true
+      });
+    }
+
+    /* ============= */
+    /* $share_button */
+    /* ============= */
+
+    for(let i: number = 0; i < $share_button.length; i += 1) {
+      $share_button[i].addEventListener('click', share_control.change, <any> {
+        once:    false,
+        passive: false,
+        capture: true
+      });
+    }
+
+  }, <any> {
+    once:    true,
+    passive: true,
+    capture: true
+  });
 
   /* ========================================================================== */
-  /* メニュー                                                                   */
+  /* テーマカラーの切り替え                                                     */
   /* ========================================================================== */
 
-  class MENU {
+  class THEME_COLOR_CONTROL {
+
+    private current_color: string; /* 現在適用されている色 */
+    private main_color:    string; /* <header>  border-top-color */
+    private sub_color:     string; /* <.drawer> background-color */
+
+    /* ============== */
+    /* コンストラクタ */
+    /* ============== */
 
     constructor() {
-      this.scroll_header();
-      this.drawer();
-      this.search_form();
-      this.share_overlay();
-    }
 
-    /* =============================== */
-    /* ヘッダー スクロール表示切り替え */
-    /* =============================== */
+      /* <meta theme-color>の初期色指定 */
+      this.main_color    = getComputedStyle($header[0]).borderTopColor;
+      this.sub_color     = getComputedStyle($drawer[0]).backgroundColor;
+      this.current_color = this.main_color;
 
-    scroll_header() {
-      /* 起動させるスクロール座標 */
-      const offset: number = 160;
-
-      window.addEventListener('scroll', event_interval);
-      document.addEventListener('touchmove', event_interval);
-
-      /* イベント発火調整 */
-      function event_interval() {
-        window.requestAnimationFrame(toggle);
-      }
-
-      /* 表示切り替え */
-      function toggle() {
-        if(window.pageYOffset > offset) {
-          $body.classList.add('show-scroll-header');
-        } else {
-          $body.classList.remove('show-scroll-header');
-        }
-      }
-      toggle();
+      $meta_theme_color[0].setAttribute('content', this.current_color);
     }
 
     /* ======== */
-    /* ドロワー */
+    /* 切り替え */
     /* ======== */
 
-    drawer() {
-      const $toggle: Element = document.getElementsByClassName('js-drawer-toggle')[0];
-      $toggle.addEventListener('click', () => {
+    public change(): void {
 
-        /* 開く */
-        if(!$body.classList.contains('show-drawer')) {
-          /* ステータス変更 */
-          $body.classList.remove('show-search-form');
-          $body.classList.add('show-drawer');
-          /* テーマカラー変更 */
-          $meta_theme_color.setAttribute('content', color_sub);
-          $header.style.borderTopColor = color_sub;
-        }
+      /* main_color => sub_color */
+      if (this.current_color === this.main_color) {
+        $meta_theme_color[0].setAttribute('content', this.sub_color);
+        $header[0].style.borderTopColor = this.sub_color;
 
-        /* 閉じる */
-        else {
-          /* ステータス変更 */
-          $body.classList.remove('show-drawer');
-          /* テーマカラー変更 */
-          $meta_theme_color.setAttribute('content', color_accent);
-          $header.style.borderTopColor = color_accent;
-        }
-
-      }, false);
-    }
-
-    /* ============ */
-    /* 検索フォーム */
-    /* ============ */
-
-    search_form() {
-
-      /* 開く */
-      const $open: Element = document.getElementsByClassName('js-search-form-open')[0];
-      $open.addEventListener('click', function() {
-        /* ステータス変更 */
-        $body.classList.remove('show-drawer');
-        $body.classList.add('show-search-form');
-        /* テーマカラー変更 */
-        $meta_theme_color.setAttribute('content', color_sub);
-        $header.style.borderTopColor = color_sub;
-      }, false);
-
-      /* 閉じる */
-      const $close: Element = document.getElementsByClassName('js-search-form-close')[0];
-      $close.addEventListener('click', function() {
-        /* ステータス変更 */
-        $body.classList.remove('show-search-form');
-        /* テーマカラー変更 */
-        $meta_theme_color.setAttribute('content', color_accent);
-        $header.style.borderTopColor = color_accent;
-      }, false);
-
-    }
-
-    /* ================ */
-    /* 共有オーバーレイ */
-    /* ================ */
-
-    share_overlay() {
-
-      /* 開く */
-      const $open: Element = document.getElementsByClassName('js-share-overlay-open')[0];
-      $open.addEventListener('click', function() {
-        /* ステータス変更 */
-        $body.classList.add('show-share-overlay');
-        /* 背景スクロール開始 */
-        background_scroll('start');
-      }, false);
-
-      /* 閉じる */
-      const $close: Element = document.getElementsByClassName('js-share-overlay-close')[0];
-      $close.addEventListener('click', function() {
-        /* ステータス変更 */
-        $body.classList.remove('show-share-overlay');
-        /* 背景スクロール停止 */
-        background_scroll('stop');
-      }, false);
-
-      /* ================== */
-      /* 背景スクロール演出 */
-      /* ================== */
-
-      let timer: number;
-
-      function background_scroll(arg_state: string) {
-
-        /* 開始 */
-        if(arg_state === 'start') {
-          timer = setInterval(function() {
-            if(window.pageYOffset === document.body.scrollHeight - window.innerHeight) {
-              window.scrollTo(0, 0);
-            } else {
-              window.scrollBy(0, 1);
-            }
-          }, 30);
-        }
-
-        /* 停止 */
-        else if(arg_state === 'stop') {
-          clearInterval(timer);
-        }
-
+        this.current_color = this.sub_color;
       }
 
+      /* sub_color => main_color */
+      else {
+        $meta_theme_color[0].setAttribute('content', this.main_color);
+        $header[0].style.borderTopColor = this.main_color;
+
+        this.current_color = this.main_color;
+      }
     }
 
   }
 
   /* ========================================================================== */
-  /* HTML 機能補完                                                              */
+  /* スクロールでヘッダー表示を切り替え                                         */
+  /* ========================================================================== */
+
+  class HEADER_CONTROL {
+
+    /* ============== */
+    /* コンストラクタ */
+    /* ============== */
+
+    constructor() {
+      this.change();
+    }
+
+    /* ======== */
+    /* 切り替え */
+    /* ======== */
+
+    public change(): void {
+      if(header_change_trigger_y < window.pageYOffset) {
+        $body[0].classList.add('show-scroll-header');
+      } else {
+        $body[0].classList.remove('show-scroll-header');
+      }
+    }
+
+  }
+
+  /* ========================================================================== */
+  /* ドロワーの出し入れ                                                         */
+  /* ========================================================================== */
+
+  class DRAWER_CONTROL {
+
+    /* ======== */
+    /* 切り替え */
+    /* ======== */
+
+    public change(): void {
+
+      /* 開く */
+      if(!$body[0].classList.contains('show-drawer')) {
+        $body[0].classList.add('show-drawer');
+        $body[0].classList.remove('show-search-form');
+
+        /* テーマカラー変更 */
+        theme_color_control.change();
+      }
+
+      /* 閉じる */
+      else {
+        $body[0].classList.remove('show-drawer');
+
+        /* テーマカラー変更 */
+        theme_color_control.change();
+      }
+    }
+
+  }
+
+  /* ========================================================================== */
+  /* 検索フォームの出し入れ                                                     */
+  /* ========================================================================== */
+
+  class SEARCH_FORM_CONTROL {
+
+    /* ======== */
+    /* 切り替え */
+    /* ======== */
+
+    public change(): void {
+
+      /* 開く */
+      if(!$body[0].classList.contains('show-search-form')) {
+        $body[0].classList.add('show-search-form');
+        $body[0].classList.remove('show-drawer');
+
+        /* テーマカラー変更 */
+        theme_color_control.change();
+      }
+
+      /* 閉じる */
+      else {
+        $body[0].classList.remove('show-search-form');
+
+        /* テーマカラー変更 */
+        theme_color_control.change();
+      }
+    }
+
+  }
+
+  /* ========================================================================== */
+  /* 共有メニューの表示                                                         */
+  /* ========================================================================== */
+
+  class SHARE_CONTROL {
+
+    private timer: number;
+
+    /* ============ */
+    /* 表示切り替え */
+    /* ============ */
+
+    public change(): void {
+
+      /* 開く */
+      if(!$body[0].classList.contains('show-share-overlay')) {
+        $body[0].classList.add('show-share-overlay');
+
+        /* 背景スクロール開始 */
+        share_control.background_scroll(true);
+      }
+
+      /* 閉じる */
+      else {
+        $body[0].classList.remove('show-share-overlay');
+
+        /* 背景スクロール停止 */
+        share_control.background_scroll(false);
+      }
+    }
+
+    /* ================== */
+    /* 背景スクロール演出 */
+    /* ================== */
+
+    private background_scroll(status: boolean): void {
+
+      /* スクロール開始 */
+      if(status) {
+        this.timer = setInterval(() => {
+
+          /* ページ最下部であれば最上部へ強制移動 */
+          if(window.pageYOffset === document.body.scrollHeight - window.innerHeight) {
+            window.scrollTo(0, 0);
+          } else {
+            window.scrollBy(0, 1);
+          }
+        }, 30);
+      }
+
+      /* スクロール停止 */
+      else {
+        clearInterval(this.timer);
+      }
+    }
+
+  }
+
+  /* ========================================================================== */
+  /* HTML UX補佐                                                                */
   /* ========================================================================== */
 
   class HTML_SUPPORT {
-
-    constructor() {
-      this.smooth_scroll();
-      if(document.getElementsByTagName('video')[0] != null) {
-        this.inline_playing_video();
-      }
-    }
 
     /* ================== */
     /* スムーススクロール */
     /* ================== */
 
-    smooth_scroll() {
+    public smooth_scroll(): void {
+
+      /* sweet-scroll */
       const sweetScroll = new SweetScroll({
-        /* トリガーとなる要素をCSSセレクタで指定 */
-        trigger: '.js-scroll',
-        /* 固定ヘッダをCSSセレクタで指定 */
-        header: 'header',
-        /* アニメーション再生時間のミリ秒 */
-        duration: 900,
-        /* アニメーション開始までの遅延ミリ秒 */
-        delay: 0,
-        /* イージングのタイプ（デフォルト：easeOutQuint） */
-        easing: 'easeOutExpo',
-        /* スクロール位置のオフセット */
-        offset: 0,
-        /* 垂直方向のスクロールを許可 */
-        verticalScroll: true,
-        /* 水平方向のスクロールを許可 (デフォルトでは無効) */
-        horizontalScroll: false,
-        /* ホイール・タッチイベントが発生した時にスクロールを停止 */
-        stopScroll: true,
+        trigger:          '.js-scroll',  /* トリガーとなる要素をCSSセレクタで指定 */
+        header:           'header',      /* 固定ヘッダをCSSセレクタで指定 */
+        duration:         900,           /* アニメーション再生時間のミリ秒 */
+        delay:            0,             /* アニメーション開始までの遅延ミリ秒 */
+        easing:           'easeOutExpo', /* イージングのタイプ（デフォルト：easeOutQuint） */
+        offset:           0,             /* スクロール位置のオフセット */
+        verticalScroll:   true,          /* 垂直方向のスクロールを許可 */
+        horizontalScroll: false,         /* 水平方向のスクロールを許可 (デフォルトでは無効) */
+        stopScroll:       true,          /* ホイール・タッチイベントが発生した時にスクロールを停止 */
 
         /* Callbacks */
-
-        /* スクロールが始まる前 (return falseでキャンセル可) */
-        beforeScroll: null,
-        /* スクロールが終わった時 */
-        afterScroll: null,
-        /* スクロールがキャンセルされた時 */
-        cancelScroll: null,
+        beforeScroll: null, /* スクロールが始まる前 (return falseでキャンセル可) */
+        afterScroll:  null, /* スクロールが終わった時 */
+        cancelScroll: null, /* スクロールがキャンセルされた時 */
       });
     }
 
@@ -248,8 +352,9 @@
     /* 動画のインライン再生 */
     /* ==================== */
 
-    inline_playing_video() {
-      const $video: NodeListOf < HTMLVideoElement > = document.getElementsByTagName('video');
+    public inline_playing_video(): void {
+      const $video: NodeListOf <HTMLVideoElement> = document.getElementsByTagName('video');
+
       for(let i: number = 0; i < $video.length; i += 1) {
         $video[i].setAttribute('webkit-playsinline', 'webkit-playsinline');
       }

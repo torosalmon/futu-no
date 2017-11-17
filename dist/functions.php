@@ -170,12 +170,8 @@ echo <<< EOM
       main { background: {$theme_customize__setting__colors__background}; }
       main .contents .article-detail .article-comment .comment-respond .comment-form .form-submit input[type='submit'] { color: {$theme_customize__setting__colors__background}; }
       main footer { color: {$theme_customize__setting__colors__background}; }
-      .drawer .scroll .author .name { color: {$theme_customize__setting__colors__background}; }
-      .drawer .scroll .author .comment { color: {$theme_customize__setting__colors__background}; }
-      .drawer .scroll .author .links li a { color: {$theme_customize__setting__colors__background}; }
-      .drawer .scroll .dir-map h6 { color: {$theme_customize__setting__colors__background}; }
-      .drawer .scroll .dir-map ul li { color: {$theme_customize__setting__colors__background}; }
-      .drawer .scroll .dir-map ul li a { color: {$theme_customize__setting__colors__background}; }
+      .drawer { color: {$theme_customize__setting__colors__background}; }
+      .drawer .scroll .author .name::before { border-bottom-color: {$theme_customize__setting__colors__background}; }
 
       /* ボーダー */
       input[type='text'], input[type='search'], input[type='tel'], input[type='url'], input[type='email'], input[type='password'], input[type='datetime'], input[type='datetime-local'], input[type='date'], input[type='month'], input[type='week'], input[type='time'], input[type='number'], textarea, select { border-color: {$theme_customize__setting__colors__border}; }
@@ -197,16 +193,15 @@ echo <<< EOM
       main .contents .article-detail .meta dd::before { border-left-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .content blockquote { border-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .content pre { border-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .content pre.source code:not(:nth-of-type(1)) { border-top-color: {$theme_customize__setting__colors__border}; }
+      main .contents .article-detail .content pre::before { background: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .content hr { background: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .node dl dt, main .contents .article-detail .node dl dd { border-bottom-color: {$theme_customize__setting__colors__border}; }
+      main .contents .article-detail .adjacent-links ul li:first-child { border-bottom-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .article-comment .comment-list ul li article { border-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .article-comment .comment-list ul.parent article::before { border-right-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .article-comment .comment-list ul.children article::before { border-left-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .article-comment .comment-respond::before { border-bottom-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .article-comment .comment-respond .comment-form .flex { border-left-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .adjacent-links ul { border-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .adjacent-links ul li:not(:first-child) { border-left-color: {$theme_customize__setting__colors__border}; }
       main .contents .pagenation ul { border-bottom-color: {$theme_customize__setting__colors__border}; }
 
       /* 文字 */
@@ -223,7 +218,6 @@ echo <<< EOM
       header .tool ul li a span.notification { background: {$theme_customize__setting__colors__accent}; }
       .search-form form .flex-item:nth-of-type(1) input[type='search']:focus { border-bottom-color: {$theme_customize__setting__colors__accent}; }
       main .contents .pagenation ul li.current { border-bottom-color: {$theme_customize__setting__colors__accent}; }
-      .drawer .scroll .author .name::before { background: {$theme_customize__setting__colors__accent}; }
 
       /* サブカラー */
       .search-form { border-top-color: {$theme_customize__setting__colors__sub}; }

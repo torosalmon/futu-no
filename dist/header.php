@@ -113,7 +113,7 @@
   }
 ?>
           <li>
-            <a href="#share" class="js-share-overlay-open">
+            <a href="#share" class="js-share-button">
               <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                 <path class="stroke-color-text" d="M 19 5 L 5 12 L 19 19 " stroke-width="2" fill="none" />
                 <path class="fill-color-text" d="M 2 12 C 2 10.3431 3.3431 9 5 9 C 6.6569 9 8 10.3431 8 12 C 8 13.6569 6.6569 15 5 15 C 3.3431 15 2 13.6569 2 12 Z" />
@@ -124,7 +124,7 @@
             </a>
           </li>
           <li>
-            <a href="#search" class="js-search-form-open">
+            <a href="#search" class="js-search-form-button">
               <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                 <path class="fill-color-text" d="M 14 17 L 17 14 L 23 20 L 20 23 L 14 17 Z" />
                 <path class="fill-color-text" d="M 3 10 C 3 6.134 6.134 3 10 3 C 13.866 3 17 6.134 17 10 C 17 13.866 13.866 17 10 17 C 6.134 17 3 13.866 3 10 ZM 1 10 C 1 14.9706 5.0294 19 10 19 C 14.9706 19 19 14.9706 19 10 C 19 5.0294 14.9706 1 10 1 C 5.0294 1 1 5.0294 1 10 Z" />
@@ -137,7 +137,7 @@
       <!-- /ツール -->
 
       <!-- ドロワーアイコン -->
-      <nav class="drawer-icon js-drawer-toggle">
+      <nav class="drawer-icon js-drawer-button">
         <div><span></span><span></span><span></span></div>
       </nav>
       <!-- /ドロワーアイコン -->
@@ -157,7 +157,7 @@
         <div class="flex-item"><input type="search" name="s" value="<?php echo get_search_query(); ?>" placeholder="検索ワードを入力" required aria-required="true"></div>
         <div class="flex-item"><input type="submit" value="🏄"></div>
         <div class="flex-item">
-          <div class="close js-search-form-close"></div>
+          <div class="close js-search-form-button"></div>
         </div>
       </form>
     </nav>

@@ -58,7 +58,7 @@
           <div class="name"><?php echo get_the_author_meta('display_name', $author_id); ?></div>
 <?php
     if(get_the_author_meta('description') != '') {
-      echo '          <p class="comment">' . get_the_author_meta('description', $author_id) . '</p>' . "\n";
+      echo '          <div class="comment">' . get_the_author_meta('description', $author_id) . '</div>' . "\n";
     }
 ?>
           <ul class="links">
@@ -170,6 +170,16 @@
 </ul>
 <!-- /archive list -->
         </nav>
+        <nav class="feed">
+          <a href="<?php bloginfo('rss2_url'); ?>" title="RSS" target="_blank">
+            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path class="fill-color-accent" d="M 0 21 C 0 19.3431 1.3431 18 3 18 C 4.6569 18 6 19.3431 6 21 C 6 22.6569 4.6569 24 3 24 C 1.3431 24 0 22.6569 0 21 Z" />
+              <path class="fill-color-accent" d="M 16 24 C 16 15.1633 8.8367 8 0 8 L 0 11 C 7.1798 11 13 16.8202 13 24 L 16 24 Z" />
+              <path class="fill-color-accent" d="M 24 24 C 24 10.745 13.255 0 0 0 L 0 4 C 11.0458 4 20 12.9542 20 24 L 24 24 Z" />
+            </svg>
+            RSS
+          </a>
+        </nav>
       </div>
     </aside>
 
@@ -200,16 +210,34 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
               <path d="M 2 20 C 2 10.0587 10.0587 2 20 2 C 29.9413 2 38 10.0587 38 20 C 38 29.9413 29.9413 38 20 38 C 10.0587 38 2 29.9413 2 20 Z" />
             </svg>
-            <a href="https://www.facebook.com/sharer.php?t=<?php echo $meta['title']; ?>&amp;u=<?php echo $meta['url']; ?>" target="_blank" class="facebook">Facebook</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $meta['url']; ?>" target="_blank" class="facebook">Facebook</a>
           </li>
           <li>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
               <path d="M 2 20 C 2 10.0587 10.0587 2 20 2 C 29.9413 2 38 10.0587 38 20 C 38 29.9413 29.9413 38 20 38 C 10.0587 38 2 29.9413 2 20 Z" />
             </svg>
-            <a href="https://twitter.com/share?text=<?php echo $meta['title']; ?>&amp;url=<?php echo $meta['url']; ?>" target="_blank" class="twitter">Twitter</a>
+            <a href="https://twitter.com/share?url=<?php echo $meta['url']; ?>&amp;text=<?php echo $meta['title']; ?>" target="_blank" class="twitter">Twitter</a>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+              <path d="M 2 20 C 2 10.0587 10.0587 2 20 2 C 29.9413 2 38 10.0587 38 20 C 38 29.9413 29.9413 38 20 38 C 10.0587 38 2 29.9413 2 20 Z" />
+            </svg>
+            <a href="http://line.me/R/msg/text/?<?php echo $meta['title']; ?><?php echo $meta['url']; ?>" target="_blank" class="line">LINE</a>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+              <path d="M 2 20 C 2 10.0587 10.0587 2 20 2 C 29.9413 2 38 10.0587 38 20 C 38 29.9413 29.9413 38 20 38 C 10.0587 38 2 29.9413 2 20 Z" />
+            </svg>
+            <a href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ftrs.mn%2Fblog%2F" target="_blank" class="feedly">Feedly</a>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+              <path d="M 2 20 C 2 10.0587 10.0587 2 20 2 C 29.9413 2 38 10.0587 38 20 C 38 29.9413 29.9413 38 20 38 C 10.0587 38 2 29.9413 2 20 Z" />
+            </svg>
+            <a href="http://b.hatena.ne.jp/entry/<?php echo $meta['url']; ?>" data-hatena-bookmark-title="<?php echo $meta['title']; ?>" target="_blank" class="hatena">はてなブックマーク</a>
           </li>
         </ul>
-        <div class="close js-share-overlay-close"></div>
+        <div class="close js-share-button"></div>
       </div>
     </aside>
 
