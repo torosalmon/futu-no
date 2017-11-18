@@ -199,7 +199,7 @@ echo <<< EOM
       main .contents .article-detail .adjacent-links ul li:first-child { border-bottom-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .article-comment .comment-list ul li article { border-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .article-comment .comment-list ul.parent article::before { border-right-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .article-comment .comment-list ul.children article::before { border-left-color: {$theme_customize__setting__colors__border}; }
+      main .contents .article-detail .article-comment .comment-list ul.children article::before { border-right-color: transparent; border-left-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .article-comment .comment-respond::before { border-bottom-color: {$theme_customize__setting__colors__border}; }
       main .contents .article-detail .article-comment .comment-respond .comment-form .flex { border-left-color: {$theme_customize__setting__colors__border}; }
       main .contents .pagenation ul { border-bottom-color: {$theme_customize__setting__colors__border}; }

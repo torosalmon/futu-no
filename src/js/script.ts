@@ -85,7 +85,7 @@
     $drawer_button[0].addEventListener('click', drawer_control.change, <any> {
       once:    false,
       passive: false,
-      capture: true
+      capture: false
     });
 
     /* =================== */
@@ -96,7 +96,7 @@
       $search_form_button[i].addEventListener('click', search_form_control.change, <any> {
         once:    false,
         passive: false,
-        capture: true
+        capture: false
       });
     }
 
@@ -108,13 +108,13 @@
       $share_button[i].addEventListener('click', share_control.change, <any> {
         once:    false,
         passive: false,
-        capture: true
+        capture: false
       });
     }
 
   }, <any> {
     once:    true,
-    passive: true,
+    passive: false,
     capture: true
   });
 
