@@ -348,9 +348,9 @@
       });
     }
 
-    /* ==================== */
-    /* 動画のインライン再生 */
-    /* ==================== */
+    /* =========================== */
+    /* 動画のインライン再生（iOS） */
+    /* =========================== */
 
     public inline_playing_video(): void {
       const $video: NodeListOf <HTMLVideoElement> = document.getElementsByTagName('video');

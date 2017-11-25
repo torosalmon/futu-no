@@ -25,16 +25,11 @@
 
 /* この指定はWordPressテーマカスタマイザーにより上書きされます。「WordPress管理＞外観＞カスタマイズ＞色」にある動的CSS出力設定を無効化するとこちらの指定が反映されます。 */
 
-/* 背景 */
-:root { --color-background: #fff; }
-/* ボーダー */
-:root { --color-border: #ddd; }
-/* 文字 */
-:root { --color-text: #444; }
-/* アクセントカラー */
-:root { --color-accent: #2dcec9; }
-/* サブカラー */
-:root { --color-sub: #657a87; }
+:root { --color-background: #fff; } /* 背景 */
+:root { --color-border: #ddd;     } /* ボーダー */
+:root { --color-text: #444;       } /* 文字 */
+:root { --color-accent: #2dcec9;  } /* アクセントカラー */
+:root { --color-sub: #657a87;     } /* サブカラー */
 
 /* ========== */
 /* イージング */
@@ -1274,6 +1269,10 @@ main {
           font-size: 1.4rem;
         }
 
+        pre code {
+          font-size: 1rem;
+        }
+
         p,
         ul,
         ol,
@@ -1300,6 +1299,14 @@ main {
 
             }
 
+          }
+
+        }
+
+        dl {
+
+          dd {
+            padding-left: 2rem;
           }
 
         }
@@ -1350,6 +1357,7 @@ main {
           overflow: auto;
           -webkit-overflow-scrolling: touch;
           position: relative;
+          max-height: 36rem;
           padding: 1rem;
           border: solid 2px var(--color-border);
           line-height: 1.4;
@@ -1369,7 +1377,7 @@ main {
           position: relative;
           width: 50%;
           height: 2px;
-          margin: 4rem auto;
+          margin: 6.4rem auto;
           background: var(--color-border);
           border: none;
         }
