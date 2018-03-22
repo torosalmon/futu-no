@@ -22,13 +22,19 @@
           <section>
             <h3 class="heading">
               <a href="<?php the_permalink(); ?>">
+                <div class="eyecatch">
 <?php
       if(has_post_thumbnail()) {
 ?>
-                <div class="eyecatch"><?php the_post_thumbnail('640px'); ?></div>
+                  <?php the_post_thumbnail('640px'); ?>
+<?php
+      } else {
+?>
+                  <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="<?php the_title(); ?>">
 <?php
       }
 ?>
+                </div>
                 <strong><?php the_title(); ?></strong>
               </a>
             </h3>
@@ -39,7 +45,7 @@
       if(has_category()) {
 ?>
               <dt class="category">Category</dt>
-              <dd><?php the_category(' '); ?></dd>
+              <dd><?php the_category(' / '); ?></dd>
 <?php
       }
 ?>

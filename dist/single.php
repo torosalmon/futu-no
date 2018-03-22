@@ -39,7 +39,7 @@
                 <path class="stroke-color-border fill-color-background" d="M 6 10 L 23 10 L 19 20 L 2 20 L 6 10 Z" stroke-width="1" />
               </svg>
             </dt>
-            <dd><?php the_category(' '); ?></dd>
+            <dd><?php the_category(' / '); ?></dd>
 <?php
       }
 ?>
@@ -72,7 +72,7 @@
     if(has_category()) {
 ?>
               <dt>Categories</dt>
-              <dd><?php the_category(' '); ?></dd>
+              <dd><?php the_category(' / '); ?></dd>
 <?php
     }
 ?>
@@ -80,7 +80,7 @@
     if(has_tag()) {
 ?>
               <dt>Tags</dt>
-              <dd><?php the_tags('', ' '); ?></dd>
+              <dd><?php the_tags('', ' / '); ?></dd>
 <?php
     }
 ?>
@@ -118,7 +118,7 @@
     }
 ?>
 <?php
-    /* コメント許可 */
+    // コメント許可
     if(comments_open()) {
       comments_template();
     }

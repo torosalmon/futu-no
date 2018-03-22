@@ -87,16 +87,6 @@ $easing: cubic-bezier(.54, .05, .36, .98);
 // 文字組
 // =============================================================================
 
-// Yaku Han JP
-@font-face {
-  src: url('https://cdn.jsdelivr.net/npm/yakuhanjp@2.0.0/dist/fonts/YakuHanJP/YakuHanJP-Light.eot');
-  src: url('https://cdn.jsdelivr.net/npm/yakuhanjp@2.0.0/dist/fonts/YakuHanJP/YakuHanJP-Light.woff2') format('woff2'),
-       url('https://cdn.jsdelivr.net/npm/yakuhanjp@2.0.0/dist/fonts/YakuHanJP/YakuHanJP-Light.woff') format('woff');
-  font-family: 'YakuHanJP';
-  font-weight: 400;
-  font-display: swap;
-}
-
 // Helvetica Neue
 @font-face {
   src: local('Helvetica Neue Regular');
@@ -359,7 +349,7 @@ iframe {
 
 header {
   display: flex;
-  flex-flow: row norwap;
+  flex-flow: row nowrap;
   position: fixed;
   top: 0;
   left: 0;
@@ -376,11 +366,11 @@ header {
   // ==========
 
   .page-info {
+    flex-grow: 1;
+    order: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    flex-grow: 1;
-    order: 2;
     overflow: hidden;
     position: relative;
     line-height: 1.4;
@@ -583,6 +573,8 @@ header {
     align-items: center;
     order: 1;
     width: 5rem;
+    min-width: 5rem;
+    max-width: 5rem;
 
     div {
       position: relative;
@@ -916,6 +908,7 @@ main {
 
               img {
                 width: 100%;
+                background-color: $color-border;
                 vertical-align: middle;
               }
 
@@ -1009,7 +1002,6 @@ main {
       display: flex;
       flex-flow: row wrap;
       justify-content: space-between;
-      align-items: flex-end;
 
       section {
         margin-top: 4rem;
@@ -1028,18 +1020,14 @@ main {
           line-height: 1.4;
 
           a {
-            display: inline-block;
+            display: block;
             text-decoration: none;
 
             .eyecatch {
               margin-bottom: 3rem;
 
-              @media(max-width: 768px) {
-                text-align: center;
-              }
-
               img {
-                width: 100%;
+                background-color: $color-background;
                 box-shadow: 0 4px 4px rgba(0, 0, 0, .1),
                             0 1px 6px rgba(0, 0, 0, .05),
                             0 8px 8px rgba(0, 0, 0, .1),
@@ -1047,6 +1035,10 @@ main {
                             8px 32px 32px rgba(0, 0, 0, .15),
                             8px 64px 64px rgba(0, 0, 0, .15);
                 vertical-align: bottom;
+
+                @media(max-width: 768px) { width: 50%;  }
+                @media(min-width: 769px) { width: 100%; }
+
               }
 
             }
@@ -1281,20 +1273,15 @@ main {
         h6 {
           margin-top: 6.4rem;
           margin-bottom: 1.4rem;
-          font-weight: bold;
+          font-weight: inherit;
         }
 
-        h1,
-        h2,
-        h3 {
-          font-size: 2.8rem;
-        }
-
-        h4,
-        h5,
-        h6 {
-          font-size: 1.4rem;
-        }
+        h1 { font-size: 2.6rem; }
+        h2 { font-size: 2.4rem; }
+        h3 { font-size: 2.2rem; }
+        h4 { font-size: 2rem;   }
+        h5 { font-size: 1.8rem; }
+        h6 { font-size: 1.6rem; }
 
         pre code {
           font-size: 1rem;

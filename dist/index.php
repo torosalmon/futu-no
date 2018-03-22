@@ -12,9 +12,9 @@
         <nav class="toplevel-list" itemscope="itemscope" itemtype="http://schema.org/Article">
 <?php
 
-  /* =================== */
-  /* 最新記事（最新1件） */
-  /* =================== */
+  // ===================
+  // 最新記事（最新1件）
+  // ===================
 
   $args = array(
     'order'          => 'DESC',
@@ -31,13 +31,15 @@
 ?>
             <section>
               <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                <div class="eyecatch">
 <?php
       if(has_post_thumbnail()) {
 ?>
-                <div class="eyecatch"><?php the_post_thumbnail('640px'); ?></div>
+                  <?php the_post_thumbnail('640px'); ?>
 <?php
       }
 ?>
+                </div>
                 <div class="meta">
                   <time itemprop="datePublished"><?php the_time('Y.m.d'); ?></time>
                   <h2><?php the_title(); ?></h2>
@@ -51,9 +53,9 @@
 <?php
     wp_reset_query();
 
-    /* ===================== */
-    /* 最新記事（2件目以降） */
-    /* ===================== */
+    // =====================
+    // 最新記事（2件目以降）
+    // =====================
 
     $args = array(
       'order'   => 'DESC',
@@ -69,13 +71,19 @@
 ?>
             <section>
               <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                <div class="eyecatch">
 <?php
       if(has_post_thumbnail()) {
 ?>
-                <div class="eyecatch"><?php the_post_thumbnail('640px'); ?></div>
+                  <?php the_post_thumbnail('640px'); ?>
+<?php
+      } else {
+?>
+                  <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="<?php the_title(); ?>">
 <?php
       }
 ?>
+                </div>
                 <div class="meta">
                   <time itemprop="datePublished"><?php the_time('Y.m.d'); ?></time>
                   <h2><?php the_title(); ?></h2>

@@ -82,7 +82,7 @@
       <nav class="tool">
         <ul>
 <?php
-  /* シングルページ & コメント許可 */
+  // シングルページ & コメント許可
   if(is_singular() && comments_open()) {
 ?>
           <li>
@@ -91,7 +91,7 @@
                 <path class="fill-color-text" d="M 16 9 L 18 9 L 18 11 L 16 11 L 16 9 ZM 11 9 L 13 9 L 13 11 L 11 11 L 11 9 ZM 6 9 L 8 9 L 8 11 L 6 11 L 6 9 ZM 6 4 C 3.7908 4 2 5.7908 2 8 L 2 12 C 2 14.2092 3.7908 16 6 16 L 10 16 L 14 20 L 14 16 L 18 16 C 20.2092 16 22 14.2092 22 12 L 22 8 C 22 5.7908 20.2092 4 18 4 L 6 4 Z" />
               </svg>
 <?php
-    /* コメントが1件以上ある場合 */
+    // コメントが1件以上ある場合
     $comment_total = get_comments_number();
     settype($comment_total, 'integer');
     if($comment_total > 0) {
@@ -100,7 +100,7 @@
 <?php
     }
 
-    /* コメント0件 */
+    // コメント0件
     else {
 ?>
               <span>コメント</span>
