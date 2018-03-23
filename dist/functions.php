@@ -353,6 +353,15 @@ EOM;
   // <meta name="generator">
   remove_action('wp_head', 'wp_generator');
 
+  // jQuery
+  if(!is_admin()) {
+    function deregister_script() {
+      wp_deregister_script('jquery');
+      wp_deregister_script('jquery-migrate');
+    }
+    add_action('wp_enqueue_scripts', 'deregister_script');
+  }
+
   // ============
   // 静的リソース
   // ============
