@@ -1,13 +1,3 @@
-<?php
-/*!
- * *****************************************************************************
- * [futu-no]
- * @Template Name: Archives List
- * @URL:           http://trs.mn/blog/futu-no/
- * @License:       MIT License
- * *****************************************************************************
-!*/
-?>
 <?php get_header(); ?>
         <nav class="archive-list" itemscope="itemscope" itemtype="http://schema.org/Article">
 <?php

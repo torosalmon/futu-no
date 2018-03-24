@@ -1,13 +1,3 @@
-<?php
-/*!
- * *****************************************************************************
- * [futu-no]
- * @Template Name: Search result
- * @URL:           http://trs.mn/blog/futu-no/
- * @License:       MIT License
- * *****************************************************************************
-!*/
-?>
 <?php get_header(); ?>
 <?php
   if(have_posts() && get_search_query()) {

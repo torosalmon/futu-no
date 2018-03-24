@@ -1,13 +1,4 @@
 <?php
-/*!
- * *****************************************************************************
- * [futu-no]
- * @URL:     http://trs.mn/blog/futu-no/
- * @License: MIT License
- * *****************************************************************************
-!*/
-?>
-<?php
 
   // =============================================================================
   // [管理 > 投稿] アイキャッチ設定
@@ -161,83 +152,83 @@ echo <<< EOM
       /* ============================= */
 
       /* 背景 */
-      header { background: {$theme_customize__setting__colors__background}; }
-      header .page-info .page-top { background: {$theme_customize__setting__colors__background}; }
-      .search-form { background: {$theme_customize__setting__colors__background}; }
-      main { background: {$theme_customize__setting__colors__background}; }
-      main .contents .archive-list section .heading a .eyecatch img{ background-color: {$theme_customize__setting__colors__background}; }
-      main .contents .article-detail .article-comment .comment-respond .comment-form .form-submit input[type='submit'] { color: {$theme_customize__setting__colors__background}; }
-      main footer { color: {$theme_customize__setting__colors__background}; }
-      .drawer { color: {$theme_customize__setting__colors__background}; }
-      .drawer .scroll .author .name::before { border-bottom-color: {$theme_customize__setting__colors__background}; }
+      svg .color--background--fill{fill:{$theme_customize__setting__colors__background}}
+      svg .color--background--stroke{stroke:{$theme_customize__setting__colors__background}}
+      .header{background-color:{$theme_customize__setting__colors__background}}
+      .header .page-info .page-top{background-color:{$theme_customize__setting__colors__background}}
+      .search-form{background-color:{$theme_customize__setting__colors__background}}
+      .content-wrapper{background-color:{$theme_customize__setting__colors__background}}
+      .content-wrapper .main .archive-list section .heading a .eyecatch img{background-color:{$theme_customize__setting__colors__background}}
+      .content-wrapper .main .article-detail .article-comment .comment-respond .comment-form .form-submit input[type='submit']{color:{$theme_customize__setting__colors__background}}
+      .content-wrapper .footer{color:{$theme_customize__setting__colors__background}}
+      .drawer{color:{$theme_customize__setting__colors__background}}
+      .drawer .scroll .author .name::before{border-bottom-color:{$theme_customize__setting__colors__background}}
 
       /* ボーダー */
-      input[type='text'], input[type='search'], input[type='tel'], input[type='url'], input[type='email'], input[type='password'], input[type='datetime'], input[type='datetime-local'], input[type='date'], input[type='month'], input[type='week'], input[type='time'], input[type='number'], textarea, select { border-color: {$theme_customize__setting__colors__border}; }
-      input[type='submit'], input[type='reset'], input[type='button'], button { background: {$theme_customize__setting__colors__border}; }
-      header { border-bottom-color: {$theme_customize__setting__colors__border}; }
-      header .tool ul li { border-left-color: {$theme_customize__setting__colors__border}; }
-      .search-form { border-bottom-color: {$theme_customize__setting__colors__border}; }
-      .search-form form .flex-item:nth-of-type(2)::before { border-left-color: {$theme_customize__setting__colors__border}; }
-      .search-form form .flex-item:nth-of-type(2) input[type='submit'] { border-left-color: {$theme_customize__setting__colors__border}; }
-      .search-form form .flex-item:nth-of-type(3) .close { border-left-color: {$theme_customize__setting__colors__border}; }
-      main .contents .toplevel-list .latest-1 { border-bottom-color: {$theme_customize__setting__colors__border}; }
-      main .contents .toplevel-list .latest-1 section a::after { border-top-color: {$theme_customize__setting__colors__border}; border-right-color: {$theme_customize__setting__colors__border}; }
-      main .contents .toplevel-list .latest-2 section:not(:nth-of-type(1)) { border-top-color: {$theme_customize__setting__colors__border}; }
-      main .contents .toplevel-list .latest-2 section a::after { border-top-color: {$theme_customize__setting__colors__border}; border-right-color: {$theme_customize__setting__colors__border}; }
-      main .contents .toplevel-list .latest-2 section a .eyecatch img { background-color: {$theme_customize__setting__colors__border}; }
-      main .contents .toplevel-list .dir-map section ul { border-left-color: {$theme_customize__setting__colors__border}; }
-      main .contents .archive-list section .heading a strong::before { background: {$theme_customize__setting__colors__border}; }
-      main .contents .archive-list section .meta dd:not(:nth-of-type(1)) { border-left-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .meta { border-top-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .meta dd::before { border-left-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .content blockquote { border-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .content pre { border-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .content pre::before { background: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .content hr { background: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .node dl dt, main .contents .article-detail .node dl dd { border-bottom-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .adjacent-links ul li:first-child { border-bottom-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .article-comment .comment-list ul li article { border-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .article-comment .comment-list ul.parent article::before { border-right-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .article-comment .comment-list ul.children article::before { border-right-color: transparent; border-left-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .article-comment .comment-respond::before { border-bottom-color: {$theme_customize__setting__colors__border}; }
-      main .contents .article-detail .article-comment .comment-respond .comment-form .flex { border-left-color: {$theme_customize__setting__colors__border}; }
-      main .contents .pagenation ul { border-bottom-color: {$theme_customize__setting__colors__border}; }
+      svg .color--border--fill{fill:{$theme_customize__setting__colors__border}}
+      svg .color--border--stroke{stroke:{$theme_customize__setting__colors__border}}
+      input[type='text'], input[type='search'], input[type='tel'], input[type='url'], input[type='email'], input[type='password'], input[type='datetime'], input[type='datetime-local'], input[type='date'], input[type='month'], input[type='week'], input[type='time'], input[type='number'], textarea, select{border-color:{$theme_customize__setting__colors__border}}
+      input[type='submit'], input[type='reset'], input[type='button'], button{background-color:{$theme_customize__setting__colors__border}}
+      .header{border-bottom-color:{$theme_customize__setting__colors__border}}
+      .header .tool ul li{border-left-color:{$theme_customize__setting__colors__border}}
+      .search-form{border-bottom-color:{$theme_customize__setting__colors__border}}
+      .search-form form > div:nth-of-type(2)::before{border-left-color:{$theme_customize__setting__colors__border}}
+      .search-form form > div:nth-of-type(2) input[type='submit']{border-left-color:{$theme_customize__setting__colors__border}}
+      .search-form form > div:nth-of-type(3) .close{border-left-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .toplevel-list .latest-1{border-bottom-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .toplevel-list .latest-1 section a::after{border-top-color:{$theme_customize__setting__colors__border};border-right-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .toplevel-list .latest-2 section:not(:nth-of-type(1)){border-top-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .toplevel-list .latest-2 section a::after{border-top-color:{$theme_customize__setting__colors__border};border-right-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .toplevel-list .latest-2 section a .eyecatch img{background-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .toplevel-list .dir-map section ul{border-left-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .archive-list section .heading a strong::before{background-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .archive-list section .meta dd:not(:nth-of-type(1)){border-left-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .article-detail .meta{border-top-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .article-detail .content blockquote{border-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .article-detail .content pre{border-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .article-detail .content pre::before{background-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .article-detail .content hr{background-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .article-detail .node dl dt, .content-wrapper .main .article-detail .node dl dd{border-bottom-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .article-detail .adjacent-links ul li:first-child{border-bottom-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .article-detail .article-comment .comment-list ul li article{border-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .article-detail .article-comment .comment-list ul.parent article::before{border-right-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .article-detail .article-comment .comment-list ul.children article::before{border-left-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .article-detail .article-comment .comment-respond::before{border-bottom-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .article-detail .article-comment .comment-respond .comment-form .flex{border-left-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .pagenation ul{border-bottom-color:{$theme_customize__setting__colors__border}}
 
       /* 文字 */
-      html { color: {$theme_customize__setting__colors__text}; }
-      header .page-info .breadcrumb li:not(:first-child)::before { border-top-color: {$theme_customize__setting__colors__text}; border-right-color: {$theme_customize__setting__colors__text}; }
-      header .drawer-icon div span { background: {$theme_customize__setting__colors__text}; }
-      .search-form form .flex-item:nth-of-type(3) .close::before, .search-form form .flex-item:nth-of-type(3) .close::after { background: {$theme_customize__setting__colors__text}; }
-      main .contents .toplevel-list .latest-1 section a:hover::after { border-top-color: {$theme_customize__setting__colors__text}; border-right-color: {$theme_customize__setting__colors__text}; }
-      main .contents .archive-list section .heading a strong::after { background: {$theme_customize__setting__colors__text}; }
-      main footer { background: {$theme_customize__setting__colors__text}; }
+      svg .color--text--fill{fill:{$theme_customize__setting__colors__text}}
+      svg .color--text--stroke{stroke:{$theme_customize__setting__colors__text}}
+      html{color:{$theme_customize__setting__colors__text}}
+      .header .page-info .breadcrumb li:not(:first-child)::before{border-top-color:{$theme_customize__setting__colors__text};border-right-color:{$theme_customize__setting__colors__text}}
+      .header .drawer-icon div span{background-color:{$theme_customize__setting__colors__text}}
+      .search-form form > div:nth-of-type(3) .close::before, .search-form form > div:nth-of-type(3) .close::after{background-color:{$theme_customize__setting__colors__text}}
+      .content-wrapper .main .toplevel-list .latest-1 section a:hover::after{border-top-color:{$theme_customize__setting__colors__text};border-right-color:{$theme_customize__setting__colors__text}}
+      .content-wrapper .main .toplevel-list .latest-2 section a:hover::after{border-top-color:{$theme_customize__setting__colors__text};border-right-color:{$theme_customize__setting__colors__text}}
+      .content-wrapper .main .archive-list section .heading a strong::after{background-color:{$theme_customize__setting__colors__text}}
+      .content-wrapper .footer{background-color:{$theme_customize__setting__colors__text}}
 
       /* アクセントカラー */
-      header { border-top-color: {$theme_customize__setting__colors__accent}; }
-      header .tool ul li a span.notification { background: {$theme_customize__setting__colors__accent}; }
-      .search-form form .flex-item:nth-of-type(1) input[type='search']:focus { border-bottom-color: {$theme_customize__setting__colors__accent}; }
-      main .contents .pagenation ul li.current { border-bottom-color: {$theme_customize__setting__colors__accent}; }
+      svg .color--accent--fill{fill:{$theme_customize__setting__colors__accent}}
+      svg .color--accent--stroke{stroke:{$theme_customize__setting__colors__accent}}
+      body{border-top-color:{$theme_customize__setting__colors__accent}}
+      .header{border-top-color:{$theme_customize__setting__colors__accent}}
+      .header .tool ul li a span.notification{background-color:{$theme_customize__setting__colors__accent}}
+      .search-form form > div:nth-of-type(1) input[type='search']:focus{border-bottom-color:{$theme_customize__setting__colors__accent}}
+      .content-wrapper .main .pagenation ul li.current{border-bottom-color:{$theme_customize__setting__colors__accent}}
 
       /* サブカラー */
-      .search-form { border-top-color: {$theme_customize__setting__colors__sub}; }
-      main .contents .article-detail .article-comment .comment-respond .comment-form .form-submit input[type='submit'] { background: {$theme_customize__setting__colors__sub}; }
-      .drawer { background: {$theme_customize__setting__colors__sub}; }
-      .drawer .scroll .author .avatar { border-color: {$theme_customize__setting__colors__sub}; }
-      .drawer .scroll .author .name { border-color: {$theme_customize__setting__colors__sub}; }
-      .drawer .scroll .author .comment { border-color: {$theme_customize__setting__colors__sub}; }
-      .drawer .scroll .author .links li { border-color: {$theme_customize__setting__colors__sub}; }
-
-      /* SVG */
-      .svg-icon .fill-color-background { fill: {$theme_customize__setting__colors__background}; }
-      .svg-icon .stroke-color-background { stroke: {$theme_customize__setting__colors__background}; }
-      .svg-icon .fill-color-border { fill: {$theme_customize__setting__colors__border}; }
-      .svg-icon .stroke-color-border { stroke: {$theme_customize__setting__colors__border}; }
-      .svg-icon .fill-color-text { fill: {$theme_customize__setting__colors__text}; }
-      .svg-icon .stroke-color-text { stroke: {$theme_customize__setting__colors__text}; }
-      .svg-icon .fill-color-accent { fill: {$theme_customize__setting__colors__accent}; }
-      .svg-icon .stroke-color-accent { stroke: {$theme_customize__setting__colors__accent}; }
-      .svg-icon .fill-color-sub { fill: {$theme_customize__setting__colors__sub}; }
-      .svg-icon .stroke-color-sub { stroke: {$theme_customize__setting__colors__sub}; }
+      svg .color--sub--fill{fill:{$theme_customize__setting__colors__sub}}
+      svg .color--sub--stroke{stroke:{$theme_customize__setting__colors__sub}}
+      body{border-bottom-color:{$theme_customize__setting__colors__sub}}
+      .search-form{border-top-color:{$theme_customize__setting__colors__sub}}
+      .search-form{border-top-color:{$theme_customize__setting__colors__sub}}
+      .drawer{background-color:{$theme_customize__setting__colors__sub}}
+      .drawer .scroll .author .avatar{border-color:{$theme_customize__setting__colors__sub}}
+      .drawer .scroll .author .name{border-color:{$theme_customize__setting__colors__sub}}
+      .drawer .scroll .author .comment{border-color:{$theme_customize__setting__colors__sub}}
+      .drawer .scroll .author .links li{border-color:{$theme_customize__setting__colors__sub}}
     </style>
 
 EOM;
@@ -269,13 +260,13 @@ EOM;
     $contactmethods['facebook']    = 'Facebook';
     $contactmethods['twitter']     = 'Twitter';
     $contactmethods['google_plus'] = 'Google +';
-    $contactmethods['mastodon']    = 'Mastodon';
     $contactmethods['mixi']        = 'mixi';
     $contactmethods['tumblr']      = 'Tumblr';
     $contactmethods['instagram']   = 'Instagram';
     $contactmethods['flickr']      = 'Flickr';
     $contactmethods['photohito']   = 'PHOTOHITO';
     $contactmethods['pixiv']       = 'pixiv';
+    $contactmethods['pawoo']       = 'pawoo';
     $contactmethods['github']      = 'GitHub';
     $contactmethods['qiita']       = 'Qiita';
 
@@ -374,7 +365,7 @@ EOM;
     // $deps:   依存スタイルシート識別名の配列（オプション）
     // $ver:    バージョン文字列。クエリーストリングに付加される。（オプション）
     // $media:  スタイルシートのメディア指定（オプション）
-    wp_enqueue_style('theme', get_template_directory_uri() . '/css/style.css', array(), false, '');
+    wp_enqueue_style('theme', get_template_directory_uri() . '/css/global.css', array(), false, '');
 
     // [JS]
     // $handle:    スクリプト識別名
@@ -382,8 +373,8 @@ EOM;
     // $deps:      依存スクリプト識別名の配列（オプション）
     // $ver:       バージョン文字列。クエリーストリングに付加される。（オプション）
     // $in_footer: trueで</body>前で読み込まれる。デフォルトはfalseで</head>の前のエリアで読み込まれる。（オプション）
-    wp_enqueue_script('sweet-scroll', 'https://unpkg.com/sweet-scroll@2.2.1/sweet-scroll.min.js', array(), false, true);
-    wp_enqueue_script('theme', get_template_directory_uri() . '/js/script.js', array('sweet-scroll'), false, true);
+    wp_enqueue_script('sweet-scroll', 'https://unpkg.com/sweet-scroll@3.0.0/sweet-scroll.min.js', array(), false, true);
+    wp_enqueue_script('theme', get_template_directory_uri() . '/js/global.js', array('sweet-scroll'), false, true);
 
     // コメントフォーム移動処理
     if(is_singular() && comments_open() && get_option('thread_comments')) {

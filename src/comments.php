@@ -1,13 +1,3 @@
-<?php
-/*!
- * *****************************************************************************
- * [futu-no]
- * @Template Name: Article Comments
- * @URL:           http://trs.mn/blog/futu-no/
- * @License:       MIT License
- * *****************************************************************************
-!*/
-?>
           <aside id="comment" class="article-comment">
 <?php
   if(have_comments()) {

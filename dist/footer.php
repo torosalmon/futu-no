@@ -1,19 +1,15 @@
-<?php
-/*!
- * *****************************************************************************
- * [futu-no]
- * @Template Name: HTML Footer
- * @URL:           http://trs.mn/blog/futu-no/
- * @License:       MIT License
- * *****************************************************************************
-!*/
-?>
 <?php global $meta; ?>
-      </div>
-      <!-- /コンテンツ -->
+      </main>
 
-      <!-- フッター -->
-      <footer>
+      <!-- ====================================================================== -->
+      <!-- /メイン                                                                -->
+      <!-- ====================================================================== -->
+
+      <!-- ====================================================================== -->
+      <!-- フッター                                                               -->
+      <!-- ====================================================================== -->
+
+      <footer class="footer">
         <p><small>Copyright © <?php echo date('Y'); ?> <?php bloginfo('name'); ?></small></p>
         <ul>
           <li><a href="https://ja.wordpress.org/" target="_blank">WordPress</a></li>
@@ -28,17 +24,20 @@
   }
 ?>
       </footer>
-      <!-- /フッター -->
 
-    </main>
+      <!-- ====================================================================== -->
+      <!-- /フッター                                                              -->
+      <!-- ====================================================================== -->
 
-    <!-- ======= -->
-    <!-- /メイン -->
-    <!-- ======= -->
+    </div>
 
-    <!-- ======== -->
-    <!-- ドロワー -->
-    <!-- ======== -->
+    <!-- ====================================================================== -->
+    <!-- /コンテンツ                                                            -->
+    <!-- ====================================================================== -->
+
+    <!-- ====================================================================== -->
+    <!-- ドロワー                                                               -->
+    <!-- ====================================================================== -->
 
     <aside class="drawer">
       <div class="scroll">
@@ -78,9 +77,6 @@
     if(get_the_author_meta('google_plus') != '') {
       echo '            <li><a href="' . get_the_author_meta('google_plus', $author_id) . '" target="_blank">Google +</a></li>' . "\n";
     }
-    if(get_the_author_meta('mastodon') != '') {
-      echo '            <li><a href="' . get_the_author_meta('mastodon', $author_id) . '" target="_blank">Mastodon</a></li>' . "\n";
-    }
     if(get_the_author_meta('mixi') != '') {
       echo '            <li><a href="' . get_the_author_meta('mixi', $author_id) . '" target="_blank">mixi</a></li>' . "\n";
     }
@@ -99,6 +95,9 @@
     if(get_the_author_meta('pixiv') != '') {
       echo '            <li><a href="' . get_the_author_meta('pixiv', $author_id) . '" target="_blank">pixiv</a></li>' . "\n";
     }
+    if(get_the_author_meta('pawoo') != '') {
+      echo '            <li><a href="' . get_the_author_meta('pawoo', $author_id) . '" target="_blank">Pawoo</a></li>' . "\n";
+    }
     if(get_the_author_meta('github') != '') {
       echo '            <li><a href="' . get_the_author_meta('github', $author_id) . '" target="_blank">GitHub</a></li>' . "\n";
     }
@@ -113,9 +112,9 @@
 ?>
         <nav class="dir-map">
           <h6>
-            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path class="fill-color-border" d="M 4 2 L 4 22 L 20 22 L 20 10 L 19 10 L 19 21 L 5 21 L 5 3 L 12 3 L 12 2 L 4 2 Z" />
-              <path class="fill-color-accent" d="M 12 2 L 12 10 L 20 10 L 12 2 Z" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path class="color--border--fill" d="M 4 2 L 4 22 L 20 22 L 20 10 L 19 10 L 19 21 L 5 21 L 5 3 L 12 3 L 12 2 L 4 2 Z" />
+              <path class="color--accent--fill" d="M 12 2 L 12 10 L 20 10 L 12 2 Z" />
             </svg>
             Pages
           </h6>
@@ -132,10 +131,10 @@
 </ul>
 <!-- /page list -->
           <h6>
-            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path class="stroke-color-border" d="M 1 6 L 3 6 L 4 4 L 10 4 L 11 6 L 18 6 L 18 18 L 1 18 L 1 6 Z" stroke-width="1" fill="none" />
-              <path class="fill-color-accent" d="M 3 8 L 20 8 L 20 18 L 3 18 L 3 8 Z" />
-              <path class="stroke-color-border fill-color-sub" d="M 6 10 L 23 10 L 19 20 L 2 20 L 6 10 Z" stroke-width="1" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path class="color--border--stroke" d="M 1 6 L 3 6 L 4 4 L 10 4 L 11 6 L 18 6 L 18 18 L 1 18 L 1 6 Z" stroke-width="1" fill="none" />
+              <path class="color--accent--fill" d="M 3 8 L 20 8 L 20 18 L 3 18 L 3 8 Z" />
+              <path class="color--border--stroke color--sub--fill" d="M 6 10 L 23 10 L 19 20 L 2 20 L 6 10 Z" stroke-width="1" />
             </svg>
             Categories
           </h6>
@@ -150,12 +149,12 @@
 </ul>
 <!-- /category list -->
           <h6>
-            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path class="fill-color-border" d="M 4 3 L 20 3 C 20.5523 3 21 3.4477 21 4 L 21 20 C 21 20.5523 20.5523 21 20 21 L 4 21 C 3.4477 21 3 20.5523 3 20 L 3 4 C 3 3.4477 3.4477 3 4 3 ZM 2 4 L 2 20 C 2 21.1046 2.8954 22 4 22 L 20 22 C 21.1046 22 22 21.1046 22 20 L 22 4 C 22 2.8954 21.1046 2 20 2 L 4 2 C 2.8954 2 2 2.8954 2 4 Z" />
-              <path class="fill-color-border" d="M 18 12 L 20 12 L 20 13 L 18 13 L 18 12 Z" />
-              <path class="fill-color-border" d="M 11 18 L 12 18 L 12 20 L 11 20 L 11 18 Z" />
-              <path class="fill-color-border" d="M 4 12 L 6 12 L 6 13 L 4 13 L 4 12 Z" />
-              <path class="fill-color-accent" d="M 11 4 L 11 11 L 6 11 L 6 13 L 13 13 L 13 4 L 11 4 Z" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path class="color--border--fill" d="M 4 3 L 20 3 C 20.5523 3 21 3.4477 21 4 L 21 20 C 21 20.5523 20.5523 21 20 21 L 4 21 C 3.4477 21 3 20.5523 3 20 L 3 4 C 3 3.4477 3.4477 3 4 3 ZM 2 4 L 2 20 C 2 21.1046 2.8954 22 4 22 L 20 22 C 21.1046 22 22 21.1046 22 20 L 22 4 C 22 2.8954 21.1046 2 20 2 L 4 2 C 2.8954 2 2 2.8954 2 4 Z" />
+              <path class="color--border--fill" d="M 18 12 L 20 12 L 20 13 L 18 13 L 18 12 Z" />
+              <path class="color--border--fill" d="M 11 18 L 12 18 L 12 20 L 11 20 L 11 18 Z" />
+              <path class="color--border--fill" d="M 4 12 L 6 12 L 6 13 L 4 13 L 4 12 Z" />
+              <path class="color--accent--fill" d="M 11 4 L 11 11 L 6 11 L 6 13 L 13 13 L 13 4 L 11 4 Z" />
             </svg>
             Archives
           </h6>
@@ -172,10 +171,10 @@
         </nav>
         <nav class="feed">
           <a href="<?php bloginfo('rss2_url'); ?>" title="RSS" target="_blank">
-            <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path class="fill-color-accent" d="M 0 21 C 0 19.3431 1.3431 18 3 18 C 4.6569 18 6 19.3431 6 21 C 6 22.6569 4.6569 24 3 24 C 1.3431 24 0 22.6569 0 21 Z" />
-              <path class="fill-color-accent" d="M 16 24 C 16 15.1633 8.8367 8 0 8 L 0 11 C 7.1798 11 13 16.8202 13 24 L 16 24 Z" />
-              <path class="fill-color-accent" d="M 24 24 C 24 10.745 13.255 0 0 0 L 0 4 C 11.0458 4 20 12.9542 20 24 L 24 24 Z" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path class="color--accent--fill" d="M 0 21 C 0 19.3431 1.3431 18 3 18 C 4.6569 18 6 19.3431 6 21 C 6 22.6569 4.6569 24 3 24 C 1.3431 24 0 22.6569 0 21 Z" />
+              <path class="color--accent--fill" d="M 16 24 C 16 15.1633 8.8367 8 0 8 L 0 11 C 7.1798 11 13 16.8202 13 24 L 16 24 Z" />
+              <path class="color--accent--fill" d="M 24 24 C 24 10.745 13.255 0 0 0 L 0 4 C 11.0458 4 20 12.9542 20 24 L 24 24 Z" />
             </svg>
             RSS
           </a>
@@ -183,15 +182,15 @@
       </div>
     </aside>
 
-    <!-- ========= -->
-    <!-- /ドロワー -->
-    <!-- ========= -->
+    <!-- ====================================================================== -->
+    <!-- /ドロワー                                                              -->
+    <!-- ====================================================================== -->
 
-    <!-- ================ -->
-    <!-- 共有オーバーレイ -->
-    <!-- ================ -->
+    <!-- ====================================================================== -->
+    <!-- 共有                                                                   -->
+    <!-- ====================================================================== -->
 
-    <aside id="share" class="share-overlay">
+    <aside id="share" class="share">
       <div class="scroll">
         <div class="description">
           <h6>
@@ -237,14 +236,15 @@
             <a href="http://b.hatena.ne.jp/entry/<?php echo $meta['url']; ?>" data-hatena-bookmark-title="<?php echo $meta['title']; ?>" target="_blank" class="hatena">はてなブックマーク</a>
           </li>
         </ul>
-        <div class="close js-share-button"></div>
+        <div class="close js--share-button"></div>
       </div>
     </aside>
 
-    <!-- ================= -->
-    <!-- /共有オーバーレイ -->
-    <!-- ================= -->
+    <!-- ====================================================================== -->
+    <!-- /共有                                                                  -->
+    <!-- ====================================================================== -->
 
+    <div class="overlay js--overlay"></div>
     <?php wp_footer(); ?>
   </body>
 </html>
