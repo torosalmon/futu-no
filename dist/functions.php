@@ -124,8 +124,8 @@
       'settings'    => 'theme_customize__setting__colors__overlay_color',
       'type'        => 'radio',
       'choices'     => array(
-        'dark'    => 'ダーク (Darken) … 黒背景白文字',
-        'light'   => 'ライト (Lighten) … 白背景黒文字',
+        'dark'  => 'ダーク (Darken) … 黒背景白文字',
+        'light' => 'ライト (Lighten) … 白背景黒文字',
       ),
       'label'       => 'オーバーレイ配色 (Overlay color)',
       'description' => '共有メニューを開いた際のオーバーレイの色設定です。サイトカラーに合わせて読みやすい方を選択してください。',
@@ -176,7 +176,7 @@ echo <<< EOM
       .search-form form > div:nth-of-type(2) input[type='submit']{border-left-color:{$theme_customize__setting__colors__border}}
       .search-form form > div:nth-of-type(3) .close{border-left-color:{$theme_customize__setting__colors__border}}
       .content-wrapper .main .toplevel-list .latest-1{border-bottom-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .toplevel-list .latest-1 section a::after{border-top-color:{$theme_customize__setting__colors__border};border-right-color:{$theme_customize__setting__colors__border}}
+      .content-wrapper .main .toplevel-list .latest-1 section a .meta::after{border-top-color:{$theme_customize__setting__colors__border};border-right-color:{$theme_customize__setting__colors__border}}
       .content-wrapper .main .toplevel-list .latest-2 section:not(:nth-of-type(1)){border-top-color:{$theme_customize__setting__colors__border}}
       .content-wrapper .main .toplevel-list .latest-2 section a::after{border-top-color:{$theme_customize__setting__colors__border};border-right-color:{$theme_customize__setting__colors__border}}
       .content-wrapper .main .toplevel-list .latest-2 section a .eyecatch img{background-color:{$theme_customize__setting__colors__border}}

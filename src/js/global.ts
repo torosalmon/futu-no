@@ -365,6 +365,9 @@
         // 背景スクロール停止
         share.background_scroll(false);
       }
+
+      // テーマカラー変更
+      theme_color.change();
     }
 
     // ==================

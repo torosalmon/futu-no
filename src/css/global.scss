@@ -12,6 +12,12 @@
 @import '_class.scss';
 @import '_mixin.scss';
 
+/*!
+ * *****************************************************************************
+ * グローバルスタイル
+ * *****************************************************************************
+!*/
+
 // =============================================================================
 // 文字組
 // =============================================================================
@@ -70,8 +76,8 @@ kbd {
 html {
   font-size: calc(.78125vw + 7.5px);
 
-  @media(max-width: 320px) { font-size: 62.5%; } // font-size: 1rem = 10px
-  @media(min-width: 961px) { font-size: 93.8%; } // font-size: 1rem = 15px
+  @media (max-width: 320px) { font-size: 62.5%; } // font-size: 1rem = 10px
+  @media (min-width: 961px) { font-size: 93.8%; } // font-size: 1rem = 15px
 
 }
 
@@ -239,7 +245,7 @@ iframe {
   &[src*='youtube-nocookie.com'],
   &[src*='youtu.be'] {
 
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       width: 100%;
       height: calc(56.25vw * .9);
     }
@@ -656,6 +662,7 @@ body {
 .content-wrapper {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   min-height: 100vh;
   padding-top: 5rem;
   background: $color--background;
@@ -667,16 +674,28 @@ body {
   .main {
     margin-bottom: 8rem;
 
-    // =============================================================================
-    // トップページ
-    // アーカイブ
-    // 検索結果
-    // =============================================================================
+    // filterをサポートかつbackdrop-filterをサポートしていない
+    @supports (filter: blur(0)) and ( not (-webkit-backdrop-filter: blur(0))) {
+      transition: filter .3s $easing;
+    }
 
     html.home &,
     html.archive &,
-    html.search & {
+    html.search &,
+    html.error404 & {
       @include container;
+    }
+
+    // オーバーレイ表示
+    body.state--show-overlay & {
+      pointer-events: none;
+
+      // filterをサポートかつbackdrop-filterをサポートしていない
+      @supports (filter: blur(0)) and ( not (-webkit-backdrop-filter: blur(0))) {
+        @media (max-width: 768px) { filter: blur(8px);  }
+        @media (min-width: 769px) { filter: blur(16px); }
+      }
+
     }
 
     // =============================================================================
@@ -703,52 +722,29 @@ body {
         section {
 
           a {
-            display: flex;
-            flex-flow: row nowrap;
-            align-items: center;
-            position: relative;
-            padding-right: 2rem;
+            display: block;
             text-decoration: none;
 
-            &::after {
-              content: '';
-              position: absolute;
-              top: 50%;
-              right: 0;
-              width: 1rem;
-              height: 1rem;
-              margin-top: -.5rem;
-              margin-right: .25rem;
-              transform: rotate(45deg);
-              border-style: solid;
-              border-width: 1px;
-              border-color: $color--border $color--border transparent transparent;
-              transition: border-color .3s $easing;
-            }
-
-            &:hover {
+            .meta {
+              position: relative;
+              margin-top: 1rem;
+              line-height: 1.4;
 
               &::after {
-                border-top-color: $color--text;
-                border-right-color: $color--text;
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: 0;
+                width: 1rem;
+                height: 1rem;
+                margin-top: -.5rem;
+                margin-right: .25rem;
+                transform: rotate(45deg);
+                border-style: solid;
+                border-width: 1px;
+                border-color: $color--border $color--border transparent transparent;
+                transition: border-color .3s $easing;
               }
-
-            }
-
-            .eyecatch {
-              width: 40%;
-              margin-right: 4rem;
-
-              img {
-                width: 100%;
-                vertical-align: middle;
-              }
-
-            }
-
-            .meta {
-              width: 60%;
-              line-height: 1.4;
 
               time {
                 font-size: 1.2rem;
@@ -759,6 +755,11 @@ body {
                 font-size: 1.6rem;
               }
 
+            }
+
+            &:hover .meta::after {
+              border-top-color: $color--text;
+              border-right-color: $color--text;
             }
 
           }
@@ -774,8 +775,8 @@ body {
       .latest-2 {
         margin-top: 4rem;
 
-        @media(max-width: 768px) { width: 100%; }
-        @media(min-width: 769px) { width: 56%;  }
+        @media (max-width: 768px) { width: 100%; }
+        @media (min-width: 769px) { width: 56%;  }
 
         section {
 
@@ -858,8 +859,8 @@ body {
       .dir-map {
         margin-top: 4rem;
 
-        @media(max-width: 768px) { width: 100%; }
-        @media(min-width: 769px) { width: 36%;  }
+        @media (max-width: 768px) { width: 100%; }
+        @media (min-width: 769px) { width: 36%;  }
 
         section {
 
@@ -925,8 +926,8 @@ body {
         transition: .6s $easing;
         transition-property: width, height;
 
-        @media(max-width: 768px) { width: 100%; }
-        @media(min-width: 769px) { width: 40%;  }
+        @media (max-width: 768px) { width: 100%; }
+        @media (min-width: 769px) { width: 40%;  }
 
         // 見出し
         .heading {
@@ -952,8 +953,8 @@ body {
                             8px 64px 64px rgba(0, 0, 0, .15);
                 vertical-align: bottom;
 
-                @media(max-width: 768px) { width: 50%;  }
-                @media(min-width: 769px) { width: 100%; }
+                @media (max-width: 768px) { width: 50%;  }
+                @media (min-width: 769px) { width: 100%; }
 
               }
 
@@ -1074,12 +1075,12 @@ body {
           height: 100%;
           background-repeat: repeat;
 
-          @media(max-width: 960px) {
+          @media (max-width: 960px) {
             background-position: 50% 50%;
             background-size: cover;
           }
 
-          @media(min-width: 961px) {
+          @media (min-width: 961px) {
             background-position: 100% 50%;
             background-size: 20% auto;
             animation: article-detail-eyecatch-background 60s linear infinite;
@@ -1101,7 +1102,7 @@ body {
 
           @include container;
 
-          @media(min-width: 961px) {
+          @media (min-width: 961px) {
             opacity: 0;
             transform: translateY(2rem);
             animation: article-detail-eyecatch-img 1.2s .3s $easing both;
@@ -2291,20 +2292,17 @@ body {
   height: 100%;
   opacity: 0;
   transition: .3s $easing;
-  transition-property: background-color, backdrop-filter, opacity;
-
-  @supports(backdrop-filter: blur(0)) {
-    backdrop-filter: blur(0);
-  }
+  transition-property: background-color, -webkit-backdrop-filter, opacity;
 
   // オーバーレイ表示
   body.state--show-overlay & {
     pointer-events: auto;
     opacity: 1;
 
-    @supports(backdrop-filter: blur(0)) {
-      @media(max-width: 768px) { backdrop-filter: blur(8px);  }
-      @media(min-width: 769px) { backdrop-filter: blur(16px); }
+    // backdrop-filterをサポート
+    @supports (-webkit-backdrop-filter: blur(0)) {
+      @media (max-width: 768px) { -webkit-backdrop-filter: blur(8px);  }
+      @media (min-width: 769px) { -webkit-backdrop-filter: blur(16px); }
     }
 
   }
@@ -2313,7 +2311,8 @@ body {
   body.state--show-overlay.theme--dark & {
     background: rgba(0, 0, 0, .8);
 
-    @supports(backdrop-filter: blur(0)) {
+    // filterあるいはbackdrop-filterをサポート
+    @supports (filter: blur(0)) or (-webkit-backdrop-filter: blur(0)) {
       background: rgba(0, 0, 0, .2);
     }
 
@@ -2323,7 +2322,8 @@ body {
   body.state--show-overlay.theme--light & {
     background: rgba(255, 255, 255, .8);
 
-    @supports(backdrop-filter: blur(0)) {
+    // filterあるいはbackdrop-filterをサポート
+    @supports (filter: blur(0)) or (-webkit-backdrop-filter: blur(0)) {
       background: rgba(255, 255, 255, .2);
     }
 

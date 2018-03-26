@@ -25,7 +25,7 @@
 <?php
       if(has_post_thumbnail()) {
 ?>
-                  <?php the_post_thumbnail('640px'); ?>
+                  <?php the_post_thumbnail('1280px'); ?>
 <?php
       }
 ?>

@@ -77,13 +77,13 @@ svg {
 // ==============
 
 // SP
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .is-sp { display: block !important; }
   .is-pc { display: none  !important; }
 }
 
 // PC
-@media(min-width: 769px) {
+@media (min-width: 769px) {
   .is-sp { display: none  !important; }
   .is-pc { display: block !important; }
 }
