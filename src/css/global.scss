@@ -667,6 +667,18 @@ body {
   padding-top: 5rem;
   background: $color--background;
 
+  // オーバーレイ表示
+  body.state--show-overlay & {
+    pointer-events: none;
+
+    // filterをサポートかつbackdrop-filterをサポートしていない
+    @supports (filter: blur(0)) and ( not (-webkit-backdrop-filter: blur(0))) {
+      @media (max-width: 768px) { filter: blur(8px);  }
+      @media (min-width: 769px) { filter: blur(16px); }
+    }
+
+  }
+
   // =============================================================================
   // メイン
   // =============================================================================
@@ -674,28 +686,11 @@ body {
   .main {
     margin-bottom: 8rem;
 
-    // filterをサポートかつbackdrop-filterをサポートしていない
-    @supports (filter: blur(0)) and ( not (-webkit-backdrop-filter: blur(0))) {
-      transition: filter .3s $easing;
-    }
-
     html.home &,
     html.archive &,
     html.search &,
     html.error404 & {
       @include container;
-    }
-
-    // オーバーレイ表示
-    body.state--show-overlay & {
-      pointer-events: none;
-
-      // filterをサポートかつbackdrop-filterをサポートしていない
-      @supports (filter: blur(0)) and ( not (-webkit-backdrop-filter: blur(0))) {
-        @media (max-width: 768px) { filter: blur(8px);  }
-        @media (min-width: 769px) { filter: blur(16px); }
-      }
-
     }
 
     // =============================================================================
