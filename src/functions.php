@@ -159,6 +159,7 @@ echo <<< EOM
       .search-form{background-color:{$theme_customize__setting__colors__background}}
       .content-wrapper{background-color:{$theme_customize__setting__colors__background}}
       .content-wrapper .main .archive-list section .heading a .eyecatch img{background-color:{$theme_customize__setting__colors__background}}
+      .content-wrapper .main .article-detail .eyecatch .img img{background-color:{$theme_customize__setting__colors__background}}
       .content-wrapper .main .article-detail .article-comment .comment-respond .comment-form .form-submit input[type='submit']{color:{$theme_customize__setting__colors__background}}
       .content-wrapper .footer{color:{$theme_customize__setting__colors__background}}
       .drawer{color:{$theme_customize__setting__colors__background}}

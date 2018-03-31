@@ -64,6 +64,13 @@ $easing: cubic-bezier(.54, .05, .36, .98);
   margin-left: auto;
 }
 
+@mixin container-text {
+  width: calc(100% - 4rem);
+  max-width: 50rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
 // ======
 // 非表示
 // ======
