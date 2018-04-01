@@ -1,101 +1,81 @@
 <?php get_header(); ?>
-        <nav class="toplevel-list" itemscope="itemscope" itemtype="http://schema.org/Article">
-<?php
-
-  // ===================
-  // 最新記事（最新1件）
-  // ===================
-
-  $args = array(
-    'order'          => 'DESC',
-    'orderby'        => 'date',
-    'posts_per_page' => 1,
-  );
-  $wq_query = new WP_Query($args);
-  if($wq_query->have_posts()) {
-?>
-          <article class="latest-1">
-<?php
-    while($wq_query->have_posts()) {
-      $wq_query->the_post();
-?>
-            <section>
+      <?php
+        // =============================================================================
+        // 最新記事（最新1件）
+        // =============================================================================
+      ?>
+      <?php
+        $args = array(
+          'order'          => 'DESC',
+          'orderby'        => 'date',
+          'posts_per_page' => 1,
+        );
+        $wq_query = new WP_Query($args);
+      ?>
+      <?php if($wq_query->have_posts()) : ?>
+        <?php while($wq_query->have_posts()) : ?>
+          <?php $wq_query->the_post(); ?>
+          <div class="container-text">
+            <nav class="latest-article" itemscope="itemscope" itemtype="http://schema.org/Article">
               <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
                 <div class="eyecatch">
-<?php
-      if(has_post_thumbnail()) {
-?>
-                  <?php the_post_thumbnail('1280px'); ?>
-<?php
-      }
-?>
+                  <?php if(has_post_thumbnail()) : ?>
+                    <?php the_post_thumbnail('1280px'); ?>
+                  <?php endif; ?>
                 </div>
                 <div class="meta">
                   <time itemprop="datePublished"><?php the_time('Y.m.d'); ?></time>
                   <h2><?php the_title(); ?></h2>
                 </div>
               </a>
-            </section>
-<?php
-    }
-?>
-          </article>
-<?php
-    wp_reset_query();
-
-    // =====================
-    // 最新記事（2件目以降）
-    // =====================
-
-    $args = array(
-      'order'   => 'DESC',
-      'orderby' => 'date',
-      'offset'  => 1,
-    );
-    $wq_query = new WP_Query($args);
-?>
-          <article class="latest-2">
-<?php
-    while($wq_query->have_posts()) {
-      $wq_query->the_post();
-?>
-            <section>
-              <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-                <div class="eyecatch">
-<?php
-      if(has_post_thumbnail()) {
-?>
-                  <?php the_post_thumbnail('640px'); ?>
-<?php
-      } else {
-?>
-                  <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="<?php the_title(); ?>">
-<?php
-      }
-?>
-                </div>
-                <div class="meta">
-                  <time itemprop="datePublished"><?php the_time('Y.m.d'); ?></time>
-                  <h2><?php the_title(); ?></h2>
-                </div>
-              </a>
-            </section>
-<?php
-    }
-?>
-          </article>
-<?php
-  }
-  else {
-?>
-          <nav class="error">
-            <h2>New Blog</h2>
-            <p>まだ記事はありません。</p>
-          </nav>
-<?php
-  }
-  wp_reset_query();
-?>
+            </nav>
+          </div>
+        <?php endwhile; ?>
+      <?php endif; ?>
+      <?php wp_reset_query(); ?>
+      <div class="container">
+        <div class="toppage-sublist">
+          <?php
+            // =============================================================================
+            // 最新記事（2件目以降）
+            // =============================================================================
+          ?>
+          <?php
+            $args = array(
+              'order'   => 'DESC',
+              'orderby' => 'date',
+              'offset'  => 1,
+            );
+            $wq_query = new WP_Query($args);
+          ?>
+          <?php if($wq_query->have_posts()) : ?>
+            <nav class="latest-article-2" itemscope="itemscope" itemtype="http://schema.org/Article">
+              <?php while($wq_query->have_posts()) : ?>
+                <?php $wq_query->the_post(); ?>
+                <section>
+                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                    <div class="eyecatch">
+                      <?php if(has_post_thumbnail()) : ?>
+                        <?php the_post_thumbnail('640px'); ?>
+                      <?php else : ?>
+                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="<?php the_title(); ?>">
+                      <?php endif; ?>
+                    </div>
+                    <div class="meta">
+                      <time itemprop="datePublished"><?php the_time('Y.m.d'); ?></time>
+                      <h2><?php the_title(); ?></h2>
+                    </div>
+                  </a>
+                </section>
+              <?php endwhile; ?>
+            </nav>
+          <?php endif; ?>
+          <?php wp_reset_query(); ?>
+          <?php
+            // =============================================================================
+            // アーカイブリンク
+            // =============================================================================
+          ?>
           <nav class="dir-map">
             <section>
               <h6>
@@ -105,18 +85,16 @@
                 </svg>
                 Pages
               </h6>
-<!-- page list -->
-<ul>
-<?php
-  $args = array(
-    'title_li'    => '',
-    'sort_column' => 'menu_order',
-    'sort_order'  => 'ASC',
-  );
-  wp_list_pages($args);
-?>
-</ul>
-<!-- /page list -->
+              <ul>
+                <?php
+                  $args = array(
+                    'title_li'    => '',
+                    'sort_column' => 'menu_order',
+                    'sort_order'  => 'ASC',
+                  );
+                  wp_list_pages($args);
+                ?>
+              </ul>
             </section>
             <section>
               <h6>
@@ -127,16 +105,14 @@
                 </svg>
                 Categories
               </h6>
-<!-- category list -->
-<ul>
-<?php
-  $args = array(
-    'title_li' => '',
-  );
-  wp_list_categories($args);
-?>
-</ul>
-<!-- /category list -->
+              <ul>
+                <?php
+                  $args = array(
+                    'title_li' => '',
+                  );
+                  wp_list_categories($args);
+                ?>
+              </ul>
             </section>
             <section>
               <h6>
@@ -149,17 +125,16 @@
                 </svg>
                 Archives
               </h6>
-<!-- archive list -->
-<ul>
-<?php
-  $args = array(
-    'limit' => '12',
-  );
-  wp_get_archives($args);
-?>
-</ul>
-<!-- /archive list -->
+              <ul>
+                <?php
+                  $args = array(
+                    'limit' => '12',
+                  );
+                  wp_get_archives($args);
+                ?>
+              </ul>
             </section>
           </nav>
-        </nav>
+        </div>
+      </div>
 <?php get_footer(); ?>

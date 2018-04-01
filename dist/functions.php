@@ -157,46 +157,46 @@ echo <<< EOM
       .header{background-color:{$theme_customize__setting__colors__background}}
       .header .page-info .page-top{background-color:{$theme_customize__setting__colors__background}}
       .search-form{background-color:{$theme_customize__setting__colors__background}}
-      .content-wrapper{background-color:{$theme_customize__setting__colors__background}}
-      .content-wrapper .main .archive-list section .heading a .eyecatch img{background-color:{$theme_customize__setting__colors__background}}
-      .content-wrapper .main .article-detail .eyecatch .img img{background-color:{$theme_customize__setting__colors__background}}
-      .content-wrapper .main .article-detail .article-comment .comment-respond .comment-form .form-submit input[type='submit']{color:{$theme_customize__setting__colors__background}}
-      .content-wrapper .footer{color:{$theme_customize__setting__colors__background}}
+      .main{background-color:{$theme_customize__setting__colors__background}}
+      .main .archive-list section .heading a .eyecatch img{background-color:{$theme_customize__setting__colors__background}}
+      .main .article-detail .eyecatch .img img{background-color:{$theme_customize__setting__colors__background}}
+      .main .article-detail .article-comment .comment-respond .comment-form .form-submit input[type='submit']{color:{$theme_customize__setting__colors__background}}
+      .main .footer{color:{$theme_customize__setting__colors__background}}
       .drawer{color:{$theme_customize__setting__colors__background}}
       .drawer .scroll .author .name::before{border-bottom-color:{$theme_customize__setting__colors__background}}
 
       /* ボーダー */
       svg .color--border--fill{fill:{$theme_customize__setting__colors__border}}
       svg .color--border--stroke{stroke:{$theme_customize__setting__colors__border}}
-      input[type='text'], input[type='search'], input[type='tel'], input[type='url'], input[type='email'], input[type='password'], input[type='datetime'], input[type='datetime-local'], input[type='date'], input[type='month'], input[type='week'], input[type='time'], input[type='number'], textarea, select{border-color:{$theme_customize__setting__colors__border}}
-      input[type='submit'], input[type='reset'], input[type='button'], button{background-color:{$theme_customize__setting__colors__border}}
+      input[type='text'],input[type='search'],input[type='tel'],input[type='url'],input[type='email'],input[type='password'],input[type='datetime'],input[type='datetime-local'],input[type='date'],input[type='month'],input[type='week'],input[type='time'],input[type='number'],textarea,select{border-color:{$theme_customize__setting__colors__border}}
+      input[type='submit'],input[type='reset'],input[type='button'],button{background-color:{$theme_customize__setting__colors__border}}
       .header{border-bottom-color:{$theme_customize__setting__colors__border}}
       .header .tool ul li{border-left-color:{$theme_customize__setting__colors__border}}
       .search-form{border-bottom-color:{$theme_customize__setting__colors__border}}
       .search-form form > div:nth-of-type(2)::before{border-left-color:{$theme_customize__setting__colors__border}}
       .search-form form > div:nth-of-type(2) input[type='submit']{border-left-color:{$theme_customize__setting__colors__border}}
       .search-form form > div:nth-of-type(3) .close{border-left-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .toplevel-list .latest-1{border-bottom-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .toplevel-list .latest-1 section a .meta::after{border-top-color:{$theme_customize__setting__colors__border};border-right-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .toplevel-list .latest-2 section:not(:nth-of-type(1)){border-top-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .toplevel-list .latest-2 section a::after{border-top-color:{$theme_customize__setting__colors__border};border-right-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .toplevel-list .latest-2 section a .eyecatch img{background-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .toplevel-list .dir-map section ul{border-left-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .archive-list section .heading a strong::before{background-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .archive-list section .meta dd:not(:nth-of-type(1)){border-left-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .article-detail .meta{border-top-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .article-detail .content blockquote{border-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .article-detail .content pre{border-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .article-detail .content pre::before{background-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .article-detail .content hr{background-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .article-detail .node dl dt, .content-wrapper .main .article-detail .node dl dd{border-bottom-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .article-detail .adjacent-links ul li:first-child{border-bottom-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .article-detail .article-comment .comment-list ul li article{border-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .article-detail .article-comment .comment-list ul.parent article::before{border-right-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .article-detail .article-comment .comment-list ul.children article::before{border-left-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .article-detail .article-comment .comment-respond::before{border-bottom-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .article-detail .article-comment .comment-respond .comment-form .flex{border-left-color:{$theme_customize__setting__colors__border}}
-      .content-wrapper .main .pagenation ul{border-bottom-color:{$theme_customize__setting__colors__border}}
+      .main .latest-article a .meta::after{border-top-color:{$theme_customize__setting__colors__border};border-right-color:{$theme_customize__setting__colors__border}}
+      .main .toppage-sublist .latest-article-2 section{border-bottom-color:{$theme_customize__setting__colors__border}}
+      .main .toppage-sublist .latest-article-2 section:first-child {border-top-color:{$theme_customize__setting__colors__border}}
+      .main .toppage-sublist .latest-article-2 section a::after{border-top-color:{$theme_customize__setting__colors__border};border-right-color:{$theme_customize__setting__colors__border}}
+      .main .toppage-sublist .latest-article-2 section a .eyecatch img{background-color:{$theme_customize__setting__colors__border}}
+      .main .toppage-sublist .dir-map section ul{border-left-color:{$theme_customize__setting__colors__border}}
+      .main .archive-list section .heading a strong::before{background-color:{$theme_customize__setting__colors__border}}
+      .main .archive-list section .meta dd:not(:nth-of-type(1)){border-left-color:{$theme_customize__setting__colors__border}}
+      .main .article-detail .meta{border-top-color:{$theme_customize__setting__colors__border}}
+      .main .article-detail .content blockquote{border-color:{$theme_customize__setting__colors__border}}
+      .main .article-detail .content pre{border-color:{$theme_customize__setting__colors__border}}
+      .main .article-detail .content pre::before{background-color:{$theme_customize__setting__colors__border}}
+      .main .article-detail .content hr{background-color:{$theme_customize__setting__colors__border}}
+      .main .article-detail .node dl dt,.main .article-detail .node dl dd{border-bottom-color:{$theme_customize__setting__colors__border}}
+      .main .article-detail .adjacent-links ul li:first-child{border-bottom-color:{$theme_customize__setting__colors__border}}
+      .main .article-detail .article-comment .comment-list ul li article{border-color:{$theme_customize__setting__colors__border}}
+      .main .article-detail .article-comment .comment-list ul.parent article::before{border-right-color:{$theme_customize__setting__colors__border}}
+      .main .article-detail .article-comment .comment-list ul.children article::before{border-left-color:{$theme_customize__setting__colors__border}}
+      .main .article-detail .article-comment .comment-respond::before{border-bottom-color:{$theme_customize__setting__colors__border}}
+      .main .article-detail .article-comment .comment-respond .comment-form .flex{border-left-color:{$theme_customize__setting__colors__border}}
+      .main .pagenation ul{border-bottom-color:{$theme_customize__setting__colors__border}}
 
       /* 文字 */
       svg .color--text--fill{fill:{$theme_customize__setting__colors__text}}
@@ -204,11 +204,11 @@ echo <<< EOM
       html{color:{$theme_customize__setting__colors__text}}
       .header .page-info .breadcrumb li:not(:first-child)::before{border-top-color:{$theme_customize__setting__colors__text};border-right-color:{$theme_customize__setting__colors__text}}
       .header .drawer-icon div span{background-color:{$theme_customize__setting__colors__text}}
-      .search-form form > div:nth-of-type(3) .close::before, .search-form form > div:nth-of-type(3) .close::after{background-color:{$theme_customize__setting__colors__text}}
-      .content-wrapper .main .toplevel-list .latest-1 section a:hover::after{border-top-color:{$theme_customize__setting__colors__text};border-right-color:{$theme_customize__setting__colors__text}}
-      .content-wrapper .main .toplevel-list .latest-2 section a:hover::after{border-top-color:{$theme_customize__setting__colors__text};border-right-color:{$theme_customize__setting__colors__text}}
-      .content-wrapper .main .archive-list section .heading a strong::after{background-color:{$theme_customize__setting__colors__text}}
-      .content-wrapper .footer{background-color:{$theme_customize__setting__colors__text}}
+      .search-form form > div:nth-of-type(3) .close::before,.search-form form > div:nth-of-type(3) .close::after{background-color:{$theme_customize__setting__colors__text}}
+      .main .latest-article a:hover .meta::after{border-top-color:{$theme_customize__setting__colors__text};border-right-color:{$theme_customize__setting__colors__text}}
+      .main .toppage-sublist .latest-article-2 section a:hover::after{border-top-color:{$theme_customize__setting__colors__text};border-right-color:{$theme_customize__setting__colors__text}}
+      .main .archive-list section .heading a strong::after{background-color:{$theme_customize__setting__colors__text}}
+      .main .footer{background-color:{$theme_customize__setting__colors__text}}
 
       /* アクセントカラー */
       svg .color--accent--fill{fill:{$theme_customize__setting__colors__accent}}
@@ -217,7 +217,7 @@ echo <<< EOM
       .header{border-top-color:{$theme_customize__setting__colors__accent}}
       .header .tool ul li a span.notification{background-color:{$theme_customize__setting__colors__accent}}
       .search-form form > div:nth-of-type(1) input[type='search']:focus{border-bottom-color:{$theme_customize__setting__colors__accent}}
-      .content-wrapper .main .pagenation ul li.current{border-bottom-color:{$theme_customize__setting__colors__accent}}
+      .main .pagenation ul li.current{border-bottom-color:{$theme_customize__setting__colors__accent}}
 
       /* サブカラー */
       svg .color--sub--fill{fill:{$theme_customize__setting__colors__sub}}
@@ -502,8 +502,8 @@ EOM;
   function breadcrumb() {
     $html = '';
 
-    $html .= '        <ul class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">' . "\n";
-    $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . home_url('/') . '" itemprop="url"><span itemprop="name">ホーム</span></a></li>' . "\n";
+    $html .= '<ul class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">' . "\n";
+    $html .= '  <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . home_url('/') . '" itemprop="url"><span itemprop="name">ホーム</span></a></li>' . "\n";
 
     // ==============
     // シングルページ
@@ -516,12 +516,12 @@ EOM;
       if($cat[0]->parent != 0) {
         $ancestors = array_reverse(get_ancestors($cat[0]->term_id, 'category'));
         foreach($ancestors as $ancestor) {
-          $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . esc_url(get_category_link($ancestor)) . '" itemprop="url"><span itemprop="name">' . get_cat_name($ancestor) . '</span></a></li>' . "\n";
+          $html .= '  <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . esc_url(get_category_link($ancestor)) . '" itemprop="url"><span itemprop="name">' . get_cat_name($ancestor) . '</span></a></li>' . "\n";
         }
       }
 
       // 現在のページカテゴリ
-      $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . esc_url(get_category_link($cat[0]->term_id)) . '" itemprop="url"><span itemprop="name">' . $cat[0]->name . '</span></a></li>' . "\n";
+      $html .= '  <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . esc_url(get_category_link($cat[0]->term_id)) . '" itemprop="url"><span itemprop="name">' . $cat[0]->name . '</span></a></li>' . "\n";
     }
 
     // ==============
@@ -535,12 +535,12 @@ EOM;
       if($cat[0]->parent != 0) {
         $ancestors = array_reverse(get_ancestors($cat[0]->term_id, 'category'));
         foreach($ancestors as $ancestor) {
-          $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . esc_url(get_category_link($ancestor)) . '" itemprop="url"><span itemprop="name">' . get_cat_name($ancestor) . '</span></a></li>' . "\n";
+          $html .= '  <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . esc_url(get_category_link($ancestor)) . '" itemprop="url"><span itemprop="name">' . get_cat_name($ancestor) . '</span></a></li>' . "\n";
         }
       }
 
       // 現在のページカテゴリ
-      $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . esc_url(get_category_link($cat[0]->term_id)) . '" itemprop="url"><span itemprop="name">' . $cat[0]->name . '</span></a></li>' . "\n";
+      $html .= '  <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . esc_url(get_category_link($cat[0]->term_id)) . '" itemprop="url"><span itemprop="name">' . $cat[0]->name . '</span></a></li>' . "\n";
     }
 
     // ==========
@@ -550,7 +550,7 @@ EOM;
     else if(is_tag()) {
       $tags = get_the_tags();
 
-      $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . esc_url(get_tag_link($tags[0]->term_id)) . '" itemprop="url"><span itemprop="name">' . $tags[0]->name . '</span></a></li>' . "\n";
+      $html .= '  <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><a href="' . esc_url(get_tag_link($tags[0]->term_id)) . '" itemprop="url"><span itemprop="name">' . $tags[0]->name . '</span></a></li>' . "\n";
     }
 
     // ================
@@ -561,16 +561,16 @@ EOM;
 
       // 年別アーカイブ
       if(is_year()) {
-        $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><span itemprop="name">' . get_query_var('year') . '</span></li>' . "\n";
+        $html .= '  <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><span itemprop="name">' . get_query_var('year') . '</span></li>' . "\n";
       }
 
       // 月別アーカイブ
       else if(is_month()) {
-        $html .= '          <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><span itemprop="name">' . get_query_var('year') . '</span>.<span itemprop="title">' . get_query_var('monthnum') . '</span></li>' . "\n";
+        $html .= '  <li itemscope itemprop="itemListElement" itemtype="http://schema.org/ListItem"><span itemprop="name">' . get_query_var('year') . '</span>.<span itemprop="title">' . get_query_var('monthnum') . '</span></li>' . "\n";
       }
     }
 
-    $html .= '        </ul>' . "\n";
+    $html .= '</ul>' . "\n";
     echo $html;
   }
 
@@ -595,27 +595,27 @@ EOM;
       }
     }
     if(1 != $pages) {
-      echo '        <nav class="pagenation">' . "\n";
-      echo '          <ul>' . "\n";
+      echo '<nav class="pagenation">' . "\n";
+      echo '  <ul>' . "\n";
       if($paged > 2 && $paged > $range + 1 && $showitems < $pages) {
-        echo '            <li><a href="' . get_pagenum_link(1) . '">&laquo;</a></li>' . "\n";
+        echo '    <li><a href="' . get_pagenum_link(1) . '">&laquo;</a></li>' . "\n";
       }
       if($paged > 1 && $showitems < $pages) {
-        echo '            <li><a href="' . get_pagenum_link($paged - 1) . '">&lsaquo;</a>' . "\n";
+        echo '    <li><a href="' . get_pagenum_link($paged - 1) . '">&lsaquo;</a>' . "\n";
       }
       for($i = 1; $i <= $pages; ++ $i) {
         if(1 != $pages && (!($i >= $paged + $range + 1 || $i <= $paged - $range - 1) || $pages <= $showitems)) {
-          echo ($paged === $i) ? '            <li class="current">' . $i . '</li>' . "\n" : '           <li><a href="' . get_pagenum_link($i) . '">' . $i . '</a></li>' . "\n";
+          echo ($paged === $i) ? '     <li class="current">' . $i . '</li>' . "\n" : '           <li><a href="' . get_pagenum_link($i) . '">' . $i . '</a></li>' . "\n";
         }
       }
       if($paged < $pages && $showitems < $pages) {
-        echo '            <li><a href="' . get_pagenum_link($paged + 1) . '">&rsaquo;</a>' . "\n";
+        echo '    <li><a href="' . get_pagenum_link($paged + 1) . '">&rsaquo;</a>' . "\n";
       }
       if($paged < $pages - 1 &&  $paged + $range - 1 < $pages && $showitems < $pages) {
-        echo '            <li><a href="' . get_pagenum_link($pages) . '">&raquo;</a>' . "\n";
+        echo '    <li><a href="' . get_pagenum_link($pages) . '">&raquo;</a>' . "\n";
       }
-      echo '          </ul>' . "\n";
-      echo '        </nav>' . "\n";
+      echo '  </ul>' . "\n";
+      echo '</nav>' . "\n";
     }
   }
 

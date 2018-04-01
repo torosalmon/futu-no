@@ -36,26 +36,19 @@
     <?php wp_head(); ?>
   </head>
   <body id="top" class="<?php echo 'theme--' . get_theme_mod('theme_customize__setting__colors__overlay_color', 'dark'); ?>" itemscope itemtype="http://schema.org/WebPage">
-
-    <!-- ====================================================================== -->
-    <!-- ヘッダー                                                               -->
-    <!-- ====================================================================== -->
-
+    <?php
+      // =============================================================================
+      // ヘッダー
+      // =============================================================================
+    ?>
     <header class="header js--header">
-
-      <!-- ページ案内 -->
       <div class="page-info">
         <h1><?php echo $meta['title']; ?></h1>
-<?php
-  if(is_home()) {
-?>
-        <p class="read" itemprop="description"><?php bloginfo('description'); ?></p>
-<?php
-  }
-  else {
-    breadcrumb();
-  }
-?>
+        <?php if(is_home()) : ?>
+          <p class="read" itemprop="description"><?php bloginfo('description'); ?></p>
+        <?php else : ?>
+          <?php breadcrumb(); ?>
+        <?php endif; ?>
         <a href="#top" class="page-top js--scroll">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
             <path class="color--text--fill" d="M 21 20 L 12 11 L 3 20 L 5 22 L 12 15 L 19 22 L 21 20 Z" />
@@ -64,42 +57,27 @@
           <span>ページトップ</span>
         </a>
       </div>
-      <!-- /ページ案内 -->
-
-      <!-- ツール -->
       <nav class="tool">
         <ul>
-<?php
-  // シングルページ & コメント許可
-  if(is_singular() && comments_open()) {
-?>
-          <li>
-            <a href="#comment" class="js--scroll">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                <path class="color--text--fill" d="M 16 9 L 18 9 L 18 11 L 16 11 L 16 9 ZM 11 9 L 13 9 L 13 11 L 11 11 L 11 9 ZM 6 9 L 8 9 L 8 11 L 6 11 L 6 9 ZM 6 4 C 3.7908 4 2 5.7908 2 8 L 2 12 C 2 14.2092 3.7908 16 6 16 L 10 16 L 14 20 L 14 16 L 18 16 C 20.2092 16 22 14.2092 22 12 L 22 8 C 22 5.7908 20.2092 4 18 4 L 6 4 Z" />
-              </svg>
-<?php
-    // コメントが1件以上ある場合
-    $comment_total = get_comments_number();
-    settype($comment_total, 'integer');
-    if($comment_total > 0) {
-?>
-              <span class="notification"><?php echo $comment_total; ?></span>
-<?php
-    }
-
-    // コメント0件
-    else {
-?>
-              <span>コメント</span>
-<?php
-    }
-?>
-            </a>
-          </li>
-<?php
-  }
-?>
+          <?php if(is_singular() && comments_open()) : ?>
+            <li>
+              <a href="#comment" class="js--scroll">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                  <path class="color--text--fill" d="M 16 9 L 18 9 L 18 11 L 16 11 L 16 9 ZM 11 9 L 13 9 L 13 11 L 11 11 L 11 9 ZM 6 9 L 8 9 L 8 11 L 6 11 L 6 9 ZM 6 4 C 3.7908 4 2 5.7908 2 8 L 2 12 C 2 14.2092 3.7908 16 6 16 L 10 16 L 14 20 L 14 16 L 18 16 C 20.2092 16 22 14.2092 22 12 L 22 8 C 22 5.7908 20.2092 4 18 4 L 6 4 Z" />
+                </svg>
+                <?php
+                  // コメント件数分岐
+                  $comment_total = get_comments_number();
+                  settype($comment_total, 'integer');
+                ?>
+                <?php if($comment_total > 0) : ?>
+                  <span class="notification"><?php echo $comment_total; ?></span>
+                <?php else : ?>
+                  <span>コメント</span>
+                <?php endif; ?>
+              </a>
+            </li>
+          <?php endif; ?>
           <li>
             <a href="#share" class="js--share-button">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -122,9 +100,6 @@
           </li>
         </ul>
       </nav>
-      <!-- /ツール -->
-
-      <!-- ドロワーアイコン -->
       <nav class="drawer-icon js--drawer-button">
         <div>
           <span></span>
@@ -132,18 +107,12 @@
           <span></span>
         </div>
       </nav>
-      <!-- /ドロワーアイコン -->
-
     </header>
-
-    <!-- ====================================================================== -->
-    <!-- /ヘッダー                                                              -->
-    <!-- ====================================================================== -->
-
-    <!-- ====================================================================== -->
-    <!-- 検索フォーム                                                           -->
-    <!-- ====================================================================== -->
-
+    <?php
+      // =============================================================================
+      // 検索フォーム
+      // =============================================================================
+    ?>
     <nav id="search" class="search-form">
       <form name="search" action="<?php echo esc_url(home_url('/')); ?>" method="get" role="search">
         <div><input type="search" name="s" value="<?php echo get_search_query(); ?>" placeholder="検索ワードを入力" required aria-required="true"></div>
@@ -151,19 +120,9 @@
         <div><span class="close js--search-form-button"></span></div>
       </form>
     </nav>
-
-    <!-- ====================================================================== -->
-    <!-- /検索フォーム                                                          -->
-    <!-- ====================================================================== -->
-
-    <!-- ====================================================================== -->
-    <!-- コンテンツ                                                             -->
-    <!-- ====================================================================== -->
-
-    <div class="content-wrapper">
-
-      <!-- ====================================================================== -->
-      <!-- メイン                                                                 -->
-      <!-- ====================================================================== -->
-
-      <main class="main">
+    <?php
+      // =============================================================================
+      // メイン
+      // =============================================================================
+    ?>
+    <main class="main">

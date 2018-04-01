@@ -1,115 +1,89 @@
 <?php global $meta; ?>
-      </main>
-
-      <!-- ====================================================================== -->
-      <!-- /メイン                                                                -->
-      <!-- ====================================================================== -->
-
-      <!-- ====================================================================== -->
-      <!-- フッター                                                               -->
-      <!-- ====================================================================== -->
-
+      <?php
+        // =============================================================================
+        // フッター
+        // =============================================================================
+      ?>
       <footer class="footer">
         <p><small>Copyright © <?php echo date('Y'); ?> <?php bloginfo('name'); ?></small></p>
         <ul>
           <li><a href="https://ja.wordpress.org/" target="_blank">WordPress</a></li>
           <li><a href="http://trs.mn/blog/" target="_blank">futu-no</a></li>
         </ul>
-<?php
-  // 「誰でもユーザー登録ができるようにする」判定
-  if(get_option('users_can_register')) {
-?>
-        <p class="register"><a href="<?php echo esc_url(home_url('/')); ?>wp-login.php?action=register" target="_blank">ブログにユーザー登録</a></p>
-<?php
-  }
-?>
+        <?php if(get_option('users_can_register')) : ?>
+          <p class="register"><a href="<?php echo esc_url(home_url('/')); ?>wp-login.php?action=register" target="_blank">ブログにユーザー登録</a></p>
+        <?php endif; ?>
       </footer>
-
-      <!-- ====================================================================== -->
-      <!-- /フッター                                                              -->
-      <!-- ====================================================================== -->
-
-    </div>
-
-    <!-- ====================================================================== -->
-    <!-- /コンテンツ                                                            -->
-    <!-- ====================================================================== -->
-
-    <!-- ====================================================================== -->
-    <!-- ドロワー                                                               -->
-    <!-- ====================================================================== -->
-
+    </main>
+    <?php
+      // =============================================================================
+      // ドロワー
+      // =============================================================================
+    ?>
     <aside class="drawer">
       <div class="scroll">
-<?php
-  // 検索ページでは情報が取得できないので非表示
-  if(!is_search()) {
-    if(have_posts()) {
-      while(have_posts()) {
-        the_post();
-        $author_id = $post->post_author;
-      }
-    }
-    wp_reset_query();
-?>
-        <div class="author">
-          <div class="avatar"><?php echo get_avatar($author_id, 320, get_template_directory_uri() . '/img/avatar-default.png', 'Author'); ?></div>
-          <div class="name"><?php echo get_the_author_meta('display_name', $author_id); ?></div>
-<?php
-    if(get_the_author_meta('description') != '') {
-      echo '          <div class="comment">' . get_the_author_meta('description', $author_id) . '</div>' . "\n";
-    }
-?>
-          <ul class="links">
-<?php
-    if(get_the_author_meta('user_url') != '') {
-      echo '            <li><a href="' . get_the_author_meta('user_url', $author_id) . '" target="_blank" class="home">Home</a></li>' . "\n";
-    }
-    if(get_the_author_meta('skype') != '') {
-      echo '            <li><a href="skype:' . get_the_author_meta('skype', $author_id) . '">Skype</a></li>' . "\n";
-    }
-    if(get_the_author_meta('facebook') != '') {
-      echo '            <li><a href="' . get_the_author_meta('facebook', $author_id) . '" target="_blank">Facebook</a></li>' . "\n";
-    }
-    if(get_the_author_meta('twitter') != '') {
-      echo '            <li><a href="' . get_the_author_meta('twitter', $author_id) . '" target="_blank">Twitter</a></li>' . "\n";
-    }
-    if(get_the_author_meta('google_plus') != '') {
-      echo '            <li><a href="' . get_the_author_meta('google_plus', $author_id) . '" target="_blank">Google +</a></li>' . "\n";
-    }
-    if(get_the_author_meta('mixi') != '') {
-      echo '            <li><a href="' . get_the_author_meta('mixi', $author_id) . '" target="_blank">mixi</a></li>' . "\n";
-    }
-    if(get_the_author_meta('tumblr') != '') {
-      echo '            <li><a href="' . get_the_author_meta('tumblr', $author_id) . '" target="_blank">Tumblr</a></li>' . "\n";
-    }
-    if(get_the_author_meta('instagram') != '') {
-      echo '            <li><a href="' . get_the_author_meta('instagram', $author_id) . '" target="_blank">Instagram</a></li>' . "\n";
-    }
-    if(get_the_author_meta('flickr') != '') {
-      echo '            <li><a href="' . get_the_author_meta('flickr', $author_id) . '" target="_blank">Flickr</a></li>' . "\n";
-    }
-    if(get_the_author_meta('photohito') != '') {
-      echo '            <li><a href="' . get_the_author_meta('photohito', $author_id) . '" target="_blank">PHOTOHITO</a></li>' . "\n";
-    }
-    if(get_the_author_meta('pixiv') != '') {
-      echo '            <li><a href="' . get_the_author_meta('pixiv', $author_id) . '" target="_blank">pixiv</a></li>' . "\n";
-    }
-    if(get_the_author_meta('pawoo') != '') {
-      echo '            <li><a href="' . get_the_author_meta('pawoo', $author_id) . '" target="_blank">Pawoo</a></li>' . "\n";
-    }
-    if(get_the_author_meta('github') != '') {
-      echo '            <li><a href="' . get_the_author_meta('github', $author_id) . '" target="_blank">GitHub</a></li>' . "\n";
-    }
-    if(get_the_author_meta('qiita') != '') {
-      echo '            <li><a href="' . get_the_author_meta('qiita', $author_id) . '" target="_blank">Qiita</a></li>' . "\n";
-    }
-?>
-          </ul>
-        </div>
-<?php
-  }
-?>
+        <?php if(!is_search()) : ?>
+          <?php if(have_posts()) : ?>
+            <?php while(have_posts()) : ?>
+              <?php
+                the_post();
+                $author_id = $post->post_author;
+              ?>
+            <?php endwhile; ?>
+          <?php endif; ?>
+          <?php wp_reset_query(); ?>
+          <div class="author">
+            <div class="avatar"><?php echo get_avatar($author_id, 320, get_template_directory_uri() . '/img/avatar-default.png', 'Author'); ?></div>
+            <div class="name"><?php echo get_the_author_meta('display_name', $author_id); ?></div>
+            <?php if(get_the_author_meta('description') != '') : ?>
+              <div class="comment"><?php echo get_the_author_meta('description', $author_id); ?></div>
+            <?php endif; ?>
+            <ul class="links">
+              <?php if(get_the_author_meta('user_url') != '') : ?>
+                <li><a href="<?php echo get_the_author_meta('user_url', $author_id); ?>" target="_blank" class="home">Home</a></li>
+              <?php endif; ?>
+              <?php if(get_the_author_meta('skype') != '') : ?>
+                <li><a href="skype:<?php echo get_the_author_meta('skype', $author_id); ?>">Skype</a></li>
+              <?php endif; ?>
+              <?php if(get_the_author_meta('facebook') != '') : ?>
+                <li><a href="<?php echo get_the_author_meta('facebook', $author_id); ?>" target="_blank">Facebook</a></li>
+              <?php endif; ?>
+              <?php if(get_the_author_meta('twitter') != '') : ?>
+                <li><a href="<?php echo get_the_author_meta('twitter', $author_id); ?>" target="_blank">Twitter</a></li>
+              <?php endif; ?>
+              <?php if(get_the_author_meta('google_plus') != '') : ?>
+                <li><a href="<?php echo get_the_author_meta('google_plus', $author_id); ?>" target="_blank">Google +</a></li>
+              <?php endif; ?>
+              <?php if(get_the_author_meta('mixi') != '') : ?>
+                <li><a href="<?php echo get_the_author_meta('mixi', $author_id); ?>" target="_blank">mixi</a></li>
+              <?php endif; ?>
+              <?php if(get_the_author_meta('tumblr') != '') : ?>
+                <li><a href="<?php echo get_the_author_meta('tumblr', $author_id); ?>" target="_blank">Tumblr</a></li>
+              <?php endif; ?>
+              <?php if(get_the_author_meta('instagram') != '') : ?>
+                <li><a href="<?php echo get_the_author_meta('instagram', $author_id); ?>" target="_blank">Instagram</a></li>
+              <?php endif; ?>
+              <?php if(get_the_author_meta('flickr') != '') : ?>
+                <li><a href="<?php echo get_the_author_meta('flickr', $author_id); ?>" target="_blank">Flickr</a></li>
+              <?php endif; ?>
+              <?php if(get_the_author_meta('photohito') != '') : ?>
+                <li><a href="<?php echo get_the_author_meta('photohito', $author_id); ?>" target="_blank">PHOTOHITO</a></li>
+              <?php endif; ?>
+              <?php if(get_the_author_meta('pixiv') != '') : ?>
+                <li><a href="<?php echo get_the_author_meta('pixiv', $author_id); ?>" target="_blank">pixiv</a></li>
+              <?php endif; ?>
+              <?php if(get_the_author_meta('pawoo') != '') : ?>
+                <li><a href="<?php echo get_the_author_meta('pawoo', $author_id); ?>" target="_blank">Pawoo</a></li>
+              <?php endif; ?>
+              <?php if(get_the_author_meta('github') != '') : ?>
+                <li><a href="<?php echo get_the_author_meta('github', $author_id); ?>" target="_blank">GitHub</a></li>
+              <?php endif; ?>
+              <?php if(get_the_author_meta('qiita') != '') : ?>
+                <li><a href="<?php echo get_the_author_meta('qiita', $author_id); ?>" target="_blank">Qiita</a></li>
+              <?php endif; ?>
+            </ul>
+          </div>
+        <?php endif; ?>
         <nav class="dir-map">
           <h6>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -118,18 +92,16 @@
             </svg>
             Pages
           </h6>
-<!-- page list -->
-<ul>
-<?php
-  $args = array(
-    'title_li'    => '',
-    'sort_column' => 'menu_order',
-    'sort_order'  => 'ASC',
-  );
-  wp_list_pages($args);
-?>
-</ul>
-<!-- /page list -->
+          <ul>
+            <?php
+              $args = array(
+                'title_li'    => '',
+                'sort_column' => 'menu_order',
+                'sort_order'  => 'ASC',
+              );
+              wp_list_pages($args);
+            ?>
+          </ul>
           <h6>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
               <path class="color--border--stroke" d="M 1 6 L 3 6 L 4 4 L 10 4 L 11 6 L 18 6 L 18 18 L 1 18 L 1 6 Z" stroke-width="1" fill="none" />
@@ -138,16 +110,14 @@
             </svg>
             Categories
           </h6>
-<!-- category list -->
-<ul>
-<?php
-  $args = array(
-    'title_li' => '',
-  );
-  wp_list_categories($args);
-?>
-</ul>
-<!-- /category list -->
+          <ul>
+            <?php
+              $args = array(
+                'title_li' => '',
+              );
+              wp_list_categories($args);
+            ?>
+          </ul>
           <h6>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
               <path class="color--border--fill" d="M 4 3 L 20 3 C 20.5523 3 21 3.4477 21 4 L 21 20 C 21 20.5523 20.5523 21 20 21 L 4 21 C 3.4477 21 3 20.5523 3 20 L 3 4 C 3 3.4477 3.4477 3 4 3 ZM 2 4 L 2 20 C 2 21.1046 2.8954 22 4 22 L 20 22 C 21.1046 22 22 21.1046 22 20 L 22 4 C 22 2.8954 21.1046 2 20 2 L 4 2 C 2.8954 2 2 2.8954 2 4 Z" />
@@ -158,16 +128,14 @@
             </svg>
             Archives
           </h6>
-<!-- archive list -->
-<ul>
-<?php
-  $args = array(
-    'limit' => '12',
-  );
-  wp_get_archives($args);
-?>
-</ul>
-<!-- /archive list -->
+          <ul>
+            <?php
+              $args = array(
+                'limit' => '12',
+              );
+              wp_get_archives($args);
+            ?>
+          </ul>
         </nav>
         <nav class="feed">
           <a href="<?php bloginfo('rss2_url'); ?>" title="RSS" target="_blank">
@@ -181,15 +149,11 @@
         </nav>
       </div>
     </aside>
-
-    <!-- ====================================================================== -->
-    <!-- /ドロワー                                                              -->
-    <!-- ====================================================================== -->
-
-    <!-- ====================================================================== -->
-    <!-- 共有                                                                   -->
-    <!-- ====================================================================== -->
-
+    <?php
+      // =============================================================================
+      // 共有
+      // =============================================================================
+    ?>
     <aside id="share" class="share">
       <div class="scroll">
         <div class="description">
@@ -239,11 +203,6 @@
         <div class="close js--share-button"></div>
       </div>
     </aside>
-
-    <!-- ====================================================================== -->
-    <!-- /共有                                                                  -->
-    <!-- ====================================================================== -->
-
     <div class="overlay js--overlay"></div>
     <?php wp_footer(); ?>
   </body>
