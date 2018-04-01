@@ -1548,7 +1548,7 @@ body {
               &::before {
                 right: auto;
                 left: 100%;
-                border-right-color: transparent;
+                border-right-color: transparent !important; // 動的CSSのほうが優先度が高く崩れるため
                 border-left-color: $color--border;
               }
 
