@@ -154,10 +154,10 @@ echo <<< EOM
       /* 背景 */
       svg .color--background--fill{fill:{$theme_customize__setting__colors__background}}
       svg .color--background--stroke{stroke:{$theme_customize__setting__colors__background}}
+      body{background-color:{$theme_customize__setting__colors__background}}
       .header{background-color:{$theme_customize__setting__colors__background}}
       .header .page-info .page-top{background-color:{$theme_customize__setting__colors__background}}
       .search-form{background-color:{$theme_customize__setting__colors__background}}
-      .main{background-color:{$theme_customize__setting__colors__background}}
       .main .archive-list section .heading a .eyecatch img{background-color:{$theme_customize__setting__colors__background}}
       .main .article-detail .eyecatch .img img{background-color:{$theme_customize__setting__colors__background}}
       .main .article-detail .article-comment .comment-respond .comment-form .form-submit input[type='submit']{color:{$theme_customize__setting__colors__background}}

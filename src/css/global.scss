@@ -260,6 +260,7 @@ iframe {
 // =============================================================================
 
 body {
+  background: $color--background;
   // JSで色を抽出し<meta theme-color>へ代入している
   border-top: none 0 $color--accent;
   border-bottom: none 0 $color--sub;
@@ -663,7 +664,6 @@ body {
 .main {
   overflow: hidden;
   padding-top: 5rem;
-  background: $color--background;
 
   // オーバーレイ表示
   body.state--show-overlay & {
