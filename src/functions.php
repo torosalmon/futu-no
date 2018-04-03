@@ -160,7 +160,6 @@ echo <<< EOM
       .search-form{background-color:{$theme_customize__setting__colors__background}}
       .main .archive-list section .heading a .eyecatch img{background-color:{$theme_customize__setting__colors__background}}
       .main .article-detail .eyecatch .img img{background-color:{$theme_customize__setting__colors__background}}
-      .main .article-detail .article-comment .comment-respond .comment-form .form-submit input[type='submit']{color:{$theme_customize__setting__colors__background}}
       .main .footer{color:{$theme_customize__setting__colors__background}}
       .drawer{color:{$theme_customize__setting__colors__background}}
       .drawer .scroll .author .name::before{border-bottom-color:{$theme_customize__setting__colors__background}}
@@ -169,7 +168,6 @@ echo <<< EOM
       svg .color--border--fill{fill:{$theme_customize__setting__colors__border}}
       svg .color--border--stroke{stroke:{$theme_customize__setting__colors__border}}
       input[type='text'],input[type='search'],input[type='tel'],input[type='url'],input[type='email'],input[type='password'],input[type='datetime'],input[type='datetime-local'],input[type='date'],input[type='month'],input[type='week'],input[type='time'],input[type='number'],textarea,select{border-color:{$theme_customize__setting__colors__border}}
-      input[type='submit'],input[type='reset'],input[type='button'],button{background-color:{$theme_customize__setting__colors__border}}
       .header{border-bottom-color:{$theme_customize__setting__colors__border}}
       .header .tool ul li{border-left-color:{$theme_customize__setting__colors__border}}
       .search-form{border-bottom-color:{$theme_customize__setting__colors__border}}
@@ -213,6 +211,7 @@ echo <<< EOM
       /* アクセントカラー */
       svg .color--accent--fill{fill:{$theme_customize__setting__colors__accent}}
       svg .color--accent--stroke{stroke:{$theme_customize__setting__colors__accent}}
+      input[type='submit'],input[type='reset'],input[type='button'],button{background-color:{$theme_customize__setting__colors__accent}}
       body{border-top-color:{$theme_customize__setting__colors__accent}}
       .header{border-top-color:{$theme_customize__setting__colors__accent}}
       .header .tool ul li a span.notification{background-color:{$theme_customize__setting__colors__accent}}

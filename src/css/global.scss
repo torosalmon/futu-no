@@ -203,7 +203,7 @@ input[type='reset'],
 input[type='button'],
 button {
   padding: 1rem;
-  background: $color--border;
+  background: $color--accent;
   border: none;
 }
 
@@ -1634,8 +1634,6 @@ body {
 
             input[type='submit'] {
               padding: 1rem 4rem;
-              background: $color--sub;
-              color: $color--background;
             }
 
           }
