@@ -223,7 +223,6 @@ echo <<< EOM
       svg .color--sub--stroke{stroke:{$theme_customize__setting__colors__sub}}
       body{border-bottom-color:{$theme_customize__setting__colors__sub}}
       .search-form{border-top-color:{$theme_customize__setting__colors__sub}}
-      .search-form{border-top-color:{$theme_customize__setting__colors__sub}}
       .drawer{background-color:{$theme_customize__setting__colors__sub}}
       .drawer .scroll .author .avatar{border-color:{$theme_customize__setting__colors__sub}}
       .drawer .scroll .author .name{border-color:{$theme_customize__setting__colors__sub}}
