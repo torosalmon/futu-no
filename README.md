@@ -1,4 +1,4 @@
-# futu-no v1.3 - WordPress theme
+# [futu-no] v1.3 - WordPress theme
 
 * Demo : [http://trs.mn/blog/](http://trs.mn/blog/)
 * License : [MIT license](https://opensource.org/licenses/MIT)
