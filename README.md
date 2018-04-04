@@ -1,5 +1,7 @@
 # [futu-no] v1.3 - WordPress theme
 
+!(https://user-images.githubusercontent.com/17419773/38294778-eb4c68c6-3826-11e8-960f-2f223cd4564d.png)
+
 * Demo : [http://trs.mn/blog/](http://trs.mn/blog/)
 * License : [MIT license](https://opensource.org/licenses/MIT)
 
