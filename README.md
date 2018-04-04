@@ -31,7 +31,9 @@
 
 `/dist/`フォルダ以下を`/wp-content/theme/futu-no/`へ格納してください。
 
-#### Option : Color Customize
+### Option
+
+##### Color Customize
 >
 > ![live-color](https://user-images.githubusercontent.com/17419773/38295600-7b36085a-3829-11e8-9124-976dde9246ad.gif)
 >
@@ -39,7 +41,7 @@
 > futu-noでは色を考えるのに疲れてしまわないように設定できる色数を5色に絞りました。
 > アイコンは全てSVGでデザインされており、カラーカスタマイズと動的に連動します。
 
-#### Option : SNS Profile
+##### SNS Profile
 >
 > プロフィール管理画面にSNSのマイページURLを入力できるフィールドを拡張します。
 > 入力のある項目はサイドバーのプロフィール欄へリンク付きで反映します。
