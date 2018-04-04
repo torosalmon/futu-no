@@ -18,7 +18,7 @@
 
 #### Architecture
 
-* WPテンプレート構成をなるべくシンプルで読みやすく
+* 複雑なinclude地獄にならないように、WPテンプレート構成は極力シンプルに
 * HTML minify機能付き
 * jQuery未使用
 
@@ -43,5 +43,5 @@ futu-noでは色を考えるのに疲れてしまわないように設定でき�
 
 ### Library
 
-* less - [https://github.com/filipelinhares/ress](https://github.com/filipelinhares/ress)
-* sweet-scroll - [https://github.com/tsuyoshiwada/sweet-scroll](https://github.com/tsuyoshiwada/sweet-scroll)
+* less : [https://github.com/filipelinhares/ress](https://github.com/filipelinhares/ress)
+* sweet-scroll : [https://github.com/tsuyoshiwada/sweet-scroll](https://github.com/tsuyoshiwada/sweet-scroll)
