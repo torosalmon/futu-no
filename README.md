@@ -5,7 +5,7 @@
 
 ---
 
-## Outline
+### Outline
 
 “普通の”見た目なWordPressテーマ、[futu-no]です。よろしくおねがいします。
 
@@ -24,7 +24,7 @@
 
 ---
 
-## Use
+### Use
 
 /dist/フォルダ以下を/wp-content/theme/futu-no/へ格納してください。
 
@@ -41,7 +41,7 @@ futu-noでは色を考えるのに疲れてしまわないように設定でき�
 
 ---
 
-#### Lib
+### Library
 
 * less - [https://github.com/filipelinhares/ress](https://github.com/filipelinhares/ress)
 * sweet-scroll - [https://github.com/tsuyoshiwada/sweet-scroll](https://github.com/tsuyoshiwada/sweet-scroll)
