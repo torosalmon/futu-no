@@ -2,8 +2,8 @@
 
 ![img](https://user-images.githubusercontent.com/17419773/38294778-eb4c68c6-3826-11e8-960f-2f223cd4564d.png)
 
-* Demo : [http://trs.mn/blog/](http://trs.mn/blog/)
-* License : [MIT license](https://opensource.org/licenses/MIT)
+* Demo : [http://trs.mn/blog/](http://trs.mn/blog/){:target="_blank"}
+* License : [MIT license](https://opensource.org/licenses/MIT){:target="_blank"}
 
 ---
 
@@ -29,7 +29,7 @@
 
 ### Use
 
-/dist/フォルダ以下を/wp-content/theme/futu-no/へ格納してください。
+`/dist/`フォルダ以下を`/wp-content/theme/futu-no/`へ格納してください。
 
 #### Option : Color Customize
 
@@ -46,5 +46,5 @@ futu-noでは色を考えるのに疲れてしまわないように設定でき�
 
 ### Library
 
-* ress : [https://github.com/filipelinhares/ress](https://github.com/filipelinhares/ress)
-* sweet-scroll : [https://github.com/tsuyoshiwada/sweet-scroll](https://github.com/tsuyoshiwada/sweet-scroll)
+* ress : [https://github.com/filipelinhares/ress](https://github.com/filipelinhares/ress){:target="_blank"}
+* sweet-scroll : [https://github.com/tsuyoshiwada/sweet-scroll](https://github.com/tsuyoshiwada/sweet-scroll){:target="_blank"}
