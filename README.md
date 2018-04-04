@@ -44,5 +44,5 @@ futu-noでは色を考えるのに疲れてしまわないように設定でき�
 
 ### Library
 
-* less : [https://github.com/filipelinhares/ress](https://github.com/filipelinhares/ress)
+* ress : [https://github.com/filipelinhares/ress](https://github.com/filipelinhares/ress)
 * sweet-scroll : [https://github.com/tsuyoshiwada/sweet-scroll](https://github.com/tsuyoshiwada/sweet-scroll)
