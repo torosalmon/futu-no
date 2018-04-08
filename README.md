@@ -52,4 +52,4 @@
 
 * ress : [https://github.com/filipelinhares/ress](https://github.com/filipelinhares/ress)
 * sweet-scroll : [https://github.com/tsuyoshiwada/sweet-scroll](https://github.com/tsuyoshiwada/sweet-scroll)
-
+* lazysizes: [https://github.com/aFarkas/lazysizes](https://github.com/aFarkas/lazysizes)
