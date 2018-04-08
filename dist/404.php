@@ -1,3 +1,4 @@
+<?php global_meta(); ?>
 <?php get_header(); ?>
       <div class="container-text">
         <nav class="error">

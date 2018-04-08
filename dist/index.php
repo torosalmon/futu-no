@@ -1,3 +1,4 @@
+<?php global_meta(); ?>
 <?php get_header(); ?>
       <?php
         // =============================================================================
@@ -8,24 +9,28 @@
         $args = array(
           'order'          => 'DESC',
           'orderby'        => 'date',
+          'no_found_rows'  => true,
           'posts_per_page' => 1,
         );
         $wq_query = new WP_Query($args);
       ?>
       <?php if($wq_query->have_posts()) : ?>
         <?php while($wq_query->have_posts()) : ?>
-          <?php $wq_query->the_post(); ?>
+          <?php
+            $wq_query->the_post();
+            $post_title = get_the_title();
+          ?>
           <div class="container-text">
             <nav class="latest-article" itemscope="itemscope" itemtype="http://schema.org/Article">
-              <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+              <a href="<?= get_the_permalink(); ?>" title="<?= $post_title; ?>">
                 <div class="eyecatch">
                   <?php if(has_post_thumbnail()) : ?>
                     <?php the_post_thumbnail('1280px'); ?>
                   <?php endif; ?>
                 </div>
                 <div class="meta">
-                  <time itemprop="datePublished"><?php the_time('Y.m.d'); ?></time>
-                  <h2><?php the_title(); ?></h2>
+                  <time itemprop="datePublished"><?= get_the_time('Y.m.d'); ?></time>
+                  <h2><?= $post_title; ?></h2>
                 </div>
               </a>
             </nav>
@@ -42,28 +47,33 @@
           ?>
           <?php
             $args = array(
-              'order'   => 'DESC',
-              'orderby' => 'date',
-              'offset'  => 1,
+              'order'         => 'DESC',
+              'orderby'       => 'date',
+              'no_found_rows' => true,
+              'offset'        => 1,
             );
             $wq_query = new WP_Query($args);
           ?>
           <?php if($wq_query->have_posts()) : ?>
             <nav class="latest-article-2" itemscope="itemscope" itemtype="http://schema.org/Article">
               <?php while($wq_query->have_posts()) : ?>
-                <?php $wq_query->the_post(); ?>
+                <?php
+                  $wq_query->the_post();
+                  $post_title = get_the_title();
+                ?>
                 <section>
-                  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                  <a href="<?= get_the_permalink(); ?>" title="<?= $post_title; ?>">
                     <div class="eyecatch">
                       <?php if(has_post_thumbnail()) : ?>
-                        <?php the_post_thumbnail('640px'); ?>
+                        <?php $thumnbnail_url = wp_get_attachment_image_src(get_post_thumbnail_id(), '640px'); ?>
+                        <img class="lazyload" data-src="<?= $thumnbnail_url[0]; ?>" alt="<?= $post_title; ?>">
                       <?php else : ?>
-                        <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="<?php the_title(); ?>">
+                        <img src="<?= $meta['template_directory_uri'] ?>/img/spacer.gif" alt="<?= $post_title; ?>">
                       <?php endif; ?>
                     </div>
                     <div class="meta">
-                      <time itemprop="datePublished"><?php the_time('Y.m.d'); ?></time>
-                      <h2><?php the_title(); ?></h2>
+                      <time itemprop="datePublished"><?= get_the_time('Y.m.d'); ?></time>
+                      <h2><?= $post_title; ?></h2>
                     </div>
                   </a>
                 </section>

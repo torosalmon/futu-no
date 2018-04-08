@@ -1,3 +1,4 @@
+<?php global_meta(); ?>
 <?php get_header(); ?>
       <?php if(have_posts()) : ?>
         <?php while(have_posts()) : ?>
@@ -15,10 +16,10 @@
               // =============================================================================
             ?>
             <?php if(has_post_thumbnail()) : ?>
-              <?php $thumnbnail_url = wp_get_attachment_image_src(get_post_thumbnail_id(), '1280px'); ?>
               <div class="eyecatch">
                 <div class="background">
-                  <div style="background-image: url(<?php echo $thumnbnail_url[0]; ?>);"></div>
+                  <?php $thumnbnail_url = wp_get_attachment_image_src(get_post_thumbnail_id(), '1280px'); ?>
+                  <div style="background-image: url(<?= $thumnbnail_url[0]; ?>);"></div>
                 </div>
                 <div class="container-text">
                   <div class="img"><?php the_post_thumbnail('1280px'); ?></div>
@@ -31,7 +32,7 @@
                 // 見出し
                 // =============================================================================
               ?>
-              <h2 class="heading"><strong><?php the_title(); ?></strong></h2>
+              <h2 class="heading"><strong><?= get_the_title(); ?></strong></h2>
               <dl class="meta">
                 <?php if(has_category()) : ?>
                   <dt>
@@ -41,7 +42,7 @@
                       <path class="color--background--fill color--border--stroke" d="M 6 10 L 23 10 L 19 20 L 2 20 L 6 10 Z" stroke-width="1" />
                     </svg>
                   </dt>
-                  <dd><?php the_category(' / '); ?></dd>
+                  <dd><?php the_category(', '); ?></dd>
                 <?php endif; ?>
                 <dt>
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -52,7 +53,7 @@
                     <path class="color--accent--fill" d="M 11 4 L 11 11 L 6 11 L 6 13 L 13 13 L 13 4 L 11 4 Z" />
                   </svg>
                 </dt>
-                <dd><time itemprop="datePublished"><a href="<?php echo get_year_link($date_year); ?>"><?php echo $date_year; ?></a>.<a href="<?php echo get_month_link($date_year, $date_month); ?>"><?php echo $date_month; ?></a>.<?php echo $date_day; ?></time></dd>
+                <dd><time itemprop="datePublished"><a href="<?= get_year_link($date_year); ?>"><?= $date_year; ?></a>.<a href="<?= get_month_link($date_year, $date_month); ?>"><?= $date_month; ?></a>.<?= $date_day; ?></time></dd>
               </dl>
               <?php
                 // =============================================================================
@@ -65,16 +66,16 @@
               <div class="node">
                 <dl>
                   <dt>Writer</dt>
-                  <dd><?php the_author(); ?></dd>
+                  <dd><?= get_the_author(); ?></dd>
                   <dt>Date</dt>
-                  <dd><time itemprop="datePublished"><a href="<?php echo get_year_link($date_year); ?>"><?php echo $date_year; ?></a>.<a href="<?php echo get_month_link($date_year, $date_month); ?>"><?php echo $date_month; ?></a>.<?php echo $date_day; ?></time></dd>
+                  <dd><time itemprop="datePublished"><a href="<?= get_year_link($date_year); ?>"><?= $date_year; ?></a>.<a href="<?= get_month_link($date_year, $date_month); ?>"><?= $date_month; ?></a>.<?= $date_day; ?></time></dd>
                   <?php if(has_category()) : ?>
                     <dt>Categories</dt>
-                    <dd><?php the_category(' / '); ?></dd>
+                    <dd><?php the_category(', '); ?></dd>
                   <?php endif; ?>
                   <?php if(has_tag()) : ?>
                     <dt>Tags</dt>
-                    <dd><?php the_tags('', ' / '); ?></dd>
+                    <dd><?php the_tags('', ', '); ?></dd>
                   <?php endif; ?>
                 </dl>
               </div>
@@ -91,10 +92,26 @@
                 <nav class="adjacent-links">
                   <ul>
                     <?php if($prev_post) : ?>
-                      <li><a href="<?php echo get_permalink($prev_post->ID); ?>" class="prev"><?php echo get_the_post_thumbnail($prev_post->ID, '640px'); ?><?php echo esc_attr($prev_post->post_title); ?></a></li>
+                      <li>
+                        <a class="prev" href="<?= get_permalink($prev_post->ID); ?>">
+                          <?php if(has_post_thumbnail($prev_post->ID)) : ?>
+                            <?php $thumnbnail_url = wp_get_attachment_image_src(get_post_thumbnail_id($prev_post->ID), '640px'); ?>
+                            <img class="lazyload" data-src="<?= $thumnbnail_url[0]; ?>" alt="<?= esc_attr($prev_post->post_title); ?>">
+                          <?php endif; ?>
+                          <?= esc_attr($prev_post->post_title); ?>
+                        </a>
+                      </li>
                     <?php endif; ?>
                     <?php if($next_post) : ?>
-                      <li><a href="<?php echo get_permalink($next_post->ID); ?>" class="next"><?php echo get_the_post_thumbnail($next_post->ID, '640px'); ?><?php echo esc_attr($next_post->post_title); ?></a></li>
+                      <li>
+                        <a class="next" href="<?= get_permalink($next_post->ID); ?>">
+                          <?php if(has_post_thumbnail($next_post->ID)) : ?>
+                            <?php $thumnbnail_url = wp_get_attachment_image_src(get_post_thumbnail_id($next_post->ID), '640px'); ?>
+                            <img class="lazyload" data-src="<?= $thumnbnail_url[0]; ?>" alt="<?= esc_attr($next_post->post_title); ?>">
+                          <?php endif; ?>
+                          <?= esc_attr($next_post->post_title); ?>
+                        </a>
+                      </li>
                     <?php endif; ?>
                   </ul>
                 </nav>

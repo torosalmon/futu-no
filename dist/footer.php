@@ -5,13 +5,13 @@
         // =============================================================================
       ?>
       <footer class="footer">
-        <p><small>Copyright © <?php echo date('Y'); ?> <?php bloginfo('name'); ?></small></p>
+        <p><small>Copyright © <?= date('Y'); ?> <?= $meta['name']; ?></small></p>
         <ul>
           <li><a href="https://ja.wordpress.org/" target="_blank">WordPress</a></li>
           <li><a href="http://trs.mn/blog/" target="_blank">futu-no</a></li>
         </ul>
         <?php if(get_option('users_can_register')) : ?>
-          <p class="register"><a href="<?php echo esc_url(home_url('/')); ?>wp-login.php?action=register" target="_blank">ブログにユーザー登録</a></p>
+          <p class="register"><a href="<?= $meta['home_url']; ?>wp-login.php?action=register" target="_blank">ブログにユーザー登録</a></p>
         <?php endif; ?>
       </footer>
     </main>
@@ -33,53 +33,53 @@
           <?php endif; ?>
           <?php wp_reset_query(); ?>
           <div class="author">
-            <div class="avatar"><?php echo get_avatar($author_id, 320, get_template_directory_uri() . '/img/avatar-default.png', 'Author'); ?></div>
-            <div class="name"><?php echo get_the_author_meta('display_name', $author_id); ?></div>
+            <div class="avatar"><?= get_avatar($author_id, 320, $meta['template_directory_uri'] . '/img/avatar-default.png', 'Author'); ?></div>
+            <div class="name"><?= get_the_author_meta('display_name', $author_id); ?></div>
             <?php if(get_the_author_meta('description') != '') : ?>
-              <div class="comment"><?php echo get_the_author_meta('description', $author_id); ?></div>
+              <div class="comment"><?= get_the_author_meta('description', $author_id); ?></div>
             <?php endif; ?>
             <ul class="links">
               <?php if(get_the_author_meta('user_url') != '') : ?>
-                <li><a href="<?php echo get_the_author_meta('user_url', $author_id); ?>" target="_blank" class="home">Home</a></li>
+                <li><a class="home" href="<?= get_the_author_meta('user_url', $author_id); ?>" target="_blank">Home</a></li>
               <?php endif; ?>
               <?php if(get_the_author_meta('skype') != '') : ?>
-                <li><a href="skype:<?php echo get_the_author_meta('skype', $author_id); ?>">Skype</a></li>
+                <li><a href="skype:<?= get_the_author_meta('skype', $author_id); ?>">Skype</a></li>
               <?php endif; ?>
               <?php if(get_the_author_meta('facebook') != '') : ?>
-                <li><a href="<?php echo get_the_author_meta('facebook', $author_id); ?>" target="_blank">Facebook</a></li>
+                <li><a href="<?= get_the_author_meta('facebook', $author_id); ?>" target="_blank">Facebook</a></li>
               <?php endif; ?>
               <?php if(get_the_author_meta('twitter') != '') : ?>
-                <li><a href="<?php echo get_the_author_meta('twitter', $author_id); ?>" target="_blank">Twitter</a></li>
+                <li><a href="<?= get_the_author_meta('twitter', $author_id); ?>" target="_blank">Twitter</a></li>
               <?php endif; ?>
               <?php if(get_the_author_meta('google_plus') != '') : ?>
-                <li><a href="<?php echo get_the_author_meta('google_plus', $author_id); ?>" target="_blank">Google +</a></li>
+                <li><a href="<?= get_the_author_meta('google_plus', $author_id); ?>" target="_blank">Google +</a></li>
               <?php endif; ?>
               <?php if(get_the_author_meta('mixi') != '') : ?>
-                <li><a href="<?php echo get_the_author_meta('mixi', $author_id); ?>" target="_blank">mixi</a></li>
+                <li><a href="<?= get_the_author_meta('mixi', $author_id); ?>" target="_blank">mixi</a></li>
               <?php endif; ?>
               <?php if(get_the_author_meta('tumblr') != '') : ?>
-                <li><a href="<?php echo get_the_author_meta('tumblr', $author_id); ?>" target="_blank">Tumblr</a></li>
+                <li><a href="<?= get_the_author_meta('tumblr', $author_id); ?>" target="_blank">Tumblr</a></li>
               <?php endif; ?>
               <?php if(get_the_author_meta('instagram') != '') : ?>
-                <li><a href="<?php echo get_the_author_meta('instagram', $author_id); ?>" target="_blank">Instagram</a></li>
+                <li><a href="<?= get_the_author_meta('instagram', $author_id); ?>" target="_blank">Instagram</a></li>
               <?php endif; ?>
               <?php if(get_the_author_meta('flickr') != '') : ?>
-                <li><a href="<?php echo get_the_author_meta('flickr', $author_id); ?>" target="_blank">Flickr</a></li>
+                <li><a href="<?= get_the_author_meta('flickr', $author_id); ?>" target="_blank">Flickr</a></li>
               <?php endif; ?>
               <?php if(get_the_author_meta('photohito') != '') : ?>
-                <li><a href="<?php echo get_the_author_meta('photohito', $author_id); ?>" target="_blank">PHOTOHITO</a></li>
+                <li><a href="<?= get_the_author_meta('photohito', $author_id); ?>" target="_blank">PHOTOHITO</a></li>
               <?php endif; ?>
               <?php if(get_the_author_meta('pixiv') != '') : ?>
-                <li><a href="<?php echo get_the_author_meta('pixiv', $author_id); ?>" target="_blank">pixiv</a></li>
+                <li><a href="<?= get_the_author_meta('pixiv', $author_id); ?>" target="_blank">pixiv</a></li>
               <?php endif; ?>
               <?php if(get_the_author_meta('pawoo') != '') : ?>
-                <li><a href="<?php echo get_the_author_meta('pawoo', $author_id); ?>" target="_blank">Pawoo</a></li>
+                <li><a href="<?= get_the_author_meta('pawoo', $author_id); ?>" target="_blank">Pawoo</a></li>
               <?php endif; ?>
               <?php if(get_the_author_meta('github') != '') : ?>
-                <li><a href="<?php echo get_the_author_meta('github', $author_id); ?>" target="_blank">GitHub</a></li>
+                <li><a href="<?= get_the_author_meta('github', $author_id); ?>" target="_blank">GitHub</a></li>
               <?php endif; ?>
               <?php if(get_the_author_meta('qiita') != '') : ?>
-                <li><a href="<?php echo get_the_author_meta('qiita', $author_id); ?>" target="_blank">Qiita</a></li>
+                <li><a href="<?= get_the_author_meta('qiita', $author_id); ?>" target="_blank">Qiita</a></li>
               <?php endif; ?>
             </ul>
           </div>
@@ -138,7 +138,7 @@
           </ul>
         </nav>
         <nav class="feed">
-          <a href="<?php bloginfo('rss2_url'); ?>" title="RSS" target="_blank">
+          <a href="<?= $meta['rss2_url']; ?>" title="RSS" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
               <path class="color--accent--fill" d="M 0 21 C 0 19.3431 1.3431 18 3 18 C 4.6569 18 6 19.3431 6 21 C 6 22.6569 4.6569 24 3 24 C 1.3431 24 0 22.6569 0 21 Z" />
               <path class="color--accent--fill" d="M 16 24 C 16 15.1633 8.8367 8 0 8 L 0 11 C 7.1798 11 13 16.8202 13 24 L 16 24 Z" />
@@ -158,8 +158,8 @@
       <div class="scroll">
         <div class="description">
           <h6>
-            外部サービスへ共有
-            <strong><?php echo $meta['title']; ?></strong>
+            Share
+            <strong><?= $meta['title']; ?></strong>
           </h6>
         </div>
         <ul class="service-list">
@@ -167,37 +167,37 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
               <path d="M 2 20 C 2 10.0587 10.0587 2 20 2 C 29.9413 2 38 10.0587 38 20 C 38 29.9413 29.9413 38 20 38 C 10.0587 38 2 29.9413 2 20 Z" />
             </svg>
-            <a href="https://plus.google.com/share?url=<?php echo $meta['url']; ?>" target="_blank" class="google-plus">Google+</a>
+            <a class="google-plus" href="https://plus.google.com/share?url=<?= $meta['current_url']; ?>" target="_blank">Google+</a>
           </li>
           <li>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
               <path d="M 2 20 C 2 10.0587 10.0587 2 20 2 C 29.9413 2 38 10.0587 38 20 C 38 29.9413 29.9413 38 20 38 C 10.0587 38 2 29.9413 2 20 Z" />
             </svg>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo $meta['url']; ?>" target="_blank" class="facebook">Facebook</a>
+            <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?= $meta['current_url']; ?>" target="_blank">Facebook</a>
           </li>
           <li>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
               <path d="M 2 20 C 2 10.0587 10.0587 2 20 2 C 29.9413 2 38 10.0587 38 20 C 38 29.9413 29.9413 38 20 38 C 10.0587 38 2 29.9413 2 20 Z" />
             </svg>
-            <a href="https://twitter.com/share?url=<?php echo $meta['url']; ?>&amp;text=<?php echo $meta['title']; ?>" target="_blank" class="twitter">Twitter</a>
+            <a class="twitter" href="https://twitter.com/share?url=<?= $meta['current_url']; ?>&amp;text=<?= $meta['title']; ?>" target="_blank">Twitter</a>
           </li>
           <li>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
               <path d="M 2 20 C 2 10.0587 10.0587 2 20 2 C 29.9413 2 38 10.0587 38 20 C 38 29.9413 29.9413 38 20 38 C 10.0587 38 2 29.9413 2 20 Z" />
             </svg>
-            <a href="http://line.me/R/msg/text/?<?php echo $meta['title']; ?><?php echo $meta['url']; ?>" target="_blank" class="line">LINE</a>
+            <a class="line" href="http://line.me/R/msg/text/?<?= $meta['title']; ?><?= $meta['current_url']; ?>" target="_blank">LINE</a>
           </li>
           <li>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
               <path d="M 2 20 C 2 10.0587 10.0587 2 20 2 C 29.9413 2 38 10.0587 38 20 C 38 29.9413 29.9413 38 20 38 C 10.0587 38 2 29.9413 2 20 Z" />
             </svg>
-            <a href="http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Ftrs.mn%2Fblog%2F" target="_blank" class="feedly">Feedly</a>
+            <a class="feedly" href="https://feedly.com/i/subscription/feed/<?= urlencode($meta['home_url']); ?>" target="_blank">Feedly</a>
           </li>
           <li>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
               <path d="M 2 20 C 2 10.0587 10.0587 2 20 2 C 29.9413 2 38 10.0587 38 20 C 38 29.9413 29.9413 38 20 38 C 10.0587 38 2 29.9413 2 20 Z" />
             </svg>
-            <a href="http://b.hatena.ne.jp/entry/<?php echo $meta['url']; ?>" data-hatena-bookmark-title="<?php echo $meta['title']; ?>" target="_blank" class="hatena">はてなブックマーク</a>
+            <a class="hatena" href="http://b.hatena.ne.jp/entry/<?= $meta['current_url']; ?>" data-hatena-bookmark-title="<?= $meta['title']; ?>" target="_blank">はてなブックマーク</a>
           </li>
         </ul>
         <div class="close js--share-button"></div>

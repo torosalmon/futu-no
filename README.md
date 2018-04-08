@@ -1,4 +1,4 @@
-# [futu-no] v1.3 - WordPress theme
+# [futu-no] v1.4 - WordPress theme
 
 ![img](https://user-images.githubusercontent.com/17419773/38294778-eb4c68c6-3826-11e8-960f-2f223cd4564d.png)
 

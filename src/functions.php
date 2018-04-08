@@ -374,6 +374,7 @@ EOM;
     // $in_footer: trueで</body>前で読み込まれる。デフォルトはfalseで</head>の前のエリアで読み込まれる。（オプション）
     wp_enqueue_script('sweet-scroll', 'https://unpkg.com/sweet-scroll@3.0.0/sweet-scroll.min.js', array(), false, true);
     wp_enqueue_script('theme', get_template_directory_uri() . '/js/global.js', array('sweet-scroll'), false, true);
+    wp_enqueue_script('lazysizes', 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/4.0.2/lazysizes.min.js', array(), false, true);
 
     // コメントフォーム移動処理
     if(is_singular() && comments_open() && get_option('thread_comments')) {
@@ -403,9 +404,16 @@ EOM;
   function global_meta() {
     global $meta;
 
-    $meta['url']         = esc_url(home_url('/'));
-    $meta['title']       = get_bloginfo('name');
-    $meta['description'] = get_bloginfo('description');
+    $meta['home_url']               = esc_url(home_url('/'));
+    $meta['current_url']            = $meta['home_url'];
+    $meta['rss2_url']               = get_bloginfo('rss2_url');
+    $meta['template_directory_uri'] = get_template_directory_uri();
+    $meta['language']               = get_bloginfo('language');
+    $meta['charset']                = get_bloginfo('charset');
+    $meta['name']                   = get_bloginfo('name');
+    $meta['title']                  = $meta['name'];
+    $meta['description']            = get_bloginfo('description');
+    $meta['search_query']           = get_search_query();
 
     // ヘッダーイメージがある場合
     if(get_header_image()) {
@@ -423,8 +431,7 @@ EOM;
 
     if(is_home()) {
       $meta['og_type'] = 'blog';
-    }
-    else {
+    } else {
       $meta['og_type'] = 'article';
     }
 
@@ -433,12 +440,12 @@ EOM;
     // ==============
 
     if(is_singular()) {
-      $meta['url']   = get_permalink();
-      $meta['title'] = get_the_title();
-
       if(have_posts()) {
         while(have_posts()) {
           the_post();
+          $post_id             = get_the_ID();
+          $meta['current_url'] = get_permalink($post_id);
+          $meta['title']       = get_the_title();
           $meta['description'] = mb_substr(get_the_excerpt(), 0, 100);
 
           // 投稿に画像があるか調べる
@@ -465,10 +472,10 @@ EOM;
     // カテゴリ & タグ & タクソノミーページ
     // ====================================
 
-    if(is_category() || is_tag() || is_tax()) {
-      $query         = get_queried_object();
-      $meta['url']   = esc_url(get_term_link($query->term_id));
-      $meta['title'] = $query->name . 'の記事一覧';
+    else if(is_category() || is_tag() || is_tax()) {
+      $query               = get_queried_object();
+      $meta['current_url'] = esc_url(get_term_link($query->term_id));
+      $meta['title']       = $query->name . 'の記事一覧';
       if($query->description) {
         $meta['description'] = $query->description;
       }
@@ -479,7 +486,7 @@ EOM;
     // ================
 
     else if(is_archive()) {
-      $meta['url'] = esc_url(get_year_link(false, false));
+      $meta['current_url'] = esc_url(get_year_link(false, false));
 
       // 年別アーカイブ
       if(is_year()) {
@@ -749,6 +756,75 @@ EOM;
   // HTML圧縮オプションが有効の場合に実行
   if(get_theme_mod('theme_customize__setting__title_tagline__html_minify')) {
     add_action('get_header', 'wp_html_compression_start');
+  }
+
+  // =============================================================================
+  // [フロントサイト] lazysizes
+  // =============================================================================
+
+  // [lazysizes]
+  // @author: Alexander Farkas
+  // @URL:    https://github.com/aFarkas/lazysizes
+  // [lazysizes add WordPress]
+  // @URL: https://1010uzu.com/boyaki/lazysizes-responsive-images-lazy-load-wordpress#_lazySizes
+
+  // 記事内の画像にlazyloadクラスを追加
+  function add_lazyload_tag($content) {
+
+    // iframeも対象にする
+    $include_iframe = true;
+    // 1枚目の画像を除外する
+    $exclude_first_img = true;
+    // 除外する画像を指定（配列で指定）
+    $exclude_url_img = ['ad.jp.ap.valuecommerce.com', 'googlesyndication.com'];
+
+    // 取得するタグの正規表現
+    if($include_iframe) {
+      $tag_pattern = '/<(?:img|iframe)\s+.*?>/';
+    } else {
+      $tag_pattern = '/<img\s+.*?>/';
+    }
+
+    // コンテンツからimgの配列を作成
+    preg_match_all($tag_pattern, $content, $matches_img);
+    $pattern_arr = [];
+
+    foreach($matches_img[0] as $img_html) {
+      if(strpos($img_html, '<img ' ) !== false) {
+        if(empty($exclude_url_img)) {
+          $pattern_arr[] = $img_html;
+        } else {
+          foreach($exclude_url_img as $url) {
+            if(strpos($img_html, $url) === false) {
+              $pattern_arr[] = $img_html;
+            }
+          }
+        }
+      } else {
+        $pattern_arr[] = $img_html;
+      }
+    }
+
+    // 一番先頭の該当要素を除外
+    if($exclude_first_img && strpos($pattern_arr[0], '<img ' ) !== false) {
+      array_shift($pattern_arr);
+    }
+
+    // lazySizes用マークアップへ置換
+    foreach($pattern_arr as $i => $img_html) {
+      if(strpos($img_html, ' class=') === false) {
+        $subject_arr[] = preg_replace(array('/(src|srcset|sizes)/', '/\s?\/?>/'), array('data-$1', ' class="lazyload" />'), $img_html);
+      } else {
+        $subject_arr[] = preg_replace(array('/(src|srcset|sizes)/', '/(\s+?class=(?:"|\').+?)("|\')/'), array('data-$1', '$1 lazyload$2'), $img_html);
+      }
+    }
+    $content = str_replace($pattern_arr, $subject_arr, $content);
+
+    return $content;
+  }
+
+  if(!empty($content) || !is_feed() || !is_admin() || !is_ktai()) {
+    add_filter('the_content', 'add_lazyload_tag');
   }
 
 ?>
