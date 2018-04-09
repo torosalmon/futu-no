@@ -33,7 +33,7 @@
           <?php endif; ?>
           <?php wp_reset_query(); ?>
           <div class="author">
-            <div class="avatar"><?= get_avatar($author_id, 320, $meta['template_directory_uri'] . '/img/avatar-default.png', 'Author'); ?></div>
+            <div class="avatar"><?= get_avatar($author_id, 160, $meta['template_directory_uri'] . '/img/avatar-default.png', 'Author'); ?></div>
             <div class="name"><?= get_the_author_meta('display_name', $author_id); ?></div>
             <?php if(get_the_author_meta('description') != '') : ?>
               <div class="comment"><?= get_the_author_meta('description', $author_id); ?></div>

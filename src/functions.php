@@ -636,7 +636,7 @@ EOM;
     if($comment->comment_approved == '1') {
 ?>
 <li id="comment-<?php comment_ID(); ?>" <?php comment_class(); ?>>
-  <div class="comment-avatar"><?php echo get_avatar($comment, 320, get_template_directory_uri() . '/img/avatar-default.png', 'commenter'); ?></div>
+  <div class="comment-avatar"><?php echo get_avatar($comment, 160, get_template_directory_uri() . '/img/avatar-default.png', 'commenter'); ?></div>
   <article>
     <div class="comment-content">
       <?php comment_text(); ?>
