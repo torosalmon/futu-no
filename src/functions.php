@@ -5,6 +5,7 @@
   // =============================================================================
 
   add_theme_support('post-thumbnails');
+  add_image_size('320px', 320, 320, true);
   add_image_size('640px', 640, 640, true);
   add_image_size('1280px', 1280, 1280, true);
 

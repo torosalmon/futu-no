@@ -18,8 +18,8 @@
             <?php if(has_post_thumbnail()) : ?>
               <div class="eyecatch">
                 <div class="background">
-                  <?php $thumnbnail_url = wp_get_attachment_image_src(get_post_thumbnail_id(), '1280px'); ?>
-                  <div style="background-image: url(<?= $thumnbnail_url[0]; ?>);"></div>
+                  <?php $thumnbnail_1280px_url = wp_get_attachment_image_src(get_post_thumbnail_id(), '1280px'); ?>
+                  <div style="background-image: url(<?= $thumnbnail_1280px_url[0]; ?>);"></div>
                 </div>
                 <div class="container-text">
                   <div class="img"><?php the_post_thumbnail('1280px'); ?></div>
@@ -95,8 +95,8 @@
                       <li>
                         <a class="prev" href="<?= get_permalink($prev_post->ID); ?>">
                           <?php if(has_post_thumbnail($prev_post->ID)) : ?>
-                            <?php $thumnbnail_url = wp_get_attachment_image_src(get_post_thumbnail_id($prev_post->ID), '640px'); ?>
-                            <img class="lazyload" data-src="<?= $thumnbnail_url[0]; ?>" alt="<?= esc_attr($prev_post->post_title); ?>">
+                            <?php $thumnbnail_320px_url = wp_get_attachment_image_src(get_post_thumbnail_id($prev_post->ID), '320px'); ?>
+                            <img class="lazyload" data-src="<?= $thumnbnail_320px_url[0]; ?>" alt="<?= esc_attr($prev_post->post_title); ?>">
                           <?php endif; ?>
                           <?= esc_attr($prev_post->post_title); ?>
                         </a>
@@ -106,8 +106,8 @@
                       <li>
                         <a class="next" href="<?= get_permalink($next_post->ID); ?>">
                           <?php if(has_post_thumbnail($next_post->ID)) : ?>
-                            <?php $thumnbnail_url = wp_get_attachment_image_src(get_post_thumbnail_id($next_post->ID), '640px'); ?>
-                            <img class="lazyload" data-src="<?= $thumnbnail_url[0]; ?>" alt="<?= esc_attr($next_post->post_title); ?>">
+                            <?php $thumnbnail_320px_url = wp_get_attachment_image_src(get_post_thumbnail_id($next_post->ID), '320px'); ?>
+                            <img class="lazyload" data-src="<?= $thumnbnail_320px_url[0]; ?>" alt="<?= esc_attr($next_post->post_title); ?>">
                           <?php endif; ?>
                           <?= esc_attr($next_post->post_title); ?>
                         </a>

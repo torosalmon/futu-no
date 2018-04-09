@@ -22,8 +22,15 @@
                   <a href="<?= get_the_permalink(); ?>">
                     <div class="eyecatch">
                       <?php if(has_post_thumbnail()) : ?>
-                        <?php $thumnbnail_url = wp_get_attachment_image_src(get_post_thumbnail_id(), '640px'); ?>
-                        <img class="lazyload" data-src="<?= $thumnbnail_url[0]; ?>" alt="<?= $post_title; ?>">
+                        <?php
+                          $post_thumbnail_id    = get_post_thumbnail_id();
+                          $thumnbnail_320px_url = wp_get_attachment_image_src($post_thumbnail_id, '320px');
+                          $thumnbnail_640px_url = wp_get_attachment_image_src($post_thumbnail_id, '640px');
+                        ?>
+                        <picture>
+                          <source media="(max-width: 768px)" data-srcset="<?= $thumnbnail_320px_url[0]; ?>">
+                          <img class="lazyload" data-src="<?= $thumnbnail_640px_url[0]; ?>" alt="<?= $post_title; ?>">
+                        </picture>
                       <?php else : ?>
                         <img src="<?= $meta['template_directory_uri'] ?>/img/spacer.gif" alt="<?= $post_title; ?>">
                       <?php endif; ?>
