@@ -3,9 +3,6 @@
 # https://www.gitignore.io/api/svn,git,node,ruby,macos,linux,prepros,windows,dreamweaver
 # ==============================================================================
 
-### 公開フォルダ ###
-dist/
-
 ### Vagrant ###
 .vagrant/
 
