@@ -28,7 +28,7 @@
   let share;
 
   // DOM
-  const $meta_theme_color:   NodeListOf <HTMLElement>     = document.querySelectorAll('meta[name="theme-color"]');
+  const $meta_theme_color:   HTMLElement                  = document.querySelector('meta[name="theme-color"]');
   const $body:               NodeListOf <HTMLBodyElement> = document.getElementsByTagName('body');
   const $header:             HTMLCollectionOf <Element>   = document.getElementsByClassName('js--header');
   const $search_form_button: HTMLCollectionOf <Element>   = document.getElementsByClassName('js--search-form-button');
@@ -69,6 +69,11 @@
       if(document.getElementsByClassName('js--scroll')[0] != null) {
         this.smooth_scroll();
       }
+
+      // パララックス
+      if(document.getElementsByClassName('js--parallax')[0] != null) {
+        this.parallax();
+      }
     }
 
     // ==================
@@ -78,7 +83,7 @@
     private smooth_scroll(): void {
 
       // sweet-scroll
-      const sweetScroll = new SweetScroll({
+      new SweetScroll({
         trigger:          '.js--scroll', // トリガーとなる要素をCSSセレクタで指定
         header:           '.js--header', // 固定ヘッダをCSSセレクタで指定
         duration:         900,           // アニメーション再生時間のミリ秒
@@ -94,6 +99,65 @@
         afterScroll:  null, // スクロールが終わった時
         cancelScroll: null, // スクロールがキャンセルされた時
       });
+    }
+
+    // ============
+    // パララックス
+    // ============
+
+    private parallax(): void {
+
+      // ====
+      // init
+      // ====
+
+      const $parallax: NodeListOf <HTMLElement> = document.querySelectorAll('.js--parallax');
+      const friction = [];
+
+      for(let i: number = 0; i < $parallax.length; i += 1) {
+
+        // 速度補正オプションを取得
+        if($parallax[i].dataset.parallaxFriction != null) {
+          friction[i] = $parallax[i].dataset.parallaxFriction;
+        }
+
+        // $parallaxをwrapするタグを生成
+        const $container: HTMLElement = document.createElement('div');
+        $container.className = 'js--parallax-container';
+        $parallax[i].parentNode.insertBefore($container, $parallax[i]);
+        $parallax[i].parentNode.removeChild($parallax[i]);
+        $container.appendChild($parallax[i]);
+      }
+      const $parallax_container: NodeListOf <HTMLElement> = document.querySelectorAll('.js--parallax-container');
+
+      // ========
+      // イベント
+      // ========
+
+      window.addEventListener('scroll', animation, {
+        once:    false,
+        passive: true,
+        capture: true
+      });
+      document.addEventListener('touchmove', animation, {
+        once:    false,
+        passive: true,
+        capture: true
+      });
+
+      // ==============
+      // アニメーション
+      // ==============
+
+      function animation(): void {
+        for(let i = 0; i < $parallax.length; i += 1) {
+          const y: number = $parallax_container[i].getBoundingClientRect().top;
+
+          $parallax[i].style.transform = 'translateY(' + (- y / friction[i]) + 'px' + ')';
+        }
+        window.requestAnimationFrame(animation);
+      }
+
     }
 
   }
@@ -115,7 +179,7 @@
       this.sub_color     = getComputedStyle($body[0]).borderBottomColor;
       this.current_color = this.main_color;
 
-      $meta_theme_color[0].setAttribute('content', this.current_color);
+      $meta_theme_color.setAttribute('content', this.current_color);
     }
 
     // ========
@@ -127,7 +191,7 @@
 
       // sub_colorへ変更
       if($body[0].classList.contains('state--show-drawer') || $body[0].classList.contains('state--show-search-form')) {
-        $meta_theme_color[0].setAttribute('content', this.sub_color);
+        $meta_theme_color.setAttribute('content', this.sub_color);
         $header_cast[0].style.borderTopColor = this.sub_color;
 
         this.current_color = this.sub_color;
@@ -135,7 +199,7 @@
 
       // main_colorへ変更
       else {
-        $meta_theme_color[0].setAttribute('content', this.main_color);
+        $meta_theme_color.setAttribute('content', this.main_color);
         $header_cast[0].style.borderTopColor = this.main_color;
 
         this.current_color = this.main_color;

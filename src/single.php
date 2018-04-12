@@ -19,7 +19,7 @@
               <div class="eyecatch">
                 <div class="background">
                   <?php $thumnbnail_1280px_url = wp_get_attachment_image_src(get_post_thumbnail_id(), '1280px'); ?>
-                  <div style="background-image: url(<?= $thumnbnail_1280px_url[0]; ?>);"></div>
+                  <div class="background-image js--parallax" data-parallax-friction="4" style="background-image: url(<?= $thumnbnail_1280px_url[0]; ?>);"></div>
                 </div>
                 <div class="container-text">
                   <div class="img"><?php the_post_thumbnail('1280px'); ?></div>
