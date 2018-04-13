@@ -150,7 +150,7 @@
       // ==============
 
       function animation(): void {
-        for(let i = 0; i < $parallax.length; i += 1) {
+        for(let i: number = 0; i < $parallax.length; i += 1) {
           const y: number = $parallax_container[i].getBoundingClientRect().top;
 
           $parallax[i].style.transform = 'translateY(' + (- y / friction[i]) + 'px' + ')';
