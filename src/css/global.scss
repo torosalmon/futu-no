@@ -36,6 +36,8 @@
 }
 
 html {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
   font-family: -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular',
                'Helvetica Neue',
                'Yu Gothic', YuGothic,
