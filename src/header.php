@@ -37,9 +37,9 @@
     <header class="header js--header">
       <div class="page-info">
         <h1><?= $meta['title']; ?></h1>
-        <?php if(is_home()) : ?>
+        <?php if(is_home()): ?>
           <p class="read" itemprop="description"><?= $meta['description']; ?></p>
-        <?php else : ?>
+        <?php else: ?>
           <?php breadcrumb(); ?>
         <?php endif; ?>
         <a class="page-top js--scroll" href="#top">
@@ -52,7 +52,7 @@
       </div>
       <nav class="tool">
         <ul>
-          <?php if(is_singular() && comments_open()) : ?>
+          <?php if(is_singular() && comments_open()): ?>
             <li>
               <a class="js--scroll" href="#comment">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -63,9 +63,9 @@
                   $comment_total = get_comments_number();
                   settype($comment_total, 'integer');
                 ?>
-                <?php if($comment_total > 0) : ?>
+                <?php if($comment_total > 0): ?>
                   <span class="notification"><?= $comment_total; ?></span>
-                <?php else : ?>
+                <?php else: ?>
                   <span>コメント</span>
                 <?php endif; ?>
               </a>

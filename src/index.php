@@ -14,8 +14,8 @@
         );
         $wq_query = new WP_Query($args);
       ?>
-      <?php if($wq_query->have_posts()) : ?>
-        <?php while($wq_query->have_posts()) : ?>
+      <?php if($wq_query->have_posts()): ?>
+        <?php while($wq_query->have_posts()): ?>
           <?php
             $wq_query->the_post();
             $post_title = get_the_title();
@@ -24,7 +24,7 @@
             <nav class="latest-article" itemscope="itemscope" itemtype="http://schema.org/Article">
               <a href="<?= get_the_permalink(); ?>" title="<?= $post_title; ?>">
                 <div class="eyecatch">
-                  <?php if(has_post_thumbnail()) : ?>
+                  <?php if(has_post_thumbnail()): ?>
                     <?php the_post_thumbnail('1280px'); ?>
                   <?php endif; ?>
                 </div>
@@ -54,9 +54,9 @@
             );
             $wq_query = new WP_Query($args);
           ?>
-          <?php if($wq_query->have_posts()) : ?>
+          <?php if($wq_query->have_posts()): ?>
             <nav class="latest-article-2" itemscope="itemscope" itemtype="http://schema.org/Article">
-              <?php while($wq_query->have_posts()) : ?>
+              <?php while($wq_query->have_posts()): ?>
                 <?php
                   $wq_query->the_post();
                   $post_title = get_the_title();
@@ -64,10 +64,10 @@
                 <section>
                   <a href="<?= get_the_permalink(); ?>" title="<?= $post_title; ?>">
                     <div class="eyecatch">
-                      <?php if(has_post_thumbnail()) : ?>
+                      <?php if(has_post_thumbnail()): ?>
                         <?php $thumnbnail_320px_url = wp_get_attachment_image_src(get_post_thumbnail_id(), '320px'); ?>
                         <img class="lazyload" data-src="<?= $thumnbnail_320px_url[0]; ?>" alt="<?= $post_title; ?>">
-                      <?php else : ?>
+                      <?php else: ?>
                         <img src="<?= $meta['template_directory_uri'] ?>/img/spacer.gif" alt="<?= $post_title; ?>">
                       <?php endif; ?>
                     </div>

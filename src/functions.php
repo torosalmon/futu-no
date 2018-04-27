@@ -361,17 +361,17 @@ EOM;
 
     // [CSS]
     // $handle: スタイルシート識別名
-    // $src:    URL
-    // $deps:   依存スタイルシート識別名の配列（オプション）
-    // $ver:    バージョン文字列。クエリーストリングに付加される。（オプション）
-    // $media:  スタイルシートのメディア指定（オプション）
+    // $src: URL
+    // $deps: 依存スタイルシート識別名の配列（オプション）
+    // $ver: バージョン文字列。クエリーストリングに付加される。（オプション）
+    // $media: スタイルシートのメディア指定（オプション）
     wp_enqueue_style('global', get_template_directory_uri() . '/css/global.css', array(), false, '');
 
     // [JS]
-    // $handle:    スクリプト識別名
-    // $src:       URL
-    // $deps:      依存スクリプト識別名の配列（オプション）
-    // $ver:       バージョン文字列。クエリーストリングに付加される。（オプション）
+    // $handle: スクリプト識別名
+    // $src: URL
+    // $deps: 依存スクリプト識別名の配列（オプション）
+    // $ver: バージョン文字列。クエリーストリングに付加される。（オプション）
     // $in_footer: trueで</body>前で読み込まれる。デフォルトはfalseで</head>の前のエリアで読み込まれる。（オプション）
     wp_enqueue_script('lib', get_template_directory_uri() . '/js/lib.min.js', array(), false, true);
     wp_enqueue_script('global', get_template_directory_uri() . '/js/global.js', array('lib'), false, true);
@@ -585,7 +585,7 @@ EOM;
 
   // [WordPress Post Pagination without plugin]
   // @author: Kriesi
-  // @URL:    http://www.kriesi.at/archives/how-to-build-a-wordpress-post-pagination-without-plugin
+  // @URL: http://www.kriesi.at/archives/how-to-build-a-wordpress-post-pagination-without-plugin
 
   function custom_pagination($pages = '', $range = 2) {
     global $paged;
@@ -656,7 +656,7 @@ EOM;
 
   // [wordpress-snippets-html-minify.php]
   // @author: ingozoell
-  // @URL:    https://gist.github.com/ingozoell/8376125
+  // @URL: https://gist.github.com/ingozoell/8376125
 
   class WP_HTML_Compression {
     protected $compress_css    = true;
@@ -764,7 +764,7 @@ EOM;
 
   // [lazysizes]
   // @author: Alexander Farkas
-  // @URL:    https://github.com/aFarkas/lazysizes
+  // @URL: https://github.com/aFarkas/lazysizes
   // [lazysizes add WordPress]
   // @URL: https://1010uzu.com/boyaki/lazysizes-responsive-images-lazy-load-wordpress#_lazySizes
 

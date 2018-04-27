@@ -1,11 +1,11 @@
 /*!
  * *****************************************************************************
  * [futu-no JavaScript] - http://trs.mn/blog/futu-no/
- * @Author:  trs
+ * @Author: trs
  * @License: MIT License
  *
  * [sweet-scroll] v3.0.0 - https://github.com/tsuyoshiwada/sweet-scroll
- * @Author:  tsuyoshiwada
+ * @Author: tsuyoshiwada
  * @License: MIT License
  * *****************************************************************************
 !*/

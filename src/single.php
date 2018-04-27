@@ -1,7 +1,7 @@
 <?php global_meta(); ?>
 <?php get_header(); ?>
-      <?php if(have_posts()) : ?>
-        <?php while(have_posts()) : ?>
+      <?php if(have_posts()): ?>
+        <?php while(have_posts()): ?>
           <?php
             the_post();
             $post_id    = get_the_ID();
@@ -15,7 +15,7 @@
               // アイキャッチ
               // =============================================================================
             ?>
-            <?php if(has_post_thumbnail()) : ?>
+            <?php if(has_post_thumbnail()): ?>
               <div class="eyecatch">
                 <div class="background">
                   <?php $thumnbnail_1280px_url = wp_get_attachment_image_src(get_post_thumbnail_id(), '1280px'); ?>
@@ -34,7 +34,7 @@
               ?>
               <h2 class="heading"><strong><?= get_the_title(); ?></strong></h2>
               <dl class="meta">
-                <?php if(has_category()) : ?>
+                <?php if(has_category()): ?>
                   <dt>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
                       <path class="color--border--stroke" d="M 1 6 L 3 6 L 4 4 L 10 4 L 11 6 L 18 6 L 18 18 L 1 18 L 1 6 Z" stroke-width="1" fill="none" />
@@ -69,11 +69,11 @@
                   <dd><?= get_the_author(); ?></dd>
                   <dt>Date</dt>
                   <dd><time itemprop="datePublished"><a href="<?= get_year_link($date_year); ?>"><?= $date_year; ?></a>.<a href="<?= get_month_link($date_year, $date_month); ?>"><?= $date_month; ?></a>.<?= $date_day; ?></time></dd>
-                  <?php if(has_category()) : ?>
+                  <?php if(has_category()): ?>
                     <dt>Categories</dt>
                     <dd><?php the_category(', '); ?></dd>
                   <?php endif; ?>
-                  <?php if(has_tag()) : ?>
+                  <?php if(has_tag()): ?>
                     <dt>Tags</dt>
                     <dd><?php the_tags('', ', '); ?></dd>
                   <?php endif; ?>
@@ -88,13 +88,13 @@
                 $next_post = get_next_post();
                 $prev_post = get_previous_post();
               ?>
-              <?php if($next_post || $prev_post) : ?>
+              <?php if($next_post || $prev_post): ?>
                 <nav class="adjacent-links">
                   <ul>
-                    <?php if($prev_post) : ?>
+                    <?php if($prev_post): ?>
                       <li>
                         <a class="prev" href="<?= get_permalink($prev_post->ID); ?>">
-                          <?php if(has_post_thumbnail($prev_post->ID)) : ?>
+                          <?php if(has_post_thumbnail($prev_post->ID)): ?>
                             <?php $thumnbnail_320px_url = wp_get_attachment_image_src(get_post_thumbnail_id($prev_post->ID), '320px'); ?>
                             <img class="lazyload" data-src="<?= $thumnbnail_320px_url[0]; ?>" alt="<?= esc_attr($prev_post->post_title); ?>">
                           <?php endif; ?>
@@ -102,10 +102,10 @@
                         </a>
                       </li>
                     <?php endif; ?>
-                    <?php if($next_post) : ?>
+                    <?php if($next_post): ?>
                       <li>
                         <a class="next" href="<?= get_permalink($next_post->ID); ?>">
-                          <?php if(has_post_thumbnail($next_post->ID)) : ?>
+                          <?php if(has_post_thumbnail($next_post->ID)): ?>
                             <?php $thumnbnail_320px_url = wp_get_attachment_image_src(get_post_thumbnail_id($next_post->ID), '320px'); ?>
                             <img class="lazyload" data-src="<?= $thumnbnail_320px_url[0]; ?>" alt="<?= esc_attr($next_post->post_title); ?>">
                           <?php endif; ?>
@@ -121,7 +121,7 @@
                 // コメント
                 // =============================================================================
               ?>
-              <?php if(comments_open()) : ?>
+              <?php if(comments_open()): ?>
                 <?php comments_template(); ?>
               <?php endif; ?>
             </div>

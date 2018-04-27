@@ -10,7 +10,7 @@
           <li><a href="https://ja.wordpress.org/" target="_blank">WordPress</a></li>
           <li><a href="http://trs.mn/blog/" target="_blank">futu-no</a></li>
         </ul>
-        <?php if(get_option('users_can_register')) : ?>
+        <?php if(get_option('users_can_register')): ?>
           <p class="register"><a href="<?= $meta['home_url']; ?>wp-login.php?action=register" target="_blank">ブログにユーザー登録</a></p>
         <?php endif; ?>
       </footer>
@@ -22,9 +22,9 @@
     ?>
     <aside class="drawer">
       <div class="scroll">
-        <?php if(!is_search()) : ?>
-          <?php if(have_posts()) : ?>
-            <?php while(have_posts()) : ?>
+        <?php if(!is_search()): ?>
+          <?php if(have_posts()): ?>
+            <?php while(have_posts()): ?>
               <?php
                 the_post();
                 $author_id = $post->post_author;
@@ -35,50 +35,50 @@
           <div class="author">
             <div class="avatar"><?= get_avatar($author_id, 160, $meta['template_directory_uri'] . '/img/avatar-default.png', 'Author'); ?></div>
             <div class="name"><?= get_the_author_meta('display_name', $author_id); ?></div>
-            <?php if(get_the_author_meta('description') != '') : ?>
+            <?php if(get_the_author_meta('description') != ''): ?>
               <div class="comment"><?= get_the_author_meta('description', $author_id); ?></div>
             <?php endif; ?>
             <ul class="links">
-              <?php if(get_the_author_meta('user_url') != '') : ?>
+              <?php if(get_the_author_meta('user_url') != ''): ?>
                 <li><a class="home" href="<?= get_the_author_meta('user_url', $author_id); ?>" target="_blank">Home</a></li>
               <?php endif; ?>
-              <?php if(get_the_author_meta('skype') != '') : ?>
+              <?php if(get_the_author_meta('skype') != ''): ?>
                 <li><a href="skype:<?= get_the_author_meta('skype', $author_id); ?>">Skype</a></li>
               <?php endif; ?>
-              <?php if(get_the_author_meta('facebook') != '') : ?>
+              <?php if(get_the_author_meta('facebook') != ''): ?>
                 <li><a href="<?= get_the_author_meta('facebook', $author_id); ?>" target="_blank">Facebook</a></li>
               <?php endif; ?>
-              <?php if(get_the_author_meta('twitter') != '') : ?>
+              <?php if(get_the_author_meta('twitter') != ''): ?>
                 <li><a href="<?= get_the_author_meta('twitter', $author_id); ?>" target="_blank">Twitter</a></li>
               <?php endif; ?>
-              <?php if(get_the_author_meta('google_plus') != '') : ?>
+              <?php if(get_the_author_meta('google_plus') != ''): ?>
                 <li><a href="<?= get_the_author_meta('google_plus', $author_id); ?>" target="_blank">Google +</a></li>
               <?php endif; ?>
-              <?php if(get_the_author_meta('mixi') != '') : ?>
+              <?php if(get_the_author_meta('mixi') != ''): ?>
                 <li><a href="<?= get_the_author_meta('mixi', $author_id); ?>" target="_blank">mixi</a></li>
               <?php endif; ?>
-              <?php if(get_the_author_meta('tumblr') != '') : ?>
+              <?php if(get_the_author_meta('tumblr') != ''): ?>
                 <li><a href="<?= get_the_author_meta('tumblr', $author_id); ?>" target="_blank">Tumblr</a></li>
               <?php endif; ?>
-              <?php if(get_the_author_meta('instagram') != '') : ?>
+              <?php if(get_the_author_meta('instagram') != ''): ?>
                 <li><a href="<?= get_the_author_meta('instagram', $author_id); ?>" target="_blank">Instagram</a></li>
               <?php endif; ?>
-              <?php if(get_the_author_meta('flickr') != '') : ?>
+              <?php if(get_the_author_meta('flickr') != ''): ?>
                 <li><a href="<?= get_the_author_meta('flickr', $author_id); ?>" target="_blank">Flickr</a></li>
               <?php endif; ?>
-              <?php if(get_the_author_meta('photohito') != '') : ?>
+              <?php if(get_the_author_meta('photohito') != ''): ?>
                 <li><a href="<?= get_the_author_meta('photohito', $author_id); ?>" target="_blank">PHOTOHITO</a></li>
               <?php endif; ?>
-              <?php if(get_the_author_meta('pixiv') != '') : ?>
+              <?php if(get_the_author_meta('pixiv') != ''): ?>
                 <li><a href="<?= get_the_author_meta('pixiv', $author_id); ?>" target="_blank">pixiv</a></li>
               <?php endif; ?>
-              <?php if(get_the_author_meta('pawoo') != '') : ?>
+              <?php if(get_the_author_meta('pawoo') != ''): ?>
                 <li><a href="<?= get_the_author_meta('pawoo', $author_id); ?>" target="_blank">Pawoo</a></li>
               <?php endif; ?>
-              <?php if(get_the_author_meta('github') != '') : ?>
+              <?php if(get_the_author_meta('github') != ''): ?>
                 <li><a href="<?= get_the_author_meta('github', $author_id); ?>" target="_blank">GitHub</a></li>
               <?php endif; ?>
-              <?php if(get_the_author_meta('qiita') != '') : ?>
+              <?php if(get_the_author_meta('qiita') != ''): ?>
                 <li><a href="<?= get_the_author_meta('qiita', $author_id); ?>" target="_blank">Qiita</a></li>
               <?php endif; ?>
             </ul>

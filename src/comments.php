@@ -1,5 +1,5 @@
               <aside id="comment" class="article-comment">
-                <?php if(have_comments()) : ?>
+                <?php if(have_comments()): ?>
                   <h6>Comments</h6>
                   <div class="comment-list">
                     <ul class="parent">

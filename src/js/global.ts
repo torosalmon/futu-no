@@ -1,11 +1,11 @@
 /*!
  * *****************************************************************************
  * [futu-no JavaScript] - http://trs.mn/blog/futu-no/
- * @Author:  trs
+ * @Author: trs
  * @License: MIT License
  *
  * [sweet-scroll] v3.0.0 - https://github.com/tsuyoshiwada/sweet-scroll
- * @Author:  tsuyoshiwada
+ * @Author: tsuyoshiwada
  * @License: MIT License
  * *****************************************************************************
 !*/
@@ -28,13 +28,13 @@
   let share;
 
   // DOM
-  const $meta_theme_color:   HTMLElement                  = document.querySelector('meta[name="theme-color"]');
-  const $body:               NodeListOf <HTMLBodyElement> = document.getElementsByTagName('body');
-  const $header:             HTMLCollectionOf <Element>   = document.getElementsByClassName('js--header');
-  const $search_form_button: HTMLCollectionOf <Element>   = document.getElementsByClassName('js--search-form-button');
-  const $drawer_button:      HTMLCollectionOf <Element>   = document.getElementsByClassName('js--drawer-button');
-  const $share_button:       HTMLCollectionOf <Element>   = document.getElementsByClassName('js--share-button');
-  const $overlay:            HTMLCollectionOf <Element>   = document.getElementsByClassName('js--overlay');
+  const $meta_theme_color: HTMLElement                  = document.querySelector('meta[name="theme-color"]');
+  const $body: NodeListOf <HTMLBodyElement>             = document.getElementsByTagName('body');
+  const $header: HTMLCollectionOf <Element>             = document.getElementsByClassName('js--header');
+  const $search_form_button: HTMLCollectionOf <Element> = document.getElementsByClassName('js--search-form-button');
+  const $drawer_button: HTMLCollectionOf <Element>      = document.getElementsByClassName('js--drawer-button');
+  const $share_button: HTMLCollectionOf <Element>       = document.getElementsByClassName('js--share-button');
+  const $overlay: HTMLCollectionOf <Element>            = document.getElementsByClassName('js--overlay');
 
   // =============================================================================
   // メインスレッド
@@ -52,7 +52,7 @@
     drawer      = new DRAWER();
     share       = new SHARE();
   }, {
-    once:    true,
+    once: true,
     passive: false,
     capture: true
   });
@@ -84,20 +84,20 @@
 
       // sweet-scroll
       new SweetScroll({
-        trigger:          '.js--scroll', // トリガーとなる要素をCSSセレクタで指定
-        header:           '.js--header', // 固定ヘッダをCSSセレクタで指定
-        duration:         900,           // アニメーション再生時間のミリ秒
-        delay:            0,             // アニメーション開始までの遅延ミリ秒
-        easing:           'easeOutExpo', // イージングのタイプ（デフォルト：easeOutQuint）
-        offset:           0,             // スクロール位置のオフセット
-        verticalScroll:   true,          // 垂直方向のスクロールを許可
-        horizontalScroll: false,         // 水平方向のスクロールを許可 (デフォルトでは無効)
-        stopScroll:       true,          // ホイール・タッチイベントが発生した時にスクロールを停止
+        trigger: '.js--scroll',  // トリガーとなる要素をCSSセレクタで指定
+        header: '.js--header',   // 固定ヘッダをCSSセレクタで指定
+        duration: 900,           // アニメーション再生時間のミリ秒
+        delay: 0,                // アニメーション開始までの遅延ミリ秒
+        easing: 'easeOutExpo',   // イージングのタイプ（デフォルト：easeOutQuint）
+        offset: 0,               // スクロール位置のオフセット
+        verticalScroll: true,    // 垂直方向のスクロールを許可
+        horizontalScroll: false, // 水平方向のスクロールを許可 (デフォルトでは無効)
+        stopScroll: true,        // ホイール・タッチイベントが発生した時にスクロールを停止
 
         // Callbacks
         beforeScroll: null, // スクロールが始まる前 (return falseでキャンセル可)
-        afterScroll:  null, // スクロールが終わった時
-        cancelScroll: null, // スクロールがキャンセルされた時
+        afterScroll: null,  // スクロールが終わった時
+        cancelScroll: null  // スクロールがキャンセルされた時
       });
     }
 
@@ -112,7 +112,7 @@
       // ====
 
       const $parallax: NodeListOf <HTMLElement> = document.querySelectorAll('.js--parallax');
-      const friction = [];
+      const friction                            = [];
 
       for(let i: number = 0; i < $parallax.length; i += 1) {
 
@@ -123,7 +123,7 @@
 
         // $parallaxをwrapするタグを生成
         const $container: HTMLElement = document.createElement('div');
-        $container.className = 'js--parallax-container';
+        $container.className          = 'js--parallax-container';
         $parallax[i].parentNode.insertBefore($container, $parallax[i]);
         $parallax[i].parentNode.removeChild($parallax[i]);
         $container.appendChild($parallax[i]);
@@ -135,12 +135,12 @@
       // ========
 
       window.addEventListener('scroll', animation, {
-        once:    false,
+        once: false,
         passive: true,
         capture: true
       });
       document.addEventListener('touchmove', animation, {
-        once:    false,
+        once: false,
         passive: true,
         capture: true
       });
@@ -168,8 +168,8 @@
 
   class THEME_COLOR {
 
-    private main_color:    string; // <body> border-top-color
-    private sub_color:     string; // <body> border-bottom-color
+    private main_color: string;    // <body> border-top-color
+    private sub_color: string;     // <body> border-bottom-color
     private current_color: string; // 現在適用されている色
 
     constructor() {
@@ -216,12 +216,12 @@
 
     constructor() {
       window.addEventListener('scroll', this.change, {
-        once:    false,
+        once: false,
         passive: true,
         capture: true
       });
       document.addEventListener('touchmove', this.change, {
-        once:    false,
+        once: false,
         passive: true,
         capture: true
       });
@@ -250,7 +250,7 @@
     constructor() {
       for(let i: number = 0; i < $search_form_button.length; i += 1) {
         $search_form_button[i].addEventListener('click', this.change, {
-          once:    false,
+          once: false,
           passive: false,
           capture: false
         });
@@ -312,7 +312,7 @@
     constructor() {
       for(let i: number = 0; i < $drawer_button.length; i += 1) {
         $drawer_button[i].addEventListener('click', this.change, {
-          once:    false,
+          once: false,
           passive: false,
           capture: false
         });
@@ -345,7 +345,7 @@
 
         // オーバーレイクリックで表示解除
         $overlay[0].addEventListener('click', drawer.change, {
-          once:    true,
+          once: true,
           passive: false,
           capture: false
         });
@@ -378,7 +378,7 @@
     constructor() {
       for(let i: number = 0; i < $share_button.length; i += 1) {
         $share_button[i].addEventListener('click', this.change, {
-          once:    false,
+          once: false,
           passive: false,
           capture: false
         });
@@ -408,7 +408,7 @@
 
         // オーバーレイクリックで表示解除
         $overlay[0].addEventListener('click', share.change, {
-          once:    true,
+          once: true,
           passive: false,
           capture: false
         });
