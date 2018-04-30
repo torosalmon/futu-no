@@ -220,6 +220,11 @@ body {
 
 a {
   color: inherit;
+
+  &[href*='http'] {
+    word-break: break-all;
+  }
+
 }
 
 img {
