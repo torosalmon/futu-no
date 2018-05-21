@@ -210,7 +210,7 @@ button {
 }
 
 // =============================================================================
-// その他タグ基本指定
+// タグ基本指定
 // =============================================================================
 
 html,
@@ -233,6 +233,22 @@ img {
   vertical-align: top;
 }
 
+iframe {
+  position: relative;
+  max-width: 100%;
+  height: calc(56.25vw * .9);
+  border: none;
+
+  canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
 // =======================
 // YouTubeレスポンシブ対応
 // =======================
@@ -247,17 +263,12 @@ img {
 // 56.25% * 0.9 = 比率を維持したheight
 
 iframe {
-  max-width: 100%;
 
   &[src*='youtube.com'],
   &[src*='youtube-nocookie.com'],
   &[src*='youtu.be'] {
-
-    @media (max-width: 768px) {
-      width: 100%;
-      height: calc(56.25vw * .9);
-    }
-
+    width: 100%;
+    height: calc(56.25vw * .9);
   }
 
 }
@@ -316,7 +327,7 @@ body {
       margin-bottom: .4rem;
       opacity: 0;
       font-weight: inherit;
-      font-size: 1.6rem;
+      font-size: 1.2rem;
       text-overflow: ellipsis;
       white-space: nowrap;
       transform: translate(16px, -8px);
@@ -765,7 +776,7 @@ body {
     // =====================
 
     .latest-article-2 {
-      margin-top: 8rem;
+      margin-top: 2rem;
 
       @media (min-width: 769px) {
         width: 56%;
@@ -855,7 +866,7 @@ body {
     // ==================
 
     .dir-map {
-      margin-top: 8rem;
+      margin-top: 2rem;
 
       @media (min-width: 769px) {
         width: 36%;
@@ -1294,7 +1305,7 @@ body {
           position: absolute;
           top: -2rem;
           left: -1rem;
-          font-size: 6.4rem;
+          font-size: 3.2rem;
           line-height: 1;
         }
 
@@ -1399,7 +1410,6 @@ body {
 
               &::before {
                 content: 'BEFORE - ';
-                margin-right: 1rem;
               }
 
             }
@@ -1409,7 +1419,6 @@ body {
 
               &::before {
                 content: ' - AFTER';
-                margin-left: 1rem;
               }
 
             }

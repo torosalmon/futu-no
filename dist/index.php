@@ -1,26 +1,26 @@
 <?php global_meta(); ?>
 <?php get_header(); ?>
-      <?php
-        // =============================================================================
-        // 最新記事（最新1件）
-        // =============================================================================
-      ?>
-      <?php
-        $args = array(
-          'order'          => 'DESC',
-          'orderby'        => 'date',
-          'no_found_rows'  => true,
-          'posts_per_page' => 1,
-        );
-        $wq_query = new WP_Query($args);
-      ?>
-      <?php if($wq_query->have_posts()): ?>
-        <?php while($wq_query->have_posts()): ?>
-          <?php
-            $wq_query->the_post();
-            $post_title = get_the_title();
-          ?>
-          <div class="container-text">
+      <div class="container-text">
+        <?php
+          // =============================================================================
+          // 最新記事（最新1件）
+          // =============================================================================
+        ?>
+        <?php
+          $args = array(
+            'order'          => 'DESC',
+            'orderby'        => 'date',
+            'no_found_rows'  => true,
+            'posts_per_page' => 1,
+          );
+          $wq_query = new WP_Query($args);
+        ?>
+        <?php if($wq_query->have_posts()): ?>
+          <?php while($wq_query->have_posts()): ?>
+            <?php
+              $wq_query->the_post();
+              $post_title = get_the_title();
+            ?>
             <nav class="latest-article" itemscope="itemscope" itemtype="http://schema.org/Article">
               <a href="<?= get_the_permalink(); ?>" title="<?= $post_title; ?>">
                 <div class="eyecatch">
@@ -34,11 +34,9 @@
                 </div>
               </a>
             </nav>
-          </div>
-        <?php endwhile; ?>
-      <?php endif; ?>
-      <?php wp_reset_query(); ?>
-      <div class="container">
+          <?php endwhile; ?>
+        <?php endif; ?>
+        <?php wp_reset_query(); ?>
         <div class="toppage-sublist">
           <?php
             // =============================================================================
