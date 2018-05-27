@@ -325,24 +325,10 @@ body {
     h1 {
       overflow: hidden;
       margin-bottom: .4rem;
-      opacity: 0;
       font-weight: inherit;
-      font-size: 1.2rem;
+      font-size: 1.6rem;
       text-overflow: ellipsis;
       white-space: nowrap;
-      transform: translate(16px, -8px);
-      animation: header-h1-slide-in .6s .3s $easing both;
-
-      @keyframes header-h1-slide-in {
-        50% {
-          opacity: 1;
-          transform: translate(16px, 0);
-        }
-        100% {
-          opacity: 1;
-          transform: translate(0, 0);
-        }
-      }
 
       a {
         text-decoration: none;
@@ -700,7 +686,16 @@ body {
   // =============================================================================
 
   .latest-article {
-    margin-top: 2rem;
+    margin-top: 4rem;
+
+    &::before {
+      content: 'LATEST';
+      padding: .2rem 1rem;
+      background: $color--text;
+      font-size: 1rem;
+      line-height: 1;
+      color: $color--background;
+    }
 
     a {
       display: block;
@@ -776,7 +771,7 @@ body {
     // =====================
 
     .latest-article-2 {
-      margin-top: 2rem;
+      margin-top: 8rem;
 
       @media (min-width: 769px) {
         width: 56%;
@@ -866,7 +861,7 @@ body {
     // ==================
 
     .dir-map {
-      margin-top: 2rem;
+      margin-top: 8rem;
 
       @media (min-width: 769px) {
         width: 36%;
@@ -1050,7 +1045,7 @@ body {
     // アイキャッチ
     .eyecatch {
       position: relative;
-      padding: 2rem 0;
+      padding: 4rem 0;
       text-align: center;
 
       // 背景
@@ -1410,6 +1405,7 @@ body {
 
               &::before {
                 content: 'BEFORE - ';
+                white-space: nowrap;
               }
 
             }
@@ -1419,6 +1415,7 @@ body {
 
               &::before {
                 content: ' - AFTER';
+                white-space: nowrap;
               }
 
             }
@@ -1901,6 +1898,37 @@ body {
 
     }
 
+    // ========
+    // フィード
+    // ========
+
+    .feed {
+      margin-top: 1px;
+      margin-right: calc(2rem + 1px);
+      margin-left: calc(2rem + 1px);
+
+      a {
+        display: block;
+        padding: 2rem;
+        background: rgba(255, 255, 255, .1);
+        text-decoration: none;
+        transition: background-color .3s $easing;
+
+        &:hover {
+          background: rgba(255, 255, 255, .2);
+        }
+
+        svg {
+          width: 2rem;
+          height: 2rem;
+          margin-right: .4rem;
+          vertical-align: middle;
+        }
+
+      }
+
+    }
+
     // ==================
     // ディレクトリマップ
     // ==================
@@ -1980,35 +2008,6 @@ body {
 
           }
 
-        }
-
-      }
-
-    }
-
-    // ========
-    // フィード
-    // ========
-
-    .feed {
-
-      a {
-        display: block;
-        margin-top: 3rem;
-        padding: 2rem;
-        background: rgba(255, 255, 255, .1);
-        text-decoration: none;
-        transition: background-color .3s $easing;
-
-        &:hover {
-          background: rgba(255, 255, 255, .2);
-        }
-
-        svg {
-          width: 2rem;
-          height: 2rem;
-          margin-right: .4rem;
-          vertical-align: middle;
         }
 
       }

@@ -1,6 +1,6 @@
 <?php global_meta(); ?>
 <?php get_header(); ?>
-      <div class="container-text">
+      <div class="container--s">
         <?php
           // =============================================================================
           // 最新記事（最新1件）

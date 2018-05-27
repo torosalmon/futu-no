@@ -36,7 +36,7 @@
     ?>
     <header class="header js--header">
       <div class="page-info">
-        <h1><?= $meta['title']; ?></h1>
+        <h1><a href="<?= $meta['home_url']; ?>" title="<?= $meta['name']; ?>"><?= $meta['name']; ?></a></h1>
         <?php if(is_home()): ?>
           <p class="read" itemprop="description"><?= $meta['description']; ?></p>
         <?php else: ?>

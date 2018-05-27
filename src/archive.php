@@ -6,7 +6,7 @@
         // =============================================================================
       ?>
       <?php if(have_posts()): ?>
-        <div class="container">
+        <div class="container--l">
           <nav class="archive-list" itemscope="itemscope" itemtype="http://schema.org/Article">
             <?php while(have_posts()): ?>
               <?php
@@ -57,7 +57,7 @@
         // =============================================================================
       ?>
       <?php else: ?>
-        <div class="container-text">
+        <div class="container--s">
           <nav class="error">
             <h2>Not Found</h2>
             <p>見つかりませんでしたよ。</p>

@@ -159,6 +159,7 @@ echo <<< EOM
       .header{background-color:{$theme_customize__setting__colors__background}}
       .header .page-info .page-top{background-color:{$theme_customize__setting__colors__background}}
       .search-form{background-color:{$theme_customize__setting__colors__background}}
+      .main .latest-article::before{color:{$theme_customize__setting__colors__background}}
       .main .archive-list section .heading a .eyecatch img{background-color:{$theme_customize__setting__colors__background}}
       .main .article-detail .eyecatch .img img{background-color:{$theme_customize__setting__colors__background}}
       .main .footer{color:{$theme_customize__setting__colors__background}}
@@ -204,6 +205,7 @@ echo <<< EOM
       .header .page-info .breadcrumb li:not(:first-child)::before{border-top-color:{$theme_customize__setting__colors__text};border-right-color:{$theme_customize__setting__colors__text}}
       .header .drawer-icon div span{background-color:{$theme_customize__setting__colors__text}}
       .search-form form > div:nth-of-type(3) .close::before,.search-form form > div:nth-of-type(3) .close::after{background-color:{$theme_customize__setting__colors__text}}
+      .main .latest-article::before{background-color:{$theme_customize__setting__colors__text}}
       .main .latest-article a:hover .meta::after{border-top-color:{$theme_customize__setting__colors__text};border-right-color:{$theme_customize__setting__colors__text}}
       .main .toppage-sublist .latest-article-2 section a:hover::after{border-top-color:{$theme_customize__setting__colors__text};border-right-color:{$theme_customize__setting__colors__text}}
       .main .archive-list section .heading a strong::after{background-color:{$theme_customize__setting__colors__text}}

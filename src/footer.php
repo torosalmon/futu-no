@@ -84,6 +84,16 @@
             </ul>
           </div>
         <?php endif; ?>
+        <nav class="feed">
+          <a href="<?= $meta['rss2_url']; ?>" title="RSS" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path class="color--accent--fill" d="M 0 21 C 0 19.3431 1.3431 18 3 18 C 4.6569 18 6 19.3431 6 21 C 6 22.6569 4.6569 24 3 24 C 1.3431 24 0 22.6569 0 21 Z" />
+              <path class="color--accent--fill" d="M 16 24 C 16 15.1633 8.8367 8 0 8 L 0 11 C 7.1798 11 13 16.8202 13 24 L 16 24 Z" />
+              <path class="color--accent--fill" d="M 24 24 C 24 10.745 13.255 0 0 0 L 0 4 C 11.0458 4 20 12.9542 20 24 L 24 24 Z" />
+            </svg>
+            RSS
+          </a>
+        </nav>
         <nav class="dir-map">
           <h6>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -136,16 +146,6 @@
               wp_get_archives($args);
             ?>
           </ul>
-        </nav>
-        <nav class="feed">
-          <a href="<?= $meta['rss2_url']; ?>" title="RSS" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path class="color--accent--fill" d="M 0 21 C 0 19.3431 1.3431 18 3 18 C 4.6569 18 6 19.3431 6 21 C 6 22.6569 4.6569 24 3 24 C 1.3431 24 0 22.6569 0 21 Z" />
-              <path class="color--accent--fill" d="M 16 24 C 16 15.1633 8.8367 8 0 8 L 0 11 C 7.1798 11 13 16.8202 13 24 L 16 24 Z" />
-              <path class="color--accent--fill" d="M 24 24 C 24 10.745 13.255 0 0 0 L 0 4 C 11.0458 4 20 12.9542 20 24 L 24 24 Z" />
-            </svg>
-            RSS
-          </a>
         </nav>
       </div>
     </aside>

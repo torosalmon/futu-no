@@ -29,19 +29,19 @@ svg {
 // コンテナ
 // ========
 
-.container,
-.container-text {
-  width: calc(100% - 4rem);
+.container--l,
+.container--s {
+  width: calc(100% - 8rem);
   margin-right: auto;
   margin-left: auto;
 }
 
-.container {
+.container--l {
   max-width: 64rem;
 }
 
-.container-text {
-  max-width: 50rem;
+.container--s {
+  max-width: 48rem;
 }
 
 // ======
