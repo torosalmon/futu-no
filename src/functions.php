@@ -7,7 +7,7 @@
   add_theme_support('post-thumbnails');
   add_image_size('320px', 320, 320, true);
   add_image_size('640px', 640, 640, true);
-  add_image_size('1280px', 1280, 1280, true);
+  add_image_size('1280px', 1280, 1280, false);
 
   // =============================================================================
   // [管理 > メディア] メディアアップローダーにSVGを追加
@@ -155,82 +155,40 @@ echo <<< EOM
       /* 背景 */
       svg .color--background--fill{fill:{$theme_customize__setting__colors__background}}
       svg .color--background--stroke{stroke:{$theme_customize__setting__colors__background}}
-      body{background-color:{$theme_customize__setting__colors__background}}
-      .header{background-color:{$theme_customize__setting__colors__background}}
-      .header .page-info .page-top{background-color:{$theme_customize__setting__colors__background}}
-      .search-form{background-color:{$theme_customize__setting__colors__background}}
-      .main .latest-article::before{color:{$theme_customize__setting__colors__background}}
-      .main .archive-list section .heading a .eyecatch img{background-color:{$theme_customize__setting__colors__background}}
-      .main .article-detail .eyecatch .img img{background-color:{$theme_customize__setting__colors__background}}
-      .main .footer{color:{$theme_customize__setting__colors__background}}
-      .drawer{color:{$theme_customize__setting__colors__background}}
-      .drawer .scroll .author .name::before{border-bottom-color:{$theme_customize__setting__colors__background}}
+      input[type='text'],input[type='search'],input[type='tel'],input[type='url'],input[type='email'],input[type='password'],input[type='datetime'],input[type='datetime-local'],input[type='date'],input[type='month'],input[type='week'],input[type='time'],input[type='number'],textarea,select,body,.header,.header .page-info .page-top,.search-form,.main .archive-list section .heading a .eyecatch img,.main .article-detail .eyecatch .img img,body.theme--dark .share .scroll .description::after,body.theme--dark .share .scroll .close::before,body.theme--dark .share .scroll .close::after{background-color:{$theme_customize__setting__colors__background}}
+      .main .latest-article section:first-child::before,.main .footer,.drawer,body.theme--dark .share .scroll .description h6{color:{$theme_customize__setting__colors__background}}
 
       /* ボーダー */
       svg .color--border--fill{fill:{$theme_customize__setting__colors__border}}
       svg .color--border--stroke{stroke:{$theme_customize__setting__colors__border}}
-      input[type='text'],input[type='search'],input[type='tel'],input[type='url'],input[type='email'],input[type='password'],input[type='datetime'],input[type='datetime-local'],input[type='date'],input[type='month'],input[type='week'],input[type='time'],input[type='number'],textarea,select{border-color:{$theme_customize__setting__colors__border}}
-      .header{border-bottom-color:{$theme_customize__setting__colors__border}}
-      .header .tool ul li{border-left-color:{$theme_customize__setting__colors__border}}
-      .search-form{border-bottom-color:{$theme_customize__setting__colors__border}}
-      .search-form form > div:nth-of-type(2)::before{border-left-color:{$theme_customize__setting__colors__border}}
-      .search-form form > div:nth-of-type(2) input[type='submit']{border-left-color:{$theme_customize__setting__colors__border}}
-      .search-form form > div:nth-of-type(3) .close{border-left-color:{$theme_customize__setting__colors__border}}
-      .main .latest-article a .meta::after{border-top-color:{$theme_customize__setting__colors__border};border-right-color:{$theme_customize__setting__colors__border}}
-      .main .toppage-sublist .latest-article-2 section{border-bottom-color:{$theme_customize__setting__colors__border}}
-      .main .toppage-sublist .latest-article-2 section:first-child {border-top-color:{$theme_customize__setting__colors__border}}
-      .main .toppage-sublist .latest-article-2 section a::after{border-top-color:{$theme_customize__setting__colors__border};border-right-color:{$theme_customize__setting__colors__border}}
-      .main .toppage-sublist .latest-article-2 section a .eyecatch img{background-color:{$theme_customize__setting__colors__border}}
-      .main .toppage-sublist .dir-map section ul{border-left-color:{$theme_customize__setting__colors__border}}
-      .main .archive-list section .heading a strong::before{background-color:{$theme_customize__setting__colors__border}}
-      .main .archive-list section .meta dd:not(:nth-of-type(1)){border-left-color:{$theme_customize__setting__colors__border}}
-      .main .article-detail .meta{border-top-color:{$theme_customize__setting__colors__border}}
-      .main .article-detail .content blockquote{border-color:{$theme_customize__setting__colors__border}}
-      .main .article-detail .content pre{border-color:{$theme_customize__setting__colors__border}}
-      .main .article-detail .content pre::before{background-color:{$theme_customize__setting__colors__border}}
-      .main .article-detail .content hr{background-color:{$theme_customize__setting__colors__border}}
-      .main .article-detail .node dl dt,.main .article-detail .node dl dd{border-bottom-color:{$theme_customize__setting__colors__border}}
-      .main .article-detail .adjacent-links ul li:first-child{border-bottom-color:{$theme_customize__setting__colors__border}}
-      .main .article-detail .article-comment .comment-list ul li article{border-color:{$theme_customize__setting__colors__border}}
-      .main .article-detail .article-comment .comment-list ul.parent article::before{border-right-color:{$theme_customize__setting__colors__border}}
-      .main .article-detail .article-comment .comment-list ul.children article::before{border-left-color:{$theme_customize__setting__colors__border}}
-      .main .article-detail .article-comment .comment-respond::before{border-bottom-color:{$theme_customize__setting__colors__border}}
-      .main .article-detail .article-comment .comment-respond .comment-form .flex{border-left-color:{$theme_customize__setting__colors__border}}
-      .main .pagenation ul{border-bottom-color:{$theme_customize__setting__colors__border}}
+      .main .archive-list section .heading a strong::before,.main .article-detail .content pre::before,.main .article-detail .content hr{background-color:{$theme_customize__setting__colors__border}}
+      input[type='text'],input[type='search'],input[type='tel'],input[type='url'],input[type='email'],input[type='password'],input[type='datetime'],input[type='datetime-local'],input[type='date'],input[type='month'],input[type='week'],input[type='time'],input[type='number'],textarea,select,.main .latest-article section:not(:first-child) a .eyecatch img,.main .article-detail .content blockquote,.main .article-detail .content pre,.main .article-detail .article-comment .comment-list ul li article{border-color:{$theme_customize__setting__colors__border}}
+      .main .latest-article section a .meta::after,.main .latest-article section:nth-of-type(2){border-top-color:{$theme_customize__setting__colors__border}}
+      .main .latest-article section a .meta::after,.main .archive-list section .meta dd:not(:last-child),.main .article-detail .article-comment .comment-list ul.parent article::before{border-right-color:{$theme_customize__setting__colors__border}}
+      .header,.search-form,.main .latest-article section:not(:first-child),.main .article-detail .heading,.main .article-detail .adjacent-links ul li:first-child,.main .article-detail .article-comment .comment-respond::before,.main .pagenation ul{border-bottom-color:{$theme_customize__setting__colors__border}}
+      .header .tool ul li,.search-form form>div:nth-of-type(2)::before,.search-form form>div:nth-of-type(2) input[type='submit'],.search-form form>div:nth-of-type(3) .close,.main .article-detail .meta dt::before,.main .article-detail .article-comment .comment-list ul.children article::before,.main .article-detail .article-comment .comment-respond .comment-form .flex{border-left-color:{$theme_customize__setting__colors__border}}
 
       /* 文字 */
       svg .color--text--fill{fill:{$theme_customize__setting__colors__text}}
       svg .color--text--stroke{stroke:{$theme_customize__setting__colors__text}}
-      html{color:{$theme_customize__setting__colors__text}}
-      .header .page-info .breadcrumb li:not(:first-child)::before{border-top-color:{$theme_customize__setting__colors__text};border-right-color:{$theme_customize__setting__colors__text}}
-      .header .drawer-icon div span{background-color:{$theme_customize__setting__colors__text}}
-      .search-form form > div:nth-of-type(3) .close::before,.search-form form > div:nth-of-type(3) .close::after{background-color:{$theme_customize__setting__colors__text}}
-      .main .latest-article::before{background-color:{$theme_customize__setting__colors__text}}
-      .main .latest-article a:hover .meta::after{border-top-color:{$theme_customize__setting__colors__text};border-right-color:{$theme_customize__setting__colors__text}}
-      .main .toppage-sublist .latest-article-2 section a:hover::after{border-top-color:{$theme_customize__setting__colors__text};border-right-color:{$theme_customize__setting__colors__text}}
-      .main .archive-list section .heading a strong::after{background-color:{$theme_customize__setting__colors__text}}
-      .main .footer{background-color:{$theme_customize__setting__colors__text}}
+      .header .drawer-icon div span,.search-form form>div:nth-of-type(3) .close::before,.search-form form>div:nth-of-type(3) .close::after,.main .latest-article section:first-child::before,.main .archive-list section .heading a strong::after,.main .footer{background-color:{$theme_customize__setting__colors__text}}
+      .header .page-info .breadcrumb li:not(:last-child)::after,.main .latest-article section a:hover .meta::after{border-top-color:{$theme_customize__setting__colors__text};border-right-color:{$theme_customize__setting__colors__text}}
+      body{color:{$theme_customize__setting__colors__text}}
 
       /* アクセントカラー */
       svg .color--accent--fill{fill:{$theme_customize__setting__colors__accent}}
       svg .color--accent--stroke{stroke:{$theme_customize__setting__colors__accent}}
       input[type='submit'],input[type='reset'],input[type='button'],button{background-color:{$theme_customize__setting__colors__accent}}
-      body{border-top-color:{$theme_customize__setting__colors__accent}}
-      .header{border-top-color:{$theme_customize__setting__colors__accent}}
-      .header .tool ul li a span.notification{background-color:{$theme_customize__setting__colors__accent}}
-      .search-form form > div:nth-of-type(1) input[type='search']:focus{border-bottom-color:{$theme_customize__setting__colors__accent}}
-      .main .pagenation ul li.current{border-bottom-color:{$theme_customize__setting__colors__accent}}
+      body,.header{border-top-color:{$theme_customize__setting__colors__accent}}
+      .search-form form>div:nth-of-type(1) input[type='search']:focus,.main .pagenation ul li.current{border-bottom-color:{$theme_customize__setting__colors__accent}}
 
       /* サブカラー */
       svg .color--sub--fill{fill:{$theme_customize__setting__colors__sub}}
       svg .color--sub--stroke{stroke:{$theme_customize__setting__colors__sub}}
-      body{border-bottom-color:{$theme_customize__setting__colors__sub}}
-      .search-form{border-top-color:{$theme_customize__setting__colors__sub}}
       .drawer{background-color:{$theme_customize__setting__colors__sub}}
-      .drawer .scroll .author .avatar{border-color:{$theme_customize__setting__colors__sub}}
-      .drawer .scroll .author .name{border-color:{$theme_customize__setting__colors__sub}}
-      .drawer .scroll .author .comment{border-color:{$theme_customize__setting__colors__sub}}
-      .drawer .scroll .author .links li{border-color:{$theme_customize__setting__colors__sub}}
+      .drawer .scroll .author .avatar,.drawer .scroll .author .name,.drawer .scroll .author .comment,.drawer .scroll .author .links li{border-color:{$theme_customize__setting__colors__sub}}
+      .search-form{border-top-color:{$theme_customize__setting__colors__sub}}
+      body{border-bottom-color:{$theme_customize__setting__colors__sub}}
     </style>
 
 EOM;
@@ -367,7 +325,8 @@ EOM;
     // $deps: 依存スタイルシート識別名の配列（オプション）
     // $ver: バージョン文字列。クエリーストリングに付加される。（オプション）
     // $media: スタイルシートのメディア指定（オプション）
-    wp_enqueue_style('global', get_template_directory_uri() . '/css/global.css', array(), false, '');
+    wp_enqueue_style('reboot', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap-reboot.min.css', array(), false, '');
+    wp_enqueue_style('global', get_template_directory_uri() . '/css/global.css', array('reboot'), false, '');
 
     // [JS]
     // $handle: スクリプト識別名

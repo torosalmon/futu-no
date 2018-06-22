@@ -40,8 +40,24 @@
             <?php endif; ?>
             <ul class="links">
               <?php if(get_the_author_meta('user_url') != ''): ?>
-                <li><a class="home" href="<?= get_the_author_meta('user_url', $author_id); ?>" target="_blank">Home</a></li>
+                <li>
+                  <a class="home" href="<?= get_the_author_meta('user_url', $author_id); ?>" target="_blank">
+                    <svg class="svg-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                      <polyline class="color--background--fill" points="1 12 12 3 23 12" fill="none" style="stroke-miterlimit: 10; stroke-width: 2px;" />
+                      <polyline class="color--background--fill" points="4 10 4 21 12 21 12 15 16 15 16 21 20 21 20 10" fill="none" style="stroke-miterlimit: 10; stroke-width: 2px;" />
+                    </svg>
+                  </a>
+                </li>
               <?php endif; ?>
+              <li>
+                <a class="feed" href="<?= $meta['rss2_url']; ?>" title="RSS" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                    <path class="color--background--fill" d="M 0 21 C 0 19.3431 1.3431 18 3 18 C 4.6569 18 6 19.3431 6 21 C 6 22.6569 4.6569 24 3 24 C 1.3431 24 0 22.6569 0 21 Z" />
+                    <path class="color--background--fill" d="M 16 24 C 16 15.1633 8.8367 8 0 8 L 0 11 C 7.1798 11 13 16.8202 13 24 L 16 24 Z" />
+                    <path class="color--background--fill" d="M 24 24 C 24 10.745 13.255 0 0 0 L 0 4 C 11.0458 4 20 12.9542 20 24 L 24 24 Z" />
+                  </svg>
+                </a>
+              </li>
               <?php if(get_the_author_meta('skype') != ''): ?>
                 <li><a href="skype:<?= get_the_author_meta('skype', $author_id); ?>">Skype</a></li>
               <?php endif; ?>
@@ -84,16 +100,6 @@
             </ul>
           </div>
         <?php endif; ?>
-        <nav class="feed">
-          <a href="<?= $meta['rss2_url']; ?>" title="RSS" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path class="color--accent--fill" d="M 0 21 C 0 19.3431 1.3431 18 3 18 C 4.6569 18 6 19.3431 6 21 C 6 22.6569 4.6569 24 3 24 C 1.3431 24 0 22.6569 0 21 Z" />
-              <path class="color--accent--fill" d="M 16 24 C 16 15.1633 8.8367 8 0 8 L 0 11 C 7.1798 11 13 16.8202 13 24 L 16 24 Z" />
-              <path class="color--accent--fill" d="M 24 24 C 24 10.745 13.255 0 0 0 L 0 4 C 11.0458 4 20 12.9542 20 24 L 24 24 Z" />
-            </svg>
-            RSS
-          </a>
-        </nav>
         <nav class="dir-map">
           <h6>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
