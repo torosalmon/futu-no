@@ -118,6 +118,7 @@ ul {
 }
 
 a {
+  text-decoration: none;
   color: inherit;
 
   &[href*='http'] {
@@ -125,6 +126,7 @@ a {
   }
 
   &:hover {
+    text-decoration: none;
     color: inherit;
   }
 
@@ -343,11 +345,6 @@ body {
       font-size: 1.2rem;
       text-overflow: ellipsis;
       white-space: nowrap;
-
-      a {
-        text-decoration: none;
-      }
-
     }
 
     // ========================
@@ -389,7 +386,6 @@ body {
         }
 
         a {
-          text-decoration: none;
 
           &:hover {
             text-decoration: underline;
@@ -419,7 +415,6 @@ body {
       background: $color--background;
       opacity: 0;
       transform: translateY(-16px);
-      text-decoration: none;
       font-size: .8rem;
       transition: .6s $easing;
       transition-property: opacity, transform;
@@ -467,7 +462,6 @@ body {
           padding-right: .2rem;
           padding-left: .2rem;
           text-align: center;
-          text-decoration: none;
           font-size: .8rem;
 
           svg {
@@ -700,7 +694,6 @@ body {
 
       // 共通指定
       a {
-        text-decoration: none;
 
         .meta {
           position: relative;
@@ -849,7 +842,6 @@ body {
 
         a {
           display: block;
-          text-decoration: none;
 
           .eyecatch {
             margin-bottom: 4rem;
@@ -928,7 +920,6 @@ body {
         }
 
         a {
-          text-decoration: none;
 
           &:hover {
             text-decoration: underline;
@@ -1091,7 +1082,6 @@ body {
       }
 
       a {
-        text-decoration: none;
 
         &:hover {
           text-decoration: underline;
@@ -1242,6 +1232,10 @@ body {
 
       }
 
+      a {
+        text-decoration: underline;
+      }
+
       hr {
         position: relative;
         width: 50%;
@@ -1274,7 +1268,6 @@ body {
         }
 
         a {
-          text-decoration: none;
 
           &:hover {
             text-decoration: underline;
@@ -1305,7 +1298,6 @@ body {
             flex-wrap: nowrap;
             justify-content: flex-start;
             align-items: center;
-            text-decoration: none;
 
             &::before {
               font-weight: bold;
@@ -1426,7 +1418,6 @@ body {
                   margin-left: 2rem;
 
                   .comment-reply-link {
-                    text-decoration: none;
 
                     &::before {
                       content: '🗪 ';
@@ -1609,7 +1600,6 @@ body {
 
         a {
           padding: .8rem;
-          text-decoration: none;
         }
 
       }
@@ -1631,7 +1621,6 @@ body {
     color: $color--background;
 
     a {
-      text-decoration: none;
 
       &:hover {
         text-decoration: underline;
@@ -1765,7 +1754,6 @@ body {
             height: 100%;
             padding: 1rem;
             background: rgba(255, 255, 255, .3);
-            text-decoration: none;
             transition: background-color .3s $easing;
 
             &:hover {
@@ -1846,7 +1834,6 @@ body {
             padding-bottom: 2px;
             opacity: .8;
             border-bottom: solid 2px transparent;
-            text-decoration: none;
             transition: .3s $easing;
             transition-property: opacity, border-color;
 
