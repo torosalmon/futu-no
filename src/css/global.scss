@@ -1026,28 +1026,13 @@ body {
 
     }
 
-    // 見出し
-    .heading {
-      margin-top: 4rem;
-      margin-bottom: 1rem;
-      border-bottom: solid 1px $color--border;
-      font-weight: inherit;
-      font-size: 3.08rem;
-      word-wrap: break-word;
-
-      strong {
-        font-weight: inherit;
-      }
-
-    }
-
     // 投稿データ
     .meta {
       display: flex;
       flex-flow: row nowrap;
-      justify-content: flex-end;
+      justify-content: flex-start;
       align-items: center;
-      margin-bottom: 8rem;
+      margin-top: 4rem;
       font-size: 1.2rem;
 
       dt {
@@ -1087,6 +1072,20 @@ body {
           text-decoration: underline;
         }
 
+      }
+
+    }
+
+    // 見出し
+    .heading {
+      margin-bottom: 4rem;
+      border-bottom: solid 1px $color--border;
+      font-weight: inherit;
+      font-size: 3.08rem;
+      word-wrap: break-word;
+
+      strong {
+        font-weight: inherit;
       }
 
     }
@@ -1217,7 +1216,6 @@ body {
         overflow: auto;
         -webkit-overflow-scrolling: touch;
         position: relative;
-        max-height: 36rem;
         padding: 1rem;
         border: solid 2px $color--border;
 
@@ -1248,23 +1246,13 @@ body {
     }
 
     .node {
-      margin-bottom: 4rem;
+      margin-bottom: 8rem;
 
-      dl {
-        display: flex;
-        flex-wrap: wrap;
+      table {
+        margin-left: auto;
 
-        dt {
-          width: 30%;
-
-          &::after {
-            content: ' : ';
-          }
-
-        }
-
-        dd {
-          width: 70%;
+        th {
+          padding-right: 1em;
         }
 
         a {
