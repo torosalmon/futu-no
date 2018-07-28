@@ -325,8 +325,7 @@ EOM;
     // $deps: 依存スタイルシート識別名の配列（オプション）
     // $ver: バージョン文字列。クエリーストリングに付加される。（オプション）
     // $media: スタイルシートのメディア指定（オプション）
-    wp_enqueue_style('reboot', 'https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap-reboot.min.css', array(), false, '');
-    wp_enqueue_style('global', get_template_directory_uri() . '/css/global.css', array('reboot'), false, '');
+    wp_enqueue_style('main', get_template_directory_uri() . '/css/main.css', array(), false, '');
 
     // [JS]
     // $handle: スクリプト識別名
@@ -335,7 +334,7 @@ EOM;
     // $ver: バージョン文字列。クエリーストリングに付加される。（オプション）
     // $in_footer: trueで</body>前で読み込まれる。デフォルトはfalseで</head>の前のエリアで読み込まれる。（オプション）
     wp_enqueue_script('lib', get_template_directory_uri() . '/js/lib.min.js', array(), false, true);
-    wp_enqueue_script('global', get_template_directory_uri() . '/js/global.js', array('lib'), false, true);
+    wp_enqueue_script('global', get_template_directory_uri() . '/js/main.js', array('lib'), false, true);
 
     // コメントフォーム移動処理
     if(is_singular() && comments_open() && get_option('thread_comments')) {

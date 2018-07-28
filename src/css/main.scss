@@ -8,6 +8,7 @@
  * *****************************************************************************
 !*/
 
+@import '_bootstrap-reboot.scss';
 @import '_class.scss';
 @import '_mixin.scss';
 
@@ -670,6 +671,7 @@ body {
 .main {
   overflow: hidden;
   padding-top: 5rem;
+  transition: filter .3s $easing;
 
   // オーバーレイ表示
   body.state--show-overlay & {
@@ -677,8 +679,7 @@ body {
 
     // filterをサポートかつbackdrop-filterをサポートしていない
     @supports (filter: blur(0)) and ( not (-webkit-backdrop-filter: blur(0))) {
-      @media (max-width: 768px) { filter: blur(8px);  }
-      @media (min-width: 769px) { filter: blur(16px); }
+      filter: blur(4px);
     }
 
   }
@@ -730,7 +731,7 @@ body {
 
       // 最新1件
       &:first-child {
-        margin-bottom: 8rem;
+        margin-bottom: 8px;
 
         &::before {
           content: 'LATEST';
@@ -1026,19 +1027,49 @@ body {
 
     }
 
+    // 見出し
+    .heading {
+      margin-top: 4rem;
+      margin-bottom: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: solid 1px $color--border;
+      font-weight: inherit;
+      font-size: 3.08rem;
+      line-height: 1.2;
+      word-wrap: break-word;
+
+      strong {
+        font-weight: inherit;
+      }
+
+    }
+
     // 投稿データ
     .meta {
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: row wrap;
       justify-content: flex-start;
       align-items: center;
-      margin-top: 4rem;
-      font-size: 1.2rem;
+      margin-bottom: 8rem;
+      font-size: 1rem;
+      line-height: 1.2;
+
+      & > div {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-start;
+        align-items: center;
+
+        &:not(:last-child) {
+          margin-right: 2rem;
+        }
+
+      }
 
       dt {
         position: relative;
         margin-right: .2rem;
-        padding-right: 1.4rem;
+        padding-right: .8rem;
 
         &::before {
           content: '';
@@ -1047,21 +1078,13 @@ body {
           right: 0;
           margin-top: -.2rem;
           border-style: solid;
-          border-width: .4rem;
+          border-width: .2rem;
           border-color: transparent transparent transparent $color--border;
         }
 
         svg {
-          width: 1.6rem;
-          height: 1.6rem;
-        }
-
-      }
-
-      dd {
-
-        &:not(:last-child) {
-          margin-right: 2rem;
+          width: 1.2rem;
+          height: 1.2rem;
         }
 
       }
@@ -1072,20 +1095,6 @@ body {
           text-decoration: underline;
         }
 
-      }
-
-    }
-
-    // 見出し
-    .heading {
-      margin-bottom: 4rem;
-      border-bottom: solid 1px $color--border;
-      font-weight: inherit;
-      font-size: 3.08rem;
-      word-wrap: break-word;
-
-      strong {
-        font-weight: inherit;
       }
 
     }
@@ -1252,7 +1261,13 @@ body {
         margin-left: auto;
 
         th {
-          padding-right: 1em;
+          padding-right: 2em;
+          text-align: right;
+
+          &::after {
+            content: ' : ';
+          }
+
         }
 
         a {
@@ -2129,8 +2144,7 @@ body {
 
     // backdrop-filterをサポート
     @supports (-webkit-backdrop-filter: blur(0)) {
-      @media (max-width: 768px) { -webkit-backdrop-filter: blur(8px);  }
-      @media (min-width: 769px) { -webkit-backdrop-filter: blur(16px); }
+      -webkit-backdrop-filter: blur(2px);
     }
 
   }
