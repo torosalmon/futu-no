@@ -8,9 +8,9 @@
  * *****************************************************************************
 !*/
 
+@import '_mixin.scss';
 @import '_bootstrap-reboot.scss';
 @import '_class.scss';
-@import '_mixin.scss';
 
 /*!
  * *****************************************************************************
@@ -417,7 +417,7 @@ body {
       opacity: 0;
       transform: translateY(-16px);
       font-size: .8rem;
-      transition: .6s $easing;
+      transition: .6s $ease-out-expo;
       transition-property: opacity, transform;
 
       // スクロール表示
@@ -521,7 +521,7 @@ body {
         margin-top: -1px;
         background: $color--text;
         border-radius: 4px;
-        transition: .3s $easing;
+        transition: .3s $ease-out-expo;
         transition-property: opacity, transform;
 
         &:nth-of-type(1) { transform: translateY(-8px); }
@@ -561,7 +561,7 @@ body {
   transform-origin: 100% 50%;
   border-top: solid 4px $color--sub;
   border-bottom: solid 1px $color--border;
-  transition: transform .6s $easing;
+  transition: transform .6s $ease-out-expo;
 
   // フォーム表示
   body.state--show-search-form & {
@@ -586,7 +586,7 @@ body {
           border: none;
           border-top: solid 4px transparent;
           border-bottom: solid 4px transparent;
-          transition: border-bottom-color .3s $easing;
+          transition: border-bottom-color .3s $ease-out-expo;
 
           &:focus {
             box-shadow: none;
@@ -671,7 +671,7 @@ body {
 .main {
   overflow: hidden;
   padding-top: 5rem;
-  transition: filter .3s $easing;
+  transition: filter .3s $ease-out-expo;
 
   // オーバーレイ表示
   body.state--show-overlay & {
@@ -713,7 +713,7 @@ body {
             border-style: solid;
             border-width: 1px;
             border-color: $color--border $color--border transparent transparent;
-            transition: border-color .3s $easing;
+            transition: border-color .3s $ease-out-expo;
           }
 
           h2 {
@@ -829,7 +829,7 @@ body {
     section {
       margin-bottom: 8rem;
       text-align: center;
-      transition: .6s $easing;
+      transition: .6s $ease-out-expo;
       transition-property: width, height;
 
       @media (max-width: 768px) { width: 100%; }
@@ -888,7 +888,7 @@ body {
             &::after {
               background: $color--text;
               transform: scaleX(0);
-              transition: transform .6s $easing;
+              transition: transform .6s $ease-out-expo;
             }
 
           }
@@ -956,7 +956,7 @@ body {
         width: 100%;
         height: 100%;
         opacity: 0;
-        animation: article-detail-eyecatch-background .6s .3s $easing both;
+        animation: article-detail-eyecatch-background .6s .3s $ease-out-expo both;
 
         @keyframes article-detail-eyecatch-background {
           100% {
@@ -1013,7 +1013,7 @@ body {
         img {
           background: $color--background;
           border-radius: 2px;
-          animation: article-detail-eyecatch-img .9s $easing both;
+          animation: article-detail-eyecatch-img .9s $ease-out-expo both;
 
           @keyframes article-detail-eyecatch-img {
             100% {
@@ -1672,7 +1672,7 @@ body {
   background: $color--sub;
   color: $color--background;
   transform: translateX(-100%);
-  transition: transform .6s $easing;
+  transition: transform .6s $ease-out-expo;
 
   // ドロワー表示
   body.state--show-drawer & {
@@ -1705,7 +1705,7 @@ body {
         box-shadow: 0 16px 16px rgba(0, 0, 0, .2);
         transform: translateX(-24px) scale(1.2);
         border: solid 4px $color--sub;
-        transition: .9s $easing;
+        transition: .9s $ease-out-expo;
 
         // ドロワー表示
         body.state--show-drawer & {
@@ -1757,7 +1757,7 @@ body {
             height: 100%;
             padding: 1rem;
             background: rgba(255, 255, 255, .3);
-            transition: background-color .3s $easing;
+            transition: background-color .3s $ease-out-expo;
 
             &:hover {
               background: rgba(255, 255, 255, .4);
@@ -1837,7 +1837,7 @@ body {
             padding-bottom: 2px;
             opacity: .8;
             border-bottom: solid 2px transparent;
-            transition: .3s $easing;
+            transition: .3s $ease-out-expo;
             transition-property: opacity, border-color;
 
             &:hover {
@@ -2011,7 +2011,7 @@ body {
           // 共有表示
           body.state--show-share & {
             opacity: 1;
-            transition: opacity .3s 1.8s $easing;
+            transition: opacity .3s 1.8s $ease-out-expo;
           }
 
           path {
@@ -2028,7 +2028,7 @@ body {
 
             // 共有表示
             body.state--show-share & {
-              transition: stroke-dashoffset .9s 1.8s $easing;
+              transition: stroke-dashoffset .9s 1.8s $ease-out-expo;
 
               stroke-dashoffset: 0;
             }
@@ -2066,7 +2066,7 @@ body {
           body.state--show-share & {
             opacity: 1;
             transform: rotateY(0);
-            transition: .6s 1.8s $easing;
+            transition: .6s 1.8s $ease-out-expo;
           }
 
         }
@@ -2134,7 +2134,7 @@ body {
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: .3s $easing;
+  transition: .3s $ease-out-expo;
   transition-property: background-color, -webkit-backdrop-filter, opacity;
 
   // オーバーレイ表示
