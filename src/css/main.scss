@@ -692,6 +692,7 @@ body {
     margin-top: 8rem;
 
     section {
+      padding-bottom: 4rem;
 
       // 共通指定
       a {
@@ -731,7 +732,6 @@ body {
 
       // 最新1件
       &:first-child {
-        margin-bottom: 8px;
 
         &::before {
           content: 'LATEST';
@@ -766,13 +766,11 @@ body {
       }
 
       &:not(:first-child) {
-        margin-bottom: 8px;
-        padding-bottom: 8px;
-        border-bottom: solid 1px $color--border;
 
         a {
           display: flex;
           flex-flow: row nowrap;
+          justify-content: flex-end;
           align-items: center;
 
           .eyecatch {
@@ -781,7 +779,6 @@ body {
 
             img {
               width: 100%;
-              border: solid 1px $color--border;
             }
 
           }
@@ -803,13 +800,8 @@ body {
 
       }
 
-      &:nth-of-type(2) {
-        padding-top: 8px;
-        border-top: solid 1px $color--border;
-      }
-
       &:last-child {
-        margin-bottom: 0;
+        padding-bottom: 0;
       }
 
     }
@@ -827,7 +819,7 @@ body {
     margin-top: 8rem;
 
     section {
-      margin-bottom: 8rem;
+      margin-bottom: 16rem;
       text-align: center;
       transition: .6s $ease-out-expo;
       transition-property: width, height;
@@ -1677,7 +1669,7 @@ body {
   // ドロワー表示
   body.state--show-drawer & {
     pointer-events: auto;
-    box-shadow: 4px 0 4px -2px rgba(0, 0, 0, .4);
+    box-shadow: 1px 0 2px -1px rgba(0, 0, 0, .4);
     transform: translateX(0);
   }
 
@@ -1702,7 +1694,6 @@ body {
       .avatar {
         position: relative;
         z-index: 1;
-        box-shadow: 0 16px 16px rgba(0, 0, 0, .2);
         transform: translateX(-24px) scale(1.2);
         border: solid 4px $color--sub;
         transition: .9s $ease-out-expo;

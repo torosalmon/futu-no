@@ -24,11 +24,11 @@
               ?>
               <section>
                 <a href="<?= get_the_permalink(); ?>" title="<?= $post_title; ?>">
-                  <div class="eyecatch">
-                    <?php if(has_post_thumbnail()): ?>
+                  <?php if(has_post_thumbnail()): ?>
+                    <div class="eyecatch">
                       <?php the_post_thumbnail('1280px'); ?>
-                    <?php endif; ?>
-                  </div>
+                    </div>
+                  <?php endif; ?>
                   <div class="meta">
                     <time itemprop="datePublished"><?= get_the_time('Y.m.d'); ?></time>
                     <h2><?= $post_title; ?></h2>
@@ -60,14 +60,12 @@
               ?>
               <section>
                 <a href="<?= get_the_permalink(); ?>" title="<?= $post_title; ?>">
-                  <div class="eyecatch">
-                    <?php if(has_post_thumbnail()): ?>
+                  <?php if(has_post_thumbnail()): ?>
+                    <div class="eyecatch">
                       <?php $thumnbnail_320px_url = wp_get_attachment_image_src(get_post_thumbnail_id(), '320px'); ?>
                       <img class="lazyload" data-src="<?= $thumnbnail_320px_url[0]; ?>" alt="<?= $post_title; ?>">
-                    <?php else: ?>
-                      <img src="<?= $meta['template_directory_uri'] ?>/img/spacer.gif" alt="<?= $post_title; ?>">
-                    <?php endif; ?>
-                  </div>
+                    </div>
+                  <?php endif; ?>
                   <div class="meta">
                     <time itemprop="datePublished"><?= get_the_time('Y.m.d'); ?></time>
                     <h2><?= $post_title; ?></h2>
