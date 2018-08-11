@@ -775,7 +775,6 @@ body {
 
           .eyecatch {
             width: 20%;
-            margin-right: 1rem;
 
             img {
               width: 100%;
@@ -785,6 +784,7 @@ body {
 
           .meta {
             width: 80%;
+            padding-left: 1rem;
 
             time {
               font-size: 1rem;
@@ -1004,12 +1004,16 @@ body {
 
         img {
           background: $color--background;
+          opacity: 0;
           border-radius: 2px;
-          animation: article-detail-eyecatch-img .9s $ease-out-expo both;
+          filter: blur(24px);
+          animation: article-detail-eyecatch-img 1.8s .6s $ease-out-expo both;
 
           @keyframes article-detail-eyecatch-img {
             100% {
               box-shadow: 0 16px 24px -8px rgba(0, 0, 0, .4);
+              opacity: 1;
+              filter: blur(0);
             }
           }
 

@@ -3,12 +3,10 @@
  * [futu-no JavaScript] - http://trs.mn/blog/futu-no/
  * @Author: trs
  * @License: MIT License
- *
- * [sweet-scroll] v3.0.0 - https://github.com/tsuyoshiwada/sweet-scroll
- * @Author: tsuyoshiwada
- * @License: MIT License
  * *****************************************************************************
 !*/
+
+declare var SweetScroll: any
 
 {
 
@@ -83,22 +81,14 @@
     private smooth_scroll(): void {
 
       // sweet-scroll
-      new SweetScroll({
-        trigger: '.js--scroll',  // トリガーとなる要素をCSSセレクタで指定
-        header: '.js--header',   // 固定ヘッダをCSSセレクタで指定
-        duration: 900,           // アニメーション再生時間のミリ秒
-        delay: 0,                // アニメーション開始までの遅延ミリ秒
-        easing: 'easeOutExpo',   // イージングのタイプ（デフォルト：easeOutQuint）
-        offset: 0,               // スクロール位置のオフセット
-        verticalScroll: true,    // 垂直方向のスクロールを許可
-        horizontalScroll: false, // 水平方向のスクロールを許可 (デフォルトでは無効)
-        stopScroll: true,        // ホイール・タッチイベントが発生した時にスクロールを停止
-
-        // Callbacks
-        beforeScroll: null, // スクロールが始まる前 (return falseでキャンセル可)
-        afterScroll: null,  // スクロールが終わった時
-        cancelScroll: null  // スクロールがキャンセルされた時
-      });
+      const option = {
+        trigger: '.js--scroll', // トリガーとなる要素をCSSセレクタで指定
+        header: '.js--header',  // 固定ヘッダをCSSセレクタで指定
+        duration: 900,          // アニメーション再生時間のミリ秒
+        easing: 'easeOutExpo',  // イージングのタイプ（デフォルト：easeOutQuint）
+        stopScroll: true,       // ホイール・タッチイベントが発生した時にスクロールを停止
+      };
+      new SweetScroll(option);
     }
 
     // ============
