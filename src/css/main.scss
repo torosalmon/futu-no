@@ -1107,15 +1107,15 @@ body {
       h4,
       h5,
       h6 {
-        font-weight: inherit;
+        font-weight: 600;
       }
 
       h1 { font-size: 2.6rem; }
-      h2 { font-size: 2.4rem; }
+      h2 { font-size: 2.6rem; }
       h3 { font-size: 2.2rem; }
-      h4 { font-size: 2rem;   }
+      h4 { font-size: 2.2rem; }
       h5 { font-size: 1.8rem; }
-      h6 { font-size: 1.6rem; }
+      h6 { font-size: 1.8rem; }
 
       pre {
         line-height: 1.2;
@@ -1136,7 +1136,7 @@ body {
       h4,
       h5,
       h6 {
-        margin-bottom: .4em;
+        margin-bottom: .2em;
       }
 
       p,
@@ -1210,9 +1210,14 @@ body {
           content: '❝';
           display: block;
           position: absolute;
-          top: 0;
-          left: 0;
+          top: -1.6rem;
+          right: 100%;
           font-size: 1.6rem;
+        }
+
+        cite {
+          display: block;
+          text-align: right;
         }
 
       }
