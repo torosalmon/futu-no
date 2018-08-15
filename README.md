@@ -16,14 +16,6 @@
 * よくあるドロワー
 * 文章に集中できるシングルカラムレイアウト
 * 操作UIをヘッダーに集約してコンテンツを極力シンプルに
-* 一行あたりの文字数、フォントサイズや行間設定、見出しのジャンプ率など、文字組にこだわりました
-* シンプルだけど“ちょっと変わった”アニメーション演出を入れてます
-
-#### Architecture
-
-* jQuery未使用
-* include地獄にならないように、WPテンプレート構成は極力シンプルに
-* テーマ独自でHTMLをminifyする設定を実装
 
 ---
 
@@ -50,6 +42,5 @@
 
 ### Library
 
-* ress : [https://github.com/filipelinhares/ress](https://github.com/filipelinhares/ress)
+* reboot : [https://getbootstrap.com/docs/4.1/content/reboot/](https://getbootstrap.com/docs/4.1/content/reboot/)
 * sweet-scroll : [https://github.com/tsuyoshiwada/sweet-scroll](https://github.com/tsuyoshiwada/sweet-scroll)
-* lazysizes: [https://github.com/aFarkas/lazysizes](https://github.com/aFarkas/lazysizes)

@@ -63,7 +63,7 @@
                   <?php if(has_post_thumbnail()): ?>
                     <div class="eyecatch">
                       <?php $thumnbnail_320px_url = wp_get_attachment_image_src(get_post_thumbnail_id(), '320px'); ?>
-                      <img class="lazyload" data-src="<?= $thumnbnail_320px_url[0]; ?>" alt="<?= $post_title; ?>">
+                      <img src="<?= $thumnbnail_320px_url[0]; ?>" alt="<?= $post_title; ?>">
                     </div>
                   <?php endif; ?>
                   <div class="meta">

@@ -121,7 +121,7 @@
                         <a class="prev" href="<?= get_permalink($prev_post->ID); ?>">
                           <?php if(has_post_thumbnail($prev_post->ID)): ?>
                             <?php $thumnbnail_320px_url = wp_get_attachment_image_src(get_post_thumbnail_id($prev_post->ID), '320px'); ?>
-                            <img class="lazyload" data-src="<?= $thumnbnail_320px_url[0]; ?>" alt="<?= esc_attr($prev_post->post_title); ?>">
+                            <img src="<?= $thumnbnail_320px_url[0]; ?>" alt="<?= esc_attr($prev_post->post_title); ?>">
                           <?php endif; ?>
                           <?= esc_attr($prev_post->post_title); ?>
                         </a>
@@ -132,7 +132,7 @@
                         <a class="next" href="<?= get_permalink($next_post->ID); ?>">
                           <?php if(has_post_thumbnail($next_post->ID)): ?>
                             <?php $thumnbnail_320px_url = wp_get_attachment_image_src(get_post_thumbnail_id($next_post->ID), '320px'); ?>
-                            <img class="lazyload" data-src="<?= $thumnbnail_320px_url[0]; ?>" alt="<?= esc_attr($next_post->post_title); ?>">
+                            <img src="<?= $thumnbnail_320px_url[0]; ?>" alt="<?= esc_attr($next_post->post_title); ?>">
                           <?php endif; ?>
                           <?= esc_attr($next_post->post_title); ?>
                         </a>

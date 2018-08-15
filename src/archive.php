@@ -29,7 +29,7 @@
                         ?>
                         <picture>
                           <source media="(max-width: 768px)" data-srcset="<?= $thumnbnail_320px_url[0]; ?>">
-                          <img class="lazyload" data-src="<?= $thumnbnail_640px_url[0]; ?>" alt="<?= $post_title; ?>">
+                          <img src="<?= $thumnbnail_640px_url[0]; ?>" alt="<?= $post_title; ?>">
                         </picture>
                       <?php else: ?>
                         <img src="<?= $meta['template_directory_uri'] ?>/img/spacer.gif" alt="<?= $post_title; ?>">
