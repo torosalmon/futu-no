@@ -11,6 +11,7 @@
 @import '_mixin.scss';
 @import '_bootstrap-reboot.scss';
 @import '_class.scss';
+@import '_wordpress.scss';
 
 /*!
  * *****************************************************************************
@@ -1211,8 +1212,12 @@ body {
           display: block;
           position: absolute;
           top: -1.6rem;
-          right: 100%;
-          font-size: 3.2rem;
+          right: calc(100% + .8rem);
+          font-size: 2.4rem;
+        }
+
+        p {
+          margin-bottom: 0;
         }
 
         cite {
@@ -1402,6 +1407,10 @@ body {
                   margin-bottom: 1rem;
                 }
 
+                a {
+                  text-decoration: underline;
+                }
+
               }
 
               // コメント情報
@@ -1424,7 +1433,7 @@ body {
                   .comment-reply-link {
 
                     &::before {
-                      content: '🗪 ';
+                      content: '⇔ ';
                     }
 
                   }
