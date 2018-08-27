@@ -94,6 +94,9 @@
               <?php if(get_the_author_meta('github') != ''): ?>
                 <li><a href="<?= get_the_author_meta('github', $author_id); ?>" target="_blank">GitHub</a></li>
               <?php endif; ?>
+              <?php if(get_the_author_meta('codepen') != ''): ?>
+                <li><a href="<?= get_the_author_meta('codepen', $author_id); ?>" target="_blank">CodePen</a></li>
+              <?php endif; ?>
               <?php if(get_the_author_meta('qiita') != ''): ?>
                 <li><a href="<?= get_the_author_meta('qiita', $author_id); ?>" target="_blank">Qiita</a></li>
               <?php endif; ?>

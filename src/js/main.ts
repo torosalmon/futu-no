@@ -6,7 +6,10 @@
  * *****************************************************************************
 !*/
 
+declare var require: any
 declare var SweetScroll: any
+
+var SweetScroll = require('sweet-scroll');
 
 {
 
