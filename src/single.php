@@ -10,23 +10,7 @@
             $date_day   = get_post_time('d', $post_id);
           ?>
           <article class="article-detail" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <?php
-              // =============================================================================
-              // アイキャッチ
-              // =============================================================================
-            ?>
-            <?php if(has_post_thumbnail()): ?>
-              <div class="eyecatch">
-                <div class="background">
-                  <?php $thumnbnail_1280px_url = wp_get_attachment_image_src(get_post_thumbnail_id(), '1280px'); ?>
-                  <div class="background-image js--parallax" data-parallax-friction="4" style="background-image: url(<?= $thumnbnail_1280px_url[0]; ?>);"></div>
-                </div>
-                <div class="container--l">
-                  <div class="img"><?php the_post_thumbnail('1280px'); ?></div>
-                </div>
-              </div>
-            <?php endif; ?>
-            <div class="container--s">
+            <div class="container--l">
               <?php
                 // =============================================================================
                 // 見出し
@@ -70,6 +54,24 @@
                   </div>
                 <?php endif; ?>
               </dl>
+            </div>
+            <?php
+              // =============================================================================
+              // アイキャッチ
+              // =============================================================================
+            ?>
+            <?php if(has_post_thumbnail()): ?>
+              <div class="eyecatch">
+                <div class="background">
+                  <?php $thumnbnail_1280px_url = wp_get_attachment_image_src(get_post_thumbnail_id(), '1280px'); ?>
+                  <div class="background-image js--parallax" data-parallax-friction="4" style="background-image: url(<?= $thumnbnail_1280px_url[0]; ?>);"></div>
+                </div>
+                <div class="container--l">
+                  <div class="img"><?php the_post_thumbnail('1280px'); ?></div>
+                </div>
+              </div>
+            <?php endif; ?>
+            <div class="container--s">
               <?php
                 // =============================================================================
                 // 本文

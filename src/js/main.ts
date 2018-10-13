@@ -30,7 +30,7 @@ var SweetScroll = require('sweet-scroll');
 
   // DOM
   const $meta_theme_color: HTMLElement                  = document.querySelector('meta[name="theme-color"]');
-  const $body: NodeListOf <HTMLBodyElement>             = document.getElementsByTagName('body');
+  const $body: HTMLCollectionOf <HTMLBodyElement>       = document.getElementsByTagName('body');
   const $header: HTMLCollectionOf <Element>             = document.getElementsByClassName('js--header');
   const $search_form_button: HTMLCollectionOf <Element> = document.getElementsByClassName('js--search-form-button');
   const $drawer_button: HTMLCollectionOf <Element>      = document.getElementsByClassName('js--drawer-button');
