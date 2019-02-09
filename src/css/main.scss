@@ -68,8 +68,8 @@ body {
 html {
   font-size: calc(.78125vw + 7.5px);
 
-  @media (max-width: 320px) { font-size: 62.5%; } // font-size: 1rem = 10px
-  @media (min-width: 961px) { font-size: 93.8%; } // font-size: 1rem = 15px
+  @media (max-width: 320px) { font-size: 62.5%; } /* 1rem = 10px */
+  @media (min-width: 961px) { font-size: 93.8%; } /* 1rem = 15px */
 
 }
 
@@ -309,7 +309,7 @@ button {
 
 body {
   background: $color--background;
-  // JSで色を抽出し<meta theme-color>へ代入している
+  /* JSで色を抽出し<meta theme-color>へ代入している */
   border-top: none 0 $color--accent;
   border-bottom: none 0 $color--sub;
 }
@@ -1490,7 +1490,7 @@ body {
               &::before {
                 right: auto;
                 left: 100%;
-                border-right-color: transparent !important; // 動的CSSのほうが優先度が高く崩れるため
+                border-right-color: transparent !important; /* 動的CSSのほうが優先度が高く崩れるため */
                 border-left-color: $color--border;
               }
 
