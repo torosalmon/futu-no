@@ -1,13 +1,13 @@
 <?php global_meta(); ?>
 <?php get_header(); ?>
-      <?php if(have_posts()): ?>
-        <?php while(have_posts()): ?>
+      <?php if (have_posts()): ?>
+        <?php while (have_posts()): ?>
           <?php
             the_post();
-            $post_id    = get_the_ID();
-            $date_year  = get_post_time('Y', $post_id);
+            $post_id = get_the_ID();
+            $date_year = get_post_time('Y', $post_id);
             $date_month = get_post_time('m', $post_id);
-            $date_day   = get_post_time('d', $post_id);
+            $date_day = get_post_time('d', $post_id);
           ?>
           <article class="article-detail" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="container--l">
@@ -30,7 +30,7 @@
                   </dt>
                   <dd><time itemprop="datePublished"><a href="<?= get_year_link($date_year); ?>"><?= $date_year; ?></a>.<a href="<?= get_month_link($date_year, $date_month); ?>"><?= $date_month; ?></a>.<?= $date_day; ?></time></dd>
                 </div>
-                <?php if(has_category()): ?>
+                <?php if (has_category()): ?>
                   <div>
                     <dt>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -42,7 +42,7 @@
                     <dd><?php the_category(', '); ?></dd>
                   </div>
                 <?php endif; ?>
-                <?php if(has_tag()): ?>
+                <?php if (has_tag()): ?>
                   <div>
                     <dt>
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -60,7 +60,7 @@
               // アイキャッチ
               // =============================================================================
             ?>
-            <?php if(has_post_thumbnail()): ?>
+            <?php if (has_post_thumbnail()): ?>
               <div class="eyecatch">
                 <div class="background">
                   <?php $thumnbnail_1280px_url = wp_get_attachment_image_src(get_post_thumbnail_id(), '1280px'); ?>
@@ -91,13 +91,13 @@
                       <th>Date</th>
                       <td><time itemprop="datePublished"><a href="<?= get_year_link($date_year); ?>"><?= $date_year; ?></a>.<a href="<?= get_month_link($date_year, $date_month); ?>"><?= $date_month; ?></a>.<?= $date_day; ?></time></td>
                     </tr>
-                    <?php if(has_category()): ?>
+                    <?php if (has_category()): ?>
                       <tr>
                         <th>Categories</th>
                         <td><?php the_category(', '); ?></td>
                       </tr>
                     <?php endif; ?>
-                    <?php if(has_tag()): ?>
+                    <?php if (has_tag()): ?>
                       <tr>
                         <th>Tags</th>
                         <td><?php the_tags('', ', '); ?></td>
@@ -115,13 +115,13 @@
                 $next_post = get_next_post();
                 $prev_post = get_previous_post();
               ?>
-              <?php if($next_post || $prev_post): ?>
+              <?php if ($next_post || $prev_post): ?>
                 <nav class="adjacent-links">
                   <ul>
-                    <?php if($prev_post): ?>
+                    <?php if ($prev_post): ?>
                       <li>
                         <a class="prev" href="<?= get_permalink($prev_post->ID); ?>">
-                          <?php if(has_post_thumbnail($prev_post->ID)): ?>
+                          <?php if (has_post_thumbnail($prev_post->ID)): ?>
                             <?php $thumnbnail_320px_url = wp_get_attachment_image_src(get_post_thumbnail_id($prev_post->ID), '320px'); ?>
                             <img src="<?= $thumnbnail_320px_url[0]; ?>" alt="<?= esc_attr($prev_post->post_title); ?>">
                           <?php endif; ?>
@@ -129,10 +129,10 @@
                         </a>
                       </li>
                     <?php endif; ?>
-                    <?php if($next_post): ?>
+                    <?php if ($next_post): ?>
                       <li>
                         <a class="next" href="<?= get_permalink($next_post->ID); ?>">
-                          <?php if(has_post_thumbnail($next_post->ID)): ?>
+                          <?php if (has_post_thumbnail($next_post->ID)): ?>
                             <?php $thumnbnail_320px_url = wp_get_attachment_image_src(get_post_thumbnail_id($next_post->ID), '320px'); ?>
                             <img src="<?= $thumnbnail_320px_url[0]; ?>" alt="<?= esc_attr($next_post->post_title); ?>">
                           <?php endif; ?>
@@ -148,7 +148,7 @@
                 // コメント
                 // =============================================================================
               ?>
-              <?php if(comments_open()): ?>
+              <?php if (comments_open()): ?>
                 <?php comments_template(); ?>
               <?php endif; ?>
             </div>

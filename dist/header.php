@@ -5,24 +5,25 @@
     <meta charset="<?= $meta['charset']; ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="format-detection" content="telephone=no,email=no,address=no">
-    <meta name="theme-color" content="<?= get_theme_mod('theme_customize__setting__colors__accent'); ?>">
     <meta name="author" content="<?= $meta['name']; ?>">
     <meta name="copyright" content="Copyright © <?= date('Y'); ?> <?= $meta['name']; ?>">
     <meta name="description" content="<?= $meta['description']; ?>">
     <meta name="keywords" content="<?= $meta['title']; ?>,<?= $meta['name']; ?>">
-    <meta property="og:type" content="<?= $meta['og_type']; ?>">
-    <meta property="og:site_name" content="<?= $meta['name']; ?>">
-    <meta property="og:url" content="<?= $meta['current_url']; ?>">
-    <meta property="og:title" content="<?= $meta['title']; ?>">
-    <meta property="og:description" content="<?= $meta['description']; ?>">
-    <meta property="og:image" content="<?= $meta['image']; ?>">
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="<?= get_theme_mod('theme_customize__setting__colors__accent'); ?>">
+    <meta name="msapplication-TileColor" content="<?= get_theme_mod('theme_customize__setting__colors__accent'); ?>">
     <meta name="twitter:domain" content="<?= $meta['home_url']; ?>">
     <meta name="twitter:title" content="<?= $meta['title']; ?>">
     <meta name="twitter:description" content="<?= $meta['description']; ?>">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="<?= $meta['image']; ?>">
+    <meta property="og:type" content="<?= $meta['og_type']; ?>">
+    <meta property="og:site_name" content="<?= $meta['name']; ?>">
+    <meta property="og:title" content="<?= $meta['title']; ?>">
+    <meta property="og:description" content="<?= $meta['description']; ?>">
+    <meta property="og:url" content="<?= $meta['current_url']; ?>">
+    <meta property="og:image" content="<?= $meta['image']; ?>">
     <link rel="dns-prefetch" href="//0.gravatar.com">
     <link rel="alternate" hreflang="<?= $meta['language']; ?>" href="<?= $meta['current_url']; ?>">
     <link rel="alternate" type="application/rss+xml" href="<?= $meta['rss2_url']; ?>" title="RSS">
@@ -37,7 +38,7 @@
     <header class="header js--header">
       <div class="page-info">
         <h1><a href="<?= $meta['home_url']; ?>" title="<?= $meta['name']; ?>"><?= $meta['name']; ?></a></h1>
-        <?php if(is_home()): ?>
+        <?php if (is_home()): ?>
           <p class="read" itemprop="description"><?= $meta['description']; ?></p>
         <?php else: ?>
           <?php breadcrumb(); ?>
@@ -52,7 +53,7 @@
       </div>
       <nav class="tool">
         <ul>
-          <?php if(is_singular() && comments_open()): ?>
+          <?php if (is_singular() && comments_open()): ?>
             <li>
               <a class="js--scroll" href="#comment">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
@@ -63,7 +64,7 @@
                   $comment_total = get_comments_number();
                   settype($comment_total, 'integer');
                 ?>
-                <?php if($comment_total > 0): ?>
+                <?php if ($comment_total > 0): ?>
                   <span class="notification"><?= $comment_total; ?></span>
                 <?php else: ?>
                   <span>コメント</span>

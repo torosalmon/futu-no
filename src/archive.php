@@ -5,25 +5,25 @@
         // 一覧表示
         // =============================================================================
       ?>
-      <?php if(have_posts()): ?>
+      <?php if (have_posts()): ?>
         <div class="container--l">
           <nav class="archive-list" itemscope="itemscope" itemtype="http://schema.org/Article">
-            <?php while(have_posts()): ?>
+            <?php while (have_posts()): ?>
               <?php
                 the_post();
-                $post_id    = get_the_ID();
+                $post_id = get_the_ID();
                 $post_title = get_the_title();
-                $date_year  = get_post_time('Y', $post_id);
+                $date_year = get_post_time('Y', $post_id);
                 $date_month = get_post_time('m', $post_id);
-                $date_day   = get_post_time('d', $post_id);
+                $date_day = get_post_time('d', $post_id);
               ?>
               <section>
                 <h3 class="heading">
                   <a href="<?= get_the_permalink(); ?>">
                     <div class="eyecatch">
-                      <?php if(has_post_thumbnail()): ?>
+                      <?php if (has_post_thumbnail()): ?>
                         <?php
-                          $post_thumbnail_id    = get_post_thumbnail_id();
+                          $post_thumbnail_id = get_post_thumbnail_id();
                           $thumnbnail_320px_url = wp_get_attachment_image_src($post_thumbnail_id, '320px');
                           $thumnbnail_640px_url = wp_get_attachment_image_src($post_thumbnail_id, '640px');
                         ?>
@@ -41,7 +41,7 @@
                 <dl class="meta">
                   <dt class="date">Date</dt>
                   <dd><time itemprop="datePublished"><a href="<?= get_year_link($date_year); ?>"><?= $date_year; ?></a>.<a href="<?= get_month_link($date_year, $date_month); ?>"><?= $date_month; ?></a>.<?= $date_day; ?></time></dd>
-                  <?php if(has_category()): ?>
+                  <?php if (has_category()): ?>
                     <dt class="category">Category</dt>
                     <dd><?php the_category(', '); ?></dd>
                   <?php endif; ?>

@@ -1,23 +1,24 @@
-@charset 'UTF-8';
+@charset "utf-8";
+
+@import "~bootstrap/dist/css/bootstrap-reboot.min.css";
 
 /*!
  * *****************************************************************************
- * [futu-no Style sheet] - http://trs.mn/blog/futu-no/
- * @Author:  trs
+ * [futu-no] - http://trs.mn/blog/futu-no/
+ * @Author: torosalmon
  * @License: MIT License
  * *****************************************************************************
-!*/
+ */
 
-@import '_mixin.scss';
-@import '_bootstrap-reboot.scss';
-@import '_class.scss';
-@import '_wordpress.scss';
+@import "_mixin.scss";
+@import "_class.scss";
+@import "_wordpress.scss";
 
-/*!
+/*
  * *****************************************************************************
  * グローバルスタイル
  * *****************************************************************************
-!*/
+ */
 
 // =============================================================================
 // 文字組
@@ -25,37 +26,41 @@
 
 // Helvetica Neue
 @font-face {
-  src: local('Helvetica Neue Regular');
-  font-family: 'Helvetica Neue';
+  src: local("Helvetica Neue Regular");
+  font-family: "Helvetica Neue";
   font-weight: 100;
 }
 
 @font-face {
-  src: local('Helvetica Neue Regular');
-  font-family: 'Helvetica Neue';
+  src: local("Helvetica Neue Regular");
+  font-family: "Helvetica Neue";
   font-weight: 200;
 }
 
 body {
-  font-family: 'Noto Sans JP',
-               'Yu Gothic', YuGothic,
-               Meiryo,
-               -apple-system, BlinkMacSystemFont, '.SFNSDisplay-Regular',
-               'Helvetica Neue',
-               'Segoe UI',
-               Roboto,
-               Arial,
-               sans-serif,
-               'Apple Color Emoji',
-               'Segoe UI Emoji',
-               'Segoe UI Symbol';
-  font-variant-numeric: tabular-nums;
-  font-feature-settings: 'tnum';
-   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family:
+    "Noto Sans JP",
+    "Yu Gothic",
+    YuGothic,
+    Meiryo,
+    -apple-system,
+    BlinkMacSystemFont,
+    ".SFNSDisplay-Regular",
+    "Helvetica Neue",
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  color: $color--text;
   word-wrap: break-word;
   overflow-wrap: break-word;
-  color: $color--text;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 // ==============
@@ -66,28 +71,32 @@ body {
 // (max font-size px - min font-size px) / (max viewport px - min viewport px) * 100 = vw
 
 html {
-  font-size: calc(.78125vw + 7.5px);
+  font-size: calc(0.78125vw + 7.5px);
 
-  @media (max-width: 320px) { font-size: 62.5%; } /* 1rem = 10px */
-  @media (min-width: 961px) { font-size: 93.8%; } /* 1rem = 15px */
+  @media (max-width: 320px) {
+    font-size: 62.5%;
+  } /* 1rem = 10px */
 
+  @media (min-width: 961px) {
+    font-size: 93.8%;
+  } /* 1rem = 15px */
 }
 
 // iOSフォーカスズーム対策
-input[type='text'],
-input[type='search'],
-input[type='tel'],
-input[type='url'],
-input[type='email'],
-input[type='password'],
-input[type='datetime'],
-input[type='datetime-local'],
-input[type='date'],
-input[type='month'],
-input[type='week'],
-input[type='time'],
-input[type='number'],
-input[type='file'],
+input[type="text"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="email"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="number"],
+input[type="file"],
 textarea,
 select {
   font-size: 1.6rem;
@@ -117,23 +126,22 @@ dd {
 }
 
 ul {
-  list-style: none;
   padding-left: 0;
+  list-style: none;
 }
 
 a {
-  text-decoration: none;
   color: inherit;
+  text-decoration: none;
 
-  &[href*='http'] {
+  &[href*="http"] {
     word-break: break-all;
   }
 
   &:hover {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
   }
-
 }
 
 figure {
@@ -165,7 +173,6 @@ iframe {
     width: 100%;
     height: 100%;
   }
-
 }
 
 // =======================
@@ -181,18 +188,15 @@ iframe {
 // (3) heightに倍率補正を掛ける
 // 56.25% * 0.9 = 比率を維持したheight
 
-iframe {
+iframe[src*="youtube.com"],
+iframe[src*="youtube-nocookie.com"],
+iframe[src*="youtu.be"] {
+  width: 100%;
+  height: calc(56.25vw * 0.9);
 
-  &[src*='youtube.com'],
-  &[src*='youtube-nocookie.com'],
-  &[src*='youtu.be'] {
-    width: 100%;
-    height: calc(56.25vw * .9);
-
-    @media (min-width: 769px) { max-height: 405px; }
-
+  @media (min-width: 769px) {
+    max-height: 405px;
   }
-
 }
 
 // =============================================================================
@@ -203,44 +207,44 @@ iframe {
 // init
 // ====
 
-input[type='text'],
-input[type='search'],
-input[type='tel'],
-input[type='url'],
-input[type='email'],
-input[type='password'],
-input[type='datetime'],
-input[type='datetime-local'],
-input[type='date'],
-input[type='month'],
-input[type='week'],
-input[type='time'],
-input[type='number'],
-input[type='file'],
-input[type='submit'],
-input[type='reset'],
-input[type='button'],
-input[type='image'],
+input[type="text"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="email"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="number"],
+input[type="file"],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="image"],
 button,
 textarea,
 select {
   -webkit-appearance: none;
 }
 
-input[type='text'],
-input[type='search'],
-input[type='tel'],
-input[type='url'],
-input[type='email'],
-input[type='password'],
-input[type='datetime'],
-input[type='datetime-local'],
-input[type='date'],
-input[type='month'],
-input[type='week'],
-input[type='time'],
-input[type='number'],
-input[type='file'],
+input[type="text"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="email"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="number"],
+input[type="file"],
 textarea,
 select {
   width: 100%;
@@ -248,7 +252,7 @@ select {
   color: inherit;
 }
 
-input[type='image'] {
+input[type="image"] {
   max-width: 100%;
 }
 
@@ -257,13 +261,13 @@ textarea {
   min-height: 3rem;
 }
 
-input[type='submit'],
-input[type='reset'],
-input[type='button'],
-input[type='image'],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+input[type="image"],
 button {
-  cursor: pointer;
   display: inline-block;
+  cursor: pointer;
 }
 
 label {
@@ -274,29 +278,29 @@ label {
 // フォームUI
 // ==========
 
-input[type='text'],
-input[type='search'],
-input[type='tel'],
-input[type='url'],
-input[type='email'],
-input[type='password'],
-input[type='datetime'],
-input[type='datetime-local'],
-input[type='date'],
-input[type='month'],
-input[type='week'],
-input[type='time'],
-input[type='number'],
+input[type="text"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="email"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="number"],
 textarea,
 select {
-  padding: 0 .4rem;
+  padding: 0 0.4rem;
   background: $color--background;
   border: solid 1px $color--border;
 }
 
-input[type='submit'],
-input[type='reset'],
-input[type='button'],
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
 button {
   padding: 1rem;
   background: $color--accent;
@@ -307,9 +311,9 @@ button {
 // レイアウト
 // =============================================================================
 
+// main.jsにてborder-top-color, border-bottom-colorを抽出し、<meta theme-color>へ代入している
 body {
   background: $color--background;
-  /* JSで色を抽出し<meta theme-color>へ代入している */
   border-top: none 0 $color--accent;
   border-bottom: none 0 $color--sub;
 }
@@ -319,31 +323,31 @@ body {
 // =============================================================================
 
 .header {
-  display: flex;
-  flex-flow: row nowrap;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 4;
+  display: flex;
+  flex-flow: row nowrap;
   width: 100%;
   height: 5rem;
   background: $color--background;
   border-top: solid 4px $color--accent;
   border-bottom: solid 1px $color--border;
-  transition: border-color .2s ease-out;
+  transition: border-color 0.2s ease-out;
 
   // ==========
   // ページ案内
   // ==========
 
   .page-info {
-    flex-grow: 1;
-    order: 2;
+    position: relative;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     justify-content: center;
+    order: 2;
     overflow: hidden;
-    position: relative;
     text-overflow: ellipsis;
     white-space: nowrap;
 
@@ -352,10 +356,10 @@ body {
     // ========
 
     h1 {
+      margin-bottom: 0.4rem;
       overflow: hidden;
-      margin-bottom: .4rem;
-      font-weight: 600;
       font-size: 1.2rem;
+      font-weight: 600;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
@@ -367,47 +371,41 @@ body {
     .read,
     .breadcrumb {
       overflow: hidden;
-      font-size: .8rem;
+      font-size: 0.8rem;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
 
     .breadcrumb {
-
       li {
-        display: inline;
         position: relative;
+        display: inline;
 
         &:not(:last-child) {
-          margin-right: .75rem;
           padding-right: 1rem;
+          margin-right: 0.75rem;
 
           &::after {
-            content: '';
             position: absolute;
             top: 50%;
             right: 0;
-            width: .5rem;
-            height: .5rem;
-            margin-top: -.25rem;
-            transform: rotate(45deg);
+            width: 0.5rem;
+            height: 0.5rem;
+            margin-top: -0.25rem;
+            content: "";
+            border-color: $color--text $color--text transparent transparent;
             border-style: solid;
             border-width: 1px;
-            border-color: $color--text $color--text transparent transparent;
+            transform: rotate(45deg);
           }
-
         }
 
         a {
-
           &:hover {
             text-decoration: underline;
           }
-
         }
-
       }
-
     }
 
     // ========
@@ -415,22 +413,22 @@ body {
     // ========
 
     .page-top {
-      pointer-events: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
       position: absolute;
       top: 0;
       left: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       width: 100%;
       height: 100%;
+      font-size: 0.8rem;
+      pointer-events: none;
       background: $color--background;
       opacity: 0;
-      transform: translateY(-16px);
-      font-size: .8rem;
-      transition: .6s $ease-out-expo;
+      transition: 0.6s $ease-out-expo;
       transition-property: opacity, transform;
+      transform: translateY(-16px);
 
       // スクロール表示
       body.state--show-scroll-header & {
@@ -443,11 +441,9 @@ body {
         display: inline-block;
         width: 1.2rem;
         height: 1.2rem;
-        margin-bottom: .4rem;
+        margin-bottom: 0.4rem;
       }
-
     }
-
   }
 
   // ======
@@ -469,39 +465,34 @@ body {
         a {
           display: flex;
           flex-direction: column;
-          justify-content: center;
           align-items: center;
+          justify-content: center;
           height: 100%;
-          padding-right: .2rem;
-          padding-left: .2rem;
+          padding-right: 0.2rem;
+          padding-left: 0.2rem;
+          font-size: 0.8rem;
           text-align: center;
-          font-size: .8rem;
 
           svg {
             display: inline-block;
             width: 1.2rem;
             height: 1.2rem;
-            margin-bottom: .4rem;
+            margin-bottom: 0.4rem;
           }
 
           span {
             display: block;
 
             &.notification {
-              min-width: .8rem;
+              min-width: 0.8rem;
               padding: 2px;
               background: $color--accent;
               border-radius: 2px;
             }
-
           }
-
         }
-
       }
-
     }
-
   }
 
   // ================
@@ -509,14 +500,14 @@ body {
   // ================
 
   .drawer-icon {
-    cursor: pointer;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     order: 1;
     width: 5rem;
     min-width: 5rem;
     max-width: 5rem;
+    cursor: pointer;
 
     div {
       position: relative;
@@ -524,36 +515,35 @@ body {
       height: 3rem;
 
       span {
-        display: block;
         position: absolute;
         top: 50%;
         left: 25%;
+        display: block;
         width: 50%;
         height: 2px;
         margin-top: -1px;
         background: $color--text;
         border-radius: 4px;
-        transition: .3s $ease-out-expo;
+        transition: 0.3s $ease-out-expo;
         transition-property: opacity, transform;
 
-        &:nth-of-type(1) { transform: translateY(-8px); }
-        &:nth-of-type(3) { transform: translateY(8px);  }
+        &:nth-of-type(1) {
+          transform: translateY(-8px);
+        }
 
+        &:nth-of-type(3) {
+          transform: translateY(8px);
+        }
       }
-
     }
 
     // ドロワー展開
     body.state--show-drawer & {
-
       span {
         transform: translateY(0);
       }
-
     }
-
   }
-
 }
 
 // =============================================================================
@@ -561,19 +551,19 @@ body {
 // =============================================================================
 
 .search-form {
-  pointer-events: none;
   position: fixed;
   top: 0;
   right: 0;
   z-index: 5;
   width: 100%;
   height: 5rem;
+  pointer-events: none;
   background: $color--background;
-  transform: translateX(100%);
-  transform-origin: 100% 50%;
   border-top: solid 4px $color--sub;
   border-bottom: solid 1px $color--border;
-  transition: transform .6s $ease-out-expo;
+  transition: transform 0.6s $ease-out-expo;
+  transform: translateX(100%);
+  transform-origin: 100% 50%;
 
   // フォーム表示
   body.state--show-search-form & {
@@ -593,24 +583,22 @@ body {
       &:nth-of-type(1) {
         flex-grow: 1;
 
-        input[type='search'] {
+        input[type="search"] {
           height: 100%;
           border: none;
           border-top: solid 4px transparent;
           border-bottom: solid 4px transparent;
-          transition: border-bottom-color .3s $ease-out-expo;
+          transition: border-bottom-color 0.3s $ease-out-expo;
 
           &:focus {
-            box-shadow: none;
             border-bottom-color: $color--accent;
+            box-shadow: none;
           }
 
           &:invalid {
             box-shadow: none;
           }
-
         }
-
       }
 
       // submit
@@ -619,61 +607,59 @@ body {
         width: 5rem;
 
         &::before {
-          content: '';
           position: absolute;
           top: 50%;
           left: 0;
           margin-top: -8px;
+          content: "";
+          border-color: transparent transparent transparent $color--border;
           border-style: solid;
           border-width: 8px;
-          border-color: transparent transparent transparent $color--border;
         }
 
-        input[type='submit'] {
+        input[type="submit"] {
           width: 100%;
           height: 100%;
           background: transparent;
           border-left: solid 1px $color--border;
         }
-
       }
-
       // close
       &:nth-of-type(3) {
         width: 5rem;
 
         .close {
-          cursor: pointer;
-          display: block;
           position: relative;
+          display: block;
           width: 100%;
           height: 100%;
+          cursor: pointer;
           border-left: solid 1px $color--border;
 
           &::before,
           &::after {
-            content: '';
             position: absolute;
             top: 50%;
             left: 25%;
             width: 50%;
             height: 2px;
             margin-top: -1px;
+            content: "";
             background: $color--text;
             border-radius: 2px;
           }
 
-          &::before { transform: rotate(-45deg); }
-          &::after  { transform: rotate(45deg);  }
+          &::before {
+            transform: rotate(-45deg);
+          }
 
+          &::after {
+            transform: rotate(45deg);
+          }
         }
-
       }
-
     }
-
   }
-
 }
 
 // =============================================================================
@@ -681,19 +667,18 @@ body {
 // =============================================================================
 
 .main {
-  overflow: hidden;
   padding-top: 5rem;
-  transition: filter .3s $ease-out-expo;
+  overflow: hidden;
+  transition: filter 0.3s $ease-out-expo;
 
   // オーバーレイ表示
   body.state--show-overlay & {
     pointer-events: none;
 
     // filterをサポートかつbackdrop-filterをサポートしていない
-    @supports (filter: blur(0)) and ( not (-webkit-backdrop-filter: blur(0))) {
+    @supports (filter: blur(0)) and (not (-webkit-backdrop-filter: blur(0))) {
       filter: blur(4px);
     }
-
   }
 
   // =============================================================================
@@ -708,50 +693,46 @@ body {
 
       // 共通指定
       a {
-
         .meta {
           position: relative;
           padding-right: 2rem;
 
           &::after {
-            content: '';
             position: absolute;
             top: 50%;
             right: 0;
             width: 1rem;
             height: 1rem;
-            margin-top: -.5rem;
-            margin-right: .25rem;
-            transform: rotate(45deg);
+            margin-top: -0.5rem;
+            margin-right: 0.25rem;
+            content: "";
+            border-color: $color--border $color--border transparent transparent;
             border-style: solid;
             border-width: 1px;
-            border-color: $color--border $color--border transparent transparent;
-            transition: border-color .3s $ease-out-expo;
+            transition: border-color 0.3s $ease-out-expo;
+            transform: rotate(45deg);
           }
 
           h2 {
             font-weight: 500;
           }
-
         }
 
         &:hover .meta::after {
           border-top-color: $color--text;
           border-right-color: $color--text;
         }
-
       }
 
       // 最新1件
       &:first-child {
-
         &::before {
-          content: 'LATEST';
           display: inline-block;
-          padding: .2rem 4rem;
-          background: $color--text;
+          padding: 0.2rem 4rem;
           font-size: 1rem;
           color: $color--background;
+          content: "LATEST";
+          background: $color--text;
         }
 
         a {
@@ -762,7 +743,6 @@ body {
           }
 
           .meta {
-
             time {
               font-size: 1.6rem;
             }
@@ -770,20 +750,16 @@ body {
             h2 {
               font-size: 2rem;
             }
-
           }
-
         }
-
       }
 
       &:not(:first-child) {
-
         a {
           display: flex;
           flex-flow: row nowrap;
-          justify-content: flex-end;
           align-items: center;
+          justify-content: flex-end;
 
           .eyecatch {
             width: 20%;
@@ -791,7 +767,6 @@ body {
             img {
               width: 100%;
             }
-
           }
 
           .meta {
@@ -805,19 +780,14 @@ body {
             h2 {
               font-size: 1.2rem;
             }
-
           }
-
         }
-
       }
 
       &:last-child {
         padding-bottom: 0;
       }
-
     }
-
   }
 
   // =============================================================================
@@ -833,11 +803,16 @@ body {
     section {
       margin-bottom: 16rem;
       text-align: center;
-      transition: .6s $ease-out-expo;
+      transition: 0.6s $ease-out-expo;
       transition-property: width, height;
 
-      @media (max-width: 768px) { width: 100%; }
-      @media (min-width: 769px) { width: 40%;  }
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+
+      @media (min-width: 769px) {
+        width: 40%;
+      }
 
       // 見出し
       .heading {
@@ -853,36 +828,40 @@ body {
 
             img {
               background-color: $color--background;
-              box-shadow: 0 4px 4px rgba(0, 0, 0, .1),
-                          0 1px 6px rgba(0, 0, 0, .05),
-                          0 8px 8px rgba(0, 0, 0, .1),
-                          0 16px 16px rgba(0, 0, 0, .1),
-                          8px 32px 32px rgba(0, 0, 0, .15),
-                          8px 64px 64px rgba(0, 0, 0, .15);
+              box-shadow:
+                0 4px 4px rgba(0, 0, 0, 0.1),
+                0 1px 6px rgba(0, 0, 0, 0.05),
+                0 8px 8px rgba(0, 0, 0, 0.1),
+                0 16px 16px rgba(0, 0, 0, 0.1),
+                8px 32px 32px rgba(0, 0, 0, 0.15),
+                8px 64px 64px rgba(0, 0, 0, 0.15);
 
-              @media (max-width: 768px) { width: 50%;  }
-              @media (min-width: 769px) { width: 100%; }
+              @media (max-width: 768px) {
+                width: 50%;
+              }
 
+              @media (min-width: 769px) {
+                width: 100%;
+              }
             }
-
           }
 
           strong {
-            display: block;
             position: relative;
-            padding-bottom: .8rem;
+            display: block;
+            padding-bottom: 0.8rem;
             font-weight: 400;
 
             &::before,
             &::after {
-              content: '';
-              display: block;
               position: absolute;
               bottom: 0;
               left: 50%;
+              display: block;
               width: 20%;
               height: 2px;
               margin-left: -10%;
+              content: "";
             }
 
             &::before {
@@ -891,18 +870,15 @@ body {
 
             &::after {
               background: $color--text;
+              transition: transform 0.6s $ease-out-expo;
               transform: scaleX(0);
-              transition: transform .6s $ease-out-expo;
             }
-
           }
 
           &:hover strong::after {
             transform: scaleX(1);
           }
-
         }
-
       }
 
       // 投稿データ
@@ -917,25 +893,19 @@ body {
           display: inline;
 
           &:not(:last-child) {
-            margin-right: .2rem;
-            padding-right: .4rem;
+            padding-right: 0.4rem;
+            margin-right: 0.2rem;
             border-right: solid 1px $color--border;
           }
-
         }
 
         a {
-
           &:hover {
             text-decoration: underline;
           }
-
         }
-
       }
-
     }
-
   }
 
   // =============================================================================
@@ -943,30 +913,28 @@ body {
   // =============================================================================
 
   .article-detail {
-
     // 見出し
     .heading {
+      padding-bottom: 1rem;
       margin-top: 4rem;
       margin-bottom: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: solid 1px $color--border;
-      font-weight: inherit;
       font-size: 3.08rem;
+      font-weight: inherit;
       line-height: 1.2;
       word-wrap: break-word;
+      border-bottom: solid 1px $color--border;
 
       strong {
         font-weight: inherit;
       }
-
     }
 
     // 投稿データ
     .meta {
       display: flex;
       flex-flow: row wrap;
-      justify-content: flex-start;
       align-items: center;
+      justify-content: flex-start;
       margin-bottom: 4rem;
       font-size: 1rem;
       line-height: 1.2;
@@ -974,66 +942,63 @@ body {
       & > div {
         display: flex;
         flex-flow: row nowrap;
-        justify-content: flex-start;
         align-items: center;
+        justify-content: flex-start;
 
         &:not(:last-child) {
           margin-right: 2rem;
         }
-
       }
 
       dt {
         position: relative;
-        margin-right: .2rem;
-        padding-right: .8rem;
+        padding-right: 0.8rem;
+        margin-right: 0.2rem;
 
         &::before {
-          content: '';
           position: absolute;
           top: 50%;
           right: 0;
-          margin-top: -.2rem;
-          border-style: solid;
-          border-width: .2rem;
+          margin-top: -0.2rem;
+          content: "";
           border-color: transparent transparent transparent $color--border;
+          border-style: solid;
+          border-width: 0.2rem;
         }
 
         svg {
           width: 1.2rem;
           height: 1.2rem;
         }
-
       }
 
       a {
-
         &:hover {
           text-decoration: underline;
         }
-
       }
-
     }
 
     // アイキャッチ
     .eyecatch {
       position: relative;
-      margin-bottom: 8rem;
       padding-top: 2rem;
       padding-bottom: 2rem;
+      margin-bottom: 8rem;
       text-align: center;
 
       // 背景
       .background {
-        overflow: hidden;
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        overflow: hidden;
         opacity: 0;
-        animation: article-detail-eyecatch-background .6s .3s $ease-out-expo both;
+        animation:
+          article-detail-eyecatch-background 0.6s 0.3s $ease-out-expo
+          both;
 
         @keyframes article-detail-eyecatch-background {
           100% {
@@ -1043,14 +1008,21 @@ body {
 
         // 周辺減光
         &::after {
-          content: '';
-          display: block;
           position: absolute;
           top: 0;
           left: 0;
+          display: block;
           width: 100%;
           height: 100%;
-          background: radial-gradient(ellipse farthest-corner at 45px 45px ,rgba(0, 0, 0, .8) 0, rgba(51, 51, 51, .6) 60%, rgba(51, 51, 51, .6) 80%, rgba(0, 0, 0, 1) 100%);
+          content: "";
+          background:
+            radial-gradient(
+              ellipse farthest-corner at 45px 45px,
+              rgba(0, 0, 0, 0.8) 0,
+              rgba(51, 51, 51, 0.6) 60%,
+              rgba(51, 51, 51, 0.6) 80%,
+              rgba(0, 0, 0, 1) 100%
+            );
         }
 
         .background-image {
@@ -1069,7 +1041,9 @@ body {
           @media (min-width: 769px) {
             background-position: 100% 50%;
             background-size: 50% auto;
-            animation: article-detail-eyecatch-background-image 60s linear infinite;
+            animation:
+              article-detail-eyecatch-background-image 60s linear
+              infinite;
           }
 
           @keyframes article-detail-eyecatch-background-image {
@@ -1077,9 +1051,7 @@ body {
               background-position: 0 50%;
             }
           }
-
         }
-
       }
 
       // 画像
@@ -1089,23 +1061,20 @@ body {
 
         img {
           background: $color--background;
-          opacity: 0;
-          border-radius: 2px;
           filter: blur(24px);
-          animation: article-detail-eyecatch-img 1.8s .6s $ease-out-expo both;
+          border-radius: 2px;
+          opacity: 0;
+          animation: article-detail-eyecatch-img 1.8s 0.6s $ease-out-expo both;
 
           @keyframes article-detail-eyecatch-img {
             100% {
-              box-shadow: 0 16px 24px -8px rgba(0, 0, 0, .4);
-              opacity: 1;
               filter: blur(0);
+              box-shadow: 0 16px 24px -8px rgba(0, 0, 0, 0.4);
+              opacity: 1;
             }
           }
-
         }
-
       }
-
     }
 
     // 記事本文
@@ -1123,12 +1092,29 @@ body {
         font-weight: 500;
       }
 
-      h1 { font-size: 2rem; }
-      h2 { font-size: 2rem; }
-      h3 { font-size: 2rem; }
-      h4 { font-size: 1.8rem; }
-      h5 { font-size: 1.8rem; }
-      h6 { font-size: 1.8rem; }
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      h3 {
+        font-size: 2rem;
+      }
+
+      h4 {
+        font-size: 1.8rem;
+      }
+
+      h5 {
+        font-size: 1.8rem;
+      }
+
+      h6 {
+        font-size: 1.8rem;
+      }
 
       pre {
         line-height: 1.2;
@@ -1136,7 +1122,6 @@ body {
         code {
           font-size: 1rem;
         }
-
       }
 
       h1,
@@ -1145,7 +1130,7 @@ body {
       h4,
       h5,
       h6 {
-        margin-bottom: .2em;
+        margin-bottom: 0.2em;
       }
 
       p,
@@ -1163,50 +1148,43 @@ body {
         list-style: disc;
 
         &.inline {
-
           li {
             display: inline;
 
             &:not(:last-child) {
               margin-right: 2rem;
             }
-
           }
-
         }
-
       }
 
       dl {
-
         dd {
           padding-left: 1em;
         }
-
       }
 
       table {
         empty-cells: show;
-        border-collapse: separate;
         border-spacing: 1px;
+        border-collapse: separate;
 
         th,
         td {
-          padding: .2rem 1rem;
+          padding: 0.2rem 1rem;
         }
 
         th {
-          background: rgba(0, 0, 0, .4);
+          background: rgba(0, 0, 0, 0.4);
         }
 
         td {
-          background: rgba(0, 0, 0, .2);
+          background: rgba(0, 0, 0, 0.2);
         }
 
         tr:nth-of-type(even) td {
-          background: rgba(0, 0, 0, .1);
+          background: rgba(0, 0, 0, 0.1);
         }
-
       }
 
       blockquote {
@@ -1216,12 +1194,12 @@ body {
         border-radius: 4px;
 
         &::before {
-          content: '❝';
-          display: block;
           position: absolute;
           top: -1.6rem;
-          right: calc(100% + .8rem);
+          right: calc(100% + 0.8rem);
+          display: block;
           font-size: 2.4rem;
+          content: "❝";
         }
 
         p {
@@ -1232,25 +1210,23 @@ body {
           display: block;
           text-align: right;
         }
-
       }
 
       pre {
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
         position: relative;
         padding: 1rem;
+        overflow: auto;
         border: solid 2px $color--border;
+        -webkit-overflow-scrolling: touch;
 
         &::before {
-          content: attr(title);
           position: absolute;
           top: 0;
           left: 0;
-          background: $color--border;
           font-size: 1rem;
+          content: attr(title);
+          background: $color--border;
         }
-
       }
 
       a {
@@ -1265,7 +1241,6 @@ body {
         background: $color--border;
         border: none;
       }
-
     }
 
     .node {
@@ -1279,21 +1254,16 @@ body {
           text-align: right;
 
           &::after {
-            content: ' : ';
+            content: " : ";
           }
-
         }
 
         a {
-
           &:hover {
             text-decoration: underline;
           }
-
         }
-
       }
-
     }
 
     // 隣接リンク
@@ -1301,44 +1271,40 @@ body {
       margin-bottom: 8rem;
 
       ul {
-
         li {
-
           &:first-child {
-            margin-bottom: 1rem;
             padding-bottom: 1rem;
+            margin-bottom: 1rem;
             border-bottom: solid 1px $color--border;
           }
 
           a {
             display: flex;
             flex-wrap: nowrap;
-            justify-content: flex-start;
             align-items: center;
+            justify-content: flex-start;
 
             &::before {
-              font-weight: bold;
               font-size: 1rem;
+              font-weight: bold;
             }
 
             &.prev {
               flex-direction: row;
 
               &::before {
-                content: 'BEFORE - ';
                 white-space: nowrap;
+                content: "BEFORE - ";
               }
-
             }
 
             &.next {
               flex-direction: row-reverse;
 
               &::before {
-                content: ' - AFTER';
                 white-space: nowrap;
+                content: " - AFTER";
               }
-
             }
 
             img {
@@ -1348,18 +1314,13 @@ body {
               margin-right: 1rem;
               margin-left: 1rem;
             }
-
           }
-
         }
-
       }
-
     }
 
     // コメント
     .article-comment {
-
       h6 {
         margin-bottom: 1rem;
         font-size: 1.6rem;
@@ -1369,14 +1330,15 @@ body {
       // コメント一覧
       .comment-list {
         @include clearfix;
+
         margin-bottom: 2rem;
 
         ul {
           clear: both;
 
           li {
-            clear: both;
             padding-top: 1rem;
+            clear: both;
 
             // アバター
             .comment-avatar {
@@ -1387,24 +1349,23 @@ body {
                 max-width: 80px;
                 border-radius: 100%;
               }
-
             }
 
             // フキダシ
             article {
               position: relative;
               width: 76%;
-              padding: 1rem 2rem .5rem 2rem;
+              padding: 1rem 2rem 0.5rem 2rem;
               border: solid 1px $color--border;
               border-radius: 4px;
 
               &::before {
-                content: '';
                 position: absolute;
                 top: 2rem;
-                border-style: solid;
-                border-width: .4rem;
+                content: "";
                 border-color: transparent;
+                border-style: solid;
+                border-width: 0.4rem;
               }
 
               // 本文
@@ -1418,7 +1379,6 @@ body {
                 a {
                   text-decoration: underline;
                 }
-
               }
 
               // コメント情報
@@ -1427,11 +1387,9 @@ body {
                 text-align: right;
 
                 .name {
-
                   &::after {
-                    content: ' / ';
+                    content: " / ";
                   }
-
                 }
 
                 // 返信
@@ -1439,24 +1397,17 @@ body {
                   margin-left: 2rem;
 
                   .comment-reply-link {
-
                     &::before {
-                      content: '⇔ ';
+                      content: "⇔ ";
                     }
-
                   }
-
                 }
-
               }
-
             }
-
           }
 
           // 親階層
           &.parent {
-
             .comment-avatar {
               float: left;
             }
@@ -1469,14 +1420,11 @@ body {
                 right: 100%;
                 border-right-color: $color--border;
               }
-
             }
-
           }
 
           // 子階層
           &.children {
-
             .comment-avatar {
               float: right;
               text-align: right;
@@ -1493,30 +1441,26 @@ body {
                 border-right-color: transparent !important; /* 動的CSSのほうが優先度が高く崩れるため */
                 border-left-color: $color--border;
               }
-
             }
-
           }
-
         }
-
       }
 
       // コメントフォーム
       .comment-respond {
-        clear: both;
         position: relative;
         padding-top: 3rem;
+        clear: both;
 
         &::before {
-          content: '';
           position: absolute;
           top: 0;
           left: 50%;
           margin-left: -1rem;
+          content: "";
+          border-color: transparent transparent $color--border transparent;
           border-style: solid;
           border-width: 1rem;
-          border-color: transparent transparent $color--border transparent;
         }
 
         // 見出し
@@ -1527,7 +1471,6 @@ body {
 
         // フォーム
         .comment-form {
-
           // 既にログイン中の案内
           .logged-in-as {
             margin-bottom: 1rem;
@@ -1540,47 +1483,37 @@ body {
             border-left: solid 1px $color--border;
 
             .flex-item {
-
               &:nth-of-type(1) {
                 flex-grow: 1;
-                padding: .4rem 2rem;
+                padding: 0.4rem 2rem;
                 text-align: center;
               }
 
               &:nth-of-type(2) {
                 width: 60%;
-                padding: .4rem 0;
+                padding: 0.4rem 0;
               }
 
               label {
-
                 span {
                   display: block;
-                  font-size: .8rem;
+                  font-size: 0.8rem;
                 }
-
               }
-
             }
-
           }
 
           .form-submit {
             padding-top: 1rem;
             text-align: right;
 
-            input[type='submit'] {
+            input[type="submit"] {
               padding: 1rem 4rem;
             }
-
           }
-
         }
-
       }
-
     }
-
   }
 
   // =============================================================================
@@ -1597,7 +1530,6 @@ body {
     h2 {
       font-size: 4rem;
     }
-
   }
 
   // ================
@@ -1615,18 +1547,15 @@ body {
         display: inline-block;
 
         &.current {
-          padding: .8rem;
+          padding: 0.8rem;
           border-bottom: solid 4px $color--accent;
         }
 
         a {
-          padding: .8rem;
+          padding: 0.8rem;
         }
-
       }
-
     }
-
   }
 
   // =============================================================================
@@ -1634,43 +1563,39 @@ body {
   // =============================================================================
 
   .footer {
-    margin-top: 8rem;
     padding: 1rem;
-    background: $color--text;
+    margin-top: 8rem;
     font-size: 1.2rem;
-    text-align: center;
     color: $color--background;
+    text-align: center;
+    background: $color--text;
 
     a {
-
       &:hover {
         text-decoration: underline;
       }
-
     }
 
     ul {
-
       li {
         display: inline;
 
         &:not(:last-child)::after {
-          content: ' / ';
+          content: " / ";
         }
-
       }
-
     }
 
     .register {
+      &::before {
+        content: "[ ";
+      }
 
-      &::before { content: '[ '; }
-      &::after  { content: ' ]'; }
-
+      &::after {
+        content: " ]";
+      }
     }
-
   }
-
 }
 
 // =============================================================================
@@ -1678,7 +1603,6 @@ body {
 // =============================================================================
 
 .drawer {
-  pointer-events: none;
   position: fixed;
   top: 0;
   bottom: 0;
@@ -1687,22 +1611,23 @@ body {
   width: 100vw;
   max-width: 480px;
   padding-top: 5rem;
-  background: $color--sub;
   color: $color--background;
+  pointer-events: none;
+  background: $color--sub;
+  transition: transform 0.6s $ease-out-expo;
   transform: translateX(-100%);
-  transition: transform .6s $ease-out-expo;
 
   // ドロワー表示
   body.state--show-drawer & {
     pointer-events: auto;
-    box-shadow: 1px 0 2px -1px rgba(0, 0, 0, .4);
+    box-shadow: 1px 0 2px -1px rgba(0, 0, 0, 0.4);
     transform: translateX(0);
   }
 
   .scroll {
+    height: 100%;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    height: 100%;
 
     &::-webkit-scrollbar {
       display: none;
@@ -1720,9 +1645,9 @@ body {
       .avatar {
         position: relative;
         z-index: 1;
-        transform: translateX(-24px) scale(1.2);
         border: solid 4px $color--sub;
-        transition: .9s $ease-out-expo;
+        transition: 0.9s $ease-out-expo;
+        transform: translateX(-24px) scale(1.2);
 
         // ドロワー表示
         body.state--show-drawer & {
@@ -1732,29 +1657,28 @@ body {
         img {
           max-width: 80px;
         }
-
       }
 
       .name {
         display: flex;
         flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
         flex-grow: 1;
+        align-items: center;
+        justify-content: center;
         padding: 1rem;
-        background: rgba(255, 255, 255, .2);
-        border: solid 1px $color--sub;
-        font-weight: bold;
         font-size: 1.2rem;
+        font-weight: bold;
+        background: rgba(255, 255, 255, 0.2);
+        border: solid 1px $color--sub;
       }
 
       .comment {
         flex-grow: 1;
         width: 100%;
         padding: 40px 2rem 2rem 2rem;
-        background: rgba(255, 255, 255, .2);
-        border: solid 1px $color--sub;
         font-size: 1.2rem;
+        background: rgba(255, 255, 255, 0.2);
+        border: solid 1px $color--sub;
       }
 
       .links {
@@ -1765,42 +1689,37 @@ body {
 
         li {
           flex-grow: 1;
-          border: solid 1px $color--sub;
-          text-align: center;
           font-size: 1rem;
+          text-align: center;
+          border: solid 1px $color--sub;
 
           a {
             display: block;
             height: 100%;
             padding: 1rem;
-            background: rgba(255, 255, 255, .3);
-            transition: background-color .3s $ease-out-expo;
+            background: rgba(255, 255, 255, 0.3);
+            transition: background-color 0.3s $ease-out-expo;
 
             &:hover {
-              background: rgba(255, 255, 255, .4);
+              background: rgba(255, 255, 255, 0.4);
             }
 
             &.home,
             &.feed {
-              background: rgba(255, 255, 255, .5);
+              background: rgba(255, 255, 255, 0.5);
 
               &:hover {
-                background: rgba(255, 255, 255, .6);
+                background: rgba(255, 255, 255, 0.6);
               }
-
             }
-
           }
 
           svg {
             width: 1.2rem;
             height: 1.2rem;
           }
-
         }
-
       }
-
     }
 
     // ==================
@@ -1812,58 +1731,54 @@ body {
       padding-left: 2rem;
 
       h6 {
-        font-weight: 500;
         font-size: 1.6rem;
+        font-weight: 500;
 
         svg {
           width: 1.6rem;
           height: 1.6rem;
-          margin-right: .8rem;
+          margin-right: 0.8rem;
         }
-
       }
 
       ul {
         margin-bottom: 2rem;
 
         &:not(:last-child) {
-          border-bottom: solid 1px rgba(255, 255, 255, .2);
+          border-bottom: solid 1px rgba(255, 255, 255, 0.2);
 
           &::after {
-            content: '';
             display: block;
             padding-bottom: 2rem;
-            border-bottom: solid 1px rgba(0, 0, 0, .2);
+            content: "";
+            border-bottom: solid 1px rgba(0, 0, 0, 0.2);
           }
-
         }
 
         li {
           position: relative;
-          margin: .4em 0 .4em 2.8rem;
+          margin: 0.4em 0 0.4em 2.8rem;
           font-size: 1.2rem;
 
           &::before {
-            content: '*';
             position: absolute;
-            top: calc(50% - .8rem);
+            top: calc(50% - 0.8rem);
             left: -2.4rem;
+            content: "*";
           }
 
           a {
             padding-bottom: 2px;
-            opacity: .8;
             border-bottom: solid 2px transparent;
-            transition: .3s $ease-out-expo;
+            opacity: 0.8;
+            transition: 0.3s $ease-out-expo;
             transition-property: opacity, border-color;
 
             &:hover {
+              border-color: rgba(255, 255, 255, 0.2);
               opacity: 1;
-              border-color: rgba(255, 255, 255, .2);
             }
-
           }
-
         }
 
         // 入れ子
@@ -1875,19 +1790,13 @@ body {
             margin-left: 0;
 
             &::before {
-              content: '-';
+              content: "-";
             }
-
           }
-
         }
-
       }
-
     }
-
   }
-
 }
 
 // =============================================================================
@@ -1895,8 +1804,6 @@ body {
 // =============================================================================
 
 .share {
-  pointer-events: none;
-  overflow: hidden;
   position: fixed;
   top: 0;
   right: 0;
@@ -1905,6 +1812,8 @@ body {
   z-index: 2;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  pointer-events: none;
   opacity: 0;
 
   // 共有表示
@@ -1916,9 +1825,9 @@ body {
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
+    height: 100%;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    height: 100%;
 
     &::-webkit-scrollbar {
       display: none;
@@ -1938,54 +1847,61 @@ body {
       }
 
       &::after {
-        content: '';
         display: block;
         width: 100%;
         height: 2px;
+        content: "";
+        transition: transform 0s 0s step-start;
         transform: translateX(-100%);
         transform-origin: 0 0;
-        transition: transform 0s 0s step-start;
 
         // 配色
-        body.theme--dark &  { background: #fff; }
-        body.theme--light & { background: #000; }
+        body.theme--dark & {
+          background: #fff;
+        }
+
+        body.theme--light & {
+          background: #000;
+        }
 
         // 共有表示
         body.state--show-share & {
+          transition: transform 1.2s 0.3s cubic-bezier(0, 0.19, 0.04, 0.98);
           transform: translateX(0);
-          transition: transform 1.2s .3s cubic-bezier(0, .19, .04, .98);
         }
-
       }
 
       h6 {
         display: inline-block;
         padding-left: 10%;
-        opacity: 0;
-        transform: translateX(-1rem);
         font-size: 1.2rem;
         text-align: left;
+        opacity: 0;
         transition: 0s 0s step-start;
         transition-property: opacity, transform;
+        transform: translateX(-1rem);
 
         // 配色
-        body.theme--dark &  { color: #fff; }
-        body.theme--light & { color: #000; }
+        body.theme--dark & {
+          color: #fff;
+        }
+
+        body.theme--light & {
+          color: #000;
+        }
 
         // 共有表示
         body.state--show-share & {
           opacity: 1;
+          transition: 0.6s 1.2s cubic-bezier(0, 0.19, 0.04, 0.98);
           transform: translateX(0);
-          transition: .6s 1.2s cubic-bezier(0, .19, .04, .98);
         }
 
         strong {
           display: block;
           font-size: 1.6rem;
         }
-
       }
-
     }
 
     // ============
@@ -1996,8 +1912,8 @@ body {
       display: flex;
       flex-flow: row nowrap;
       justify-content: flex-end;
-      margin-top: 1rem;
       padding-right: 10%;
+      margin-top: 1rem;
 
       // 共有表示
       body.state--show-share & {
@@ -2005,11 +1921,11 @@ body {
       }
 
       li {
-        overflow: hidden;
         position: relative;
         width: 3rem;
         height: 3rem;
         margin-left: 1rem;
+        overflow: hidden;
         border-radius: 100%;
 
         svg,
@@ -2028,30 +1944,31 @@ body {
           // 共有表示
           body.state--show-share & {
             opacity: 1;
-            transition: opacity .3s 1.8s $ease-out-expo;
+            transition: opacity 0.3s 1.8s $ease-out-expo;
           }
 
           path {
-            transition: stroke-dashoffset 0s 0s step-start;
-
             fill: none;
-            stroke-width: 2;
             stroke-dasharray: 1000;
             stroke-dashoffset: 1000;
+            stroke-width: 2;
+            transition: stroke-dashoffset 0s 0s step-start;
 
             // 配色
-            body.theme--dark &  { stroke: #fff; }
-            body.theme--light & { stroke: #000; }
+            body.theme--dark & {
+              stroke: #fff;
+            }
+
+            body.theme--light & {
+              stroke: #000;
+            }
 
             // 共有表示
             body.state--show-share & {
-              transition: stroke-dashoffset .9s 1.8s $ease-out-expo;
-
               stroke-dashoffset: 0;
+              transition: stroke-dashoffset 0.9s 1.8s $ease-out-expo;
             }
-
           }
-
         }
 
         a {
@@ -2059,37 +1976,69 @@ body {
           height: 100%;
           background: no-repeat 50% 50% / 50% auto;
           opacity: 0;
-          transform: rotateY(-360deg);
           transition: 0s 0s step-start;
           transition-property: opacity, transition;
+          transform: rotateY(-360deg);
+
           @include hidden-text;
 
           // 配色
-          body.theme--dark &.google-plus  { @include icon--sns--google-plus--light; }
-          body.theme--dark &.facebook     { @include icon--sns--facebook--light;    }
-          body.theme--dark &.twitter      { @include icon--sns--twitter--light;     }
-          body.theme--dark &.line         { @include icon--sns--line--light;        }
-          body.theme--dark &.feedly       { @include icon--sns--feedly--light;      }
-          body.theme--dark &.hatena       { @include icon--sns--hatena--light;      }
+          body.theme--dark &.google-plus {
+            @include icon--sns--google-plus--light;
+          }
 
-          body.theme--light &.google-plus { @include icon--sns--google-plus--dark;  }
-          body.theme--light &.facebook    { @include icon--sns--facebook--dark;     }
-          body.theme--light &.twitter     { @include icon--sns--twitter--dark;      }
-          body.theme--light &.line        { @include icon--sns--line--dark;         }
-          body.theme--light &.feedly      { @include icon--sns--feedly--dark;       }
-          body.theme--light &.hatena      { @include icon--sns--hatena--dark;       }
+          body.theme--dark &.facebook {
+            @include icon--sns--facebook--light;
+          }
+
+          body.theme--dark &.twitter {
+            @include icon--sns--twitter--light;
+          }
+
+          body.theme--dark &.line {
+            @include icon--sns--line--light;
+          }
+
+          body.theme--dark &.feedly {
+            @include icon--sns--feedly--light;
+          }
+
+          body.theme--dark &.hatena {
+            @include icon--sns--hatena--light;
+          }
+
+          body.theme--light &.google-plus {
+            @include icon--sns--google-plus--dark;
+          }
+
+          body.theme--light &.facebook {
+            @include icon--sns--facebook--dark;
+          }
+
+          body.theme--light &.twitter {
+            @include icon--sns--twitter--dark;
+          }
+
+          body.theme--light &.line {
+            @include icon--sns--line--dark;
+          }
+
+          body.theme--light &.feedly {
+            @include icon--sns--feedly--dark;
+          }
+
+          body.theme--light &.hatena {
+            @include icon--sns--hatena--dark;
+          }
 
           // 共有表示
           body.state--show-share & {
             opacity: 1;
+            transition: 0.6s 1.8s $ease-out-expo;
             transform: rotateY(0);
-            transition: .6s 1.8s $ease-out-expo;
           }
-
         }
-
       }
-
     }
 
     // ======
@@ -2098,8 +2047,8 @@ body {
 
     .close {
       position: absolute;
-      bottom: 0;
       right: 0;
+      bottom: 0;
       width: 5rem;
       height: 5rem;
 
@@ -2111,28 +2060,34 @@ body {
 
       &::before,
       &::after {
-        content: '';
         position: absolute;
         top: 50%;
         left: 25%;
         width: 50%;
         height: 2px;
         margin-top: -1px;
+        content: "";
         border-radius: 2px;
 
         // 配色
-        body.theme--dark &  { background: #fff; }
-        body.theme--light & { background: #000; }
+        body.theme--dark & {
+          background: #fff;
+        }
 
+        body.theme--light & {
+          background: #000;
+        }
       }
 
-      &::before { transform: rotate(-45deg); }
-      &::after  { transform: rotate(45deg);  }
+      &::before {
+        transform: rotate(-45deg);
+      }
 
+      &::after {
+        transform: rotate(45deg);
+      }
     }
-
   }
-
 }
 
 // =============================================================================
@@ -2140,8 +2095,6 @@ body {
 // =============================================================================
 
 .overlay {
-  pointer-events: none;
-  overflow: hidden;
   position: fixed;
   top: 0;
   right: 0;
@@ -2150,8 +2103,10 @@ body {
   z-index: 1;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  pointer-events: none;
   opacity: 0;
-  transition: .3s $ease-out-expo;
+  transition: 0.3s $ease-out-expo;
   transition-property: background-color, -webkit-backdrop-filter, opacity;
 
   // オーバーレイ表示
@@ -2163,29 +2118,25 @@ body {
     @supports (-webkit-backdrop-filter: blur(0)) {
       -webkit-backdrop-filter: blur(2px);
     }
-
   }
 
   // オーバーレイ表示 | 配色 ダーク
   body.state--show-overlay.theme--dark & {
-    background: rgba(0, 0, 0, .8);
+    background: rgba(0, 0, 0, 0.8);
 
     // filterあるいはbackdrop-filterをサポート
     @supports (filter: blur(0)) or (-webkit-backdrop-filter: blur(0)) {
-      background: rgba(0, 0, 0, .4);
+      background: rgba(0, 0, 0, 0.4);
     }
-
   }
 
   // オーバーレイ表示 | 配色 ライト
   body.state--show-overlay.theme--light & {
-    background: rgba(255, 255, 255, .8);
+    background: rgba(255, 255, 255, 0.8);
 
     // filterあるいはbackdrop-filterをサポート
     @supports (filter: blur(0)) or (-webkit-backdrop-filter: blur(0)) {
-      background: rgba(255, 255, 255, .4);
+      background: rgba(255, 255, 255, 0.4);
     }
-
   }
-
 }

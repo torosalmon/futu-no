@@ -1,127 +1,130 @@
 /*!
  * *****************************************************************************
- * [futu-no JavaScript] - http://trs.mn/blog/futu-no/
- * @Author: trs
+ * [futu-no] - http://trs.mn/blog/futu-no/
+ * @Author: torosalmon
  * @License: MIT License
  * *****************************************************************************
-!*/
+ */
 
-declare var require: any
-declare var SweetScroll: any
-
-var SweetScroll = require('sweet-scroll');
+const SweetScroll = require('sweet-scroll')
 
 {
 
   // =============================================================================
-  // グローバル変数
+  // 設定
   // =============================================================================
 
-  // 設定
-  const header_change_trigger_y: number = 160; // ヘッダー表示を切り替えるブレイクポイント
+  // 指定したY座標以上スクロールするとヘッダー表示を切り替える
+  const changeHeaderDisplay: number = 160
 
   // class instance
-  let ux;
-  let theme_color;
-  let header;
-  let search_form;
-  let drawer;
-  let share;
+  let smoothScroll
+  let parallax
+  let themeColor
+  let header
+  let searchForm
+  let drawer
+  let share
 
   // DOM
-  const $meta_theme_color: HTMLElement                  = document.querySelector('meta[name="theme-color"]');
-  const $body: HTMLCollectionOf <HTMLBodyElement>       = document.getElementsByTagName('body');
-  const $header: HTMLCollectionOf <Element>             = document.getElementsByClassName('js--header');
-  const $search_form_button: HTMLCollectionOf <Element> = document.getElementsByClassName('js--search-form-button');
-  const $drawer_button: HTMLCollectionOf <Element>      = document.getElementsByClassName('js--drawer-button');
-  const $share_button: HTMLCollectionOf <Element>       = document.getElementsByClassName('js--share-button');
-  const $overlay: HTMLCollectionOf <Element>            = document.getElementsByClassName('js--overlay');
+  const $metaThemeColor: HTMLElement = document.querySelector('meta[name="theme-color"]')
+  const $body: HTMLCollectionOf <HTMLBodyElement> = document.getElementsByTagName('body')
+  const $header: HTMLCollectionOf <Element> = document.getElementsByClassName('js--header')
+  const $searchFormButton: HTMLCollectionOf <Element> = document.getElementsByClassName('js--search-form-button')
+  const $drawerButton: HTMLCollectionOf <Element> = document.getElementsByClassName('js--drawer-button')
+  const $shareButton: HTMLCollectionOf <Element> = document.getElementsByClassName('js--share-button')
+  const $overlay: HTMLCollectionOf <Element> = document.getElementsByClassName('js--overlay')
 
   // =============================================================================
   // メインスレッド
   // =============================================================================
 
-  // ================
-  // DOMContentLoaded
-  // ================
-
   document.addEventListener('DOMContentLoaded', () => {
-    ux          = new UX();
-    theme_color = new THEME_COLOR();
-    header      = new HEADER();
-    search_form = new SEARCH_FORM();
-    drawer      = new DRAWER();
-    share       = new SHARE();
+    smoothScroll = new SMOOTHSCROLL()
+    parallax = new PARALLAX()
+    themeColor = new THEMECOLOR()
+    header = new HEADER()
+    searchForm = new SEARCHFORM()
+    drawer = new DRAWER()
+    share = new SHARE()
   }, {
     once: true,
     passive: false,
     capture: true
-  });
+  })
 
   // =============================================================================
-  // UX
+  // スムーススクロール
   // =============================================================================
 
-  class UX {
+  class SMOOTHSCROLL {
 
-    constructor() {
+    constructor () {
 
-      // スムーススクロール
-      if(document.getElementsByClassName('js--scroll')[0] != null) {
-        this.smooth_scroll();
-      }
-
-      // パララックス
-      if(document.getElementsByClassName('js--parallax')[0] != null) {
-        this.parallax();
+      // 対象の存在を判定
+      if (document.getElementsByClassName('js--scroll')[0] != null) {
+        this.sweetScroll()
       }
     }
 
-    // ==================
-    // スムーススクロール
-    // ==================
+    // ============
+    // sweet-scroll
+    // ============
 
-    private smooth_scroll(): void {
-
-      // sweet-scroll
+    private sweetScroll (): void {
       const option = {
         trigger: '.js--scroll', // トリガーとなる要素をCSSセレクタで指定
-        header: '.js--header',  // 固定ヘッダをCSSセレクタで指定
-        duration: 900,          // アニメーション再生時間のミリ秒
-        easing: 'easeOutExpo',  // イージングのタイプ（デフォルト：easeOutQuint）
-        stopScroll: true,       // ホイール・タッチイベントが発生した時にスクロールを停止
-      };
-      new SweetScroll(option);
+        header: '.js--header', // 固定ヘッダをCSSセレクタで指定
+        duration: 900, // アニメーション再生時間のミリ秒
+        easing: 'easeOutExpo', // イージングのタイプ（デフォルト：easeOutQuint）
+        stopScroll: true // ホイール・タッチイベントが発生した時にスクロールを停止
+      }
+      const sweetScroll: void = new SweetScroll(option)
+    }
+  }
+
+  // =============================================================================
+  // パララックス
+  // =============================================================================
+
+  class PARALLAX {
+
+    constructor () {
+
+      // 対象の存在を判定
+      if (document.getElementsByClassName('js--parallax')[0] != null) {
+        this.parallax()
+      }
     }
 
     // ============
     // パララックス
     // ============
 
-    private parallax(): void {
+    private parallax (): void {
 
       // ====
       // init
       // ====
 
-      const $parallax: NodeListOf <HTMLElement> = document.querySelectorAll('.js--parallax');
-      const friction                            = [];
+      const $parallax: NodeListOf <HTMLElement> = document.querySelectorAll('.js--parallax')
+      const friction = []
 
-      for(let i: number = 0; i < $parallax.length; i += 1) {
+      for (let i: number = 0; i < $parallax.length; i += 1) {
 
         // 速度補正オプションを取得
-        if($parallax[i].dataset.parallaxFriction != null) {
-          friction[i] = $parallax[i].dataset.parallaxFriction;
+        if ($parallax[i].dataset.parallaxFriction != null) {
+          friction[i] = $parallax[i].dataset.parallaxFriction
         }
 
         // $parallaxをwrapするタグを生成
-        const $container: HTMLElement = document.createElement('div');
-        $container.className          = 'js--parallax-container';
-        $parallax[i].parentNode.insertBefore($container, $parallax[i]);
-        $parallax[i].parentNode.removeChild($parallax[i]);
-        $container.appendChild($parallax[i]);
+        const $container: HTMLElement = document.createElement('div')
+        $container.className = 'js--parallax-container'
+        $parallax[i].parentNode.insertBefore($container, $parallax[i])
+        $parallax[i].parentNode.removeChild($parallax[i])
+        $container.appendChild($parallax[i])
       }
-      const $parallax_container: NodeListOf <HTMLElement> = document.querySelectorAll('.js--parallax-container');
+      const $parallaxContainer: NodeListOf <HTMLElement> = document.querySelectorAll('.js--parallax-container')
 
       // ========
       // イベント
@@ -131,71 +134,69 @@ var SweetScroll = require('sweet-scroll');
         once: false,
         passive: true,
         capture: true
-      });
+      })
       document.addEventListener('touchmove', animation, {
         once: false,
         passive: true,
         capture: true
-      });
+      })
 
       // ==============
       // アニメーション
       // ==============
 
-      function animation(): void {
-        for(let i: number = 0; i < $parallax.length; i += 1) {
-          const y: number = $parallax_container[i].getBoundingClientRect().top;
+      function animation (): void {
+        for (let i: number = 0; i < $parallax.length; i += 1) {
+          const y: number = $parallaxContainer[i].getBoundingClientRect().top
 
-          $parallax[i].style.transform = 'translateY(' + (- y / friction[i]) + 'px' + ')';
+          $parallax[i].style.transform = `translateY(${-y / friction[i]}px)`
         }
-        window.requestAnimationFrame(animation);
+        window.requestAnimationFrame(animation)
       }
-
     }
-
   }
 
   // =============================================================================
   // <meta theme-color>の切り替え
   // =============================================================================
 
-  class THEME_COLOR {
+  class THEMECOLOR {
 
-    private main_color: string;    // <body> border-top-color
-    private sub_color: string;     // <body> border-bottom-color
-    private current_color: string; // 現在適用されている色
+    private mainColor: string; // <body> border-top-color
+    private subColor: string; // <body> border-bottom-color
+    private currentColor: string; // 現在適用されている色
 
-    constructor() {
+    constructor () {
 
       // <meta theme-color>の初期色指定
-      this.main_color    = getComputedStyle($body[0]).borderTopColor;
-      this.sub_color     = getComputedStyle($body[0]).borderBottomColor;
-      this.current_color = this.main_color;
+      this.mainColor = getComputedStyle($body[0]).borderTopColor
+      this.subColor = getComputedStyle($body[0]).borderBottomColor
+      this.currentColor = this.mainColor
 
-      $meta_theme_color.setAttribute('content', this.current_color);
+      $metaThemeColor.setAttribute('content', this.currentColor)
     }
 
     // ========
     // 切り替え
     // ========
 
-    public change(): void {
-      const $header_cast = $header as HTMLCollectionOf<HTMLElement>;
+    public change (): void {
+      const $headerCast = $header as HTMLCollectionOf<HTMLElement>
 
-      // sub_colorへ変更
-      if($body[0].classList.contains('state--show-drawer') || $body[0].classList.contains('state--show-search-form')) {
-        $meta_theme_color.setAttribute('content', this.sub_color);
-        $header_cast[0].style.borderTopColor = this.sub_color;
+      if ($body[0].classList.contains('state--show-drawer') || $body[0].classList.contains('state--show-search-form')) {
+        // subColorへ変更
 
-        this.current_color = this.sub_color;
-      }
+        $metaThemeColor.setAttribute('content', this.subColor)
+        $headerCast[0].style.borderTopColor = this.subColor
 
-      // main_colorへ変更
-      else {
-        $meta_theme_color.setAttribute('content', this.main_color);
-        $header_cast[0].style.borderTopColor = this.main_color;
+        this.currentColor = this.subColor
+      } else {
+        // mainColorへ変更
 
-        this.current_color = this.main_color;
+        $metaThemeColor.setAttribute('content', this.mainColor)
+        $headerCast[0].style.borderTopColor = this.mainColor
+
+        this.currentColor = this.mainColor
       }
     }
 
@@ -207,28 +208,28 @@ var SweetScroll = require('sweet-scroll');
 
   class HEADER {
 
-    constructor() {
+    constructor () {
       window.addEventListener('scroll', this.change, {
         once: false,
         passive: true,
         capture: true
-      });
+      })
       document.addEventListener('touchmove', this.change, {
         once: false,
         passive: true,
         capture: true
-      });
+      })
     }
 
     // ========
     // 切り替え
     // ========
 
-    private change(): void {
-      if(header_change_trigger_y < window.pageYOffset) {
-        $body[0].classList.add('state--show-scroll-header');
+    private change (): void {
+      if (changeHeaderDisplay < window.pageYOffset) {
+        $body[0].classList.add('state--show-scroll-header')
       } else {
-        $body[0].classList.remove('state--show-scroll-header');
+        $body[0].classList.remove('state--show-scroll-header')
       }
     }
 
@@ -238,15 +239,15 @@ var SweetScroll = require('sweet-scroll');
   // 検索フォーム
   // =============================================================================
 
-  class SEARCH_FORM {
+  class SEARCHFORM {
 
-    constructor() {
-      for(let i: number = 0; i < $search_form_button.length; i += 1) {
-        $search_form_button[i].addEventListener('click', this.change, {
+    constructor () {
+      for (let i: number = 0; i < $searchFormButton.length; i += 1) {
+        $searchFormButton[i].addEventListener('click', this.change, {
           once: false,
           passive: false,
           capture: false
-        });
+        })
       }
     }
 
@@ -254,44 +255,37 @@ var SweetScroll = require('sweet-scroll');
     // 表示切り替え
     // ============
 
-    private change(): void {
+    private change (): void {
 
-      // ====
-      // 開く
-      // ====
-
-      if(!$body[0].classList.contains('state--show-search-form')) {
+      if (!$body[0].classList.contains('state--show-search-form')) {
+        // 開く
 
         // ドロワーが開いていたら閉じる
-        if($body[0].classList.contains('state--show-drawer')) {
-          $body[0].classList.remove('state--show-drawer');
-          $body[0].classList.remove('state--show-overlay');
-          $overlay[0].removeEventListener('click', drawer.change, false);
+        if ($body[0].classList.contains('state--show-drawer')) {
+          $body[0].classList.remove('state--show-drawer')
+          $body[0].classList.remove('state--show-overlay')
+          $overlay[0].removeEventListener('click', drawer.change, false)
         }
 
         // 共有が開いていたら閉じる
-        if($body[0].classList.contains('state--show-share')) {
-          $body[0].classList.remove('state--show-share');
-          $body[0].classList.remove('state--show-overlay');
-          $overlay[0].removeEventListener('click', share.change, false);
+        if ($body[0].classList.contains('state--show-share')) {
+          $body[0].classList.remove('state--show-share')
+          $body[0].classList.remove('state--show-overlay')
+          $overlay[0].removeEventListener('click', share.change, false)
 
           // 背景スクロール停止
-          share.background_scroll(false);
+          share.backgroundScroll(false)
         }
 
-        $body[0].classList.add('state--show-search-form');
-      }
+        $body[0].classList.add('state--show-search-form')
+      } else {
+        // 閉じる
 
-      // ======
-      // 閉じる
-      // ======
-
-      else {
-        $body[0].classList.remove('state--show-search-form');
+        $body[0].classList.remove('state--show-search-form')
       }
 
       // テーマカラー変更
-      theme_color.change();
+      themeColor.change()
     }
 
   }
@@ -302,13 +296,13 @@ var SweetScroll = require('sweet-scroll');
 
   class DRAWER {
 
-    constructor() {
-      for(let i: number = 0; i < $drawer_button.length; i += 1) {
-        $drawer_button[i].addEventListener('click', this.change, {
+    constructor () {
+      for (let i: number = 0; i < $drawerButton.length; i += 1) {
+        $drawerButton[i].addEventListener('click', this.change, {
           once: false,
           passive: false,
           capture: false
-        });
+        })
       }
     }
 
@@ -316,46 +310,38 @@ var SweetScroll = require('sweet-scroll');
     // 表示切り替え
     // ============
 
-    public change(): void {
-
-      // ====
-      // 開く
-      // ====
-
-      if(!$body[0].classList.contains('state--show-drawer')) {
+    public change (): void {
+      if (!$body[0].classList.contains('state--show-drawer')) {
+        // 開く
 
         // 共有が開いていたら閉じる
-        if($body[0].classList.contains('state--show-share')) {
-          $body[0].classList.remove('state--show-share');
-          $overlay[0].removeEventListener('click', share.change, false);
+        if ($body[0].classList.contains('state--show-share')) {
+          $body[0].classList.remove('state--show-share')
+          $overlay[0].removeEventListener('click', share.change, false)
 
           // 背景スクロール停止
-          share.background_scroll(false);
+          share.backgroundScroll(false)
         }
 
-        $body[0].classList.add('state--show-drawer');
-        $body[0].classList.add('state--show-overlay');
+        $body[0].classList.add('state--show-drawer')
+        $body[0].classList.add('state--show-overlay')
 
         // オーバーレイクリックで表示解除
         $overlay[0].addEventListener('click', drawer.change, {
           once: true,
           passive: false,
           capture: false
-        });
-      }
+        })
+      } else {
+        // 閉じる
 
-      // ======
-      // 閉じる
-      // ======
-
-      else {
-        $body[0].classList.remove('state--show-drawer');
-        $body[0].classList.remove('state--show-overlay');
-        $overlay[0].removeEventListener('click', drawer.change, false);
+        $body[0].classList.remove('state--show-drawer')
+        $body[0].classList.remove('state--show-overlay')
+        $overlay[0].removeEventListener('click', drawer.change, false)
       }
 
       // テーマカラー変更
-      theme_color.change();
+      themeColor.change()
     }
 
   }
@@ -368,13 +354,13 @@ var SweetScroll = require('sweet-scroll');
 
     private timer: number;
 
-    constructor() {
-      for(let i: number = 0; i < $share_button.length; i += 1) {
-        $share_button[i].addEventListener('click', this.change, {
+    constructor () {
+      for (let i: number = 0; i < $shareButton.length; i += 1) {
+        $shareButton[i].addEventListener('click', this.change, {
           once: false,
           passive: false,
           capture: false
-        });
+        })
       }
     }
 
@@ -382,73 +368,64 @@ var SweetScroll = require('sweet-scroll');
     // 表示切り替え
     // ============
 
-    public change(): void {
-
-      // ====
-      // 開く
-      // ====
-
-      if(!$body[0].classList.contains('state--show-share')) {
+    public change (): void {
+      if (!$body[0].classList.contains('state--show-share')) {
+        // 開く
 
         // ドロワーが開いていたら閉じる
-        if($body[0].classList.contains('state--show-drawer')) {
-          $body[0].classList.remove('state--show-drawer');
-          $overlay[0].removeEventListener('click', drawer.change, false);
+        if ($body[0].classList.contains('state--show-drawer')) {
+          $body[0].classList.remove('state--show-drawer')
+          $overlay[0].removeEventListener('click', drawer.change, false)
         }
 
-        $body[0].classList.add('state--show-share');
-        $body[0].classList.add('state--show-overlay');
+        $body[0].classList.add('state--show-share')
+        $body[0].classList.add('state--show-overlay')
 
         // オーバーレイクリックで表示解除
         $overlay[0].addEventListener('click', share.change, {
           once: true,
           passive: false,
           capture: false
-        });
+        })
 
         // 背景スクロール開始
-        share.background_scroll(true);
-      }
+        share.backgroundScroll(true)
+      } else {
+        // 閉じる
 
-      // ======
-      // 閉じる
-      // ======
-
-      else {
-        $body[0].classList.remove('state--show-share');
-        $body[0].classList.remove('state--show-overlay');
-        $overlay[0].removeEventListener('click', drawer.change, false);
+        $body[0].classList.remove('state--show-share')
+        $body[0].classList.remove('state--show-overlay')
+        $overlay[0].removeEventListener('click', drawer.change, false)
 
         // 背景スクロール停止
-        share.background_scroll(false);
+        share.backgroundScroll(false)
       }
 
       // テーマカラー変更
-      theme_color.change();
+      themeColor.change()
     }
 
     // ==================
     // 背景スクロール演出
     // ==================
 
-    public background_scroll(status: boolean): void {
+    public backgroundScroll (status: boolean): void {
+      if (status) {
+        // スクロール開始
 
-      // スクロール開始
-      if(status) {
-        this.timer = setInterval(() => {
+        this.timer = window.setInterval(() => {
 
           // ページ最下部であれば最上部へ強制移動
-          if(window.pageYOffset === document.body.scrollHeight - window.innerHeight) {
-            window.scrollTo(0, 0);
+          if (window.pageYOffset === document.body.scrollHeight - window.innerHeight) {
+            window.scrollTo(0, 0)
           } else {
-            window.scrollBy(0, 1);
+            window.scrollBy(0, 1)
           }
-        }, 30);
-      }
+        }, 30)
+      } else {
+        // スクロール停止
 
-      // スクロール停止
-      else {
-        clearInterval(this.timer);
+        clearInterval(this.timer)
       }
     }
 
