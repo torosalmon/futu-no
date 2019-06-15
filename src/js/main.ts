@@ -1,3 +1,5 @@
+import SweetScroll from 'sweet-scroll'
+
 /*!
  * *****************************************************************************
  * [futu-no] - http://trs.mn/blog/futu-no/
@@ -5,8 +7,6 @@
  * @License: MIT License
  * *****************************************************************************
  */
-
-import SweetScroll from 'sweet-scroll'
 
 {
 
