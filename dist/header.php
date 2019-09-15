@@ -5,14 +5,13 @@
     <meta charset="<?= $meta['charset']; ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <meta http-equiv="x-dns-prefetch-control" content="on">
-    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-    <meta name="format-detection" content="telephone=no,email=no,address=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no, email=no, address=no">
     <meta name="theme-color" content="<?= get_theme_mod('theme_customize__setting__colors__accent'); ?>">
     <meta name="msapplication-TileColor" content="<?= get_theme_mod('theme_customize__setting__colors__accent'); ?>">
     <meta name="author" content="<?= $meta['name']; ?>">
     <meta name="copyright" content="Copyright © <?= date('Y'); ?> <?= $meta['name']; ?>">
     <meta name="description" content="<?= $meta['description']; ?>">
-    <meta name="keywords" content="<?= $meta['title']; ?>,<?= $meta['name']; ?>">
     <meta name="twitter:title" content="<?= $meta['title']; ?>">
     <meta name="twitter:description" content="<?= $meta['description']; ?>">
     <meta name="twitter:card" content="summary_large_image">
