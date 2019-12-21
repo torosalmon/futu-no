@@ -1,6 +1,6 @@
-@charset "utf-8";
+@charset 'utf-8';
 
-@import "~bootstrap/dist/css/bootstrap-reboot.min.css";
+@import '~bootstrap/dist/css/bootstrap-reboot.min.css';
 
 /*!
  * *****************************************************************************
@@ -16,9 +16,9 @@
  * *****************************************************************************
  */
 
-@import "_mixin.scss";
-@import "_class.scss";
-@import "_wordpress.scss";
+@import '_mixin.scss';
+@import '_class.scss';
+@import '_wordpress.scss';
 
 // =============================================================================
 // 文字組
@@ -26,39 +26,39 @@
 
 // Helvetica Neue
 @font-face {
-  src: local("Helvetica Neue Regular");
-  font-family: "Helvetica Neue";
+  src: local('Helvetica Neue Regular');
+  font-family: 'Helvetica Neue';
   font-weight: 100;
 }
 
 @font-face {
-  src: local("Helvetica Neue Regular");
-  font-family: "Helvetica Neue";
+  src: local('Helvetica Neue Regular');
+  font-family: 'Helvetica Neue';
   font-weight: 200;
 }
 
 body {
   font-family:
-    "Noto Sans JP",
-    "Yu Gothic",
+    'Noto Sans JP',
+    'Yu Gothic',
     YuGothic,
     Meiryo,
     -apple-system,
     BlinkMacSystemFont,
-    ".SFNSDisplay-Regular",
-    "Helvetica Neue",
-    "Segoe UI",
+    '.SFNSDisplay-Regular',
+    'Helvetica Neue',
+    'Segoe UI',
     Roboto,
     Arial,
     sans-serif,
-    "Apple Color Emoji",
-    "Segoe UI Emoji",
-    "Segoe UI Symbol";
+    'Apple Color Emoji',
+    'Segoe UI Emoji',
+    'Segoe UI Symbol';
   color: $color--text;
   word-wrap: break-word;
   overflow-wrap: break-word;
   font-variant-numeric: tabular-nums;
-  font-feature-settings: "tnum";
+  font-feature-settings: 'tnum';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -83,20 +83,20 @@ html {
 }
 
 // iOSフォーカスズーム対策
-input[type="text"],
-input[type="search"],
-input[type="tel"],
-input[type="url"],
-input[type="email"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="number"],
-input[type="file"],
+input[type='text'],
+input[type='search'],
+input[type='tel'],
+input[type='url'],
+input[type='email'],
+input[type='password'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='number'],
+input[type='file'],
 textarea,
 select {
   font-size: 1.6rem;
@@ -134,7 +134,7 @@ a {
   color: inherit;
   text-decoration: none;
 
-  &[href*="http"] {
+  &[href*='http'] {
     word-break: break-all;
   }
 
@@ -188,9 +188,9 @@ iframe {
 // (3) heightに倍率補正を掛ける
 // 56.25% * 0.9 = 比率を維持したheight
 
-iframe[src*="youtube.com"],
-iframe[src*="youtube-nocookie.com"],
-iframe[src*="youtu.be"] {
+iframe[src*='youtube.com'],
+iframe[src*='youtube-nocookie.com'],
+iframe[src*='youtu.be'] {
   width: 100%;
   height: calc(56.25vw * 0.9);
 
@@ -207,44 +207,44 @@ iframe[src*="youtu.be"] {
 // init
 // ====
 
-input[type="text"],
-input[type="search"],
-input[type="tel"],
-input[type="url"],
-input[type="email"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="number"],
-input[type="file"],
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-input[type="image"],
+input[type='text'],
+input[type='search'],
+input[type='tel'],
+input[type='url'],
+input[type='email'],
+input[type='password'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='number'],
+input[type='file'],
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+input[type='image'],
 button,
 textarea,
 select {
   -webkit-appearance: none;
 }
 
-input[type="text"],
-input[type="search"],
-input[type="tel"],
-input[type="url"],
-input[type="email"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="number"],
-input[type="file"],
+input[type='text'],
+input[type='search'],
+input[type='tel'],
+input[type='url'],
+input[type='email'],
+input[type='password'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='number'],
+input[type='file'],
 textarea,
 select {
   width: 100%;
@@ -252,7 +252,7 @@ select {
   color: inherit;
 }
 
-input[type="image"] {
+input[type='image'] {
   max-width: 100%;
 }
 
@@ -261,10 +261,10 @@ textarea {
   min-height: 3rem;
 }
 
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
-input[type="image"],
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
+input[type='image'],
 button {
   display: inline-block;
   cursor: pointer;
@@ -278,19 +278,19 @@ label {
 // フォームUI
 // ==========
 
-input[type="text"],
-input[type="search"],
-input[type="tel"],
-input[type="url"],
-input[type="email"],
-input[type="password"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="date"],
-input[type="month"],
-input[type="week"],
-input[type="time"],
-input[type="number"],
+input[type='text'],
+input[type='search'],
+input[type='tel'],
+input[type='url'],
+input[type='email'],
+input[type='password'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='month'],
+input[type='week'],
+input[type='time'],
+input[type='number'],
 textarea,
 select {
   padding: 0 0.4rem;
@@ -298,9 +298,9 @@ select {
   border: solid 1px $color--border;
 }
 
-input[type="submit"],
-input[type="reset"],
-input[type="button"],
+input[type='submit'],
+input[type='reset'],
+input[type='button'],
 button {
   padding: 1rem;
   background: $color--accent;
@@ -392,7 +392,7 @@ body {
             width: 0.5rem;
             height: 0.5rem;
             margin-top: -0.25rem;
-            content: "";
+            content: '';
             border-color: $color--text $color--text transparent transparent;
             border-style: solid;
             border-width: 1px;
@@ -583,7 +583,7 @@ body {
       &:nth-of-type(1) {
         flex-grow: 1;
 
-        input[type="search"] {
+        input[type='search'] {
           height: 100%;
           border: none;
           border-top: solid 4px transparent;
@@ -611,13 +611,13 @@ body {
           top: 50%;
           left: 0;
           margin-top: -8px;
-          content: "";
+          content: '';
           border-color: transparent transparent transparent $color--border;
           border-style: solid;
           border-width: 8px;
         }
 
-        input[type="submit"] {
+        input[type='submit'] {
           width: 100%;
           height: 100%;
           background: transparent;
@@ -644,7 +644,7 @@ body {
             width: 50%;
             height: 2px;
             margin-top: -1px;
-            content: "";
+            content: '';
             background: $color--text;
             border-radius: 2px;
           }
@@ -705,7 +705,7 @@ body {
             height: 1rem;
             margin-top: -0.5rem;
             margin-right: 0.25rem;
-            content: "";
+            content: '';
             border-color: $color--border $color--border transparent transparent;
             border-style: solid;
             border-width: 1px;
@@ -731,7 +731,7 @@ body {
           padding: 0.2rem 4rem;
           font-size: 1rem;
           color: $color--background;
-          content: "LATEST";
+          content: 'LATEST';
           background: $color--text;
         }
 
@@ -861,7 +861,7 @@ body {
               width: 20%;
               height: 2px;
               margin-left: -10%;
-              content: "";
+              content: '';
             }
 
             &::before {
@@ -960,7 +960,7 @@ body {
           top: 50%;
           right: 0;
           margin-top: -0.2rem;
-          content: "";
+          content: '';
           border-color: transparent transparent transparent $color--border;
           border-style: solid;
           border-width: 0.2rem;
@@ -1014,7 +1014,7 @@ body {
           display: block;
           width: 100%;
           height: 100%;
-          content: "";
+          content: '';
           background:
             radial-gradient(
               ellipse farthest-corner at 45px 45px,
@@ -1199,7 +1199,7 @@ body {
           right: calc(100% + 0.8rem);
           display: block;
           font-size: 2.4rem;
-          content: "❝";
+          content: '❝';
         }
 
         p {
@@ -1254,7 +1254,7 @@ body {
           text-align: right;
 
           &::after {
-            content: " : ";
+            content: ' : ';
           }
         }
 
@@ -1294,7 +1294,7 @@ body {
 
               &::before {
                 white-space: nowrap;
-                content: "BEFORE - ";
+                content: 'BEFORE - ';
               }
             }
 
@@ -1303,7 +1303,7 @@ body {
 
               &::before {
                 white-space: nowrap;
-                content: " - AFTER";
+                content: ' - AFTER';
               }
             }
 
@@ -1362,7 +1362,7 @@ body {
               &::before {
                 position: absolute;
                 top: 2rem;
-                content: "";
+                content: '';
                 border-color: transparent;
                 border-style: solid;
                 border-width: 0.4rem;
@@ -1388,7 +1388,7 @@ body {
 
                 .name {
                   &::after {
-                    content: " / ";
+                    content: ' / ';
                   }
                 }
 
@@ -1398,7 +1398,7 @@ body {
 
                   .comment-reply-link {
                     &::before {
-                      content: "⇔ ";
+                      content: '⇔ ';
                     }
                   }
                 }
@@ -1457,7 +1457,7 @@ body {
           top: 0;
           left: 50%;
           margin-left: -1rem;
-          content: "";
+          content: '';
           border-color: transparent transparent $color--border transparent;
           border-style: solid;
           border-width: 1rem;
@@ -1507,7 +1507,7 @@ body {
             padding-top: 1rem;
             text-align: right;
 
-            input[type="submit"] {
+            input[type='submit'] {
               padding: 1rem 4rem;
             }
           }
@@ -1581,18 +1581,18 @@ body {
         display: inline;
 
         &:not(:last-child)::after {
-          content: " / ";
+          content: ' / ';
         }
       }
     }
 
     .register {
       &::before {
-        content: "[ ";
+        content: '[ ';
       }
 
       &::after {
-        content: " ]";
+        content: ' ]';
       }
     }
   }
@@ -1750,7 +1750,7 @@ body {
           &::after {
             display: block;
             padding-bottom: 2rem;
-            content: "";
+            content: '';
             border-bottom: solid 1px rgba(0, 0, 0, 0.2);
           }
         }
@@ -1764,7 +1764,7 @@ body {
             position: absolute;
             top: calc(50% - 0.8rem);
             left: -2.4rem;
-            content: "*";
+            content: '*';
           }
 
           a {
@@ -1790,7 +1790,7 @@ body {
             margin-left: 0;
 
             &::before {
-              content: "-";
+              content: '-';
             }
           }
         }
@@ -1850,7 +1850,7 @@ body {
         display: block;
         width: 100%;
         height: 2px;
-        content: "";
+        content: '';
         transition: transform 0s 0s step-start;
         transform: translateX(-100%);
         transform-origin: 0 0;
@@ -2066,7 +2066,7 @@ body {
         width: 50%;
         height: 2px;
         margin-top: -1px;
-        content: "";
+        content: '';
         border-radius: 2px;
 
         // 配色

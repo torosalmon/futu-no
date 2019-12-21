@@ -9,34 +9,46 @@ import SweetScroll from 'sweet-scroll'
  */
 
 {
-
   // 指定したY座標以上スクロールするとヘッダー表示を切り替える
-  const changeDisplayHeaderOffset: number = 160
+  const changeDisplayHeaderOffset = 160
 
   // DOM
-  const $metaThemeColor: HTMLElement = document.querySelector('meta[name="theme-color"]') as HTMLElement
-  const $body: HTMLCollectionOf<HTMLBodyElement> = document.getElementsByTagName('body')
-  const $header: HTMLCollectionOf<HTMLElement> = document.getElementsByClassName('js--header') as HTMLCollectionOf<HTMLElement>
-  const $searchFormButton: HTMLCollectionOf<Element> = document.getElementsByClassName('js--search-form-button')
-  const $drawerButton: HTMLCollectionOf<Element> = document.getElementsByClassName('js--drawer-button')
-  const $shareButton: HTMLCollectionOf<Element> = document.getElementsByClassName('js--share-button')
-  const $overlay: HTMLCollectionOf<Element> = document.getElementsByClassName('js--overlay')
+  const $metaThemeColor: HTMLElement = document.querySelector(
+    'meta[name="theme-color"]'
+  ) as HTMLElement
+  const $body: HTMLCollectionOf<HTMLBodyElement> = document.getElementsByTagName(
+    'body'
+  )
+  const $header: HTMLCollectionOf<HTMLElement> = document.getElementsByClassName(
+    'js--header'
+  ) as HTMLCollectionOf<HTMLElement>
+  const $searchFormButton: HTMLCollectionOf<Element> = document.getElementsByClassName(
+    'js--search-form-button'
+  )
+  const $drawerButton: HTMLCollectionOf<Element> = document.getElementsByClassName(
+    'js--drawer-button'
+  )
+  const $shareButton: HTMLCollectionOf<Element> = document.getElementsByClassName(
+    'js--share-button'
+  )
+  const $overlay: HTMLCollectionOf<Element> = document.getElementsByClassName(
+    'js--overlay'
+  )
 
   // =============================================================================
   // スムーススクロール
   // =============================================================================
 
-  interface ISmoothScroll extends SmoothScroll {
+  interface SmoothScrollInterface extends SmoothScroll {
     sweetScroll(): void
   }
 
-  class SmoothScroll implements ISmoothScroll {
-
+  class SmoothScroll implements SmoothScrollInterface {
     // ==============
     // コンストラクタ
     // ==============
 
-    constructor () {
+    constructor() {
       if (document.getElementsByClassName('js--scroll')[0] != null) {
         this.sweetScroll()
       }
@@ -46,7 +58,7 @@ import SweetScroll from 'sweet-scroll'
     // sweet-scroll
     // ============
 
-    public sweetScroll (): void {
+    public sweetScroll(): void {
       const sweetScroll: SweetScroll = new SweetScroll({
         trigger: '.js--scroll', // トリガーとなる要素をCSSセレクタで指定
         header: '.js--header', // 固定ヘッダをCSSセレクタで指定
@@ -60,17 +72,16 @@ import SweetScroll from 'sweet-scroll'
   // パララックス
   // =============================================================================
 
-  interface IParallax extends Parallax {
+  interface ParallaxInterface extends Parallax {
     run(): void
   }
 
-  class Parallax implements IParallax {
-
+  class Parallax implements ParallaxInterface {
     // ==============
     // コンストラクタ
     // ==============
 
-    constructor () {
+    constructor() {
       if (document.getElementsByClassName('js--parallax')[0] != null) {
         this.run()
       }
@@ -80,20 +91,21 @@ import SweetScroll from 'sweet-scroll'
     // パララックス実行
     // ================
 
-    public run (): void {
-
+    public run(): void {
       // ====
       // init
       // ====
 
-      const $parallax: NodeListOf<HTMLElement> = document.querySelectorAll('.js--parallax')
+      const $parallax: NodeListOf<HTMLElement> = document.querySelectorAll(
+        '.js--parallax'
+      )
       const friction: number[] = []
 
       Array.from($parallax).forEach((element: HTMLElement, index: number) => {
-
         // 速度補正オプションを取得
-        const $parallaxAttrFriction: string = element.dataset.parallaxFriction as string
-        friction[index] = $parallaxAttrFriction as unknown as number
+        const $parallaxAttrFriction: string = element.dataset
+          .parallaxFriction as string
+        friction[index] = ($parallaxAttrFriction as unknown) as number
 
         // $parallaxをwrapするタグを生成
         const $container: HTMLElement = document.createElement('div')
@@ -101,7 +113,9 @@ import SweetScroll from 'sweet-scroll'
         element.before($container)
         $container.append(element)
       })
-      const $parallaxContainer: NodeListOf<HTMLElement> = document.querySelectorAll('.js--parallax-container')
+      const $parallaxContainer: NodeListOf<HTMLElement> = document.querySelectorAll(
+        '.js--parallax-container'
+      )
 
       // ========
       // イベント
@@ -122,13 +136,13 @@ import SweetScroll from 'sweet-scroll'
       // アニメーション
       // ==============
 
-      function animation (): void {
+      function animation(): void {
         Array.from($parallax).forEach((element: HTMLElement, index: number) => {
-          const y: number = $parallaxContainer[index].getBoundingClientRect().top
+          const y: number = $parallaxContainer[index].getBoundingClientRect()
+            .top
           element.style.transform = `translateY(${-y / friction[index]}px)`
         })
       }
-
     }
   }
 
@@ -136,15 +150,15 @@ import SweetScroll from 'sweet-scroll'
   // テーマカラーの切り替え
   // =============================================================================
 
-  interface IChangeDisplayThemeColor extends ChangeDisplayThemeColor {
+  interface ChangeDisplayThemeColorInterface extends ChangeDisplayThemeColor {
     mainColor: string // <body> border-top-color
     subColor: string // <body> border-bottom-color
     currentColor: string // 現在適用されている色
 
-    change (): void
+    change(): void
   }
 
-  class ChangeDisplayThemeColor implements IChangeDisplayThemeColor {
+  class ChangeDisplayThemeColor implements ChangeDisplayThemeColorInterface {
     public mainColor: string
     public subColor: string
     public currentColor: string
@@ -153,8 +167,7 @@ import SweetScroll from 'sweet-scroll'
     // コンストラクタ
     // ==============
 
-    constructor () {
-
+    constructor() {
       // <meta theme-color>の初期色指定
       this.mainColor = getComputedStyle($body[0]).borderTopColor as string
       this.subColor = getComputedStyle($body[0]).borderBottomColor as string
@@ -167,8 +180,11 @@ import SweetScroll from 'sweet-scroll'
     // 表示切り替え
     // ============
 
-    public change (): void {
-      if ($body[0].classList.contains('state--show-drawer') || $body[0].classList.contains('state--show-search-form')) {
+    public change(): void {
+      if (
+        $body[0].classList.contains('state--show-drawer') ||
+        $body[0].classList.contains('state--show-search-form')
+      ) {
         // subColorへ変更
 
         $metaThemeColor.setAttribute('content', this.subColor)
@@ -184,24 +200,22 @@ import SweetScroll from 'sweet-scroll'
         this.currentColor = this.mainColor
       }
     }
-
   }
 
   // =============================================================================
   // ヘッダーの切り替え
   // =============================================================================
 
-  interface IChangeDisplayHeader extends ChangeDisplayHeader {
-    change (): void
+  interface ChangeDisplayHeaderInterface extends ChangeDisplayHeader {
+    change(): void
   }
 
-  class ChangeDisplayHeader implements IChangeDisplayHeader {
-
+  class ChangeDisplayHeader implements ChangeDisplayHeaderInterface {
     // ==============
     // コンストラクタ
     // ==============
 
-    constructor () {
+    constructor() {
       window.addEventListener('scroll', this.change, {
         once: false,
         passive: true,
@@ -218,32 +232,30 @@ import SweetScroll from 'sweet-scroll'
     // 表示切り替え
     // ============
 
-    public change (): void {
+    public change(): void {
       if (changeDisplayHeaderOffset < window.pageYOffset) {
         $body[0].classList.add('state--show-scroll-header')
       } else {
         $body[0].classList.remove('state--show-scroll-header')
       }
     }
-
   }
 
   // =============================================================================
   // 検索フォームの切り替え
   // =============================================================================
 
-  interface IChangeDisplaySearchForm extends ChangeDisplaySearchForm {
-    change (): void
+  interface ChangeDisplaySearchFormInterface extends ChangeDisplaySearchForm {
+    change(): void
   }
 
-  class ChangeDisplaySearchForm implements IChangeDisplaySearchForm {
-
+  class ChangeDisplaySearchForm implements ChangeDisplaySearchFormInterface {
     // ==============
     // コンストラクタ
     // ==============
 
-    constructor () {
-      Array.from($searchFormButton).forEach((element) => {
+    constructor() {
+      Array.from($searchFormButton).forEach(element => {
         element.addEventListener('click', this.change, {
           once: false,
           passive: false,
@@ -256,7 +268,7 @@ import SweetScroll from 'sweet-scroll'
     // 表示切り替え
     // ============
 
-    public change (): void {
+    public change(): void {
       if (!$body[0].classList.contains('state--show-search-form')) {
         // 開く
 
@@ -264,14 +276,22 @@ import SweetScroll from 'sweet-scroll'
         if ($body[0].classList.contains('state--show-drawer')) {
           $body[0].classList.remove('state--show-drawer')
           $body[0].classList.remove('state--show-overlay')
-          $overlay[0].removeEventListener('click', changeDisplayDrawer.change, false)
+          $overlay[0].removeEventListener(
+            'click',
+            changeDisplayDrawer.change,
+            false
+          )
         }
 
         // 共有が開いていたら閉じる
         if ($body[0].classList.contains('state--show-share')) {
           $body[0].classList.remove('state--show-share')
           $body[0].classList.remove('state--show-overlay')
-          $overlay[0].removeEventListener('click', changeDisplayShare.change, false)
+          $overlay[0].removeEventListener(
+            'click',
+            changeDisplayShare.change,
+            false
+          )
 
           // 背景スクロール停止
           changeDisplayShare.backgroundScroll(false)
@@ -287,25 +307,23 @@ import SweetScroll from 'sweet-scroll'
       // テーマカラー変更
       changeDisplayThemeColor.change()
     }
-
   }
 
   // =============================================================================
   // ドロワーの切り替え
   // =============================================================================
 
-  interface IChangeDisplayDrawer extends ChangeDisplayDrawer {
-    change (): void
+  interface ChangeDisplayDrawerInterface extends ChangeDisplayDrawer {
+    change(): void
   }
 
-  class ChangeDisplayDrawer implements IChangeDisplayDrawer {
-
+  class ChangeDisplayDrawer implements ChangeDisplayDrawerInterface {
     // ==============
     // コンストラクタ
     // ==============
 
-    constructor () {
-      Array.from($drawerButton).forEach((element) => {
+    constructor() {
+      Array.from($drawerButton).forEach(element => {
         element.addEventListener('click', this.change, {
           once: false,
           passive: false,
@@ -318,14 +336,18 @@ import SweetScroll from 'sweet-scroll'
     // 表示切り替え
     // ============
 
-    public change (): void {
+    public change(): void {
       if (!$body[0].classList.contains('state--show-drawer')) {
         // 開く
 
         // 共有が開いていたら閉じる
         if ($body[0].classList.contains('state--show-share')) {
           $body[0].classList.remove('state--show-share')
-          $overlay[0].removeEventListener('click', changeDisplayShare.change, false)
+          $overlay[0].removeEventListener(
+            'click',
+            changeDisplayShare.change,
+            false
+          )
 
           // 背景スクロール停止
           changeDisplayShare.backgroundScroll(false)
@@ -345,35 +367,38 @@ import SweetScroll from 'sweet-scroll'
 
         $body[0].classList.remove('state--show-drawer')
         $body[0].classList.remove('state--show-overlay')
-        $overlay[0].removeEventListener('click', changeDisplayDrawer.change, false)
+        $overlay[0].removeEventListener(
+          'click',
+          changeDisplayDrawer.change,
+          false
+        )
       }
 
       // テーマカラー変更
       changeDisplayThemeColor.change()
     }
-
   }
 
   // =============================================================================
   // 共有の切り替え
   // =============================================================================
 
-  interface IChangeDisplayShare extends ChangeDisplayShare {
+  interface ChangeDisplayShareInterface extends ChangeDisplayShare {
     timer: number // setInterval
 
-    change (): void
-    backgroundScroll (status: boolean): void
+    change(): void
+    backgroundScroll(status: boolean): void
   }
 
-  class ChangeDisplayShare implements IChangeDisplayShare {
-    public timer: number = 0
+  class ChangeDisplayShare implements ChangeDisplayShareInterface {
+    public timer = 0
 
     // ==============
     // コンストラクタ
     // ==============
 
-    constructor () {
-      Array.from($shareButton).forEach((element) => {
+    constructor() {
+      Array.from($shareButton).forEach(element => {
         element.addEventListener('click', this.change, {
           once: false,
           passive: false,
@@ -386,14 +411,18 @@ import SweetScroll from 'sweet-scroll'
     // 表示切り替え
     // ============
 
-    public change (): void {
+    public change(): void {
       if (!$body[0].classList.contains('state--show-share')) {
         // 開く
 
         // ドロワーが開いていたら閉じる
         if ($body[0].classList.contains('state--show-drawer')) {
           $body[0].classList.remove('state--show-drawer')
-          $overlay[0].removeEventListener('click', changeDisplayDrawer.change, false)
+          $overlay[0].removeEventListener(
+            'click',
+            changeDisplayDrawer.change,
+            false
+          )
         }
 
         $body[0].classList.add('state--show-share')
@@ -413,7 +442,11 @@ import SweetScroll from 'sweet-scroll'
 
         $body[0].classList.remove('state--show-share')
         $body[0].classList.remove('state--show-overlay')
-        $overlay[0].removeEventListener('click', changeDisplayDrawer.change, false)
+        $overlay[0].removeEventListener(
+          'click',
+          changeDisplayDrawer.change,
+          false
+        )
 
         // 背景スクロール停止
         changeDisplayShare.backgroundScroll(false)
@@ -427,14 +460,16 @@ import SweetScroll from 'sweet-scroll'
     // 背景スクロール演出
     // ==================
 
-    public backgroundScroll (status: boolean): void {
+    public backgroundScroll(status: boolean): void {
       if (status) {
         // スクロール開始
 
         this.timer = window.setInterval(() => {
-
           // ページ最下部であれば最上部へ強制移動
-          if (window.pageYOffset === document.body.scrollHeight - window.innerHeight) {
+          if (
+            window.pageYOffset ===
+            document.body.scrollHeight - window.innerHeight
+          ) {
             window.scrollTo(0, 0)
           } else {
             window.scrollBy(0, 1)
@@ -446,7 +481,6 @@ import SweetScroll from 'sweet-scroll'
         clearInterval(this.timer)
       }
     }
-
   }
 
   const smoothScroll: SmoothScroll = new SmoothScroll()
@@ -456,5 +490,4 @@ import SweetScroll from 'sweet-scroll'
   const changeDisplaySearchForm: ChangeDisplaySearchForm = new ChangeDisplaySearchForm()
   const changeDisplayDrawer: ChangeDisplayDrawer = new ChangeDisplayDrawer()
   const changeDisplayShare: ChangeDisplayShare = new ChangeDisplayShare()
-
 }

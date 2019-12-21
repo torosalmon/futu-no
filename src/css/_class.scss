@@ -1,4 +1,4 @@
-@import "_mixin.scss";
+@import '_mixin.scss';
 
 /*
  * *****************************************************************************
@@ -104,7 +104,7 @@ svg {
 .clearfix::after {
   display: block;
   clear: both;
-  content: "";
+  content: '';
 }
 
 // ==============
