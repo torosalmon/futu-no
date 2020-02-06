@@ -176,12 +176,6 @@
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
               <path d="M 2 20 C 2 10.0587 10.0587 2 20 2 C 29.9413 2 38 10.0587 38 20 C 38 29.9413 29.9413 38 20 38 C 10.0587 38 2 29.9413 2 20 Z" />
             </svg>
-            <a class="google-plus" href="https://plus.google.com/share?url=<?= $meta['current_url']; ?>" target="_blank">Google+</a>
-          </li>
-          <li>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
-              <path d="M 2 20 C 2 10.0587 10.0587 2 20 2 C 29.9413 2 38 10.0587 38 20 C 38 29.9413 29.9413 38 20 38 C 10.0587 38 2 29.9413 2 20 Z" />
-            </svg>
             <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?= $meta['current_url']; ?>" target="_blank">Facebook</a>
           </li>
           <li>
