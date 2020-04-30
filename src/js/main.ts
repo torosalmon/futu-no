@@ -48,7 +48,7 @@ import SweetScroll from 'sweet-scroll'
     // コンストラクタ
     // ==============
 
-    constructor() {
+    constructor () {
       if (document.getElementsByClassName('js--scroll')[0] != null) {
         this.sweetScroll()
       }
@@ -58,7 +58,7 @@ import SweetScroll from 'sweet-scroll'
     // sweet-scroll
     // ============
 
-    public sweetScroll(): void {
+    public sweetScroll (): void {
       const sweetScroll: SweetScroll = new SweetScroll({
         trigger: '.js--scroll', // トリガーとなる要素をCSSセレクタで指定
         header: '.js--header', // 固定ヘッダをCSSセレクタで指定
@@ -81,7 +81,7 @@ import SweetScroll from 'sweet-scroll'
     // コンストラクタ
     // ==============
 
-    constructor() {
+    constructor () {
       if (document.getElementsByClassName('js--parallax')[0] != null) {
         this.run()
       }
@@ -91,7 +91,7 @@ import SweetScroll from 'sweet-scroll'
     // パララックス実行
     // ================
 
-    public run(): void {
+    public run (): void {
       // ====
       // init
       // ====
@@ -136,7 +136,7 @@ import SweetScroll from 'sweet-scroll'
       // アニメーション
       // ==============
 
-      function animation(): void {
+      function animation (): void {
         Array.from($parallax).forEach((element: HTMLElement, index: number) => {
           const y: number = $parallaxContainer[index].getBoundingClientRect()
             .top
@@ -167,7 +167,7 @@ import SweetScroll from 'sweet-scroll'
     // コンストラクタ
     // ==============
 
-    constructor() {
+    constructor () {
       // <meta theme-color>の初期色指定
       this.mainColor = getComputedStyle($body[0]).borderTopColor as string
       this.subColor = getComputedStyle($body[0]).borderBottomColor as string
@@ -180,7 +180,7 @@ import SweetScroll from 'sweet-scroll'
     // 表示切り替え
     // ============
 
-    public change(): void {
+    public change (): void {
       if (
         $body[0].classList.contains('state--show-drawer') ||
         $body[0].classList.contains('state--show-search-form')
@@ -215,7 +215,7 @@ import SweetScroll from 'sweet-scroll'
     // コンストラクタ
     // ==============
 
-    constructor() {
+    constructor () {
       window.addEventListener('scroll', this.change, {
         once: false,
         passive: true,
@@ -232,7 +232,7 @@ import SweetScroll from 'sweet-scroll'
     // 表示切り替え
     // ============
 
-    public change(): void {
+    public change (): void {
       if (changeDisplayHeaderOffset < window.pageYOffset) {
         $body[0].classList.add('state--show-scroll-header')
       } else {
@@ -254,7 +254,7 @@ import SweetScroll from 'sweet-scroll'
     // コンストラクタ
     // ==============
 
-    constructor() {
+    constructor () {
       Array.from($searchFormButton).forEach(element => {
         element.addEventListener('click', this.change, {
           once: false,
@@ -268,7 +268,7 @@ import SweetScroll from 'sweet-scroll'
     // 表示切り替え
     // ============
 
-    public change(): void {
+    public change (): void {
       if (!$body[0].classList.contains('state--show-search-form')) {
         // 開く
 
@@ -322,7 +322,7 @@ import SweetScroll from 'sweet-scroll'
     // コンストラクタ
     // ==============
 
-    constructor() {
+    constructor () {
       Array.from($drawerButton).forEach(element => {
         element.addEventListener('click', this.change, {
           once: false,
@@ -336,7 +336,7 @@ import SweetScroll from 'sweet-scroll'
     // 表示切り替え
     // ============
 
-    public change(): void {
+    public change (): void {
       if (!$body[0].classList.contains('state--show-drawer')) {
         // 開く
 
@@ -397,7 +397,7 @@ import SweetScroll from 'sweet-scroll'
     // コンストラクタ
     // ==============
 
-    constructor() {
+    constructor () {
       Array.from($shareButton).forEach(element => {
         element.addEventListener('click', this.change, {
           once: false,
@@ -411,7 +411,7 @@ import SweetScroll from 'sweet-scroll'
     // 表示切り替え
     // ============
 
-    public change(): void {
+    public change (): void {
       if (!$body[0].classList.contains('state--show-share')) {
         // 開く
 
@@ -460,7 +460,7 @@ import SweetScroll from 'sweet-scroll'
     // 背景スクロール演出
     // ==================
 
-    public backgroundScroll(status: boolean): void {
+    public backgroundScroll (status: boolean): void {
       if (status) {
         // スクロール開始
 
